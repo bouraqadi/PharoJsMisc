@@ -1,3 +1,8 @@
+"
+I am a demo of web components. I show how to use WcComponentFactory to make custom HTML tags <pj-blink>. 
+This example has been introduced at https://github.com/vanillawc/wc-blink
+
+"
 Class {
 	#name : #WcBlinkDemo,
 	#superclass : #PjFileBasedWebApp,
