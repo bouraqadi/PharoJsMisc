@@ -4,7 +4,8 @@ Class {
 	#instVars : [
 		'domClassName',
 		'tagName',
-		'innerHTML'
+		'innerHTML',
+		'presenterClass'
 	],
 	#pools : [
 		'PjBrowserGlobals'
@@ -13,9 +14,24 @@ Class {
 }
 
 { #category : #building }
+WcComponentFactory class >> buildWith: presenterClass [
+
+	self new buildWith: presenterClass 
+]
+
+{ #category : #building }
 WcComponentFactory >> build [
-	self generateDomClass.
-	self defineTag
+
+	self
+		generateDomClass;
+		defineTag
+]
+
+{ #category : #building }
+WcComponentFactory >> buildWith: aPresenterClass [
+
+	self presenterClass: aPresenterClass.
+	self build
 ]
 
 { #category : #building }
@@ -66,6 +82,22 @@ WcComponentFactory >> innerHTML: anObject [
 ]
 
 { #category : #accessing }
+WcComponentFactory >> presenterClass [
+
+	^ presenterClass
+]
+
+{ #category : #accessing }
+WcComponentFactory >> presenterClass: aPresenterClass [
+
+	presenterClass := aPresenterClass.
+	self
+		domClassName: presenterClass domClassName;
+		tagName: presenterClass tagName;
+		innerHTML: presenterClass viewInnerHTML
+]
+
+{ #category : #accessing }
 WcComponentFactory >> tagName [
 
 	^ tagName
@@ -93,6 +125,9 @@ WcComponentFactory >> writeClassJsCodeInto: stream [
 		<< ''';
     this.attachShadow({mode: "open"});
     this.shadowRoot.appendChild(document.importNode(template.content, true));
+	 this.presenter = ';
+		<< presenterClass name;
+		<< '.pj_view_(this);
   	}
 }'
 ]
