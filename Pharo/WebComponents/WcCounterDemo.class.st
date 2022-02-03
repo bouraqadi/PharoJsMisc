@@ -6,7 +6,7 @@ Class {
 
 { #category : #description }
 WcCounterDemo class >> appClasses [ 
-	^super appClasses, { WcCounterComponent  }
+	^super appClasses, { WcCounterComponent }
 ]
 
 { #category : #initialization }
