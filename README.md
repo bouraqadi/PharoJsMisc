@@ -13,5 +13,26 @@ Metacello new
 # Projects
 ## W
 ### WebComponents
-Build [Web Components](https://www.webcomponents.org/) using PharoJS
+Framework for building [Web Components](https://www.webcomponents.org/) using PharoJS. 
+Each web component can be used via a custom HTML tag (e.g. <pj-counter>). When you use that tag in the HTML code, it creates DOM object that is an instance of a custom class which provides the appearance and the behavior provided by the developer.
 
+To create a subcomponent, define a subclass of `WcWebComponent`. Some examples are provided. You can run them by evaluating the following in a playground.
+  ```smalltalk
+WcBlinkDemo demo.
+WcCounterDemo demo.
+```
+Both rely on the same HTML file. Their code is straight forward with 2 methods :
+- Instance side `initialize` method: Creates a DOM element with a custom tag and appends it to the document.
+ ```Smalltalk
+  initialize
+
+	| counterElement |
+	super initialize.
+	counterElement := document createElement: 'pj-counter'.
+	document body appendChild: counterElement
+  ```
+  - Classe side `appClasses`: Ensures that all needed component classes are transpiled to JS.
+  ```Smalltalk
+  appClasses 
+	^super appClasses, { WcCounterComponent }
+  ```
