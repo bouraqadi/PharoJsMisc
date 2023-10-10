@@ -8,21 +8,15 @@ Class {
 BaselineOfSeasideStaticComponents >> baseline: spec [
 
 	<baseline>
-	spec
-		package: 'Seaside-Pharo-Canvas'
-		with: [ spec repository: 'github://SeasideSt/Seaside:master/' ];
-		package: 'Javascript-Pharo-Core'
-		with: [ spec repository: 'github://SeasideSt/Seaside:master/' ];
-		package: 'Seaside-Tests-Pharo-Canvas'
-		with: [ spec repository: 'github://SeasideSt/Seaside:master/' ];
-		package: 'Javascript-Tests-Pharo-Core'
-		with: [ spec repository: 'github://SeasideSt/Seaside:master/' ].
+	spec baseline: 'Seaside3' with: [
+		spec
+			repository: 'github://SeasideSt/Seaside:master/';
+			loads: #( 'Seaside-Pharo-Canvas' 'Seaside-Tests-Pharo-Canvas'
+				   'Javascript-Pharo-Core' 'Javascript-Tests-Pharo-Core' ) ].
 
 	spec
 		package: 'Seaside-StaticComponents'
-		with: [
-			spec requires: #( 'Seaside-Pharo-Canvas' 'Javascript-Pharo-Core' ) ];
-		package: 'Seaside-StaticComponents-Tests' with: [
-			spec requires:
-					#( 'Seaside-Tests-Pharo-Canvas' 'Javascript-Tests-Pharo-Core' ) ]
+		with: [ spec requires: #( 'Seaside3' ) ];
+		package: 'Seaside-StaticComponents-Tests'
+		with: [ spec requires: #( 'Seaside3' 'Seaside-StaticComponents' ) ]
 ]
