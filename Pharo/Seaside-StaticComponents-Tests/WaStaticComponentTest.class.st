@@ -35,3 +35,12 @@ WaStaticComponentTest >> testBasicComponentHtml [
 		body: ''
 
 ]
+
+{ #category : #tests }
+WaStaticComponentTest >> testBasicPharoJsComponentHtml [
+
+	self
+		assertHtmlFor: WaStaticComponent
+		body: '<script type="text/javascript" src="index.js"></script>'
+
+]
