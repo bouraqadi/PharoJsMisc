@@ -29,6 +29,11 @@ WaStaticComponent >> htmlPage [
 ]
 
 { #category : #rendering }
+WaStaticComponent >> renderContentOn: html [
+	^self
+]
+
+{ #category : #rendering }
 WaStaticComponent >> renderFullDocument: isFullDoc [
 
 	| builder |

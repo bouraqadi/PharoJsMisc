@@ -5,19 +5,19 @@ Class {
 }
 
 { #category : #tests }
-WaStaticComponentTest >> assertHtml: componentClass body: expectedBody [
+WaStaticComponentTest >> assertHtmlFor: componentClass body: expectedBody [
+self assertHtmlFor: componentClass body: expectedBody head: '' title: componentClass name
 
-	self assert: componentClass html equals: expectedBody 
 ]
 
 { #category : #tests }
-WaStaticComponentTest >> assertHtmlPage: componentClass title: expectedTitle head: expectedHead body: expectedBody [
+WaStaticComponentTest >> assertHtmlFor: componentClass body: expectedBody head: expectedHead title: expectedTitle [
 
 	| expectedHtml |
+	self assert: componentClass html equals: expectedBody.
 	expectedHtml := String streamContents: [ :str |
 		                str
-			                <<
-				                '<!DOCTYPE html><html><head><title>';
+			                << '<!DOCTYPE html><html><head><title>';
 			                << expectedTitle;
 			                << '</title>';
 			                << expectedHead;
@@ -28,12 +28,10 @@ WaStaticComponentTest >> assertHtmlPage: componentClass title: expectedTitle hea
 ]
 
 { #category : #tests }
-WaStaticComponentTest >> testNullComponentHtml [
+WaStaticComponentTest >> testBasicComponentHtml [
 
-	self assertHtml: WaNullStaticComponent body: ''.
 	self
-		assertHtmlPage: WaNullStaticComponent
-		title: WaNullStaticComponent name
-		head: ''
+		assertHtmlFor: WaStaticComponent
 		body: ''
+
 ]
