@@ -1,40 +1,40 @@
 Class {
-	#name : #WaStaticComponent,
+	#name : #WsStaticHtmlComponent,
 	#superclass : #WAPainter,
-	#category : #'Seaside-StaticComponents'
+	#category : #WebSt
 }
 
 { #category : #'instance creation' }
-WaStaticComponent class >> html [
+WsStaticHtmlComponent class >> html [
 
 	^ self new html
 ]
 
 { #category : #'instance creation' }
-WaStaticComponent class >> htmlPage [
+WsStaticHtmlComponent class >> htmlPage [
 
 	^ self new htmlPage
 ]
 
-{ #category : #rendering }
-WaStaticComponent >> html [
+{ #category : #exporting }
+WsStaticHtmlComponent >> html [
 
 	^ self renderFullDocument: false
 ]
 
-{ #category : #rendering }
-WaStaticComponent >> htmlPage [
+{ #category : #exporting }
+WsStaticHtmlComponent >> htmlPage [
 
 	^ self renderFullDocument: true
 ]
 
 { #category : #rendering }
-WaStaticComponent >> renderContentOn: html [
+WsStaticHtmlComponent >> renderContentOn: html [
 	^self
 ]
 
-{ #category : #rendering }
-WaStaticComponent >> renderFullDocument: isFullDoc [
+{ #category : #'rendering private' }
+WsStaticHtmlComponent >> renderFullDocument: isFullDoc [
 
 	| builder |
 	builder := self rendererClass builder.
@@ -42,19 +42,19 @@ WaStaticComponent >> renderFullDocument: isFullDoc [
 	^builder render: self
 ]
 
-{ #category : #rendering }
-WaStaticComponent >> rendererClass [
+{ #category : #'rendering private' }
+WsStaticHtmlComponent >> rendererClass [
 
 	^ WAHtmlCanvas
 ]
 
-{ #category : #rendering }
-WaStaticComponent >> scriptGeneratorClass [
+{ #category : #'rendering private' }
+WsStaticHtmlComponent >> scriptGeneratorClass [
 	^WANullScriptGenerator
 ]
 
-{ #category : #rendering }
-WaStaticComponent >> setUpFullDocBuilder: builder [
+{ #category : #'rendering private' }
+WsStaticHtmlComponent >> setUpFullDocBuilder: builder [
 	builder
 		  fullDocument: true;
 		  scriptGeneratorClass: self scriptGeneratorClass;
@@ -63,13 +63,13 @@ WaStaticComponent >> setUpFullDocBuilder: builder [
 ]
 
 { #category : #rendering }
-WaStaticComponent >> setUpRoot:  root [
+WsStaticHtmlComponent >> setUpRoot:  root [
 			  root title: self title.
 			  root beHtml5.
 			  root meta charset: 'utf-8'
 ]
 
 { #category : #rendering }
-WaStaticComponent >> title [
+WsStaticHtmlComponent >> title [
 	^self className
 ]
