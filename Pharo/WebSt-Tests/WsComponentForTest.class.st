@@ -1,6 +1,6 @@
 Class {
 	#name : #WsComponentForTest,
-	#superclass : #WsComponent,
+	#superclass : #WsComponentOLD,
 	#category : #'WebSt-Tests'
 }
 

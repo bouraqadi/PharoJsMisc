@@ -1,11 +1,11 @@
 Class {
-	#name : #WsComponent,
-	#superclass : #WsStaticHtmlComponent,
-	#category : #WebSt
+	#name : #WsComponentOLD,
+	#superclass : #WsStaticHtmlComponentOLD,
+	#category : #'WebSt-Kernel'
 }
 
 { #category : #'rendering private' }
-WsComponent >> JavaScriptFileUrl [
+WsComponentOLD >> JavaScriptFileUrl [
 
 	self pharoJsMainClass appJsSubFolder ifNil: [
 		^ self pharoJsMainClass appJsFileName ].
@@ -17,12 +17,12 @@ WsComponent >> JavaScriptFileUrl [
 ]
 
 { #category : #rendering }
-WsComponent >> pharoJsMainClass [
+WsComponentOLD >> pharoJsMainClass [
 	^self subclassResponsibility  
 ]
 
 { #category : #rendering }
-WsComponent >> setUpRoot: root [
+WsComponentOLD >> setUpRoot: root [
 
 	super setUpRoot: root.
 	root javascript

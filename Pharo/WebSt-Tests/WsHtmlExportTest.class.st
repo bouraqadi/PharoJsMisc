@@ -61,7 +61,7 @@ WsHtmlExportTest >> setUp [
 { #category : #tests }
 WsHtmlExportTest >> testBasicComponentHtml [
 
-	self assertHtmlFor: WsStaticHtmlComponent body: ''
+	self assertHtmlFor: WsStaticHtmlComponentForTest body: ''
 ]
 
 { #category : #tests }

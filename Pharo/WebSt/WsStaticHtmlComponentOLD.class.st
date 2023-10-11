@@ -1,40 +1,40 @@
 Class {
-	#name : #WsStaticHtmlComponent,
+	#name : #WsStaticHtmlComponentOLD,
 	#superclass : #WAPainter,
-	#category : #WebSt
+	#category : #'WebSt-Kernel'
 }
 
 { #category : #'instance creation' }
-WsStaticHtmlComponent class >> html [
+WsStaticHtmlComponentOLD class >> html [
 
 	^ self new html
 ]
 
 { #category : #'instance creation' }
-WsStaticHtmlComponent class >> htmlPage [
+WsStaticHtmlComponentOLD class >> htmlPage [
 
 	^ self new htmlPage
 ]
 
 { #category : #exporting }
-WsStaticHtmlComponent >> html [
+WsStaticHtmlComponentOLD >> html [
 
 	^ self renderFullDocument: false
 ]
 
 { #category : #exporting }
-WsStaticHtmlComponent >> htmlPage [
+WsStaticHtmlComponentOLD >> htmlPage [
 
 	^ self renderFullDocument: true
 ]
 
 { #category : #rendering }
-WsStaticHtmlComponent >> renderContentOn: html [
+WsStaticHtmlComponentOLD >> renderContentOn: html [
 	^self
 ]
 
 { #category : #'rendering private' }
-WsStaticHtmlComponent >> renderFullDocument: isFullDoc [
+WsStaticHtmlComponentOLD >> renderFullDocument: isFullDoc [
 
 	| builder |
 	builder := self rendererClass builder.
@@ -43,18 +43,18 @@ WsStaticHtmlComponent >> renderFullDocument: isFullDoc [
 ]
 
 { #category : #'rendering private' }
-WsStaticHtmlComponent >> rendererClass [
+WsStaticHtmlComponentOLD >> rendererClass [
 
 	^ WAHtmlCanvas
 ]
 
 { #category : #'rendering private' }
-WsStaticHtmlComponent >> scriptGeneratorClass [
+WsStaticHtmlComponentOLD >> scriptGeneratorClass [
 	^WANullScriptGenerator
 ]
 
 { #category : #'rendering private' }
-WsStaticHtmlComponent >> setUpFullDocBuilder: builder [
+WsStaticHtmlComponentOLD >> setUpFullDocBuilder: builder [
 	builder
 		  fullDocument: true;
 		  scriptGeneratorClass: self scriptGeneratorClass;
@@ -63,13 +63,13 @@ WsStaticHtmlComponent >> setUpFullDocBuilder: builder [
 ]
 
 { #category : #rendering }
-WsStaticHtmlComponent >> setUpRoot:  root [
+WsStaticHtmlComponentOLD >> setUpRoot:  root [
 			  root title: self title.
 			  root beHtml5.
 			  root meta charset: 'utf-8'
 ]
 
 { #category : #rendering }
-WsStaticHtmlComponent >> title [
+WsStaticHtmlComponentOLD >> title [
 	^self className
 ]
