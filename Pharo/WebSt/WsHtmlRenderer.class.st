@@ -22,16 +22,10 @@ WsHtmlRenderer >> initialize [
 ]
 
 { #category : #rendering }
-WsHtmlRenderer >> render [
-
-	^ builder render: self
-]
-
-{ #category : #rendering }
 WsHtmlRenderer >> render: aComponent [
 
 	component := aComponent.
-	^ self render
+	^builder render: self
 ]
 
 { #category : #rendering }

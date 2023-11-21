@@ -5,3 +5,14 @@ Class {
 	#classTraits : 'WsTStaticHtmlComponent classTrait',
 	#category : #'WebSt-Tests'
 }
+
+{ #category : #rendering }
+WsStaticHtmlComponentForTest >> greentingsString [
+	^self class greetingsString
+]
+
+{ #category : #rendering }
+WsStaticHtmlComponentForTest >> renderContentOn: html [
+
+	^ html paragraph: [html html: 'Hello WebST!']
+]

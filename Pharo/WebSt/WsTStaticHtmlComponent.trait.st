@@ -17,7 +17,12 @@ WsTStaticHtmlComponent classSide >> htmlPage [
 { #category : #rendering }
 WsTStaticHtmlComponent >> renderContentOn: html [
 
-	^ self
+	^ self explicitRequirement 
+]
+
+{ #category : #initialization }
+WsTStaticHtmlComponent >> scriptGeneratorClass [
+	^WANullScriptGenerator
 ]
 
 { #category : #initialization }

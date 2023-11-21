@@ -1,6 +1,6 @@
 Class {
 	#name : #WsPharoJsClassForTest,
-	#superclass : #PjApplication,
+	#superclass : #PjMinimalWebApplication,
 	#classInstVars : [
 		'appJsFileName',
 		'appJsSubFolder'

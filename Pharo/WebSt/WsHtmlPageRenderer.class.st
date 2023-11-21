@@ -6,15 +6,18 @@ Class {
 
 { #category : #initialization }
 WsHtmlPageRenderer >> initialize [
-super initialize . 	builder
+
+	super initialize.
+	builder
 		fullDocument: true;
-		scriptGeneratorClass: self scriptGeneratorClass;
 		rootBlock: [ :root | self setUpRoot: root ]
 ]
 
-{ #category : #initialization }
-WsHtmlPageRenderer >> scriptGeneratorClass [
-	^WANullScriptGenerator
+{ #category : #rendering }
+WsHtmlPageRenderer >> render: aComponent [
+
+	builder scriptGeneratorClass: aComponent scriptGeneratorClass.
+	^super render: aComponent
 ]
 
 { #category : #rendering }
