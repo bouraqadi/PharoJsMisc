@@ -59,8 +59,24 @@ WsHtmlExportTest >> setUp [
 ]
 
 { #category : #tests }
+WsHtmlExportTest >> testComponentWithCssResource [
+
+	self fail: 'todo'.
+]
+
+{ #category : #tests }
 WsHtmlExportTest >> testJsComponentHtml [
 
+	self
+		assertHtmlFor: WsJsComponentForTest
+		head:
+		'<script type="text/javascript" defer src="js/justForTest.js"></script>'
+]
+
+{ #category : #tests }
+WsHtmlExportTest >> testJsSubcomponentHtml [
+
+self fail: 'Ensure dependencies from subcomponents are met too'.
 	self
 		assertHtmlFor: WsJsComponentForTest
 		head:
