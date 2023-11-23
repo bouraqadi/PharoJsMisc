@@ -9,5 +9,5 @@ Class {
 { #category : #rendering }
 WsStaticHtmlComponentForTest >> renderContentOn: html [
 
-	^ html paragraph: [html html: 'Hello WebST!']
+	^ html paragraph: [ html html: 'Hello WebST!' ]
 ]

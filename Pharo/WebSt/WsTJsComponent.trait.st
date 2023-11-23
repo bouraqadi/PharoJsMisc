@@ -1,21 +1,6 @@
 Trait {
 	#name : #WsTJsComponent,
-	#traits : 'WsTStaticHtmlComponent @ {#basicSetUpRoot:->#setUpRoot:}',
+	#traits : 'WsTStaticHtmlComponent',
 	#classTraits : 'WsTStaticHtmlComponent classTrait',
 	#category : #'WebSt-Kernel'
 }
-
-{ #category : #rendering }
-WsTJsComponent >> javaScriptUrl [
-
-	^ self explicitRequirement
-]
-
-{ #category : #initialization }
-WsTJsComponent >> setUpRoot: root [
-
-	self basicSetUpRoot: root.
-	root javascript
-		defer;
-		url: self javaScriptUrl
-]

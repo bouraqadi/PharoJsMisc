@@ -32,7 +32,6 @@ WsHtmlRenderer >> render: aComponent [
 WsHtmlRenderer >> renderContentOn: html [
 
 	^ component renderContentOn: html
-
 ]
 
 { #category : #initialization }

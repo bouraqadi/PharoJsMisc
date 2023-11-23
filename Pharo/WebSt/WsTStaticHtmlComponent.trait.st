@@ -14,6 +14,11 @@ WsTStaticHtmlComponent classSide >> htmlPage [
 	^ WsHtmlPageRenderer render: self new
 ]
 
+{ #category : #accessing }
+WsTStaticHtmlComponent >> dependencies [
+	^#()
+]
+
 { #category : #initialization }
 WsTStaticHtmlComponent >> loadScriptGeneratorClass [
 
@@ -24,14 +29,6 @@ WsTStaticHtmlComponent >> loadScriptGeneratorClass [
 WsTStaticHtmlComponent >> renderContentOn: html [
 
 	^ self explicitRequirement 
-]
-
-{ #category : #initialization }
-WsTStaticHtmlComponent >> setUpRoot: root [
-
-	root title: self title.
-	root beHtml5.
-	root meta charset: 'utf-8'
 ]
 
 { #category : #rendering }

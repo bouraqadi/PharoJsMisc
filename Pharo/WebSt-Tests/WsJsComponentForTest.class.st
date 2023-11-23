@@ -7,6 +7,12 @@ Class {
 }
 
 { #category : #accessing }
+WsJsComponentForTest >> dependencies [
+
+	^ {WsJavaScriptResource url: 'js/justForTest.js'}
+]
+
+{ #category : #accessing }
 WsJsComponentForTest >> javaScriptUrl [
 
 	^ 'js/justForTest.js'
