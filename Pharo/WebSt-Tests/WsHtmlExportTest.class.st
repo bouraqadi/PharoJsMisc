@@ -59,21 +59,30 @@ WsHtmlExportTest >> setUp [
 ]
 
 { #category : #tests }
+WsHtmlExportTest >> testJsComponentHtml [
+
+	self
+		assertHtmlFor: WsJsComponentForTest
+		head:
+		'<script type="text/javascript" defer src="js/justForTest.js"></script>'
+]
+
+{ #category : #tests }
 WsHtmlExportTest >> testPharoJsComponentHtml [
 
 	self
-		assertHtmlFor: WsPharoJsComponentForTest
+		assertHtmlFor: WsJsComponentForTest
 		head:
 		'<script type="text/javascript" defer src="index.js"></script>'.
 	WsPharoJsClassForTest appJsSubFolder: 'js'.
 	self
-		assertHtmlFor: WsPharoJsComponentForTest
+		assertHtmlFor: WsJsComponentForTest
 		head:
 		'<script type="text/javascript" defer src="js/index.js"></script>'.
 	WsPharoJsClassForTest appJsSubFolder: 'otherFolder'.
 	WsPharoJsClassForTest appJsFileName:  'differentFile.js'.
 	self
-		assertHtmlFor: WsPharoJsComponentForTest
+		assertHtmlFor: WsJsComponentForTest
 		head:
 		'<script type="text/javascript" defer src="otherFolder/differentFile.js"></script>'
 ]

@@ -16,8 +16,8 @@ WsHtmlPageRenderer >> initialize [
 { #category : #rendering }
 WsHtmlPageRenderer >> render: aComponent [
 
-	builder scriptGeneratorClass: aComponent scriptGeneratorClass.
-	^super render: aComponent
+	builder scriptGeneratorClass: aComponent loadScriptGeneratorClass.
+	^ super render: aComponent
 ]
 
 { #category : #rendering }

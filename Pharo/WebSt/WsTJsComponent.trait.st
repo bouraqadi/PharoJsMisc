@@ -1,19 +1,21 @@
 Trait {
-	#name : #WsTPharoJsComponent,
+	#name : #WsTJsComponent,
 	#traits : 'WsTStaticHtmlComponent @ {#basicSetUpRoot:->#setUpRoot:}',
 	#classTraits : 'WsTStaticHtmlComponent classTrait',
 	#category : #'WebSt-Kernel'
 }
 
 { #category : #rendering }
-WsTPharoJsComponent >> script [
+WsTJsComponent >> javaScriptUrl [
 
 	^ self explicitRequirement
 ]
 
 { #category : #initialization }
-WsTPharoJsComponent >> setUpRoot: root [
+WsTJsComponent >> setUpRoot: root [
 
 	self basicSetUpRoot: root.
-	root addScript: self script
+	root javascript
+		defer;
+		url: self javaScriptUrl
 ]

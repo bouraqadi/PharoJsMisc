@@ -14,15 +14,16 @@ WsTStaticHtmlComponent classSide >> htmlPage [
 	^ WsHtmlPageRenderer render: self new
 ]
 
+{ #category : #initialization }
+WsTStaticHtmlComponent >> loadScriptGeneratorClass [
+
+	^ WANullScriptGenerator
+]
+
 { #category : #rendering }
 WsTStaticHtmlComponent >> renderContentOn: html [
 
 	^ self explicitRequirement 
-]
-
-{ #category : #initialization }
-WsTStaticHtmlComponent >> scriptGeneratorClass [
-	^WANullScriptGenerator
 ]
 
 { #category : #initialization }
