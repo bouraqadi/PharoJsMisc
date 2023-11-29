@@ -5,12 +5,6 @@ Trait {
 	#category : #'WebSt-Kernel'
 }
 
-{ #category : #exporting }
-WsTComponent classSide >> htmlPage [
-
-	^ WsHtmlPageRendererOLD render: self new
-]
-
 { #category : #accessing }
 WsTComponent >> dependencies [
 	^#()

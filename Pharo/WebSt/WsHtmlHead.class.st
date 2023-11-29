@@ -52,6 +52,8 @@ WsHtmlHead >> renderContentOn: html [
 
 { #category : #accessing }
 WsHtmlHead >> title: aString [
+
+aString ifNil: [ ^self ].
 	titleChild ifNil: [ self addTitle ].
 	titleChild title: aString
 ]

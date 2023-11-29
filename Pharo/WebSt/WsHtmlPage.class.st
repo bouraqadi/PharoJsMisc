@@ -10,6 +10,13 @@ Class {
 	#category : #'WebSt-Kernel'
 }
 
+{ #category : #'instance creation' }
+WsHtmlPage class >> rootComponent: aComponent [
+	^self new
+rootComponent: aComponent;
+yourself		
+]
+
 { #category : #accessing }
 WsHtmlPage >> body [
 
@@ -44,10 +51,16 @@ WsHtmlPage >> initialize [
 { #category : #rendering }
 WsHtmlPage >> renderContentOn: renderer [
 
+	self head title: self body title.
 	renderer
 		renderDocType;
 		tag: #html with: [
 			renderer
 				render: self head;
 				render: self body ]
+]
+
+{ #category : #initialization }
+WsHtmlPage >> rootComponent: aComponent [
+	self body rootComponent: aComponent
 ]

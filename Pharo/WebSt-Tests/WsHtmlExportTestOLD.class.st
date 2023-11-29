@@ -1,11 +1,11 @@
 Class {
-	#name : #WsHtmlExportTest,
+	#name : #WsHtmlExportTestOLD,
 	#superclass : #TestCase,
 	#category : #'WebSt-Tests'
 }
 
 { #category : #tests }
-WsHtmlExportTest >> assertHtmlFor: componentClass body: expectedBody [
+WsHtmlExportTestOLD >> assertHtmlFor: componentClass body: expectedBody [
 
 	self
 		assertHtmlFor: componentClass
@@ -15,7 +15,7 @@ WsHtmlExportTest >> assertHtmlFor: componentClass body: expectedBody [
 ]
 
 { #category : #tests }
-WsHtmlExportTest >> assertHtmlFor: componentClass head: expectedHead [
+WsHtmlExportTestOLD >> assertHtmlFor: componentClass head: expectedHead [
 
 	self
 		assertHtmlFor: componentClass
@@ -25,7 +25,7 @@ WsHtmlExportTest >> assertHtmlFor: componentClass head: expectedHead [
 ]
 
 { #category : #tests }
-WsHtmlExportTest >> assertHtmlFor: componentClass head: expectedHead body: expectedBody [
+WsHtmlExportTestOLD >> assertHtmlFor: componentClass head: expectedHead body: expectedBody [
 
 	self
 		assertHtmlFor: componentClass
@@ -35,7 +35,7 @@ WsHtmlExportTest >> assertHtmlFor: componentClass head: expectedHead body: expec
 ]
 
 { #category : #tests }
-WsHtmlExportTest >> assertHtmlFor: componentClass head: expectedHead body: expectedBody title: expectedTitle [
+WsHtmlExportTestOLD >> assertHtmlFor: componentClass head: expectedHead body: expectedBody title: expectedTitle [
 
 	| expectedHtml |
 	self assert: componentClass html equals: expectedBody.
@@ -52,7 +52,7 @@ WsHtmlExportTest >> assertHtmlFor: componentClass head: expectedHead body: expec
 ]
 
 { #category : #tests }
-WsHtmlExportTest >> leafComponentHeaderEntries [
+WsHtmlExportTestOLD >> leafComponentHeaderEntries [
 	^#( '<script type="text/javascript" defer src="js/local.js"></script>'
 		                   '<script type="text/javascript" defer src="https://serverForJs.org/lib/bundle.js"></script>'
 		                   '<link rel="stylesheet" href="css/custom.css"/>'
@@ -60,14 +60,14 @@ WsHtmlExportTest >> leafComponentHeaderEntries [
 ]
 
 { #category : #tests }
-WsHtmlExportTest >> setUp [
+WsHtmlExportTestOLD >> setUp [
 
 	super setUp.
 	WsPharoJsClassForTest reset
 ]
 
 { #category : #tests }
-WsHtmlExportTest >> stringWithAll: expectedEntries [
+WsHtmlExportTestOLD >> stringWithAll: expectedEntries [
 
 	| expectedHead |
 	expectedHead := String streamContents: [ :str |
@@ -76,7 +76,7 @@ WsHtmlExportTest >> stringWithAll: expectedEntries [
 ]
 
 { #category : #tests }
-WsHtmlExportTest >> testComposite [
+WsHtmlExportTestOLD >> testComposite [
 	"Ensure resources for subcomponents are exported, but without duplication"
 
 	| expectedHead expectedBody |
@@ -93,7 +93,7 @@ WsHtmlExportTest >> testComposite [
 ]
 
 { #category : #tests }
-WsHtmlExportTest >> testLeafComponent [
+WsHtmlExportTestOLD >> testLeafComponent [
 
 	| expectedHead |
 	expectedHead := self stringWithAll:
@@ -105,7 +105,7 @@ WsHtmlExportTest >> testLeafComponent [
 ]
 
 { #category : #tests }
-WsHtmlExportTest >> testPharoJsComponentHtml [
+WsHtmlExportTestOLD >> testPharoJsComponentHtml [
 
 	self
 		assertHtmlFor: WsLeafComponentForTest

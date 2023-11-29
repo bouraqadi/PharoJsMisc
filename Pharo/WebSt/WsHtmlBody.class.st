@@ -27,3 +27,9 @@ WsHtmlBody >> rootComponent: anObject [
 
 	rootComponent := anObject
 ]
+
+{ #category : #accessing }
+WsHtmlBody >> title [
+	self rootComponent ifNil: [^nil].
+	^self rootComponent title
+]
