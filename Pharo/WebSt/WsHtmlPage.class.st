@@ -35,19 +35,18 @@ WsHtmlPage >> head: anObject [
 { #category : #rendering }
 WsHtmlPage >> html [
 
-	| bodyHtml pageRenderer |
+	| bodyRenderer pageRenderer |
+	bodyRenderer := WsResourceAwareHtmlRenderer new.
+	bodyRenderer render: self body.
 	self head title: self body title.
-	bodyHtml := WsHtmlPageRenderer new
-		            page: self;
-		            render: self body;
-		            html.
+	self head addChildren: bodyRenderer resources.
 	pageRenderer := WsHtmlRenderer new.
 	pageRenderer
 		renderDocType;
 		tag: #html with: [
 			pageRenderer
 				render: self head;
-				html: bodyHtml ].
+				html: bodyRenderer html ].
 	^ pageRenderer html
 ]
 

@@ -1,0 +1,34 @@
+Class {
+	#name : #WsResourceAwareHtmlRenderer,
+	#superclass : #WsHtmlRenderer,
+	#instVars : [
+		'resources'
+	],
+	#category : #'WebSt-Kernel'
+}
+
+{ #category : #initialization }
+WsResourceAwareHtmlRenderer >> initialize [
+
+	super initialize.
+	resources := OrderedCollection new
+]
+
+{ #category : #rendering }
+WsResourceAwareHtmlRenderer >> renderComponent: aComponent [
+
+	resources addAll: aComponent externalResources.
+	super renderComponent: aComponent
+]
+
+{ #category : #accessing }
+WsResourceAwareHtmlRenderer >> resources [
+
+	^ resources
+]
+
+{ #category : #accessing }
+WsResourceAwareHtmlRenderer >> resources: anObject [
+
+	resources := anObject
+]
