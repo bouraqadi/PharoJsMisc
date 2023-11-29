@@ -63,6 +63,11 @@ WsHtmlRenderer >> render: aComponent [
 ]
 
 { #category : #rendering }
+WsHtmlRenderer >> renderDocType [
+	self document nextPutAll: '<!doctype html>'
+]
+
+{ #category : #rendering }
 WsHtmlRenderer >> renderHeadChild: element [
 
 	self document

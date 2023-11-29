@@ -54,3 +54,13 @@ WsHtmlRenderingTest >> testHeaderTitle [
 	head title: 'Short and Sweet'.
 	self assert: head html equals: expectedHtml
 ]
+
+{ #category : #tests }
+WsHtmlRenderingTest >> testPageEmpty [
+
+	self
+		assert: WsHtmlPage html
+		equals:
+			'<!doctype html><html><head><meta charset="utf-8"/></head><body></body></html>'
+				
+]
