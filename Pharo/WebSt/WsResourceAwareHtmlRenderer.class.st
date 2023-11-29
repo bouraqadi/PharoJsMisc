@@ -11,7 +11,7 @@ Class {
 WsResourceAwareHtmlRenderer >> initialize [
 
 	super initialize.
-	resources := OrderedCollection new
+	resources := Set new
 ]
 
 { #category : #rendering }

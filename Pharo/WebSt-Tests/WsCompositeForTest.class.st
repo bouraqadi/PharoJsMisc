@@ -1,26 +1,50 @@
 Class {
 	#name : #WsCompositeForTest,
 	#superclass : #Object,
-	#traits : 'WsTComponentOLD',
-	#classTraits : 'WsTComponentOLD classTrait',
+	#traits : 'WsTComponent',
+	#classTraits : 'WsTComponent classTrait',
+	#instVars : [
+		'child1',
+		'child2'
+	],
 	#category : #'WebSt-Tests'
 }
 
+{ #category : #accessing }
+WsCompositeForTest >> child1 [
+
+	^ child1
+]
+
+{ #category : #accessing }
+WsCompositeForTest >> child1: anObject [
+
+	child1 := anObject
+]
+
+{ #category : #accessing }
+WsCompositeForTest >> child2 [
+
+	^ child2
+]
+
+{ #category : #accessing }
+WsCompositeForTest >> child2: anObject [
+
+	child2 := anObject
+]
+
+{ #category : #initialization }
+WsCompositeForTest >> initialize [ 
+	super initialize.
+	child1 := WsLeafComponentForTest new.
+		child2 := WsLeafComponentForTest new.
+]
+
 { #category : #rendering }
 WsCompositeForTest >> renderContentOn: html [
-
-	| child1 child2 |
-	child1 := WsLeafComponentForTest new.
-	child1 message: 'Welcome!'.
-	child2 := WsLeafComponentForTest new.
-	child2 message: 'What a surprize!!!'.
 	html div: [
-		html heading
-			level2;
-			with: 'Child 1'.
-		html render: child1.
-		html heading
-			level2;
-			with: 'Child 2'.
-		html render: child2 ]
+		html
+			render: child1;
+			render: child2 ]
 ]

@@ -1,34 +1,39 @@
 Class {
 	#name : #WsLeafComponentForTest,
 	#superclass : #Object,
-	#traits : 'WsTComponentOLD',
-	#classTraits : 'WsTComponentOLD classTrait',
+	#traits : 'WsTComponent',
+	#classTraits : 'WsTComponent classTrait',
 	#instVars : [
-		'message'
+		'message',
+		'title',
+		'externalResources'
 	],
 	#category : #'WebSt-Tests'
 }
 
-{ #category : #'as yet unclassified' }
-WsLeafComponentForTest >> dependencies [
+{ #category : #accessing }
+WsLeafComponentForTest >> externalResources [
 
-	^ {
-		  (WsJavaScriptResource url: 'js/local.js').
-		  (WsJavaScriptResource url: 'https://serverForJs.org/lib/bundle.js').
-		(WsCssResource url: 'css/custom.css').
-		  (WsCssResource url: 'https://serverForCss.com/ui/theme.css') }
+	^ externalResources
 ]
 
 { #category : #accessing }
-WsLeafComponentForTest >> javaScriptUrl [
+WsLeafComponentForTest >> externalResources: anObject [
 
-	^ 'js/justForTest.js'
+	externalResources := anObject
+]
+
+{ #category : #initialization }
+WsLeafComponentForTest >> initialize [
+
+	super initialize.
+	externalResources := OrderedCollection new
 ]
 
 { #category : #accessing }
 WsLeafComponentForTest >> message [
 
-	^ message ifNil: [ message :=  'Hello WWW!']
+	^ message ifNil: [ 'Nice message'. ]
 ]
 
 { #category : #accessing }
@@ -40,5 +45,18 @@ WsLeafComponentForTest >> message: anObject [
 { #category : #rendering }
 WsLeafComponentForTest >> renderContentOn: html [
 
-	^ html paragraph: [ html html: self message  ]
+	html
+		paragraph: [ html text: self message ]
+]
+
+{ #category : #accessing }
+WsLeafComponentForTest >> title [
+
+	^ title ifNil: [ 'Default title' ]
+]
+
+{ #category : #accessing }
+WsLeafComponentForTest >> title: anObject [
+
+	title := anObject
 ]

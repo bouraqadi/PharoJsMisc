@@ -22,6 +22,22 @@ WsResource class >> url: aString [
 		yourself 
 ]
 
+{ #category : #comparing }
+WsResource >> = anObject [
+	"Answer whether the receiver and anObject represent the same object."
+
+	self == anObject ifTrue: [ ^ true ].
+	self class = anObject class ifFalse: [ ^ false ].
+	^ url = anObject url
+]
+
+{ #category : #comparing }
+WsResource >> hash [
+	"Answer an integer value that is related to the identity of the receiver."
+
+	^ url hash
+]
+
 { #category : #accessing }
 WsResource >> url [
 

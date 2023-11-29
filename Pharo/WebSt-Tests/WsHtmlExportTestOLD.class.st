@@ -76,30 +76,13 @@ WsHtmlExportTestOLD >> stringWithAll: expectedEntries [
 ]
 
 { #category : #tests }
-WsHtmlExportTestOLD >> testComposite [
-	"Ensure resources for subcomponents are exported, but without duplication"
-
-	| expectedHead expectedBody |
-	expectedHead := self stringWithAll: #(  ), self leafComponentHeaderEntries.
-	expectedBody := self stringWithAll:
-		                #( '<div>' '<h1>Child 1</h1>' '<p>Welcome!</p>'
-		                   '<h1>Child 2</h1>' '<p>What a surprize!!!</p>'
-		                   '</div>' ).
-
-	self
-		assertHtmlFor: WsCompositeForTest
-		head: expectedHead
-		body: expectedBody
-]
-
-{ #category : #tests }
 WsHtmlExportTestOLD >> testLeafComponent [
 
 	| expectedHead |
 	expectedHead := self stringWithAll:
 		                self leafComponentHeaderEntries.
 	self
-		assertHtmlFor: WsLeafComponentForTest
+		assertHtmlFor: WsLeafComponentForTestOLD
 		head: expectedHead
 		body: '<p>Hello WWW!</p>'
 ]
@@ -108,18 +91,18 @@ WsHtmlExportTestOLD >> testLeafComponent [
 WsHtmlExportTestOLD >> testPharoJsComponentHtml [
 
 	self
-		assertHtmlFor: WsLeafComponentForTest
+		assertHtmlFor: WsLeafComponentForTestOLD
 		head:
 		'<script type="text/javascript" defer src="index.js"></script>'.
 	WsPharoJsClassForTest appJsSubFolder: 'js'.
 	self
-		assertHtmlFor: WsLeafComponentForTest
+		assertHtmlFor: WsLeafComponentForTestOLD
 		head:
 		'<script type="text/javascript" defer src="js/index.js"></script>'.
 	WsPharoJsClassForTest appJsSubFolder: 'otherFolder'.
 	WsPharoJsClassForTest appJsFileName:  'differentFile.js'.
 	self
-		assertHtmlFor: WsLeafComponentForTest
+		assertHtmlFor: WsLeafComponentForTestOLD
 		head:
 		'<script type="text/javascript" defer src="otherFolder/differentFile.js"></script>'
 ]

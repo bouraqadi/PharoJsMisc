@@ -17,7 +17,7 @@ WsHtmlRenderingTest >> stringWithAll: expectedEntries [
 WsHtmlRenderingTest >> testBasicComponentResources [
 
 	| component titleString messageString expectedHtml jsUrl cssUrl |
-	component := WsBasicComponentForTest new.
+	component := WsLeafComponentForTest new.
 	titleString := 'New Shiny!'.
 	messageString := 'Experimenting with a different message.'.
 	jsUrl := 'path/file.js'.
@@ -46,7 +46,7 @@ WsHtmlRenderingTest >> testBodyBasicComponent [
 
 	| body root rootHtml|
 	body := WsHtmlBody new.
-	root := WsBasicComponentForTest new.
+	root := WsLeafComponentForTest new.
 	root message: 'I am very basic'.
 	rootHtml := '<p>I am very basic</p>'.
 	self assert: root html equals: rootHtml.
@@ -58,6 +58,39 @@ WsHtmlRenderingTest >> testBodyBasicComponent [
 WsHtmlRenderingTest >> testBodyEmpty [
 
 	self assert: WsHtmlBody html equals: '<body></body>'
+]
+
+{ #category : #tests }
+WsHtmlRenderingTest >> testComposite [
+	"Ensure resources for subcomponents are exported, but without duplication"
+
+	| expectedHtml jsUrl cssUrl message1 message2 component |
+	jsUrl := 'path/file.js'.
+	cssUrl := 'http://server.domain:port/ui/lib.css'.
+	message1 := 'Welcome!'.
+	message2 := 'What a surprize!!!'.
+	expectedHtml := self stringWithAll: {
+			                '<!doctype html><html><head><meta charset="utf-8"/><title>'.
+			                WsCompositeForTest name.
+			                '</title><script defer type="text/javascript" src="'.
+			                jsUrl.
+			                '"></script><link rel="stylesheet" href="'.
+			                cssUrl.
+			                '"/></head><body><div><p>'.
+			                message1.
+			                '</p><p>'.
+			                message2.
+			                '</p></div></body></html>' }.
+	component := WsCompositeForTest new.
+	component child1 message: message1.
+	component child2 message: message2.
+	{
+		component child1.
+		component child2 } do: [ :each |
+		each
+			useJsAt: jsUrl;
+			useCssAt: cssUrl ].
+	self assert: component pageHtml equals: expectedHtml
 ]
 
 { #category : #tests }
@@ -80,7 +113,7 @@ WsHtmlRenderingTest >> testPageBasicComponent [
 
 	| page root titleString messageString expectedHtml |
 	page := WsHtmlPage new.
-	root := WsBasicComponentForTest new.
+	root := WsLeafComponentForTest new.
 	titleString := 'Default title'.
 	messageString := 'Nice message'.
 	page body rootComponent: root.
@@ -91,7 +124,7 @@ WsHtmlRenderingTest >> testPageBasicComponent [
 			                messageString.
 			                '</p></body></html>' }.
 	self assert: page html equals: expectedHtml.
-	self assert: WsBasicComponentForTest pageHtml equals: expectedHtml
+	self assert: WsLeafComponentForTest pageHtml equals: expectedHtml
 ]
 
 { #category : #tests }
