@@ -1,3 +1,6 @@
+"
+I represent an external JS file.
+"
 Class {
 	#name : #WsJavaScriptResource,
 	#superclass : #WsResource,

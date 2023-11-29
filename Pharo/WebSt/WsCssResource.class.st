@@ -1,3 +1,6 @@
+"
+I represent an external CSS file.
+"
 Class {
 	#name : #WsCssResource,
 	#superclass : #WsResource,

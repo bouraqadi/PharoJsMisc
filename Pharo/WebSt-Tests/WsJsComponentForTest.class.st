@@ -1,8 +1,8 @@
 Class {
 	#name : #WsJsComponentForTest,
 	#superclass : #Object,
-	#traits : 'WsTJsComponent',
-	#classTraits : 'WsTJsComponent classTrait',
+	#traits : 'WsTComponent',
+	#classTraits : 'WsTComponent classTrait',
 	#category : #'WebSt-Tests'
 }
 
@@ -25,5 +25,5 @@ WsJsComponentForTest >> javaScriptUrl [
 { #category : #rendering }
 WsJsComponentForTest >> renderContentOn: html [
 
-	^ self
+	^ html paragraph: [ html html: 'Hello WebST!' ]
 ]

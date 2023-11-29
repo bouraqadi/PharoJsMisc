@@ -59,12 +59,6 @@ WsHtmlExportTest >> setUp [
 ]
 
 { #category : #tests }
-WsHtmlExportTest >> testComponentWithCssResource [
-
-	self fail: 'todo'.
-]
-
-{ #category : #tests }
 WsHtmlExportTest >> testJsComponentHtml [
 
 	| expectedEntries expectedHead |
@@ -74,13 +68,13 @@ WsHtmlExportTest >> testJsComponentHtml [
 	                      '<link rel="stylesheet" href="https://serverForCss.com/ui/theme.css"/>' ).
 	expectedHead := String streamContents: [ :str |
 		                expectedEntries do: [ :entry | str << entry ] ].
-	self assertHtmlFor: WsJsComponentForTest head: expectedHead
+	self assertHtmlFor: WsJsComponentForTest head: expectedHead body: '<p>Hello WebST!</p>'
 ]
 
 { #category : #tests }
-WsHtmlExportTest >> testJsSubcomponentHtml [
+WsHtmlExportTest >> testJsCompositeHtml [
 
-self fail: 'Ensure dependencies from subcomponents are met too'.
+	self fail: 'Ensure dependencies from subcomponents are met too'.
 	self
 		assertHtmlFor: WsJsComponentForTest
 		head:
@@ -105,10 +99,4 @@ WsHtmlExportTest >> testPharoJsComponentHtml [
 		assertHtmlFor: WsJsComponentForTest
 		head:
 		'<script type="text/javascript" defer src="otherFolder/differentFile.js"></script>'
-]
-
-{ #category : #tests }
-WsHtmlExportTest >> testStaticHtmlComponentHtml [
-
-	self assertHtmlFor: WsStaticHtmlComponentForTest body: '<p>Hello WebST!</p>'
 ]

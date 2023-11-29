@@ -1,38 +1,38 @@
 Trait {
-	#name : #WsTStaticHtmlComponent,
+	#name : #WsTComponent,
 	#category : #'WebSt-Kernel'
 }
 
 { #category : #exporting }
-WsTStaticHtmlComponent classSide >> html [
+WsTComponent classSide >> html [
 	^WsHtmlRenderer render: self new
 ]
 
 { #category : #exporting }
-WsTStaticHtmlComponent classSide >> htmlPage [
+WsTComponent classSide >> htmlPage [
 
 	^ WsHtmlPageRenderer render: self new
 ]
 
 { #category : #accessing }
-WsTStaticHtmlComponent >> dependencies [
+WsTComponent >> dependencies [
 	^#()
 ]
 
 { #category : #initialization }
-WsTStaticHtmlComponent >> loadScriptGeneratorClass [
+WsTComponent >> loadScriptGeneratorClass [
 
 	^ WANullScriptGenerator
 ]
 
 { #category : #rendering }
-WsTStaticHtmlComponent >> renderContentOn: html [
+WsTComponent >> renderContentOn: html [
 
 	^ self explicitRequirement 
 ]
 
 { #category : #rendering }
-WsTStaticHtmlComponent >> title [
+WsTComponent >> title [
 
 	^ self className
 ]
