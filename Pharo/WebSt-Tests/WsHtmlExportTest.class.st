@@ -67,10 +67,14 @@ WsHtmlExportTest >> testComponentWithCssResource [
 { #category : #tests }
 WsHtmlExportTest >> testJsComponentHtml [
 
-	self
-		assertHtmlFor: WsJsComponentForTest
-		head:
-		'<script type="text/javascript" defer src="js/justForTest.js"></script>'
+	| expectedEntries expectedHead |
+	expectedEntries := #( '<script type="text/javascript" defer src="js/local.js"></script>'
+	                      '<script type="text/javascript" defer src="https://serverForJs.org/lib/bundle.js"></script>'
+	                      '<link rel="stylesheet" href="css/custom.css"/>'
+	                      '<link rel="stylesheet" href="https://serverForCss.com/ui/theme.css"/>' ).
+	expectedHead := String streamContents: [ :str |
+		                expectedEntries do: [ :entry | str << entry ] ].
+	self assertHtmlFor: WsJsComponentForTest head: expectedHead
 ]
 
 { #category : #tests }

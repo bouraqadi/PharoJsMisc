@@ -9,7 +9,11 @@ Class {
 { #category : #accessing }
 WsJsComponentForTest >> dependencies [
 
-	^ {WsJavaScriptResource url: 'js/justForTest.js'}
+	^ {
+		  (WsJavaScriptResource url: 'js/local.js').
+		  (WsJavaScriptResource url: 'https://serverForJs.org/lib/bundle.js').
+		(WsCssResource url: 'css/custom.css').
+		  (WsCssResource url: 'https://serverForCss.com/ui/theme.css') }
 ]
 
 { #category : #accessing }
