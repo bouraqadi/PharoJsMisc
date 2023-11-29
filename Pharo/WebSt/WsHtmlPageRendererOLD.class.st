@@ -27,7 +27,7 @@ WsHtmlPageRendererOLD >> setUpRoot: root [
 	root title: self title.
 	root beHtml5.
 	root meta charset: 'utf-8'.
-	component dependencies do: [ : each | each setUpRoot: root ]
+	component externalResources do: [ : each | each setUpRoot: root ]
 ]
 
 { #category : #rendering }

@@ -8,7 +8,9 @@ Class {
 }
 
 { #category : #initialization }
-WsCssResource >> setUpRoot: htmlRoot [
+WsCssResource >> renderContentOn: html [
 
-	htmlRoot link beStylesheet; url: self url
+	html link
+		beStylesheet;
+		url: self url
 ]

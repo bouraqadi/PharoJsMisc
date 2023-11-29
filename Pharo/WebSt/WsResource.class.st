@@ -7,6 +7,8 @@ My subclasses should allow representing specific kinds of resources such as CSS 
 Class {
 	#name : #WsResource,
 	#superclass : #Object,
+	#traits : 'WsTBasicComponent',
+	#classTraits : 'WsTBasicComponent classTrait',
 	#instVars : [
 		'url'
 	],
@@ -18,11 +20,6 @@ WsResource class >> url: aString [
 	^self new
 		url: aString;
 		yourself 
-]
-
-{ #category : #initialization }
-WsResource >> setUpRoot: htmlRoot [
-	self subclassResponsibility 
 ]
 
 { #category : #accessing }

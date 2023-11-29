@@ -8,8 +8,10 @@ Class {
 }
 
 { #category : #initialization }
-WsJavaScriptResource >> setUpRoot: htmlRoot [ 
-	htmlRoot javascript 
+WsJavaScriptResource >> renderContentOn: html [
+
+	html script
 		defer;
+		type: 'text/javascript';
 		url: self url
 ]

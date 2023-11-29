@@ -1,21 +1,12 @@
 Class {
 	#name : #WsHtmlPage,
 	#superclass : #Object,
-	#traits : 'WsTBasicComponent',
-	#classTraits : 'WsTBasicComponent classTrait',
 	#instVars : [
 		'head',
 		'body'
 	],
 	#category : #'WebSt-Kernel'
 }
-
-{ #category : #'instance creation' }
-WsHtmlPage class >> rootComponent: aComponent [
-	^self new
-rootComponent: aComponent;
-yourself		
-]
 
 { #category : #accessing }
 WsHtmlPage >> body [
@@ -41,23 +32,31 @@ WsHtmlPage >> head: anObject [
 	head := anObject
 ]
 
-{ #category : #initialization }
-WsHtmlPage >> initialize [ 
-	super initialize.
-	head := WsHtmlHead new.
-	body := WsHtmlBody new.
-]
-
 { #category : #rendering }
-WsHtmlPage >> renderContentOn: renderer [
+WsHtmlPage >> html [
 
+	| bodyHtml pageRenderer |
 	self head title: self body title.
-	renderer
+	bodyHtml := WsHtmlPageRenderer new
+		            page: self;
+		            render: self body;
+		            html.
+	pageRenderer := WsHtmlRenderer new.
+	pageRenderer
 		renderDocType;
 		tag: #html with: [
-			renderer
+			pageRenderer
 				render: self head;
-				render: self body ]
+				html: bodyHtml ].
+	^ pageRenderer html
+]
+
+{ #category : #initialization }
+WsHtmlPage >> initialize [
+
+	super initialize.
+	head := WsHtmlHead new.
+	body := WsHtmlBody new
 ]
 
 { #category : #initialization }

@@ -5,15 +5,35 @@ Class {
 	#classTraits : 'WsTComponent classTrait',
 	#instVars : [
 		'message',
-		'title'
+		'title',
+		'externalResources'
 	],
 	#category : #'WebSt-Tests'
 }
 
 { #category : #accessing }
+WsBasicComponentForTest >> externalResources [
+
+	^ externalResources
+]
+
+{ #category : #accessing }
+WsBasicComponentForTest >> externalResources: anObject [
+
+	externalResources := anObject
+]
+
+{ #category : #initialization }
+WsBasicComponentForTest >> initialize [
+
+	super initialize.
+	externalResources := OrderedCollection new
+]
+
+{ #category : #accessing }
 WsBasicComponentForTest >> message [
 
-	^ message
+	^ message ifNil: [ 'Nice message'. ]
 ]
 
 { #category : #accessing }
@@ -32,7 +52,7 @@ WsBasicComponentForTest >> renderContentOn: html [
 { #category : #accessing }
 WsBasicComponentForTest >> title [
 
-	^ title 
+	^ title ifNil: [ 'Default title' ]
 ]
 
 { #category : #accessing }

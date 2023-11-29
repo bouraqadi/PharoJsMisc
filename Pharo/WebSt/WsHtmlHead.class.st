@@ -16,6 +16,12 @@ WsHtmlHead >> addChild: aChild [
 ]
 
 { #category : #accessing }
+WsHtmlHead >> addChildren: childrenCollection [
+
+	childrenCollection do: [:each | self addChild: each]
+]
+
+{ #category : #accessing }
 WsHtmlHead >> addMeta: aBlock [
 
 	| meta |
@@ -41,7 +47,7 @@ WsHtmlHead >> initialize [
 { #category : #rendering }
 WsHtmlHead >> renderChildrenOn: html [
 
-	children do: [ :each | html renderHeadChild: each ]
+	children do: [ :each | html render: each ]
 ]
 
 { #category : #rendering }

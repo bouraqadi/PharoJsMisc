@@ -57,9 +57,21 @@ document := WAHtmlDocument on: stream.
 ]
 
 { #category : #rendering }
+WsHtmlRenderer >> link [
+
+	^ self brush: WsLinkTag new
+]
+
+{ #category : #rendering }
 WsHtmlRenderer >> render: aComponent [
 
 	aComponent renderOn: self
+]
+
+{ #category : #rendering }
+WsHtmlRenderer >> renderComponent: aComponent [
+
+	aComponent renderContentOn: self
 ]
 
 { #category : #rendering }

@@ -9,7 +9,7 @@ Class {
 	#category : #'WebSt-Tests'
 }
 
-{ #category : #accessing }
+{ #category : #'as yet unclassified' }
 WsLeafComponentForTest >> dependencies [
 
 	^ {

@@ -15,7 +15,7 @@ WsTComponentOLD classSide >> htmlPage [
 ]
 
 { #category : #accessing }
-WsTComponentOLD >> dependencies [
+WsTComponentOLD >> externalResources [
 	^#()
 ]
 

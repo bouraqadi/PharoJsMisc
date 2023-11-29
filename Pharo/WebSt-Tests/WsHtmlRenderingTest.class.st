@@ -14,6 +14,34 @@ WsHtmlRenderingTest >> stringWithAll: expectedEntries [
 ]
 
 { #category : #tests }
+WsHtmlRenderingTest >> testBasicComponentResources [
+
+	| component titleString messageString expectedHtml jsUrl cssUrl |
+	component := WsBasicComponentForTest new.
+	titleString := 'New Shiny!'.
+	messageString := 'Experimenting with a different message.'.
+	jsUrl := 'path/file.js'.
+	cssUrl := 'http://server.domain:port/ui/lib.css'.
+	component
+		title: titleString;
+		message: messageString;
+		useJsAt: jsUrl;
+		useCssAt: cssUrl.
+	expectedHtml := self stringWithAll: {
+			                '<!doctype html><html><head><meta charset="utf-8"/><title>'.
+			                titleString.
+			                '</title><script defer type="text/javascript" src="'.
+			                jsUrl.
+			                '"></script><link rel="stylesheet" href="'.
+			                cssUrl.
+			                '"/></head><body><p>'.
+			                messageString.
+			                '</p></body></html>' }.
+
+	self assert: component pageHtml equals: expectedHtml
+]
+
+{ #category : #tests }
 WsHtmlRenderingTest >> testBodyBasicComponent [
 
 	| body root rootHtml|
@@ -53,11 +81,8 @@ WsHtmlRenderingTest >> testPageBasicComponent [
 	| page root titleString messageString expectedHtml |
 	page := WsHtmlPage new.
 	root := WsBasicComponentForTest new.
-	titleString := 'Basic title'.
+	titleString := 'Default title'.
 	messageString := 'Nice message'.
-	root
-		title: titleString;
-		message: messageString.
 	page body rootComponent: root.
 	expectedHtml := self stringWithAll: {
 			                '<!doctype html><html><head><meta charset="utf-8"/><title>'.
@@ -73,8 +98,7 @@ WsHtmlRenderingTest >> testPageBasicComponent [
 WsHtmlRenderingTest >> testPageEmpty [
 
 	self
-		assert: WsHtmlPage html
+		assert: WsHtmlPage new html
 		equals:
-			'<!doctype html><html><head><meta charset="utf-8"/></head><body></body></html>'
-				
+		'<!doctype html><html><head><meta charset="utf-8"/></head><body></body></html>'
 ]
