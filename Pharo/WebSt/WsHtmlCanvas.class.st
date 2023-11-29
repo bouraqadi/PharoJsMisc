@@ -1,7 +1,7 @@
 Class {
 	#name : #WsHtmlCanvas,
 	#superclass : #WAHtmlCanvas,
-	#category : #'WebSt-Kernel'
+	#category : #'WebSt-KernelOLDOLD'
 }
 
 { #category : #'instance creation' }

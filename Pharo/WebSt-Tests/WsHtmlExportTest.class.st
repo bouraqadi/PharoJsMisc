@@ -52,6 +52,14 @@ WsHtmlExportTest >> assertHtmlFor: componentClass head: expectedHead body: expec
 ]
 
 { #category : #tests }
+WsHtmlExportTest >> leafComponentHeaderEntries [
+	^#( '<script type="text/javascript" defer src="js/local.js"></script>'
+		                   '<script type="text/javascript" defer src="https://serverForJs.org/lib/bundle.js"></script>'
+		                   '<link rel="stylesheet" href="css/custom.css"/>'
+		                   '<link rel="stylesheet" href="https://serverForCss.com/ui/theme.css"/>' )
+]
+
+{ #category : #tests }
 WsHtmlExportTest >> setUp [
 
 	super setUp.
@@ -59,44 +67,59 @@ WsHtmlExportTest >> setUp [
 ]
 
 { #category : #tests }
-WsHtmlExportTest >> testJsComponentHtml [
+WsHtmlExportTest >> stringWithAll: expectedEntries [
 
-	| expectedEntries expectedHead |
-	expectedEntries := #( '<script type="text/javascript" defer src="js/local.js"></script>'
-	                      '<script type="text/javascript" defer src="https://serverForJs.org/lib/bundle.js"></script>'
-	                      '<link rel="stylesheet" href="css/custom.css"/>'
-	                      '<link rel="stylesheet" href="https://serverForCss.com/ui/theme.css"/>' ).
+	| expectedHead |
 	expectedHead := String streamContents: [ :str |
 		                expectedEntries do: [ :entry | str << entry ] ].
-	self assertHtmlFor: WsJsComponentForTest head: expectedHead body: '<p>Hello WebST!</p>'
+	^ expectedHead
 ]
 
 { #category : #tests }
-WsHtmlExportTest >> testJsCompositeHtml [
+WsHtmlExportTest >> testComposite [
+	"Ensure resources for subcomponents are exported, but without duplication"
 
-	self fail: 'Ensure dependencies from subcomponents are met too'.
+	| expectedHead expectedBody |
+	expectedHead := self stringWithAll: #(  ), self leafComponentHeaderEntries.
+	expectedBody := self stringWithAll:
+		                #( '<div>' '<h1>Child 1</h1>' '<p>Welcome!</p>'
+		                   '<h1>Child 2</h1>' '<p>What a surprize!!!</p>'
+		                   '</div>' ).
+
 	self
-		assertHtmlFor: WsJsComponentForTest
-		head:
-		'<script type="text/javascript" defer src="js/justForTest.js"></script>'
+		assertHtmlFor: WsCompositeForTest
+		head: expectedHead
+		body: expectedBody
+]
+
+{ #category : #tests }
+WsHtmlExportTest >> testLeafComponent [
+
+	| expectedHead |
+	expectedHead := self stringWithAll:
+		                self leafComponentHeaderEntries.
+	self
+		assertHtmlFor: WsLeafComponentForTest
+		head: expectedHead
+		body: '<p>Hello WWW!</p>'
 ]
 
 { #category : #tests }
 WsHtmlExportTest >> testPharoJsComponentHtml [
 
 	self
-		assertHtmlFor: WsJsComponentForTest
+		assertHtmlFor: WsLeafComponentForTest
 		head:
 		'<script type="text/javascript" defer src="index.js"></script>'.
 	WsPharoJsClassForTest appJsSubFolder: 'js'.
 	self
-		assertHtmlFor: WsJsComponentForTest
+		assertHtmlFor: WsLeafComponentForTest
 		head:
 		'<script type="text/javascript" defer src="js/index.js"></script>'.
 	WsPharoJsClassForTest appJsSubFolder: 'otherFolder'.
 	WsPharoJsClassForTest appJsFileName:  'differentFile.js'.
 	self
-		assertHtmlFor: WsJsComponentForTest
+		assertHtmlFor: WsLeafComponentForTest
 		head:
 		'<script type="text/javascript" defer src="otherFolder/differentFile.js"></script>'
 ]

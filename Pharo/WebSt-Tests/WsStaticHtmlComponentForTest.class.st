@@ -1,8 +1,8 @@
 Class {
 	#name : #WsStaticHtmlComponentForTest,
 	#superclass : #Object,
-	#traits : 'WsTComponent',
-	#classTraits : 'WsTComponent classTrait',
+	#traits : 'WsTComponentOLD',
+	#classTraits : 'WsTComponentOLD classTrait',
 	#category : #'WebSt-Tests'
 }
 

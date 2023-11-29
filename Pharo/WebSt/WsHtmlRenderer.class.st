@@ -1,9 +1,9 @@
 Class {
 	#name : #WsHtmlRenderer,
-	#superclass : #WAPainter,
+	#superclass : #WAHtmlCanvas,
 	#instVars : [
-		'component',
-		'builder'
+		'stream',
+		'document'
 	],
 	#category : #'WebSt-Kernel'
 }
@@ -11,31 +11,53 @@ Class {
 { #category : #rendering }
 WsHtmlRenderer class >> render: component [
 
-	^ self new render: component
+	^ self new render: component; html
+]
+
+{ #category : #accessing }
+WsHtmlRenderer >> document [
+
+	^ document
+]
+
+{ #category : #rendering }
+WsHtmlRenderer >> head [
+
+	^self tag: 'head'
+]
+
+{ #category : #rendering }
+WsHtmlRenderer >> head: aBlock [
+	self head with: aBlock
+]
+
+{ #category : #accessing }
+WsHtmlRenderer >> html [
+	^stream contents
 ]
 
 { #category : #initialization }
-WsHtmlRenderer >> initialize [ 
-	super initialize.
-	builder := self rendererClass builder.
+WsHtmlRenderer >> initialize [
 
+	super initialize.
+	stream := WriteStream on: String new.
+document := WAHtmlDocument on: stream.
 ]
 
 { #category : #rendering }
 WsHtmlRenderer >> render: aComponent [
 
-	component := aComponent.
-	^builder render: self
+	aComponent renderOn: self
 ]
 
 { #category : #rendering }
-WsHtmlRenderer >> renderContentOn: html [
+WsHtmlRenderer >> renderHeadChild: element [
 
-	^ component renderContentOn: html
-]
-
-{ #category : #initialization }
-WsHtmlRenderer >> rendererClass [
-
-	^ WAHtmlCanvas
+	self document
+		openTag: element tag
+		attributes: element attributes
+		closed: element isClosed.
+	element isClosed ifTrue: [ ^ self ].
+	element renderContentOn: self.
+	self document closeTag: element tag
 ]

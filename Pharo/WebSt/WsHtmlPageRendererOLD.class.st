@@ -1,11 +1,11 @@
 Class {
-	#name : #WsHtmlPageRenderer,
-	#superclass : #WsHtmlRenderer,
-	#category : #'WebSt-Kernel'
+	#name : #WsHtmlPageRendererOLD,
+	#superclass : #WsHtmlRendererOLD,
+	#category : #'WebSt-KernelOLDOLD'
 }
 
 { #category : #initialization }
-WsHtmlPageRenderer >> initialize [
+WsHtmlPageRendererOLD >> initialize [
 
 	super initialize.
 	builder
@@ -14,7 +14,7 @@ WsHtmlPageRenderer >> initialize [
 ]
 
 { #category : #rendering }
-WsHtmlPageRenderer >> render: aComponent [
+WsHtmlPageRendererOLD >> render: aComponent [
 
 	builder scriptGeneratorClass: aComponent loadScriptGeneratorClass.
 	^super render: aComponent.
@@ -22,7 +22,7 @@ WsHtmlPageRenderer >> render: aComponent [
 ]
 
 { #category : #rendering }
-WsHtmlPageRenderer >> setUpRoot: root [
+WsHtmlPageRendererOLD >> setUpRoot: root [
 
 	root title: self title.
 	root beHtml5.
@@ -31,6 +31,6 @@ WsHtmlPageRenderer >> setUpRoot: root [
 ]
 
 { #category : #rendering }
-WsHtmlPageRenderer >> title [
+WsHtmlPageRendererOLD >> title [
 	^component title
 ]

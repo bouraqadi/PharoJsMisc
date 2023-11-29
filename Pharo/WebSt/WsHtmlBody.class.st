@@ -1,25 +1,17 @@
 Class {
 	#name : #WsHtmlBody,
-	#superclass : #WAPainter,
+	#superclass : #Object,
+	#traits : 'WsTBasicComponent',
+	#classTraits : 'WsTBasicComponent classTrait',
 	#instVars : [
-		'htmlString'
+		'rootComponent'
 	],
 	#category : #'WebSt-Kernel'
 }
 
-{ #category : #'instance creation' }
-WsHtmlBody class >> on: aString [
-	^self new 
-		htmlString: aString;
-		yourself
-]
-
-{ #category : #accessing }
-WsHtmlBody >> htmlString: aString [
-	htmlString := aString
-]
-
 { #category : #rendering }
-WsHtmlBody >> renderContentOn: aRenderer [
-	aRenderer html: htmlString
+WsHtmlBody >> renderContentOn: html [
+
+	html body: [ 
+		html render: rootComponent ]
 ]

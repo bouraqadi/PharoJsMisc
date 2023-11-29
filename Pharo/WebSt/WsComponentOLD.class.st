@@ -1,7 +1,7 @@
 Class {
 	#name : #WsComponentOLD,
 	#superclass : #WsStaticHtmlComponentOLD,
-	#category : #'WebSt-Kernel'
+	#category : #'WebSt-KernelOLDOLD'
 }
 
 { #category : #'rendering private' }

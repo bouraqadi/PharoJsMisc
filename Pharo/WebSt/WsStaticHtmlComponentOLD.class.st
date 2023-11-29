@@ -1,7 +1,7 @@
 Class {
 	#name : #WsStaticHtmlComponentOLD,
 	#superclass : #WAPainter,
-	#category : #'WebSt-Kernel'
+	#category : #'WebSt-KernelOLDOLD'
 }
 
 { #category : #'instance creation' }
