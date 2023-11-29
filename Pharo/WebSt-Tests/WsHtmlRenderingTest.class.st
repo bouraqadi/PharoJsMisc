@@ -14,6 +14,23 @@ WsHtmlRenderingTest >> stringWithAll: expectedEntries [
 ]
 
 { #category : #tests }
+WsHtmlRenderingTest >> testBodyEmpty [
+
+	self assert: WsHtmlBody html equals: '<body></body>'
+]
+
+{ #category : #tests }
+WsHtmlRenderingTest >> testBodyWithBasicComponent [
+
+	| body root |
+	body := WsHtmlBody new.
+	root := WsSimpleComponentForTest new.
+	root message: 'I am very basic'.
+	body rootComponent: root.
+	self assert: body html equals: '<body><p>I am very basic</p></body>'
+]
+
+{ #category : #tests }
 WsHtmlRenderingTest >> testHeaderBasic [
 	| expectedHtml |
 	expectedHtml := self stringWithAll: #(

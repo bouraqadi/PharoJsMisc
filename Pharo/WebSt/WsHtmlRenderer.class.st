@@ -14,6 +14,18 @@ WsHtmlRenderer class >> render: component [
 	^ self new render: component; html
 ]
 
+{ #category : #rendering }
+WsHtmlRenderer >> body [
+
+	^ self tag: 'body'
+]
+
+{ #category : #rendering }
+WsHtmlRenderer >> body: aBlock [
+
+	self body with: aBlock
+]
+
 { #category : #accessing }
 WsHtmlRenderer >> document [
 

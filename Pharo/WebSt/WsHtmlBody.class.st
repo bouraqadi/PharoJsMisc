@@ -15,3 +15,15 @@ WsHtmlBody >> renderContentOn: html [
 	html body: [ 
 		html render: rootComponent ]
 ]
+
+{ #category : #accessing }
+WsHtmlBody >> rootComponent [
+
+	^ rootComponent
+]
+
+{ #category : #accessing }
+WsHtmlBody >> rootComponent: anObject [
+
+	rootComponent := anObject
+]
