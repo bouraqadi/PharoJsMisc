@@ -1,11 +1,11 @@
 Class {
-	#name : #WsHtmlRenderingTest,
+	#name : #WsComponentTest,
 	#superclass : #TestCase,
-	#category : #'WebSt-Tests'
+	#category : #'WebSt-Tests-Kernel'
 }
 
 { #category : #tests }
-WsHtmlRenderingTest >> stringWithAll: expectedEntries [
+WsComponentTest >> stringWithAll: expectedEntries [
 
 	| expectedHead |
 	expectedHead := String streamContents: [ :str |
@@ -14,7 +14,7 @@ WsHtmlRenderingTest >> stringWithAll: expectedEntries [
 ]
 
 { #category : #tests }
-WsHtmlRenderingTest >> testBasicComponentResources [
+WsComponentTest >> testBasicComponentResources [
 
 	| component titleString messageString expectedHtml jsUrl cssUrl |
 	component := WsLeafComponentForTest new.
@@ -42,7 +42,7 @@ WsHtmlRenderingTest >> testBasicComponentResources [
 ]
 
 { #category : #tests }
-WsHtmlRenderingTest >> testBodyBasicComponent [
+WsComponentTest >> testBodyBasicComponent [
 
 	| body root rootHtml|
 	body := WsHtmlBody new.
@@ -55,13 +55,13 @@ WsHtmlRenderingTest >> testBodyBasicComponent [
 ]
 
 { #category : #tests }
-WsHtmlRenderingTest >> testBodyEmpty [
+WsComponentTest >> testBodyEmpty [
 
 	self assert: WsHtmlBody html equals: '<body></body>'
 ]
 
 { #category : #tests }
-WsHtmlRenderingTest >> testComposite [
+WsComponentTest >> testComposite [
 	"Ensure resources for subcomponents are exported, but without duplication"
 
 	| expectedHtml jsUrl cssUrl message1 message2 component |
@@ -94,13 +94,13 @@ WsHtmlRenderingTest >> testComposite [
 ]
 
 { #category : #tests }
-WsHtmlRenderingTest >> testHeaderBasic [
+WsComponentTest >> testHeaderBasic [
 
 	self assert: WsHtmlHead html equals: '<head><meta charset="utf-8"/></head>'
 ]
 
 { #category : #tests }
-WsHtmlRenderingTest >> testHeaderTitle [
+WsComponentTest >> testHeaderTitle [
 
 	| head |
 	head := WsHtmlHead new.
@@ -109,7 +109,7 @@ WsHtmlRenderingTest >> testHeaderTitle [
 ]
 
 { #category : #tests }
-WsHtmlRenderingTest >> testPageBasicComponent [
+WsComponentTest >> testPageBasicComponent [
 
 	| page root titleString messageString expectedHtml |
 	page := WsHtmlPage new.
@@ -128,7 +128,7 @@ WsHtmlRenderingTest >> testPageBasicComponent [
 ]
 
 { #category : #tests }
-WsHtmlRenderingTest >> testPageEmpty [
+WsComponentTest >> testPageEmpty [
 
 	self
 		assert: WsHtmlPage new html

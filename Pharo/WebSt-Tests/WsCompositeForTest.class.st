@@ -7,7 +7,7 @@ Class {
 		'child1',
 		'child2'
 	],
-	#category : #'WebSt-Tests'
+	#category : #'WebSt-Tests-Kernel'
 }
 
 { #category : #accessing }

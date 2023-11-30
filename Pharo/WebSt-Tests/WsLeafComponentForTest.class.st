@@ -8,7 +8,7 @@ Class {
 		'title',
 		'externalResources'
 	],
-	#category : #'WebSt-Tests'
+	#category : #'WebSt-Tests-Kernel'
 }
 
 { #category : #accessing }
