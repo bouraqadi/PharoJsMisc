@@ -24,6 +24,11 @@ WsTView >> addResourceClass: resourceClass url: urlString [
 	self addResource: aResource
 ]
 
+{ #category : #converting }
+WsTView >> asTemplate [
+	^WsTemplateView content: self
+]
+
 { #category : #accessing }
 WsTView >> externalResources [
 	^#()

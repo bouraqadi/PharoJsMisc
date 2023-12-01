@@ -66,6 +66,39 @@ WsViewTest >> testCompositeView [
 ]
 
 { #category : #tests }
+WsViewTest >> testCompositeViewTemplate [
+	"Ensure resources for subviews are exported, but without duplication"
+
+	| expectedHtml jsUrl cssUrl message1 message2 view |
+	jsUrl := 'path/file.js'.
+	cssUrl := 'http://server.domain:port/ui/lib.css'.
+	message1 := 'Welcome!'.
+	message2 := 'What a surprize!!!'.
+	expectedHtml := self stringWithAll: {
+			                '<!doctype html><html><head><meta charset="utf-8"/><title>'.
+			                WsTemplateView name.
+			                '</title><script defer type="text/javascript" src="'.
+			                jsUrl.
+			                '"></script><link rel="stylesheet" href="'.
+			                cssUrl.
+			                '"/></head><body><template><div><p>'.
+			                message1.
+			                '</p><p>'.
+			                message2.
+			                '</p></div></template></body></html>' }.
+	view := WsCompositeViewForTest new.
+	view child1 message: message1.
+	view child2 message: message2.
+	{
+		view child1.
+		view child2 } do: [ :each |
+		each
+			useJsAt: jsUrl;
+			useCssAt: cssUrl ].
+	self assert: view asTemplate pageHtml equals: expectedHtml
+]
+
+{ #category : #tests }
 WsViewTest >> testHeaderBasic [
 
 	self assert: WsHtmlHead html equals: '<head><meta charset="utf-8"/></head>'
@@ -106,6 +139,18 @@ WsViewTest >> testLeafViewResources [
 			                '</p></body></html>' }.
 
 	self assert: view pageHtml equals: expectedHtml
+]
+
+{ #category : #tests }
+WsViewTest >> testLeafViewTemplate [
+
+	| template leafView |
+	leafView := WsLeafViewForTest new.
+	leafView message: 'I am very basic'.
+	template := leafView asTemplate.
+	self
+		assert: template html
+		equals: '<template><p>I am very basic</p></template>'
 ]
 
 { #category : #tests }
