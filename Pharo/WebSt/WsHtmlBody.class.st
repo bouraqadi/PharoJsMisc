@@ -1,12 +1,12 @@
 Class {
 	#name : #WsHtmlBody,
 	#superclass : #Object,
-	#traits : 'WsTBasicComponent',
-	#classTraits : 'WsTBasicComponent classTrait',
+	#traits : 'WsTHtmlElement',
+	#classTraits : 'WsTHtmlElement classTrait',
 	#instVars : [
 		'rootComponent'
 	],
-	#category : #'WebSt-Kernel'
+	#category : #'WebSt-Views'
 }
 
 { #category : #rendering }

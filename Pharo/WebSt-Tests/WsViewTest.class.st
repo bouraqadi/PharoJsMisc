@@ -1,11 +1,11 @@
 Class {
-	#name : #WsComponentTest,
+	#name : #WsViewTest,
 	#superclass : #TestCase,
-	#category : #'WebSt-Tests-Kernel'
+	#category : #'WebSt-Tests-Views'
 }
 
 { #category : #tests }
-WsComponentTest >> stringWithAll: expectedEntries [
+WsViewTest >> stringWithAll: expectedEntries [
 
 	| expectedHead |
 	expectedHead := String streamContents: [ :str |
@@ -14,15 +14,82 @@ WsComponentTest >> stringWithAll: expectedEntries [
 ]
 
 { #category : #tests }
-WsComponentTest >> testBasicComponentResources [
+WsViewTest >> testBodyEmpty [
 
-	| component titleString messageString expectedHtml jsUrl cssUrl |
-	component := WsLeafComponentForTest new.
+	self assert: WsHtmlBody html equals: '<body></body>'
+]
+
+{ #category : #tests }
+WsViewTest >> testBodyLeafView [
+
+	| body root rootHtml|
+	body := WsHtmlBody new.
+	root := WsLeafViewForTest new.
+	root message: 'I am very basic'.
+	rootHtml := '<p>I am very basic</p>'.
+	self assert: root html equals: rootHtml.
+	body rootComponent: root.
+	self assert: body html equals: '<body>',rootHtml,'</body>'
+]
+
+{ #category : #tests }
+WsViewTest >> testCompositeView [
+	"Ensure resources for subviews are exported, but without duplication"
+
+	| expectedHtml jsUrl cssUrl message1 message2 view |
+	jsUrl := 'path/file.js'.
+	cssUrl := 'http://server.domain:port/ui/lib.css'.
+	message1 := 'Welcome!'.
+	message2 := 'What a surprize!!!'.
+	expectedHtml := self stringWithAll: {
+			                '<!doctype html><html><head><meta charset="utf-8"/><title>'.
+			                WsCompositeViewForTest name.
+			                '</title><script defer type="text/javascript" src="'.
+			                jsUrl.
+			                '"></script><link rel="stylesheet" href="'.
+			                cssUrl.
+			                '"/></head><body><div><p>'.
+			                message1.
+			                '</p><p>'.
+			                message2.
+			                '</p></div></body></html>' }.
+	view := WsCompositeViewForTest new.
+	view child1 message: message1.
+	view child2 message: message2.
+	{
+		view child1.
+		view child2 } do: [ :each |
+		each
+			useJsAt: jsUrl;
+			useCssAt: cssUrl ].
+	self assert: view pageHtml equals: expectedHtml
+]
+
+{ #category : #tests }
+WsViewTest >> testHeaderBasic [
+
+	self assert: WsHtmlHead html equals: '<head><meta charset="utf-8"/></head>'
+]
+
+{ #category : #tests }
+WsViewTest >> testHeaderTitle [
+
+	| head |
+	head := WsHtmlHead new.
+	head title: 'Short and Sweet'.
+	self assert: head html equals: '<head><meta charset="utf-8"/><title>Short and Sweet</title></head>'
+]
+
+{ #category : #tests }
+WsViewTest >> testLeafViewResources [
+
+	| view titleString messageString expectedHtml jsUrl cssUrl |
+	view := WsLeafViewForTest new.
 	titleString := 'New Shiny!'.
 	messageString := 'Experimenting with a different message.'.
 	jsUrl := 'path/file.js'.
 	cssUrl := 'http://server.domain:port/ui/lib.css'.
-	component
+	view
 		title: titleString;
 		message: messageString;
 		useJsAt: jsUrl;
@@ -38,82 +105,15 @@ WsComponentTest >> testBasicComponentResources [
 			                messageString.
 			                '</p></body></html>' }.
 
-	self assert: component pageHtml equals: expectedHtml
+	self assert: view pageHtml equals: expectedHtml
 ]
 
 { #category : #tests }
-WsComponentTest >> testBodyBasicComponent [
-
-	| body root rootHtml|
-	body := WsHtmlBody new.
-	root := WsLeafComponentForTest new.
-	root message: 'I am very basic'.
-	rootHtml := '<p>I am very basic</p>'.
-	self assert: root html equals: rootHtml.
-	body rootComponent: root.
-	self assert: body html equals: '<body>',rootHtml,'</body>'
-]
-
-{ #category : #tests }
-WsComponentTest >> testBodyEmpty [
-
-	self assert: WsHtmlBody html equals: '<body></body>'
-]
-
-{ #category : #tests }
-WsComponentTest >> testComposite [
-	"Ensure resources for subcomponents are exported, but without duplication"
-
-	| expectedHtml jsUrl cssUrl message1 message2 component |
-	jsUrl := 'path/file.js'.
-	cssUrl := 'http://server.domain:port/ui/lib.css'.
-	message1 := 'Welcome!'.
-	message2 := 'What a surprize!!!'.
-	expectedHtml := self stringWithAll: {
-			                '<!doctype html><html><head><meta charset="utf-8"/><title>'.
-			                WsCompositeForTest name.
-			                '</title><script defer type="text/javascript" src="'.
-			                jsUrl.
-			                '"></script><link rel="stylesheet" href="'.
-			                cssUrl.
-			                '"/></head><body><div><p>'.
-			                message1.
-			                '</p><p>'.
-			                message2.
-			                '</p></div></body></html>' }.
-	component := WsCompositeForTest new.
-	component child1 message: message1.
-	component child2 message: message2.
-	{
-		component child1.
-		component child2 } do: [ :each |
-		each
-			useJsAt: jsUrl;
-			useCssAt: cssUrl ].
-	self assert: component pageHtml equals: expectedHtml
-]
-
-{ #category : #tests }
-WsComponentTest >> testHeaderBasic [
-
-	self assert: WsHtmlHead html equals: '<head><meta charset="utf-8"/></head>'
-]
-
-{ #category : #tests }
-WsComponentTest >> testHeaderTitle [
-
-	| head |
-	head := WsHtmlHead new.
-	head title: 'Short and Sweet'.
-	self assert: head html equals: '<head><meta charset="utf-8"/><title>Short and Sweet</title></head>'
-]
-
-{ #category : #tests }
-WsComponentTest >> testPageBasicComponent [
+WsViewTest >> testPageBasicComponent [
 
 	| page root titleString messageString expectedHtml |
 	page := WsHtmlPage new.
-	root := WsLeafComponentForTest new.
+	root := WsLeafViewForTest new.
 	titleString := 'Default title'.
 	messageString := 'Nice message'.
 	page body rootComponent: root.
@@ -124,11 +124,11 @@ WsComponentTest >> testPageBasicComponent [
 			                messageString.
 			                '</p></body></html>' }.
 	self assert: page html equals: expectedHtml.
-	self assert: WsLeafComponentForTest pageHtml equals: expectedHtml
+	self assert: WsLeafViewForTest pageHtml equals: expectedHtml
 ]
 
 { #category : #tests }
-WsComponentTest >> testPageEmpty [
+WsViewTest >> testPageEmpty [
 
 	self
 		assert: WsHtmlPage new html

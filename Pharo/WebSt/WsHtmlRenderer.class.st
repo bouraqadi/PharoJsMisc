@@ -5,7 +5,7 @@ Class {
 		'stream',
 		'document'
 	],
-	#category : #'WebSt-Kernel'
+	#category : #'WebSt-Views'
 }
 
 { #category : #rendering }
@@ -89,4 +89,14 @@ WsHtmlRenderer >> renderHeadChild: element [
 	element isClosed ifTrue: [ ^ self ].
 	element renderContentOn: self.
 	self document closeTag: element tag
+]
+
+{ #category : #rendering }
+WsHtmlRenderer >> template [
+	^self tag: #template
+]
+
+{ #category : #'instance creation' }
+WsHtmlRenderer >> template: aBlock [ 
+	self template with: aBlock
 ]

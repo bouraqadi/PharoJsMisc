@@ -5,7 +5,7 @@ Class {
 		'head',
 		'body'
 	],
-	#category : #'WebSt-Kernel'
+	#category : #'WebSt-Views'
 }
 
 { #category : #accessing }

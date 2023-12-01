@@ -4,13 +4,14 @@ I represent an external CSS file.
 Class {
 	#name : #WsCssResource,
 	#superclass : #WsResource,
-	#category : #'WebSt-Kernel'
+	#category : #'WebSt-Views'
 }
 
 { #category : #initialization }
-WsCssResource >> renderContentOn: html [
+WsCssResource >> renderTagOn: html [
 
-	html link
+	^ html link
 		beStylesheet;
-		url: self url
+		url: self url;
+		yourself
 ]

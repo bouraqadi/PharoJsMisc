@@ -7,12 +7,14 @@ My subclasses should allow representing specific kinds of resources such as CSS 
 Class {
 	#name : #WsResource,
 	#superclass : #Object,
-	#traits : 'WsTBasicComponent',
-	#classTraits : 'WsTBasicComponent classTrait',
+	#traits : 'WsTHtmlElement',
+	#classTraits : 'WsTHtmlElement classTrait',
 	#instVars : [
-		'url'
+		'url',
+		'integrity',
+		'crossorigin'
 	],
-	#category : #'WebSt-Kernel'
+	#category : #'WebSt-Views'
 }
 
 { #category : #'instance creation' }
@@ -31,11 +33,35 @@ WsResource >> = anObject [
 	^ url = anObject url
 ]
 
+{ #category : #initialization }
+WsResource >> crossoriginAnonymous [
+	crossorigin := 'anonymous'
+]
+
 { #category : #comparing }
 WsResource >> hash [
 	"Answer an integer value that is related to the identity of the receiver."
 
 	^ url hash
+]
+
+{ #category : #accessing }
+WsResource >> integrity: aString [
+	integrity := aString
+]
+
+{ #category : #rendering }
+WsResource >> renderContentOn: html [
+
+	(self renderTagOn: html)
+		attributeAt: #integrity put: integrity;
+		attributeAt: #crossorigin put: crossorigin
+]
+
+{ #category : #rendering }
+WsResource >> renderTagOn: html [
+
+	self subclassResponsibility
 ]
 
 { #category : #accessing }

@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'title'
 	],
-	#category : #'WebSt-Kernel'
+	#category : #'WebSt-Views'
 }
 
 { #category : #testing }

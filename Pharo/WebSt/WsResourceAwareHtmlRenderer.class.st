@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'resources'
 	],
-	#category : #'WebSt-Kernel'
+	#category : #'WebSt-Views'
 }
 
 { #category : #initialization }

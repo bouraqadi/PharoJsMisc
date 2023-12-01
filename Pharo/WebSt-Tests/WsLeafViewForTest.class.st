@@ -1,62 +1,62 @@
 Class {
-	#name : #WsLeafComponentForTest,
+	#name : #WsLeafViewForTest,
 	#superclass : #Object,
-	#traits : 'WsTComponent',
-	#classTraits : 'WsTComponent classTrait',
+	#traits : 'WsTView',
+	#classTraits : 'WsTView classTrait',
 	#instVars : [
 		'message',
 		'title',
 		'externalResources'
 	],
-	#category : #'WebSt-Tests-Kernel'
+	#category : #'WebSt-Tests-Views'
 }
 
 { #category : #accessing }
-WsLeafComponentForTest >> externalResources [
+WsLeafViewForTest >> externalResources [
 
 	^ externalResources
 ]
 
 { #category : #accessing }
-WsLeafComponentForTest >> externalResources: anObject [
+WsLeafViewForTest >> externalResources: anObject [
 
 	externalResources := anObject
 ]
 
 { #category : #initialization }
-WsLeafComponentForTest >> initialize [
+WsLeafViewForTest >> initialize [
 
 	super initialize.
 	externalResources := OrderedCollection new
 ]
 
 { #category : #accessing }
-WsLeafComponentForTest >> message [
+WsLeafViewForTest >> message [
 
 	^ message ifNil: [ 'Nice message'. ]
 ]
 
 { #category : #accessing }
-WsLeafComponentForTest >> message: anObject [
+WsLeafViewForTest >> message: anObject [
 
 	message := anObject
 ]
 
 { #category : #rendering }
-WsLeafComponentForTest >> renderContentOn: html [
+WsLeafViewForTest >> renderContentOn: html [
 
 	html
 		paragraph: [ html text: self message ]
 ]
 
 { #category : #accessing }
-WsLeafComponentForTest >> title [
+WsLeafViewForTest >> title [
 
 	^ title ifNil: [ 'Default title' ]
 ]
 
 { #category : #accessing }
-WsLeafComponentForTest >> title: anObject [
+WsLeafViewForTest >> title: anObject [
 
 	title := anObject
 ]

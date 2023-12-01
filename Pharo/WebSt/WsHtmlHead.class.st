@@ -1,13 +1,13 @@
 Class {
 	#name : #WsHtmlHead,
 	#superclass : #Object,
-	#traits : 'WsTBasicComponent',
-	#classTraits : 'WsTBasicComponent classTrait',
+	#traits : 'WsTHtmlElement',
+	#classTraits : 'WsTHtmlElement classTrait',
 	#instVars : [
 		'children',
 		'titleChild'
 	],
-	#category : #'WebSt-Kernel'
+	#category : #'WebSt-Views'
 }
 
 { #category : #accessing }
