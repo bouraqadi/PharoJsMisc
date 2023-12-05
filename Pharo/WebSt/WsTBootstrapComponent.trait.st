@@ -1,7 +1,7 @@
 Trait {
 	#name : #WsTBootstrapComponent,
-	#traits : 'WsTView',
-	#classTraits : 'WsTView classTrait',
+	#traits : 'WsTViewFactory',
+	#classTraits : 'WsTViewFactory classTrait',
 	#category : #'WebSt-Examples'
 }
 

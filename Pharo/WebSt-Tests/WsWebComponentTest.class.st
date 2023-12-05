@@ -1,5 +1,5 @@
 Class {
 	#name : #WsWebComponentTest,
-	#superclass : #WsViewTest,
+	#superclass : #WsViewFactoryTest,
 	#category : #'WebSt-Tests-WebComponents'
 }

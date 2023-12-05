@@ -1,8 +1,8 @@
 Class {
 	#name : #WsCounterComponent,
 	#superclass : #Object,
-	#traits : 'WsTView',
-	#classTraits : 'WsTView classTrait',
+	#traits : 'WsTViewFactory',
+	#classTraits : 'WsTViewFactory classTrait',
 	#category : #'WebSt-Examples'
 }
 

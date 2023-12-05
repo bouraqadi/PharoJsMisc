@@ -5,7 +5,7 @@ Class {
 		'appJsFileName',
 		'appJsSubFolder'
 	],
-	#category : #'WebSt-Tests'
+	#category : #'WebSt-Tests-WebComponents'
 }
 
 { #category : #'accessing - description' }

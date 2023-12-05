@@ -1,31 +1,31 @@
 Trait {
-	#name : #WsTHtmlElement,
+	#name : #WsTHtmlElementFactory,
 	#category : #'WebSt-Views'
 }
 
 { #category : #rendering }
-WsTHtmlElement classSide >> html [
+WsTHtmlElementFactory classSide >> html [
 
 	^ self new html
 ]
 
 { #category : #rendering }
-WsTHtmlElement >> html [
+WsTHtmlElementFactory >> html [
 ^self renderClass render: self
 ]
 
 { #category : #rendering }
-WsTHtmlElement >> renderClass [
+WsTHtmlElementFactory >> renderClass [
 	^WsHtmlRenderer
 ]
 
 { #category : #rendering }
-WsTHtmlElement >> renderContentOn: html [
+WsTHtmlElementFactory >> renderContentOn: html [
 
 	^ self explicitRequirement 
 ]
 
 { #category : #rendering }
-WsTHtmlElement >> renderOn: aRenderer [
+WsTHtmlElementFactory >> renderOn: aRenderer [
 	self renderContentOn: aRenderer
 ]

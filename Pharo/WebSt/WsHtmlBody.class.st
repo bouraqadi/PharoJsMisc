@@ -1,8 +1,8 @@
 Class {
 	#name : #WsHtmlBody,
 	#superclass : #Object,
-	#traits : 'WsTHtmlElement',
-	#classTraits : 'WsTHtmlElement classTrait',
+	#traits : 'WsTHtmlElementFactory',
+	#classTraits : 'WsTHtmlElementFactory classTrait',
 	#instVars : [
 		'rootComponent'
 	],

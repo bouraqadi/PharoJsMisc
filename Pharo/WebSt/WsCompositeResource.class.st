@@ -1,8 +1,8 @@
 Class {
 	#name : #WsCompositeResource,
 	#superclass : #Object,
-	#traits : 'WsTHtmlElement',
-	#classTraits : 'WsTHtmlElement classTrait',
+	#traits : 'WsTHtmlElementFactory',
+	#classTraits : 'WsTHtmlElementFactory classTrait',
 	#instVars : [
 		'children'
 	],

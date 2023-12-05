@@ -1,23 +1,23 @@
 Trait {
-	#name : #WsTView,
-	#traits : 'WsTHtmlElement',
-	#classTraits : 'WsTHtmlElement classTrait',
+	#name : #WsTViewFactory,
+	#traits : 'WsTHtmlElementFactory',
+	#classTraits : 'WsTHtmlElementFactory classTrait',
 	#category : #'WebSt-Views'
 }
 
 { #category : #rendering }
-WsTView classSide >> pageHtml [
+WsTViewFactory classSide >> pageHtml [
 
 	^ self new pageHtml
 ]
 
 { #category : #accessing }
-WsTView >> addResource: aResource [
+WsTViewFactory >> addResource: aResource [
 	self externalResources add: aResource
 ]
 
 { #category : #accessing }
-WsTView >> addResourceClass: resourceClass url: urlString [
+WsTViewFactory >> addResourceClass: resourceClass url: urlString [
 
 	| aResource |
 	aResource := resourceClass url: urlString.
@@ -25,17 +25,17 @@ WsTView >> addResourceClass: resourceClass url: urlString [
 ]
 
 { #category : #converting }
-WsTView >> asTemplate [
-	^WsTemplateView content: self
+WsTViewFactory >> asTemplate [
+	^WsTemplateViewFactory content: self
 ]
 
 { #category : #accessing }
-WsTView >> externalResources [
+WsTViewFactory >> externalResources [
 	^#()
 ]
 
 { #category : #rendering }
-WsTView >> pageHtml [
+WsTViewFactory >> pageHtml [
 
 	^WsHtmlPage new 
 		rootComponent: self;
@@ -43,25 +43,25 @@ WsTView >> pageHtml [
 ]
 
 { #category : #rendering }
-WsTView >> renderOn: aRenderer [
+WsTViewFactory >> renderOn: aRenderer [
 	aRenderer renderComponent: self
 ]
 
 { #category : #accessing }
-WsTView >> title [
+WsTViewFactory >> title [
 
 	^ self className
 ]
 
 { #category : #accessing }
-WsTView >> useCssAt: urlString [
+WsTViewFactory >> useCssAt: urlString [
 
 	self addResourceClass: WsCssResource  url: urlString.
 
 ]
 
 { #category : #accessing }
-WsTView >> useJsAt: urlString [
+WsTViewFactory >> useJsAt: urlString [
 
 	self addResourceClass: WsJsResource url: urlString
 ]

@@ -7,8 +7,8 @@ My subclasses should allow representing specific kinds of resources such as CSS 
 Class {
 	#name : #WsResource,
 	#superclass : #Object,
-	#traits : 'WsTHtmlElement',
-	#classTraits : 'WsTHtmlElement classTrait',
+	#traits : 'WsTHtmlElementFactory',
+	#classTraits : 'WsTHtmlElementFactory classTrait',
 	#instVars : [
 		'url',
 		'integrity',

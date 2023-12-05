@@ -1,11 +1,11 @@
 Class {
-	#name : #WsViewTest,
+	#name : #WsViewFactoryTest,
 	#superclass : #TestCase,
 	#category : #'WebSt-Tests-Views'
 }
 
 { #category : #tests }
-WsViewTest >> stringWithAll: expectedEntries [
+WsViewFactoryTest >> stringWithAll: expectedEntries [
 
 	| expectedHead |
 	expectedHead := String streamContents: [ :str |
@@ -14,13 +14,13 @@ WsViewTest >> stringWithAll: expectedEntries [
 ]
 
 { #category : #tests }
-WsViewTest >> testBodyEmpty [
+WsViewFactoryTest >> testBodyEmpty [
 
 	self assert: WsHtmlBody html equals: '<body></body>'
 ]
 
 { #category : #tests }
-WsViewTest >> testBodyLeafView [
+WsViewFactoryTest >> testBodyLeafView [
 
 	| body root rootHtml|
 	body := WsHtmlBody new.
@@ -33,7 +33,7 @@ WsViewTest >> testBodyLeafView [
 ]
 
 { #category : #tests }
-WsViewTest >> testCompositeView [
+WsViewFactoryTest >> testCompositeView [
 	"Ensure resources for subviews are exported, but without duplication"
 
 	| expectedHtml jsUrl cssUrl message1 message2 view |
@@ -66,7 +66,7 @@ WsViewTest >> testCompositeView [
 ]
 
 { #category : #tests }
-WsViewTest >> testCompositeViewTemplate [
+WsViewFactoryTest >> testCompositeViewTemplate [
 	"Ensure resources for subviews are exported, but without duplication"
 
 	| expectedHtml jsUrl cssUrl message1 message2 view |
@@ -76,7 +76,7 @@ WsViewTest >> testCompositeViewTemplate [
 	message2 := 'What a surprize!!!'.
 	expectedHtml := self stringWithAll: {
 			                '<!doctype html><html><head><meta charset="utf-8"/><title>'.
-			                WsTemplateView name.
+			                WsTemplateViewFactory name.
 			                '</title><script defer type="text/javascript" src="'.
 			                jsUrl.
 			                '"></script><link rel="stylesheet" href="'.
@@ -99,13 +99,13 @@ WsViewTest >> testCompositeViewTemplate [
 ]
 
 { #category : #tests }
-WsViewTest >> testHeaderBasic [
+WsViewFactoryTest >> testHeaderBasic [
 
 	self assert: WsHtmlHead html equals: '<head><meta charset="utf-8"/></head>'
 ]
 
 { #category : #tests }
-WsViewTest >> testHeaderTitle [
+WsViewFactoryTest >> testHeaderTitle [
 
 	| head |
 	head := WsHtmlHead new.
@@ -114,7 +114,7 @@ WsViewTest >> testHeaderTitle [
 ]
 
 { #category : #tests }
-WsViewTest >> testLeafViewResources [
+WsViewFactoryTest >> testLeafViewResources [
 
 	| view titleString messageString expectedHtml jsUrl cssUrl |
 	view := WsLeafViewForTest new.
@@ -142,7 +142,7 @@ WsViewTest >> testLeafViewResources [
 ]
 
 { #category : #tests }
-WsViewTest >> testLeafViewTemplate [
+WsViewFactoryTest >> testLeafViewTemplate [
 
 	| template leafView |
 	leafView := WsLeafViewForTest new.
@@ -154,7 +154,7 @@ WsViewTest >> testLeafViewTemplate [
 ]
 
 { #category : #tests }
-WsViewTest >> testPageBasicComponent [
+WsViewFactoryTest >> testPageBasicComponent [
 
 	| page root titleString messageString expectedHtml |
 	page := WsHtmlPage new.
@@ -173,7 +173,7 @@ WsViewTest >> testPageBasicComponent [
 ]
 
 { #category : #tests }
-WsViewTest >> testPageEmpty [
+WsViewFactoryTest >> testPageEmpty [
 
 	self
 		assert: WsHtmlPage new html

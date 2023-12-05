@@ -1,8 +1,8 @@
 Class {
 	#name : #WsLeafViewForTest,
 	#superclass : #Object,
-	#traits : 'WsTView',
-	#classTraits : 'WsTView classTrait',
+	#traits : 'WsTViewFactory',
+	#classTraits : 'WsTViewFactory classTrait',
 	#instVars : [
 		'message',
 		'title',
