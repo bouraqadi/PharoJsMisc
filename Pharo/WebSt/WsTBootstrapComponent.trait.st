@@ -2,7 +2,7 @@ Trait {
 	#name : #WsTBootstrapComponent,
 	#traits : 'WsTViewFactory',
 	#classTraits : 'WsTViewFactory classTrait',
-	#category : #'WebSt-Examples'
+	#category : #'WebSt-Library'
 }
 
 { #category : #accessing }

@@ -4,8 +4,8 @@ Class {
 	#category : #'WebSt-WebComponents'
 }
 
-{ #category : #testing }
-WsHTMLElement >> javascriptName [
+{ #category : #'pharoJs support' }
+WsHTMLElement class >> javascriptName [
 
 	<pharoJsSkip>
 	^ #HTMLElement

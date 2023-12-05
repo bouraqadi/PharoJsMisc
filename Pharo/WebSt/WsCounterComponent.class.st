@@ -1,44 +1,66 @@
 Class {
 	#name : #WsCounterComponent,
-	#superclass : #Object,
-	#traits : 'WsTViewFactory',
-	#classTraits : 'WsTViewFactory classTrait',
-	#category : #'WebSt-Examples'
+	#superclass : #WsWebComponent,
+	#traits : 'WsTConcreteWebComponent',
+	#classTraits : 'WsTConcreteWebComponent classTrait',
+	#instVars : [
+		'display',
+		'counter'
+	],
+	#category : #'WebSt-Library'
 }
 
-{ #category : #accessing }
-WsCounterComponent >> externalResources [
-
-	^ { WsBootstrapResources bootstrap502 }
+{ #category : #'class initialization' }
+WsCounterComponent class >> tagName [
+	^'ws-counter'
 ]
 
-{ #category : #rendering }
-WsCounterComponent >> renderContentOn: html [
-
-	html div
-		class: 'd-flex flex-column align-items-center p-1';
-		with: [
-			html div
-				class: 'me-1 text-center fs-1';
-				with: [ html text: 0 ].
-			html div
-				class: 'btn-group';
-				with: [
-					html button
-						bePush;
-						class: 'btn btn-primary';
-						value: '+'.
-					html button
-						bePush;
-						class: 'btn btn-info';
-						value: '-'.
-					html button
-						bePush;
-						class: 'btn btn-danger';
-						value: 'x' ] ]
+{ #category : #'class initialization' }
+WsCounterComponent class >> viewFactoryClass [
+<pharoJsSkip>
+	^ WsCounterViewFactory
 ]
 
-{ #category : #accessing }
-WsCounterComponent >> title [
-	^#Counter
+{ #category : #actions }
+WsCounterComponent >> decrement [
+
+	counter decrement.
+	self updateDisplay
+]
+
+{ #category : #actions }
+WsCounterComponent >> increment [
+	counter increment.
+	self updateDisplay 
+]
+
+{ #category : #initialization }
+WsCounterComponent >> initModel [
+	counter := WsCounterModel new
+]
+
+{ #category : #initialization }
+WsCounterComponent >> initView [
+	| incrementButton decrementButton resetButton |
+	super initView.
+	display := view querySelector: '.display'.
+	incrementButton := view querySelector: '.increment'.
+	self onClickElement: incrementButton do: [ self increment ].
+	decrementButton := view querySelector: '.decrement'.
+	self onClickElement: decrementButton do: [ self decrement ].
+	resetButton := view querySelector: '.reset'.
+	self onClickElement: resetButton do: [ self reset ].
+	self updateDisplay
+]
+
+{ #category : #actions }
+WsCounterComponent >> reset [
+
+	counter reset.
+	self updateDisplay
+]
+
+{ #category : #actions }
+WsCounterComponent >> updateDisplay [ 
+display textContent: counter count
 ]
