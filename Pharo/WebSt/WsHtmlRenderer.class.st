@@ -63,15 +63,9 @@ WsHtmlRenderer >> link [
 ]
 
 { #category : #rendering }
-WsHtmlRenderer >> render: aComponent [
+WsHtmlRenderer >> render: aView [
 
-	aComponent renderOn: self
-]
-
-{ #category : #rendering }
-WsHtmlRenderer >> renderComponent: aComponent [
-
-	aComponent renderContentOn: self
+	aView renderOn: self
 ]
 
 { #category : #rendering }
@@ -89,6 +83,12 @@ WsHtmlRenderer >> renderHeadChild: element [
 	element isClosed ifTrue: [ ^ self ].
 	element renderContentOn: self.
 	self document closeTag: element tag
+]
+
+{ #category : #rendering }
+WsHtmlRenderer >> renderView: aView [
+
+	aView renderContentOn: self
 ]
 
 { #category : #rendering }

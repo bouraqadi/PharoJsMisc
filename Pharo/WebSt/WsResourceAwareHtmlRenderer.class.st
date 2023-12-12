@@ -15,10 +15,10 @@ WsResourceAwareHtmlRenderer >> initialize [
 ]
 
 { #category : #rendering }
-WsResourceAwareHtmlRenderer >> renderComponent: aComponent [
+WsResourceAwareHtmlRenderer >> renderView: aView [
 
-	resources addAll: aComponent externalResources.
-	super renderComponent: aComponent
+	resources addAll: aView externalResources.
+	super renderView: aView
 ]
 
 { #category : #accessing }

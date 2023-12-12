@@ -44,7 +44,7 @@ WsTViewFactory >> pageHtml [
 
 { #category : #rendering }
 WsTViewFactory >> renderOn: aRenderer [
-	aRenderer renderComponent: self
+	aRenderer renderView: self
 ]
 
 { #category : #accessing }
