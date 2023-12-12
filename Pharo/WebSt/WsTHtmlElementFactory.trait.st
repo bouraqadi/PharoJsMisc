@@ -27,5 +27,7 @@ WsTHtmlElementFactory >> renderContentOn: html [
 
 { #category : #rendering }
 WsTHtmlElementFactory >> renderOn: aRenderer [
-	self renderContentOn: aRenderer
+
+	self explicitRequirement 
+	
 ]

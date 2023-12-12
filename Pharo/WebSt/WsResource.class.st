@@ -59,6 +59,12 @@ WsResource >> renderContentOn: html [
 ]
 
 { #category : #rendering }
+WsResource >> renderOn: aRenderer [
+
+	aRenderer renderHeadChild: self
+]
+
+{ #category : #rendering }
 WsResource >> renderTagOn: html [
 
 	self subclassResponsibility
