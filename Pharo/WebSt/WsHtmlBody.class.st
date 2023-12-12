@@ -16,6 +16,12 @@ WsHtmlBody >> renderContentOn: html [
 		html render: rootView ]
 ]
 
+{ #category : #rendering }
+WsHtmlBody >> renderOn: aRenderer [
+
+	aRenderer renderBody: self
+]
+
 { #category : #accessing }
 WsHtmlBody >> rootView [
 

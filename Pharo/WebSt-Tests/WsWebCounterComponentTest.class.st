@@ -82,7 +82,6 @@ WsWebCounterComponentTest >> testHtmlPageGeneration [
 
 	| componentHtml bodyHtml headHtml pageHtml |
 	componentHtml := '<' , self tagName , '></' , self tagName , '>'.
-	self halt.
 	pageHtml := WsCounterComponent pageHtml.
 	bodyHtml := document body innerHTML.
 	{

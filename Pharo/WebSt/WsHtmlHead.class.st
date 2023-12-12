@@ -56,6 +56,12 @@ WsHtmlHead >> renderContentOn: html [
 	html head: [ self renderChildrenOn: html ]
 ]
 
+{ #category : #rendering }
+WsHtmlHead >> renderOn: aRenderer [
+
+	aRenderer renderHead: self
+]
+
 { #category : #accessing }
 WsHtmlHead >> title: aString [
 

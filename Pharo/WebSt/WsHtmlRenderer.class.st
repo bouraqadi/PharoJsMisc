@@ -45,7 +45,9 @@ WsHtmlRenderer >> head: aBlock [
 
 { #category : #accessing }
 WsHtmlRenderer >> html [
-	^stream contents
+
+	self flush.
+	^ stream contents
 ]
 
 { #category : #initialization }
@@ -69,8 +71,18 @@ WsHtmlRenderer >> render: aView [
 ]
 
 { #category : #rendering }
+WsHtmlRenderer >> renderBody: aWsHtmlBody [ 
+	aWsHtmlBody renderContentOn: self
+]
+
+{ #category : #rendering }
 WsHtmlRenderer >> renderDocType [
 	self document nextPutAll: '<!doctype html>'
+]
+
+{ #category : #rendering }
+WsHtmlRenderer >> renderHead: aWsHtmlHead [ 
+	aWsHtmlHead renderContentOn: self
 ]
 
 { #category : #rendering }
@@ -83,6 +95,12 @@ WsHtmlRenderer >> renderHeadChild: element [
 	element isClosed ifTrue: [ ^ self ].
 	element renderContentOn: self.
 	self document closeTag: element tag
+]
+
+{ #category : #rendering }
+WsHtmlRenderer >> renderResource: aResource [
+
+	^ aResource renderContentOn: self
 ]
 
 { #category : #rendering }

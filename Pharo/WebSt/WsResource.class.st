@@ -61,7 +61,7 @@ WsResource >> renderContentOn: html [
 { #category : #rendering }
 WsResource >> renderOn: aRenderer [
 
-	aRenderer renderHeadChild: self
+	aRenderer renderResource: self
 ]
 
 { #category : #rendering }

@@ -99,18 +99,23 @@ WsViewFactoryTest >> testCompositeViewTemplate [
 ]
 
 { #category : #tests }
-WsViewFactoryTest >> testHeaderBasic [
+WsViewFactoryTest >> testHeadBasic [
 
-	self assert: WsHtmlHead html equals: '<head><meta charset="utf-8"/></head>'
+	self
+		assert: WsHtmlHead html
+		equals: '<head><meta charset="utf-8"/></head>'
 ]
 
 { #category : #tests }
-WsViewFactoryTest >> testHeaderTitle [
+WsViewFactoryTest >> testHeadTitle [
 
 	| head |
 	head := WsHtmlHead new.
 	head title: 'Short and Sweet'.
-	self assert: head html equals: '<head><meta charset="utf-8"/><title>Short and Sweet</title></head>'
+	self
+		assert: head html
+		equals:
+		'<head><meta charset="utf-8"/><title>Short and Sweet</title></head>'
 ]
 
 { #category : #tests }

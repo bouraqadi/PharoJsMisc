@@ -31,5 +31,12 @@ WsCompositeResource >> children: anObject [
 { #category : #rendering }
 WsCompositeResource >> renderContentOn: html [
 
-	children do: [ : each | html render: each ]
+	children do: [ :each |
+		html render: each ]
+]
+
+{ #category : #rendering }
+WsCompositeResource >> renderOn: aRenderer [
+
+	aRenderer renderResource: self
 ]
