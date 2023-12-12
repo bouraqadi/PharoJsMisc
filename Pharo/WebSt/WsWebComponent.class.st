@@ -12,14 +12,14 @@ Class {
 	#category : #'WebSt-WebComponents'
 }
 
-{ #category : #'accessing view' }
-WsWebComponent class >> htmlString [
-	self subclassResponsibility
-]
-
 { #category : #'class initialization' }
 WsWebComponent class >> registerTag [
 	window customElements define: self tagName with: self
+]
+
+{ #category : #'accessing view' }
+WsWebComponent class >> shadowHtml [
+	self subclassResponsibility
 ]
 
 { #category : #'class initialization' }
@@ -40,11 +40,6 @@ WsWebComponent >> document [
 ]
 
 { #category : #initialization }
-WsWebComponent >> htmlString [
-	^self class htmlString
-]
-
-{ #category : #initialization }
 WsWebComponent >> initModel [
 	self subclassResponsibility 
 ]
@@ -54,7 +49,7 @@ WsWebComponent >> initView [
 
 	view := self attachShadow:
 		        { (#mode -> self shadowEncapsulationMode) } asJsObject.
-	view innerHTML: self htmlString.
+	view innerHTML: self shadowHtml.
 
 ]
 
@@ -75,4 +70,9 @@ WsWebComponent >> shadowEncapsulationMode [
 	See https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow"
 
 	^ 'open'
+]
+
+{ #category : #initialization }
+WsWebComponent >> shadowHtml [
+	^self class shadowHtml
 ]

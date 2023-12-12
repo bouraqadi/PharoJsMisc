@@ -4,13 +4,6 @@ Trait {
 }
 
 { #category : #'accessing view' }
-WsTConcreteWebComponent classSide >> htmlString [
-
-	<jsGenerator: #htmlString_jsGenerator:>
-	^ nil
-]
-
-{ #category : #'accessing view' }
 WsTConcreteWebComponent classSide >> htmlString_jsGenerator: transpiler [
 
 	<pharoJsSkip>
@@ -21,4 +14,11 @@ WsTConcreteWebComponent classSide >> htmlString_jsGenerator: transpiler [
 WsTConcreteWebComponent classSide >> javascriptInitialize [
 
 	self  registerTag
+]
+
+{ #category : #'accessing view' }
+WsTConcreteWebComponent classSide >> shadowHtml [
+
+	<jsGenerator: #htmlString_jsGenerator:>
+	^ nil
 ]
