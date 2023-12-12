@@ -1,8 +1,6 @@
 Class {
 	#name : #WsCompositeResource,
-	#superclass : #Object,
-	#traits : 'WsTHtmlElementFactory',
-	#classTraits : 'WsTHtmlElementFactory classTrait',
+	#superclass : #WsResource,
 	#instVars : [
 		'children'
 	],
@@ -33,10 +31,4 @@ WsCompositeResource >> renderContentOn: html [
 
 	children do: [ :each |
 		html render: each ]
-]
-
-{ #category : #rendering }
-WsCompositeResource >> renderOn: aRenderer [
-
-	aRenderer renderResource: self
 ]

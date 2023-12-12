@@ -3,7 +3,7 @@ I represent an external CSS file.
 "
 Class {
 	#name : #WsCssResource,
-	#superclass : #WsResource,
+	#superclass : #WsBasicResource,
 	#category : #'WebSt-Views'
 }
 

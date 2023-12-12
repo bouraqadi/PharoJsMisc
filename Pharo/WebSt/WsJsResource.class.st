@@ -3,7 +3,7 @@ I represent an external JS file.
 "
 Class {
 	#name : #WsJsResource,
-	#superclass : #WsResource,
+	#superclass : #WsBasicResource,
 	#category : #'WebSt-Views'
 }
 
