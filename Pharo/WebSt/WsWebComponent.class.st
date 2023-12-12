@@ -69,8 +69,10 @@ WsWebComponent >> initialize [
 
 { #category : #initialization }
 WsWebComponent >> shadowEncapsulationMode [
-	"Denies access from javaScript outside the root shadow dom
+	"Access from javaScript outside the root shadow dom is:
+	- granted when returning 'open' 
+	- denied when returning 'closed'. This option makes debugging challenging.
 	See https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow"
 
-	^ 'closed'
+	^ 'open'
 ]
