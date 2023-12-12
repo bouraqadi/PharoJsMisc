@@ -12,6 +12,21 @@ Class {
 	#category : #'WebSt-WebComponents'
 }
 
+{ #category : #'accessing view' }
+WsWebComponent class >> html [
+	^String streamContents: [ : str|
+		str << $<;
+		<< self tagName ;
+		<< '></';
+		<< self tagName ;
+<<$>		 ]
+]
+
+{ #category : #rendering }
+WsWebComponent class >> pageHtml [
+	^self viewFactoryClass pageHtml
+]
+
 { #category : #'class initialization' }
 WsWebComponent class >> registerTag [
 	window customElements define: self tagName with: self
@@ -37,6 +52,11 @@ WsWebComponent class >> viewFactoryClass [
 { #category : #accessing }
 WsWebComponent >> document [
 	^document
+]
+
+{ #category : #accessing }
+WsWebComponent >> html [
+	^self class html
 ]
 
 { #category : #initialization }
