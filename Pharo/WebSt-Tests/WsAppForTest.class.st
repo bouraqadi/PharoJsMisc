@@ -4,11 +4,6 @@ Class {
 	#category : #'WebSt-Tests-WebComponents'
 }
 
-{ #category : #rendering }
-WsAppForTest class >> html [
-	^WsCounterComponent pageHtml
-]
-
 { #category : #initialization }
 WsAppForTest >> initialize [
 
