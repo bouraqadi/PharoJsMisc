@@ -4,7 +4,7 @@ Class {
 	#traits : 'WsTHtmlElementFactory',
 	#classTraits : 'WsTHtmlElementFactory classTrait',
 	#instVars : [
-		'rootComponent'
+		'rootView'
 	],
 	#category : #'WebSt-Views'
 }
@@ -13,23 +13,23 @@ Class {
 WsHtmlBody >> renderContentOn: html [
 
 	html body: [ 
-		html render: rootComponent ]
+		html render: rootView ]
 ]
 
 { #category : #accessing }
-WsHtmlBody >> rootComponent [
+WsHtmlBody >> rootView [
 
-	^ rootComponent
+	^ rootView
 ]
 
 { #category : #accessing }
-WsHtmlBody >> rootComponent: anObject [
+WsHtmlBody >> rootView: anObject [
 
-	rootComponent := anObject
+	rootView := anObject
 ]
 
 { #category : #accessing }
 WsHtmlBody >> title [
-	self rootComponent ifNil: [^nil].
-	^self rootComponent title
+	self rootView ifNil: [^nil].
+	^self rootView title
 ]

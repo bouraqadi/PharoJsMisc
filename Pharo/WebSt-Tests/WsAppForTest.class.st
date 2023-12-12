@@ -1,8 +1,13 @@
 Class {
 	#name : #WsAppForTest,
-	#superclass : #PjMinimalWebApplication,
+	#superclass : #PjWebApplication,
 	#category : #'WebSt-Tests-WebComponents'
 }
+
+{ #category : #rendering }
+WsAppForTest class >> html [
+	^WsCounterComponent pageHtml
+]
 
 { #category : #initialization }
 WsAppForTest >> initialize [

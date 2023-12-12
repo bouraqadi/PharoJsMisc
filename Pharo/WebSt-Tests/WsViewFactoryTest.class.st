@@ -28,7 +28,7 @@ WsViewFactoryTest >> testBodyLeafView [
 	root message: 'I am very basic'.
 	rootHtml := '<p>I am very basic</p>'.
 	self assert: root html equals: rootHtml.
-	body rootComponent: root.
+	body rootView: root.
 	self assert: body html equals: '<body>',rootHtml,'</body>'
 ]
 
@@ -161,7 +161,7 @@ WsViewFactoryTest >> testPageBasicComponent [
 	root := WsLeafViewForTest new.
 	titleString := 'Default title'.
 	messageString := 'Nice message'.
-	page body rootComponent: root.
+	page body rootView: root.
 	expectedHtml := self stringWithAll: {
 			                '<!doctype html><html><head><meta charset="utf-8"/><title>'.
 			                titleString.

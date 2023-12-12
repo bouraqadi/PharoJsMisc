@@ -59,6 +59,6 @@ WsHtmlPage >> initialize [
 ]
 
 { #category : #initialization }
-WsHtmlPage >> rootComponent: aComponent [
-	self body rootComponent: aComponent
+WsHtmlPage >> rootView: aComponent [
+	self body rootView: aComponent
 ]

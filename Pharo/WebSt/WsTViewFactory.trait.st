@@ -38,7 +38,7 @@ WsTViewFactory >> externalResources [
 WsTViewFactory >> pageHtml [
 
 	^WsHtmlPage new 
-		rootComponent: self;
+		rootView: self;
 	html
 ]
 
