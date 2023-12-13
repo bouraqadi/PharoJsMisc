@@ -12,27 +12,12 @@ Class {
 	#category : #'WebSt-WebComponents'
 }
 
-{ #category : #'accessing view' }
-WsWebComponent class >> html [
-	^String streamContents: [ : str|
-		str << $<;
-		<< self tagName ;
-		<< '></';
-		<< self tagName ;
-<<$>		 ]
-]
-
-{ #category : #rendering }
-WsWebComponent class >> pageHtml [
-	^self viewFactoryClass pageHtml
-]
-
 { #category : #'class initialization' }
 WsWebComponent class >> registerTag [
 	window customElements define: self tagName with: self
 ]
 
-{ #category : #'accessing view' }
+{ #category : #rendering }
 WsWebComponent class >> shadowHtml [
 	self subclassResponsibility
 ]

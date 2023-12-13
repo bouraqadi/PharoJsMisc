@@ -3,11 +3,17 @@ Trait {
 	#category : #'WebSt-WebComponents'
 }
 
-{ #category : #'accessing view' }
-WsTConcreteWebComponent classSide >> htmlString_jsGenerator: transpiler [
+{ #category : #rendering }
+WsTConcreteWebComponent classSide >> html [
 
-	<pharoJsSkip>
-	^ 'return ', self viewFactoryClass html printString
+	<jsLiteralGenerator>
+	^ String streamContents: [ :str |
+		  str
+			  << $<;
+			  << self tagName;
+			  << '></';
+			  << self tagName;
+			  << $> ]
 ]
 
 { #category : #'class initialization' }
@@ -16,9 +22,16 @@ WsTConcreteWebComponent classSide >> javascriptInitialize [
 	self  registerTag
 ]
 
+{ #category : #rendering }
+WsTConcreteWebComponent classSide >> pageHtml [
+
+	<jsLiteralGenerator>
+	^ self viewFactoryClass pageHtml
+]
+
 { #category : #'accessing view' }
 WsTConcreteWebComponent classSide >> shadowHtml [
 
-	<jsGenerator: #htmlString_jsGenerator:>
-	^ nil
+	<jsLiteralGenerator>
+	^ self viewFactoryClass html
 ]
