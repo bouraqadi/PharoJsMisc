@@ -44,11 +44,11 @@ WsViewFactoryTest >> testCompositeView [
 	expectedHtml := self stringWithAll: {
 			                '<!doctype html><html><head><meta charset="utf-8"/><title>'.
 			                WsCompositeViewForTest name.
-			                '</title><script defer type="text/javascript" src="'.
+			                '</title></head><body><script defer type="text/javascript" src="'.
 			                jsUrl.
 			                '"></script><link rel="stylesheet" href="'.
 			                cssUrl.
-			                '"/></head><body><div><p>'.
+			                '"/><div><p>'.
 			                message1.
 			                '</p><p>'.
 			                message2.
@@ -77,11 +77,11 @@ WsViewFactoryTest >> testCompositeViewTemplate [
 	expectedHtml := self stringWithAll: {
 			                '<!doctype html><html><head><meta charset="utf-8"/><title>'.
 			                WsTemplateViewFactory name.
-			                '</title><script defer type="text/javascript" src="'.
+			                '</title></head><body><script defer type="text/javascript" src="'.
 			                jsUrl.
 			                '"></script><link rel="stylesheet" href="'.
 			                cssUrl.
-			                '"/></head><body><template><div><p>'.
+			                '"/><template><div><p>'.
 			                message1.
 			                '</p><p>'.
 			                message2.
@@ -135,11 +135,11 @@ WsViewFactoryTest >> testLeafViewResources [
 	expectedHtml := self stringWithAll: {
 			                '<!doctype html><html><head><meta charset="utf-8"/><title>'.
 			                titleString.
-			                '</title><script defer type="text/javascript" src="'.
+			                '</title></head><body><script defer type="text/javascript" src="'.
 			                jsUrl.
 			                '"></script><link rel="stylesheet" href="'.
 			                cssUrl.
-			                '"/></head><body><p>'.
+			                '"/><p>'.
 			                messageString.
 			                '</p></body></html>' }.
 
@@ -161,19 +161,19 @@ WsViewFactoryTest >> testLeafViewTemplate [
 { #category : #tests }
 WsViewFactoryTest >> testPageBasicComponent [
 
-	| page root titleString messageString expectedHtml |
-	page := WsHtmlPage new.
+	| root titleString messageString expectedHtml |
 	root := WsLeafViewForTest new.
 	titleString := 'Default title'.
+	root title: titleString.
 	messageString := 'Nice message'.
-	page body rootView: root.
+	root message: messageString.
 	expectedHtml := self stringWithAll: {
 			                '<!doctype html><html><head><meta charset="utf-8"/><title>'.
 			                titleString.
 			                '</title></head><body><p>'.
 			                messageString.
 			                '</p></body></html>' }.
-	self assert: page html equals: expectedHtml.
+	self assert: root pageHtml equals: expectedHtml.
 	self assert: WsLeafViewForTest pageHtml equals: expectedHtml
 ]
 

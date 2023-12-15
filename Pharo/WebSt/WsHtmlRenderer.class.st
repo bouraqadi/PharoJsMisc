@@ -5,13 +5,15 @@ Class {
 		'stream',
 		'document'
 	],
-	#category : #'WebSt-Rendering'
+	#category : #'WebSt-Views'
 }
 
 { #category : #rendering }
-WsHtmlRenderer class >> render: component [
+WsHtmlRenderer class >> render: anObject [
 
-	^ self new render: component; html
+	^ self new
+		  render: anObject;
+		  html
 ]
 
 { #category : #rendering }
@@ -104,6 +106,12 @@ WsHtmlRenderer >> renderHeadChild: element [
 ]
 
 { #category : #rendering }
+WsHtmlRenderer >> renderPage: page [
+
+	page renderContentOn: self
+]
+
+{ #category : #rendering }
 WsHtmlRenderer >> renderResource: aResource [
 
 	^ aResource renderContentOn: self
@@ -112,6 +120,7 @@ WsHtmlRenderer >> renderResource: aResource [
 { #category : #rendering }
 WsHtmlRenderer >> renderView: aView [
 
+	aView externalResources do: [ :each | self render: each ].
 	aView renderContentOn: self
 ]
 

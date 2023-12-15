@@ -10,8 +10,29 @@ WsTHtmlElementFactory classSide >> html [
 ]
 
 { #category : #rendering }
+WsTHtmlElementFactory classSide >> pageHtml [
+
+	^ self new pageHtml
+]
+
+{ #category : #rendering }
 WsTHtmlElementFactory >> html [
 ^self renderClass render: self
+]
+
+{ #category : #rendering }
+WsTHtmlElementFactory >> pageClass [
+
+	^ WsHtmlPage
+]
+
+{ #category : #rendering }
+WsTHtmlElementFactory >> pageHtml [
+
+	^ self pageClass new
+		  rootView: self;
+		title: self title;
+		  html
 ]
 
 { #category : #rendering }

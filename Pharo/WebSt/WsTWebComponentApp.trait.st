@@ -13,10 +13,20 @@ WsTWebComponentApp classSide >> bridgeClientClass [
 { #category : #rendering }
 WsTWebComponentApp classSide >> pageHtml [
 
-	^ self rootComponentClass pageHtml
+	| page |
+	page := WsHtmlPage new.
+	page title: self title.
+	page useJsAt: self appJsFileName. 
+	page rootView: self rootComponentClass.
+	^page html
 ]
 
 { #category : #rendering }
 WsTWebComponentApp classSide >> rootComponentClass [
 	self subclassResponsibility 
+]
+
+{ #category : #rendering }
+WsTWebComponentApp classSide >> title [
+	^self rootComponentClass title
 ]

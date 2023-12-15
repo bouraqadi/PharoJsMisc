@@ -1,12 +1,20 @@
 Class {
 	#name : #WsHtmlPage,
 	#superclass : #Object,
+	#traits : 'WsTHtmlElementFactory + WsTResourceFactory',
+	#classTraits : 'WsTHtmlElementFactory classTrait + WsTResourceFactory classTrait',
 	#instVars : [
 		'head',
 		'body'
 	],
 	#category : #'WebSt-Views'
 }
+
+{ #category : #adding }
+WsHtmlPage >> addResource: aResource [
+
+	self head addChild: aResource 
+]
 
 { #category : #accessing }
 WsHtmlPage >> body [
@@ -32,24 +40,6 @@ WsHtmlPage >> head: anObject [
 	head := anObject
 ]
 
-{ #category : #rendering }
-WsHtmlPage >> html [
-
-	| bodyRenderer pageRenderer |
-	bodyRenderer := WsResourceAwareHtmlRenderer new.
-	bodyRenderer render: self body.
-	self head title: self body title.
-	self head addChildren: bodyRenderer resources.
-	pageRenderer := WsHtmlRenderer new.
-	pageRenderer
-		renderDocType;
-		tag: #html with: [
-			pageRenderer
-				render: self head;
-				html: bodyRenderer html ].
-	^ pageRenderer html
-]
-
 { #category : #initialization }
 WsHtmlPage >> initialize [
 
@@ -58,7 +48,35 @@ WsHtmlPage >> initialize [
 	body := WsHtmlBody new
 ]
 
+{ #category : #rendering }
+WsHtmlPage >> pageHtml [
+
+	^ self		  html
+]
+
+{ #category : #rendering }
+WsHtmlPage >> renderContentOn: html [
+
+	html
+		renderDocType;
+		tag: #html with: [
+			html
+				render: self head;
+				render: self body ]
+]
+
+{ #category : #rendering }
+WsHtmlPage >> renderOn: aRenderer [
+
+	aRenderer renderPage: self
+]
+
 { #category : #initialization }
 WsHtmlPage >> rootView: aComponent [
 	self body rootView: aComponent
+]
+
+{ #category : #initialization }
+WsHtmlPage >> title: aString [
+	self head title: aString
 ]

@@ -1,20 +1,9 @@
 Trait {
 	#name : #WsTViewFactory,
-	#traits : 'WsTHtmlElementFactory + WsTPageFactory',
-	#classTraits : 'WsTHtmlElementFactory classTrait + WsTPageFactory classTrait',
+	#traits : 'WsTHtmlElementFactory',
+	#classTraits : 'WsTHtmlElementFactory classTrait',
 	#category : #'WebSt-Views'
 }
-
-{ #category : #accessing }
-WsTViewFactory classSide >> externalResources [
-	^#()
-]
-
-{ #category : #rendering }
-WsTViewFactory classSide >> pageHtml [
-
-	^ self new pageHtml
-]
 
 { #category : #rendering }
 WsTViewFactory classSide >> title [
@@ -28,7 +17,8 @@ WsTViewFactory >> asTemplate [
 
 { #category : #accessing }
 WsTViewFactory >> externalResources [
-	^ self class externalResources
+
+	^ #(  )
 ]
 
 { #category : #rendering }

@@ -1,8 +1,8 @@
 Class {
 	#name : #WsWebComponent,
 	#superclass : #WsHTMLElement,
-	#traits : 'PjTDomController + WsTPageFactory',
-	#classTraits : 'PjTDomController classTrait + WsTPageFactory classTrait',
+	#traits : 'PjTDomController',
+	#classTraits : 'PjTDomController classTrait',
 	#instVars : [
 		'view'
 	],
@@ -28,6 +28,17 @@ WsWebComponent class >> pageHtml [
 { #category : #'class initialization' }
 WsWebComponent class >> registerTag [
 	window customElements define: self tagName with: self
+]
+
+{ #category : #rendering }
+WsWebComponent class >> renderContentOn: html [
+	html tag: self tagName
+]
+
+{ #category : #rendering }
+WsWebComponent class >> renderOn: aRenderer [
+
+	aRenderer renderComponent: self
 ]
 
 { #category : #rendering }
@@ -93,17 +104,6 @@ WsWebComponent >> initialize [
 
 ]
 
-{ #category : #rendering }
-WsWebComponent >> renderContentOn: html [
-	html tag: self tagName
-]
-
-{ #category : #rendering }
-WsWebComponent >> renderOn: aRenderer [
-
-	aRenderer renderComponent: self
-]
-
 { #category : #initialization }
 WsWebComponent >> shadowEncapsulationMode [
 	"Access from javaScript outside the root shadow dom is:
@@ -117,15 +117,4 @@ WsWebComponent >> shadowEncapsulationMode [
 { #category : #initialization }
 WsWebComponent >> shadowHtml [
 	^self class shadowHtml
-]
-
-{ #category : #rendering }
-WsWebComponent >> tagName [
-	^self class tagName
-]
-
-{ #category : #rendering }
-WsWebComponent >> title [
-
-	^self class title
 ]

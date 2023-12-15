@@ -6,16 +6,16 @@ Class {
 	#category : #'WebSt-Library'
 }
 
-{ #category : #accessing }
-WsCounterViewFactory class >> externalResources [
-
-	^ { WsBootstrapResources bootstrap502 }
-]
-
 { #category : #rendering }
 WsCounterViewFactory class >> title [
 
 	^ #Counter
+]
+
+{ #category : #accessing }
+WsCounterViewFactory >> externalResources [
+
+	^ { WsBootstrapResources bootstrap502 }
 ]
 
 { #category : #rendering }

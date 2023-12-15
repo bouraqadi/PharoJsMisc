@@ -1,6 +1,8 @@
 Class {
 	#name : #WsViewForTest,
 	#superclass : #Object,
+	#traits : 'WsTViewFactory + WsTResourceFactory',
+	#classTraits : 'WsTViewFactory classTrait + WsTResourceFactory classTrait',
 	#instVars : [
 		'externalResources'
 	],
@@ -10,14 +12,6 @@ Class {
 { #category : #accessing }
 WsViewForTest >> addResource: aResource [
 	self externalResources add: aResource
-]
-
-{ #category : #accessing }
-WsViewForTest >> addResourceClass: resourceClass url: urlString [
-
-	| aResource |
-	aResource := resourceClass url: urlString.
-	self addResource: aResource
 ]
 
 { #category : #accessing }
@@ -37,17 +31,4 @@ WsViewForTest >> initialize [
 
 	super initialize.
 	externalResources := OrderedCollection new
-]
-
-{ #category : #accessing }
-WsViewForTest >> useCssAt: urlString [
-
-	self addResourceClass: WsCssResource  url: urlString.
-
-]
-
-{ #category : #accessing }
-WsViewForTest >> useJsAt: urlString [
-
-	self addResourceClass: WsJsResource url: urlString
 ]
