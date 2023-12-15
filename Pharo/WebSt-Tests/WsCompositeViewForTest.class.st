@@ -1,6 +1,6 @@
 Class {
 	#name : #WsCompositeViewForTest,
-	#superclass : #Object,
+	#superclass : #WsViewForTest,
 	#traits : 'WsTViewFactory',
 	#classTraits : 'WsTViewFactory classTrait',
 	#instVars : [

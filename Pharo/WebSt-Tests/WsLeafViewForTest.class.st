@@ -1,34 +1,14 @@
 Class {
 	#name : #WsLeafViewForTest,
-	#superclass : #Object,
+	#superclass : #WsViewForTest,
 	#traits : 'WsTViewFactory',
 	#classTraits : 'WsTViewFactory classTrait',
 	#instVars : [
 		'message',
-		'title',
-		'externalResources'
+		'title'
 	],
 	#category : #'WebSt-Tests-Views'
 }
-
-{ #category : #accessing }
-WsLeafViewForTest >> externalResources [
-
-	^ externalResources
-]
-
-{ #category : #accessing }
-WsLeafViewForTest >> externalResources: anObject [
-
-	externalResources := anObject
-]
-
-{ #category : #initialization }
-WsLeafViewForTest >> initialize [
-
-	super initialize.
-	externalResources := OrderedCollection new
-]
 
 { #category : #accessing }
 WsLeafViewForTest >> message [

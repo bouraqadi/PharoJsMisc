@@ -21,19 +21,6 @@ WsTViewFactory classSide >> title [
 	^self name
 ]
 
-{ #category : #accessing }
-WsTViewFactory >> addResource: aResource [
-	self externalResources add: aResource
-]
-
-{ #category : #accessing }
-WsTViewFactory >> addResourceClass: resourceClass url: urlString [
-
-	| aResource |
-	aResource := resourceClass url: urlString.
-	self addResource: aResource
-]
-
 { #category : #converting }
 WsTViewFactory >> asTemplate [
 	^WsTemplateViewFactory content: self
@@ -46,24 +33,12 @@ WsTViewFactory >> externalResources [
 
 { #category : #rendering }
 WsTViewFactory >> renderOn: aRenderer [
-	aRenderer renderView: self
+
+	aRenderer renderView: self 
 ]
 
 { #category : #accessing }
 WsTViewFactory >> title [
 
 	^ self class title
-]
-
-{ #category : #accessing }
-WsTViewFactory >> useCssAt: urlString [
-
-	self addResourceClass: WsCssResource  url: urlString.
-
-]
-
-{ #category : #accessing }
-WsTViewFactory >> useJsAt: urlString [
-
-	self addResourceClass: WsJsResource url: urlString
 ]
