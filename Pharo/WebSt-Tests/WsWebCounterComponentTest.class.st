@@ -89,12 +89,12 @@ WsWebCounterComponentTest >> testHtmlPageGeneration [
 		bodyHtml } do: [ :containerHtml |
 		self assert: (containerHtml includesSubstring: componentHtml) ].
 	headHtml := document head innerHTML.
+	"Skip '<script defer' from the beginning of HTML since we get different results from the web browser document and from pharo generated html."
 	{ '<title>Counter</title>'. '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"'.
-	'<script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"'.
-	'<script defer type="text/javascript" src="index.js' } do: [
-		:expectedHtml |
+	'type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"'.
+	'type="text/javascript" src="index.js' } do: [ :expectedHtml |
 		{
 			pageHtml.
-			bodyHtml } do: [ :containerHtml |
+			headHtml } do: [ :containerHtml |
 			self assert: (containerHtml includesSubstring: expectedHtml) ] ]
 ]

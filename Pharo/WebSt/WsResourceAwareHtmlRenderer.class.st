@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'resources'
 	],
-	#category : #'WebSt-Views'
+	#category : #'WebSt-Rendering'
 }
 
 { #category : #initialization }
@@ -12,6 +12,14 @@ WsResourceAwareHtmlRenderer >> initialize [
 
 	super initialize.
 	resources := Set new
+]
+
+{ #category : #rendering }
+WsResourceAwareHtmlRenderer >> renderComponent: component [
+
+
+	resources addAll: component externalResources.
+	super renderView: component
 ]
 
 { #category : #rendering }

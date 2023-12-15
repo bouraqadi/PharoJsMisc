@@ -22,16 +22,16 @@ WsTConcreteWebComponent classSide >> javascriptInitialize [
 	self  registerTag
 ]
 
-{ #category : #rendering }
-WsTConcreteWebComponent classSide >> pageHtml [
-
-	<jsLiteralGenerator>
-	^ self viewFactoryClass pageHtml
-]
-
 { #category : #'accessing view' }
 WsTConcreteWebComponent classSide >> shadowHtml [
 
 	<jsLiteralGenerator>
 	^ self viewFactoryClass html
+]
+
+{ #category : #'accessing view' }
+WsTConcreteWebComponent classSide >> title [
+
+	<jsLiteralGenerator>
+	^ self viewFactoryClass title
 ]

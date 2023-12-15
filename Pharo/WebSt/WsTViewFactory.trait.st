@@ -1,14 +1,24 @@
 Trait {
 	#name : #WsTViewFactory,
-	#traits : 'WsTHtmlElementFactory',
-	#classTraits : 'WsTHtmlElementFactory classTrait',
+	#traits : 'WsTHtmlElementFactory + WsTPageFactory',
+	#classTraits : 'WsTHtmlElementFactory classTrait + WsTPageFactory classTrait',
 	#category : #'WebSt-Views'
 }
+
+{ #category : #accessing }
+WsTViewFactory classSide >> externalResources [
+	^#()
+]
 
 { #category : #rendering }
 WsTViewFactory classSide >> pageHtml [
 
 	^ self new pageHtml
+]
+
+{ #category : #rendering }
+WsTViewFactory classSide >> title [
+	^self name
 ]
 
 { #category : #accessing }
@@ -31,15 +41,7 @@ WsTViewFactory >> asTemplate [
 
 { #category : #accessing }
 WsTViewFactory >> externalResources [
-	^#()
-]
-
-{ #category : #rendering }
-WsTViewFactory >> pageHtml [
-
-	^WsHtmlPage new 
-		rootView: self;
-	html
+	^ self class externalResources
 ]
 
 { #category : #rendering }
@@ -50,7 +52,7 @@ WsTViewFactory >> renderOn: aRenderer [
 { #category : #accessing }
 WsTViewFactory >> title [
 
-	^ self className
+	^ self class title
 ]
 
 { #category : #accessing }

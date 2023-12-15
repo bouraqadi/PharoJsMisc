@@ -1,8 +1,8 @@
 Class {
 	#name : #WsWebComponent,
 	#superclass : #WsHTMLElement,
-	#traits : 'PjTDomController',
-	#classTraits : 'PjTDomController classTrait',
+	#traits : 'PjTDomController + WsTPageFactory',
+	#classTraits : 'PjTDomController classTrait + WsTPageFactory classTrait',
 	#instVars : [
 		'view'
 	],
@@ -11,6 +11,19 @@ Class {
 	],
 	#category : #'WebSt-WebComponents'
 }
+
+{ #category : #rendering }
+WsWebComponent class >> externalResources [
+
+	<pharoJsSkip>
+	^ self viewFactoryClass externalResources, { WsJsResource url: 'index.js' }
+]
+
+{ #category : #rendering }
+WsWebComponent class >> pageHtml [
+<pharoJsSkip>
+	^ self basicNew pageHtml
+]
 
 { #category : #'class initialization' }
 WsWebComponent class >> registerTag [
@@ -27,7 +40,14 @@ WsWebComponent class >> tagName [
 	self subclassResponsibility 
 ]
 
-{ #category : #'accessing view' }
+{ #category : #rendering }
+WsWebComponent class >> title [
+
+	<pharoJsSkip>
+	self subclassResponsibility
+]
+
+{ #category : #rendering }
 WsWebComponent class >> viewFactoryClass [
 
 	<pharoJsSkip>
@@ -37,6 +57,12 @@ WsWebComponent class >> viewFactoryClass [
 { #category : #accessing }
 WsWebComponent >> document [
 	^document
+]
+
+{ #category : #accessing }
+WsWebComponent >> externalResources [
+
+	^self class externalResources
 ]
 
 { #category : #accessing }
@@ -67,6 +93,17 @@ WsWebComponent >> initialize [
 
 ]
 
+{ #category : #rendering }
+WsWebComponent >> renderContentOn: html [
+	html tag: self tagName
+]
+
+{ #category : #rendering }
+WsWebComponent >> renderOn: aRenderer [
+
+	aRenderer renderComponent: self
+]
+
 { #category : #initialization }
 WsWebComponent >> shadowEncapsulationMode [
 	"Access from javaScript outside the root shadow dom is:
@@ -80,4 +117,15 @@ WsWebComponent >> shadowEncapsulationMode [
 { #category : #initialization }
 WsWebComponent >> shadowHtml [
 	^self class shadowHtml
+]
+
+{ #category : #rendering }
+WsWebComponent >> tagName [
+	^self class tagName
+]
+
+{ #category : #rendering }
+WsWebComponent >> title [
+
+	^self class title
 ]

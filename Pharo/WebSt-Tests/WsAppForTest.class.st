@@ -4,11 +4,14 @@ Class {
 	#category : #'WebSt-Tests-WebComponents'
 }
 
-{ #category : #initialization }
-WsAppForTest >> initialize [
+{ #category : #accessing }
+WsAppForTest class >> bridgeClientClass [
 
-	| counter |
-	super initialize.
-	counter := WsCounterComponent new.
-	document body appendChild: counter
+	<pharoJsSkip>
+	^ WsWebComponentBridgeClient 
+]
+
+{ #category : #accessing }
+WsAppForTest class >> html [
+	^WsCounterComponent pageHtml 
 ]

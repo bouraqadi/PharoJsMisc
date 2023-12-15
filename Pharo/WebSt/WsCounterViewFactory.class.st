@@ -7,9 +7,15 @@ Class {
 }
 
 { #category : #accessing }
-WsCounterViewFactory >> externalResources [
+WsCounterViewFactory class >> externalResources [
 
 	^ { WsBootstrapResources bootstrap502 }
+]
+
+{ #category : #rendering }
+WsCounterViewFactory class >> title [
+
+	^ #Counter
 ]
 
 { #category : #rendering }
@@ -36,9 +42,4 @@ WsCounterViewFactory >> renderContentOn: html [
 						bePush;
 						class: 'reset btn btn-danger';
 						value: 'x' ] ]
-]
-
-{ #category : #accessing }
-WsCounterViewFactory >> title [
-	^#Counter
 ]

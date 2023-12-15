@@ -5,7 +5,7 @@ Class {
 		'stream',
 		'document'
 	],
-	#category : #'WebSt-Views'
+	#category : #'WebSt-Rendering'
 }
 
 { #category : #rendering }
@@ -73,6 +73,12 @@ WsHtmlRenderer >> render: aView [
 { #category : #rendering }
 WsHtmlRenderer >> renderBody: aWsHtmlBody [ 
 	aWsHtmlBody renderContentOn: self
+]
+
+{ #category : #rendering }
+WsHtmlRenderer >> renderComponent: component [
+
+	component renderContentOn: self
 ]
 
 { #category : #rendering }
