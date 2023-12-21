@@ -1,0 +1,38 @@
+Class {
+	#name : #WsTitle,
+	#superclass : #WAHtmlElement,
+	#instVars : [
+		'text'
+	],
+	#category : #'WebSt-Kernel'
+}
+
+{ #category : #testing }
+WsTitle >> isClosed [
+
+	^ self text isEmptyOrNil
+]
+
+{ #category : #rendering }
+WsTitle >> renderContentOn: html [
+
+	html text: self text
+]
+
+{ #category : #accessing }
+WsTitle >> tag [
+
+	^#title
+]
+
+{ #category : #accessing }
+WsTitle >> text [
+
+	^ text
+]
+
+{ #category : #accessing }
+WsTitle >> text: anObject [
+
+	text := anObject
+]

@@ -5,7 +5,7 @@ Class {
 		'child1',
 		'child2'
 	],
-	#category : #'WebSt-Tests-Views'
+	#category : #'WebSt-Tests-FactoryOLD'
 }
 
 { #category : #accessing }

@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'children'
 	],
-	#category : #'WebSt-Views'
+	#category : #'WebSt-ViewsOLD'
 }
 
 { #category : #'instance creation' }

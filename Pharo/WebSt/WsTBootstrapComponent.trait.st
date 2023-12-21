@@ -1,8 +1,8 @@
 Trait {
 	#name : #WsTBootstrapComponent,
-	#traits : 'WsTViewFactory',
-	#classTraits : 'WsTViewFactory classTrait',
-	#category : #'WebSt-Library'
+	#traits : 'WsTViewFactoryOLD',
+	#classTraits : 'WsTViewFactoryOLD classTrait',
+	#category : #'WebSt-Example'
 }
 
 { #category : #accessing }

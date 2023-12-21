@@ -1,12 +1,12 @@
 Class {
 	#name : #WsViewForTest,
 	#superclass : #Object,
-	#traits : 'WsTViewFactory + WsTResourceFactory',
-	#classTraits : 'WsTViewFactory classTrait + WsTResourceFactory classTrait',
+	#traits : 'WsTViewFactoryOLD + WsTResourceFactory',
+	#classTraits : 'WsTViewFactoryOLD classTrait + WsTResourceFactory classTrait',
 	#instVars : [
 		'externalResources'
 	],
-	#category : #'WebSt-Tests-Views'
+	#category : #'WebSt-Tests-FactoryOLD'
 }
 
 { #category : #accessing }

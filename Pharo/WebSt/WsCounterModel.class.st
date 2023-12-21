@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'count'
 	],
-	#category : #'WebSt-Library'
+	#category : #'WebSt-Example'
 }
 
 { #category : #accessing }

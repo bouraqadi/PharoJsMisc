@@ -1,12 +1,12 @@
 Class {
 	#name : #WsTemplateViewFactory,
 	#superclass : #Object,
-	#traits : 'WsTViewFactory',
-	#classTraits : 'WsTViewFactory classTrait',
+	#traits : 'WsTViewFactoryOLD',
+	#classTraits : 'WsTViewFactoryOLD classTrait',
 	#instVars : [
 		'content'
 	],
-	#category : #'WebSt-Views'
+	#category : #'WebSt-ViewsOLD'
 }
 
 { #category : #'instance creation' }
@@ -35,7 +35,7 @@ WsTemplateViewFactory >> content: anObject [
 	content := anObject
 ]
 
-{ #category : #rendering }
+{ #category : #'as yet unclassified' }
 WsTemplateViewFactory >> renderContentOn: html [
 
 	html template: [ html render: content ]

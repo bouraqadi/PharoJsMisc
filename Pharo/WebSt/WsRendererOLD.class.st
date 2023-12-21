@@ -1,0 +1,64 @@
+Class {
+	#name : #WsRendererOLD,
+	#superclass : #WAHtmlCanvas,
+	#instVars : [
+		'stream',
+		'document'
+	],
+	#category : #'WebSt-ViewsOLD'
+}
+
+{ #category : #rendering }
+WsRendererOLD >> link [
+
+	^ self brush: WsLinkTag new
+]
+
+{ #category : #rendering }
+WsRendererOLD >> renderBody: aWsHtmlBody [ 
+	aWsHtmlBody renderContentOn: self
+]
+
+{ #category : #rendering }
+WsRendererOLD >> renderComponent: component [
+
+	component renderContentOn: self
+]
+
+{ #category : #rendering }
+WsRendererOLD >> renderDocType [
+	self document nextPutAll: '<!doctype html>'
+]
+
+{ #category : #rendering }
+WsRendererOLD >> renderHead: aWsHtmlHead [ 
+	aWsHtmlHead renderContentOn: self
+]
+
+{ #category : #rendering }
+WsRendererOLD >> renderResource: aResource [
+
+	^ aResource renderContentOn: self
+]
+
+{ #category : #rendering }
+WsRendererOLD >> renderView: aView [
+
+	aView externalResources do: [ :each | self render: each ].
+	aView renderContentOn: self
+]
+
+{ #category : #rendering }
+WsRendererOLD >> template [
+	^self tag: #template
+]
+
+{ #category : #accessing }
+WsRendererOLD >> title [
+	^self brush: WsTitleTag new
+]
+
+{ #category : #accessing }
+WsRendererOLD >> title: aString [ 
+	self title with: [self text: aString].
+]

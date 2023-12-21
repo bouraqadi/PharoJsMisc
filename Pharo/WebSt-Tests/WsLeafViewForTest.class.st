@@ -5,7 +5,7 @@ Class {
 		'message',
 		'title'
 	],
-	#category : #'WebSt-Tests-Views'
+	#category : #'WebSt-Tests-FactoryOLD'
 }
 
 { #category : #accessing }

@@ -1,9 +1,9 @@
 Class {
 	#name : #WsCounterViewFactory,
 	#superclass : #Object,
-	#traits : 'WsTViewFactory',
-	#classTraits : 'WsTViewFactory classTrait',
-	#category : #'WebSt-Library'
+	#traits : 'WsTViewFactoryOLD',
+	#classTraits : 'WsTViewFactoryOLD classTrait',
+	#category : #'WebSt-Example'
 }
 
 { #category : #rendering }
@@ -18,7 +18,7 @@ WsCounterViewFactory >> externalResources [
 	^ { WsBootstrapResources bootstrap502 }
 ]
 
-{ #category : #rendering }
+{ #category : #'as yet unclassified' }
 WsCounterViewFactory >> renderContentOn: html [
 
 	html div

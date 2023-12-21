@@ -1,7 +1,7 @@
 Class {
 	#name : #WsWebCounterComponentTest,
 	#superclass : #WsWebComponentTest,
-	#category : #'WebSt-Tests-WebComponents'
+	#category : #'WebSt-Tests-Kernel'
 }
 
 { #category : #'suite parameters' }

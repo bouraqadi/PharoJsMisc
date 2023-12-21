@@ -1,7 +1,7 @@
 Class {
 	#name : #WsLinkTag,
 	#superclass : #WATagBrush,
-	#category : #'WebSt-Views'
+	#category : #'WebSt-ViewsOLD'
 }
 
 { #category : #relationship }

@@ -14,7 +14,7 @@ WsTWebComponentApp classSide >> bridgeClientClass [
 WsTWebComponentApp classSide >> pageHtml [
 
 	| page |
-	page := WsHtmlPage new.
+	page := WsHtmlPageOLD new.
 	page title: self title.
 	page useJsAt: self appJsFileName. 
 	page rootView: self rootComponentClass.

@@ -1,11 +1,11 @@
 Class {
-	#name : #WsHTMLElement,
+	#name : #WsHtmlElement,
 	#superclass : #Object,
-	#category : #'WebSt-WebComponents'
+	#category : #'WebSt-Kernel'
 }
 
 { #category : #'pharoJs support' }
-WsHTMLElement class >> javascriptName [
+WsHtmlElement class >> javascriptName [
 
 	<pharoJsSkip>
 	^ #HTMLElement

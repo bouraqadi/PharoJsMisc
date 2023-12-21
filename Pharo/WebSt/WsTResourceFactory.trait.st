@@ -1,6 +1,6 @@
 Trait {
 	#name : #WsTResourceFactory,
-	#category : #'WebSt-Views'
+	#category : #'WebSt-ViewsOLD'
 }
 
 { #category : #adding }

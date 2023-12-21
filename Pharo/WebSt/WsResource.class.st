@@ -1,12 +1,12 @@
 Class {
 	#name : #WsResource,
 	#superclass : #Object,
-	#traits : 'WsTHtmlElementFactory',
-	#classTraits : 'WsTHtmlElementFactory classTrait',
-	#category : #'WebSt-Views'
+	#traits : 'WsTHtmlElementFactoryOLD',
+	#classTraits : 'WsTHtmlElementFactoryOLD classTrait',
+	#category : #'WebSt-ViewsOLD'
 }
 
-{ #category : #rendering }
+{ #category : #'as yet unclassified' }
 WsResource >> renderOn: aRenderer [
 
 	aRenderer renderResource: self
