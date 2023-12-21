@@ -18,8 +18,8 @@ WsCounterViewFactory >> externalResources [
 	^ { WsBootstrapResources bootstrap502 }
 ]
 
-{ #category : #'as yet unclassified' }
-WsCounterViewFactory >> renderContentOn: html [
+{ #category : #rendering }
+WsCounterViewFactory >> renderOuterHtmlOn: html [
 
 	html div
 		class: 'd-flex flex-column align-items-center p-1';

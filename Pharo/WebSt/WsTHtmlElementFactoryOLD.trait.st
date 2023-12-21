@@ -30,7 +30,7 @@ WsTHtmlElementFactoryOLD >> pageHtml [
 ]
 
 { #category : #rendering }
-WsTHtmlElementFactoryOLD >> renderContentOn: html [
+WsTHtmlElementFactoryOLD >> renderOuterHtmlOn: html [
 
 	^ self explicitRequirement 
 ]

@@ -41,19 +41,19 @@ WsPage >> initialize [
 ]
 
 { #category : #rendering }
-WsPage >> renderContentOn: renderer [
-
-	renderer
-		html: '<!doctype html>'.
-		super renderContentOn: renderer
-]
-
-{ #category : #rendering }
 WsPage >> renderInnerHtmlOn: html [ 
 
 	html render: self 
 				head;
 			render: self body
+]
+
+{ #category : #rendering }
+WsPage >> renderOuterHtmlOn: renderer [
+
+	renderer
+		html: '<!doctype html>'.
+		super renderOuterHtmlOn: renderer
 ]
 
 { #category : #accessing }

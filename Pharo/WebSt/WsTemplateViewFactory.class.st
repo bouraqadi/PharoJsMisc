@@ -35,8 +35,8 @@ WsTemplateViewFactory >> content: anObject [
 	content := anObject
 ]
 
-{ #category : #'as yet unclassified' }
-WsTemplateViewFactory >> renderContentOn: html [
+{ #category : #rendering }
+WsTemplateViewFactory >> renderOuterHtmlOn: html [
 
 	html template: [ html render: content ]
 ]

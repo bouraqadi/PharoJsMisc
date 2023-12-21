@@ -27,7 +27,7 @@ WsCompositeResource >> children: anObject [
 ]
 
 { #category : #rendering }
-WsCompositeResource >> renderContentOn: html [
+WsCompositeResource >> renderOuterHtmlOn: html [
 
 	children do: [ :each |
 		html render: each ]

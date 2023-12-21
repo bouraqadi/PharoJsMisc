@@ -5,16 +5,16 @@ Class {
 }
 
 { #category : #rendering }
-WsTagView >> renderContentOn: html [
+WsTagView >> renderInnerHtmlOn: html [
+	self subclassResponsibility 
+]
+
+{ #category : #rendering }
+WsTagView >> renderOuterHtmlOn: html [
 
 	html
 		tag: self tag
 		with: [ self renderInnerHtmlOn: html ]
-]
-
-{ #category : #rendering }
-WsTagView >> renderInnerHtmlOn: html [
-	self subclassResponsibility 
 ]
 
 { #category : #accessing }

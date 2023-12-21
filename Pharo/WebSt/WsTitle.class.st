@@ -14,7 +14,7 @@ WsTitle >> isClosed [
 ]
 
 { #category : #rendering }
-WsTitle >> renderContentOn: html [
+WsTitle >> renderOuterHtmlOn: html [
 
 	html text: self text
 ]

@@ -9,17 +9,17 @@ Class {
 	#category : #'WebSt-ViewsOLD'
 }
 
-{ #category : #rendering }
-WsHtmlBodyOLD >> renderContentOn: html [
-
-	html body: [ 
-		html render: rootView ]
-]
-
 { #category : #'as yet unclassified' }
 WsHtmlBodyOLD >> renderOn: aRenderer [
 
 	aRenderer renderBody: self
+]
+
+{ #category : #rendering }
+WsHtmlBodyOLD >> renderOuterHtmlOn: html [
+
+	html body: [ 
+		html render: rootView ]
 ]
 
 { #category : #accessing }

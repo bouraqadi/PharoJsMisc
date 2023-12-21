@@ -22,13 +22,13 @@ WsView >> renderClass [
 ]
 
 { #category : #rendering }
-WsView >> renderContentOn: html [
-
-	self subclassResponsibility
-]
-
-{ #category : #rendering }
 WsView >> renderOn: html [
 
 	html renderView: self
+]
+
+{ #category : #rendering }
+WsView >> renderOuterHtmlOn: html [
+
+	self subclassResponsibility
 ]

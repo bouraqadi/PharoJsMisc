@@ -50,12 +50,12 @@ WsRenderer >> renderHeadChild: element [
 		attributes: element attributes
 		closed: element isClosed.
 	element isClosed ifTrue: [ ^ self ].
-	element renderContentOn: self.
+	element renderOuterHtmlOn: self.
 	self document closeTag: element tag
 ]
 
 { #category : #rendering }
 WsRenderer >> renderView: view [
 
-	view renderContentOn: self
+	view renderOuterHtmlOn: self
 ]

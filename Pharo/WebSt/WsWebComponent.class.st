@@ -31,14 +31,14 @@ WsWebComponent class >> registerTag [
 ]
 
 { #category : #rendering }
-WsWebComponent class >> renderContentOn: html [
-	html tag: self tagName
-]
-
-{ #category : #rendering }
 WsWebComponent class >> renderOn: aRenderer [
 
 	aRenderer renderComponent: self
+]
+
+{ #category : #rendering }
+WsWebComponent class >> renderOuterHtmlOn: html [
+	html tag: self tagName
 ]
 
 { #category : #rendering }

@@ -30,14 +30,14 @@ WsHtmlHeadOLD >> renderChildrenOn: html [
 	children do: [ :each | html render: each ]
 ]
 
-{ #category : #rendering }
-WsHtmlHeadOLD >> renderContentOn: html [
-
-	html head: [ self renderChildrenOn: html ]
-]
-
 { #category : #'as yet unclassified' }
 WsHtmlHeadOLD >> renderOn: aRenderer [
 
 	aRenderer renderHead: self
+]
+
+{ #category : #rendering }
+WsHtmlHeadOLD >> renderOuterHtmlOn: html [
+
+	html head: [ self renderChildrenOn: html ]
 ]

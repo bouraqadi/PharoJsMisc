@@ -49,7 +49,7 @@ WsBasicResource >> integrity: aString [
 ]
 
 { #category : #rendering }
-WsBasicResource >> renderContentOn: html [
+WsBasicResource >> renderOuterHtmlOn: html [
 
 	(self renderTagOn: html)
 		attributeAt: #integrity put: integrity;

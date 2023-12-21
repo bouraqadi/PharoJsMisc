@@ -16,13 +16,13 @@ WsRendererOLD >> link [
 
 { #category : #rendering }
 WsRendererOLD >> renderBody: aWsHtmlBody [ 
-	aWsHtmlBody renderContentOn: self
+	aWsHtmlBody renderOuterHtmlOn: self
 ]
 
 { #category : #rendering }
 WsRendererOLD >> renderComponent: component [
 
-	component renderContentOn: self
+	component renderOuterHtmlOn: self
 ]
 
 { #category : #rendering }
@@ -32,20 +32,20 @@ WsRendererOLD >> renderDocType [
 
 { #category : #rendering }
 WsRendererOLD >> renderHead: aWsHtmlHead [ 
-	aWsHtmlHead renderContentOn: self
+	aWsHtmlHead renderOuterHtmlOn: self
 ]
 
 { #category : #rendering }
 WsRendererOLD >> renderResource: aResource [
 
-	^ aResource renderContentOn: self
+	^ aResource renderOuterHtmlOn: self
 ]
 
 { #category : #rendering }
 WsRendererOLD >> renderView: aView [
 
 	aView externalResources do: [ :each | self render: each ].
-	aView renderContentOn: self
+	aView renderOuterHtmlOn: self
 ]
 
 { #category : #rendering }

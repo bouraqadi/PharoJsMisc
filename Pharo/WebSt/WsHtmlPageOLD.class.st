@@ -22,8 +22,14 @@ WsHtmlPageOLD >> pageHtml [
 	^ self		  html
 ]
 
+{ #category : #'as yet unclassified' }
+WsHtmlPageOLD >> renderOn: aRenderer [
+
+	aRenderer renderPage: self
+]
+
 { #category : #rendering }
-WsHtmlPageOLD >> renderContentOn: html [
+WsHtmlPageOLD >> renderOuterHtmlOn: html [
 
 	html
 		renderDocType;
@@ -31,12 +37,6 @@ WsHtmlPageOLD >> renderContentOn: html [
 			html
 				render: self head;
 				render: self body ]
-]
-
-{ #category : #'as yet unclassified' }
-WsHtmlPageOLD >> renderOn: aRenderer [
-
-	aRenderer renderPage: self
 ]
 
 { #category : #initialization }

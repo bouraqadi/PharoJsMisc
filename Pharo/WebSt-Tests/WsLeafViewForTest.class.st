@@ -21,10 +21,9 @@ WsLeafViewForTest >> message: anObject [
 ]
 
 { #category : #rendering }
-WsLeafViewForTest >> renderContentOn: html [
+WsLeafViewForTest >> renderOuterHtmlOn: html [
 
-	html
-		paragraph: [ html text: self message ]
+	html paragraph: [ html text: self message ]
 ]
 
 { #category : #accessing }
