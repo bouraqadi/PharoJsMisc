@@ -1,31 +1,34 @@
 Class {
 	#name : #WsView,
 	#superclass : #Object,
-	#traits : 'WsTView',
-	#classTraits : 'WsTView classTrait',
 	#category : #'WebSt-Kernel'
 }
 
 { #category : #rendering }
-WsView >> renderContentOn: html [
+WsView class >> html [
 
-	html
-		tag: self tag
-		with: [ self renderInnerHtmlOn: html ]
+	^ self new html
 ]
 
 { #category : #rendering }
-WsView >> renderInnerHtmlOn: html [
-	self subclassResponsibility 
+WsView >> html [
+^self renderClass render: self
+]
+
+{ #category : #rendering }
+WsView >> renderClass [
+
+	^ WsRenderer
+]
+
+{ #category : #rendering }
+WsView >> renderContentOn: html [
+
+	self subclassResponsibility
 ]
 
 { #category : #rendering }
 WsView >> renderOn: html [
 
 	html renderView: self
-]
-
-{ #category : #accessing }
-WsView >> tag [
-	self subclassResponsibility 
 ]

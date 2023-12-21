@@ -1,11 +1,37 @@
 Class {
-	#name : #WsViewFactoryTestV1,
+	#name : #WsCustomViewTest,
 	#superclass : #TestCase,
 	#category : #'WebSt-Tests-Factory'
 }
 
 { #category : #tests }
-WsViewFactoryTestV1 >> stringWithAll: expectedEntries [
+WsCustomViewTest >> assert: view html: expectedHtml title: expectedTitle [
+
+	self
+		assert: view
+		html: expectedHtml
+		title: expectedTitle
+		resources: ''
+]
+
+{ #category : #tests }
+WsCustomViewTest >> assert: view html: expectedHtml title: expectedTitle resources: expectedResourcesHtml [
+
+	| expectedPageHtml |
+	self assert: view html equals: expectedHtml.
+	expectedPageHtml := self stringWithAll: {
+			                    '<!doctype html><html><head><meta charset="utf-8"/><title>'.
+			                    expectedTitle.
+			                    '</title>'.
+			                    expectedResourcesHtml.
+			                    '</head><body>'.
+			                    expectedHtml.
+			                    '</body></html>' }.
+	self assert: view pageHtml equals: expectedPageHtml
+]
+
+{ #category : #tests }
+WsCustomViewTest >> stringWithAll: expectedEntries [
 
 	| expectedHead |
 	expectedHead := String streamContents: [ :str |
@@ -14,20 +40,7 @@ WsViewFactoryTestV1 >> stringWithAll: expectedEntries [
 ]
 
 { #category : #tests }
-WsViewFactoryTestV1 >> testBodyLeafView [
-
-	| body root rootHtml|
-	body := WsHtmlBodyOLD new.
-	root := WsLeafViewForTest new.
-	root message: 'I am very basic'.
-	rootHtml := '<p>I am very basic</p>'.
-	self assert: root html equals: rootHtml.
-	body rootView: root.
-	self assert: body html equals: '<body>',rootHtml,'</body>'
-]
-
-{ #category : #tests }
-WsViewFactoryTestV1 >> testCompositeView [
+WsCustomViewTest >> testCompositeView [
 	"Ensure resources for subviews are exported, but without duplication"
 
 	| expectedHtml jsUrl cssUrl message1 message2 view |
@@ -60,7 +73,7 @@ WsViewFactoryTestV1 >> testCompositeView [
 ]
 
 { #category : #tests }
-WsViewFactoryTestV1 >> testCompositeViewTemplate [
+WsCustomViewTest >> testCompositeViewTemplate [
 	"Ensure resources for subviews are exported, but without duplication"
 
 	| expectedHtml jsUrl cssUrl message1 message2 view |
@@ -93,7 +106,25 @@ WsViewFactoryTestV1 >> testCompositeViewTemplate [
 ]
 
 { #category : #tests }
-WsViewFactoryTestV1 >> testLeafViewResources [
+WsCustomViewTest >> testLeafView [
+
+	| view |
+	view := WsLeafViewForTest new.
+	self assert: view html: '<p></p>' title: WsLeafViewForTest name.
+	view message: 'I am very basic'.
+	self
+		assert: view
+		html: '<p>I am very basic</p>'
+		title: WsLeafViewForTest name.
+	view titleText: 'Yeees! Gooooal!!!'.
+	self
+		assert: view
+		html: '<p>I am very basic</p>'
+		title: 'Yeees! Gooooal!!!'
+]
+
+{ #category : #tests }
+WsCustomViewTest >> testLeafViewResources [
 
 	| view titleString messageString expectedHtml jsUrl cssUrl |
 	view := WsLeafViewForTest new.
@@ -118,35 +149,4 @@ WsViewFactoryTestV1 >> testLeafViewResources [
 			                '</p></body></html>' }.
 
 	self assert: view pageHtml equals: expectedHtml
-]
-
-{ #category : #tests }
-WsViewFactoryTestV1 >> testLeafViewTemplate [
-
-	| template leafView |
-	leafView := WsLeafViewForTest new.
-	leafView message: 'I am very basic'.
-	template := leafView asTemplate.
-	self
-		assert: template html
-		equals: '<template><p>I am very basic</p></template>'
-]
-
-{ #category : #tests }
-WsViewFactoryTestV1 >> testPageBasicComponent [
-
-	| root titleString messageString expectedHtml |
-	root := WsLeafViewForTest new.
-	titleString := 'Default title'.
-	root title: titleString.
-	messageString := 'Nice message'.
-	root message: messageString.
-	expectedHtml := self stringWithAll: {
-			                '<!doctype html><html><head><meta charset="utf-8"/><title>'.
-			                titleString.
-			                '</title></head><body><p>'.
-			                messageString.
-			                '</p></body></html>' }.
-	self assert: root pageHtml equals: expectedHtml.
-	self assert: WsLeafViewForTest pageHtml equals: expectedHtml
 ]

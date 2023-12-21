@@ -1,6 +1,6 @@
 Class {
 	#name : #WsHead,
-	#superclass : #WsCompositeView,
+	#superclass : #WsPageElement,
 	#instVars : [
 		'title'
 	],
@@ -13,7 +13,7 @@ WsHead >> addMeta: aBlock [
 	| meta |
 	meta := WAMetaElement new.
 	aBlock value: meta.
-	self addChild: meta
+	self add: meta
 ]
 
 { #category : #initialization }
@@ -22,7 +22,7 @@ WsHead >> initialize [
 	super initialize.
 	self addMeta: [ :meta | meta charset: 'utf-8' ].
 	title := WsTitle new.
-	self addChild: title
+	self add: title
 ]
 
 { #category : #accessing }

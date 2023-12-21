@@ -1,12 +1,24 @@
 Class {
 	#name : #WsPage,
-	#superclass : #WsView,
+	#superclass : #WsTagView,
 	#instVars : [
 		'head',
 		'body'
 	],
 	#category : #'WebSt-Kernel'
 }
+
+{ #category : #'instance creation' }
+WsPage class >> with: aView [ 
+	^self new
+		add: aView;
+		yourself
+]
+
+{ #category : #adding }
+WsPage >> add: aView [ 
+	self body add: aView
+]
 
 { #category : #accessing }
 WsPage >> body [
@@ -15,21 +27,9 @@ WsPage >> body [
 ]
 
 { #category : #accessing }
-WsPage >> body: anObject [
-
-	body := anObject
-]
-
-{ #category : #accessing }
 WsPage >> head [
 
 	^ head
-]
-
-{ #category : #accessing }
-WsPage >> head: anObject [
-
-	head := anObject
 ]
 
 { #category : #initialization }
@@ -59,4 +59,10 @@ WsPage >> renderInnerHtmlOn: html [
 { #category : #accessing }
 WsPage >> tag [
 	^#html
+]
+
+{ #category : #accessing }
+WsPage >> titleText: aString [
+
+	self head titleText: aString
 ]

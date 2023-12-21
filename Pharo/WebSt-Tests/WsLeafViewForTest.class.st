@@ -3,15 +3,15 @@ Class {
 	#superclass : #WsViewForTest,
 	#instVars : [
 		'message',
-		'title'
+		'titleText'
 	],
-	#category : #'WebSt-Tests-FactoryOLD'
+	#category : #'WebSt-Tests-Factory'
 }
 
 { #category : #accessing }
 WsLeafViewForTest >> message [
 
-	^ message ifNil: [ 'Nice message'. ]
+	^ message
 ]
 
 { #category : #accessing }
@@ -28,13 +28,13 @@ WsLeafViewForTest >> renderContentOn: html [
 ]
 
 { #category : #accessing }
-WsLeafViewForTest >> title [
+WsLeafViewForTest >> titleText [
 
-	^ title ifNil: [ 'Default title' ]
+	^ titleText ifNil: [ super titleText ]
 ]
 
 { #category : #accessing }
-WsLeafViewForTest >> title: anObject [
+WsLeafViewForTest >> titleText: anObject [
 
-	title := anObject
+	titleText := anObject
 ]

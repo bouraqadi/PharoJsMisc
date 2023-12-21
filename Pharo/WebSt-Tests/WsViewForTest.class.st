@@ -1,12 +1,10 @@
 Class {
 	#name : #WsViewForTest,
-	#superclass : #Object,
-	#traits : 'WsTViewFactoryOLD + WsTResourceFactory',
-	#classTraits : 'WsTViewFactoryOLD classTrait + WsTResourceFactory classTrait',
+	#superclass : #WsCustomView,
 	#instVars : [
 		'externalResources'
 	],
-	#category : #'WebSt-Tests-FactoryOLD'
+	#category : #'WebSt-Tests-Factory'
 }
 
 { #category : #accessing }
@@ -18,12 +16,6 @@ WsViewForTest >> addResource: aResource [
 WsViewForTest >> externalResources [
 
 	^ externalResources
-]
-
-{ #category : #accessing }
-WsViewForTest >> externalResources: anObject [
-
-	externalResources := anObject
 ]
 
 { #category : #initialization }

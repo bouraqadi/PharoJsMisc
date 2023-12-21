@@ -1,6 +1,6 @@
 Class {
 	#name : #WsCompositeViewForTest,
-	#superclass : #WsViewForTest,
+	#superclass : #WsViewForTestOLD,
 	#instVars : [
 		'child1',
 		'child2'

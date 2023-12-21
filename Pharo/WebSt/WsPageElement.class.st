@@ -1,6 +1,6 @@
 Class {
-	#name : #WsCompositeView,
-	#superclass : #WsView,
+	#name : #WsPageElement,
+	#superclass : #WsTagView,
 	#instVars : [
 		'children'
 	],
@@ -8,17 +8,18 @@ Class {
 }
 
 { #category : #accessing }
-WsCompositeView >> addChild: aChild [
+WsPageElement >> add: aChild [
+
 	children add: aChild
 ]
 
 { #category : #initialization }
-WsCompositeView >> initialize [ 
+WsPageElement >> initialize [ 
 	super initialize.
 	children := OrderedCollection new
 ]
 
 { #category : #rendering }
-WsCompositeView >> renderInnerHtmlOn: html [
+WsPageElement >> renderInnerHtmlOn: html [
 	children do: [ :each | html render: each ]
 ]
