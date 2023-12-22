@@ -1,7 +1,7 @@
 Class {
 	#name : #WsJsTest,
 	#superclass : #WsResourceTest,
-	#category : #'WebSt-Tests-Kernel'
+	#category : #'WebSt-Tests-Views'
 }
 
 { #category : #tests }

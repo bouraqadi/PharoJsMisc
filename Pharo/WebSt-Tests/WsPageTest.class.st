@@ -1,7 +1,7 @@
 Class {
 	#name : #WsPageTest,
 	#superclass : #TestCase,
-	#category : #'WebSt-Tests-Kernel'
+	#category : #'WebSt-Tests-Views'
 }
 
 { #category : #tests }

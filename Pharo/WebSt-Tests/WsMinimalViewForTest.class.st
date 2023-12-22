@@ -1,7 +1,7 @@
 Class {
 	#name : #WsMinimalViewForTest,
 	#superclass : #WsView,
-	#category : #'WebSt-Tests-Kernel'
+	#category : #'WebSt-Tests-Views'
 }
 
 { #category : #rendering }

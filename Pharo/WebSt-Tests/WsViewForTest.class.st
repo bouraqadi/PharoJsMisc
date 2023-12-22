@@ -8,7 +8,7 @@ Class {
 		'message',
 		'titleText'
 	],
-	#category : #'WebSt-Tests-Kernel'
+	#category : #'WebSt-Tests-Views'
 }
 
 { #category : #accessing }

@@ -5,7 +5,7 @@ Class {
 		'resource',
 		'url'
 	],
-	#category : #'WebSt-Tests-Kernel'
+	#category : #'WebSt-Tests-Views'
 }
 
 { #category : #testing }
