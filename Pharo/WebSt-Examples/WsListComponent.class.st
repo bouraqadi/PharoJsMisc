@@ -1,5 +1,5 @@
 Class {
-	#name : #WsListItemComponent,
+	#name : #WsListComponent,
 	#superclass : #WsComponent,
 	#traits : 'WsTConcreteComponent',
 	#classTraits : 'WsTConcreteComponent classTrait',
@@ -7,14 +7,20 @@ Class {
 }
 
 { #category : #'class initialization' }
-WsListItemComponent class >> tagName [
+WsListComponent class >> tagName [
 
-	^ 'ws-listItem'
+	^'ws-list'
 ]
 
 { #category : #rendering }
-WsListItemComponent class >> viewClass [
+WsListComponent class >> viewClass [
 
 	<pharoJsSkip>
-	^ WsListItemView
+	^WsListView 
+]
+
+{ #category : #initialization }
+WsListComponent >> initModel [
+
+	^self
 ]
