@@ -13,7 +13,7 @@ WsCounterComponentTest class >> appClass [
 { #category : #tests }
 WsCounterComponentTest >> allCounterComponents [
 
-	^ document querySelectorAll: self tagName
+	^ document querySelectorAll: WsCounterComponent tagName
 ]
 
 { #category : #tests }
@@ -35,22 +35,7 @@ WsCounterComponentTest >> assertBehaviorOfCounter: counter [
 ]
 
 { #category : #tests }
-WsCounterComponentTest >> tagName [
- 
-	^ WsCounterComponent tagName
-]
-
-{ #category : #tests }
-WsCounterComponentTest >> testAddCounterComponentDynamically [
-
-	| newCounter |
-	newCounter := document createElement: WsCounterComponent tagName.
-	document body appendChild: newCounter.
-	self assertBehaviorOfCounter: newCounter
-]
-
-{ #category : #tests }
-WsCounterComponentTest >> testCounterComponentBehavior [
+WsCounterComponentTest >> testBehavior [
 
 	| counter |
 	counter := self allCounterComponents first.
@@ -58,16 +43,32 @@ WsCounterComponentTest >> testCounterComponentBehavior [
 ]
 
 { #category : #tests }
-WsCounterComponentTest >> testHtmlPageGeneration [
+WsCounterComponentTest >> testDynamicAddition [
 
-	| componentHtml bodyHtml headHtml shadowHTML |
+	| newCounter tagName div embeddedCounter |
+	tagName := WsCounterComponent tagName.
+	newCounter := document createElement: tagName.
+	document body appendChild: newCounter.
+	self assertBehaviorOfCounter: newCounter.
+	div := document createElement: 'div'.
+	document body appendChild: div.
+	div innerHTML: '<' , tagName , '></' , tagName , '>'.
+	self assert: div childNodes size equals: 1.
+	embeddedCounter := div childNodes first.
+	self assertBehaviorOfCounter: embeddedCounter
+]
+
+{ #category : #tests }
+WsCounterComponentTest >> testHtmlGeneration [
+
+	| componentHtml bodyHtml headHtml shadowHTML tagName |
 	headHtml := document head innerHTML.
-	{
-		'<title>Counter</title>'.
-		'type="text/javascript" src="index.js' } do: [ :expectedHtml |
-		self assert: (headHtml includesSubstring: expectedHtml) ].
+	{ '<title>Counter</title>'. 'type="text/javascript" src="index.js' }
+		do: [ :expectedHtml |
+			self assert: (headHtml includesSubstring: expectedHtml) ].
 	bodyHtml := document body innerHTML.
-	componentHtml := '<' , self tagName , '></' , self tagName , '>'.
+	tagName := WsCounterComponent tagName.
+	componentHtml := '<' , tagName , '></' , tagName , '>'.
 	self assert: (bodyHtml includesSubstring: componentHtml).
 	shadowHTML := (document querySelector: WsCounterComponent tagName)
 		              shadowRoot innerHTML.
