@@ -1,7 +1,7 @@
 Class {
 	#name : #WsView,
 	#superclass : #WsElement,
-	#category : #'WebSt-Kernel'
+	#category : #'WebSt-Base-Kernel'
 }
 
 { #category : #rendering }

@@ -1,13 +1,13 @@
 Class {
-	#name : #WsAppForComponentTest,
+	#name : #WsCounterApp,
 	#superclass : #PjWebApplication,
 	#traits : 'WsTComponentApp',
 	#classTraits : 'WsTComponentApp classTrait',
-	#category : #'WebSt-Tests-Components'
+	#category : #'WebSt-Examples-Counter'
 }
 
 { #category : #accessing }
-WsAppForComponentTest class >> rootComponentClass [
+WsCounterApp class >> rootComponentClass [
 
 	^ WsCounterComponent
 ]

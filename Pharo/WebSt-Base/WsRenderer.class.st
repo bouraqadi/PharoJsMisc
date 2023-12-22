@@ -5,7 +5,7 @@ Class {
 		'stream',
 		'document'
 	],
-	#category : #'WebSt-Kernel'
+	#category : #'WebSt-Base-Kernel'
 }
 
 { #category : #rendering }

@@ -3,7 +3,7 @@ Class {
 	#superclass : #WsElement,
 	#traits : 'WsTCompositeElement',
 	#classTraits : 'WsTCompositeElement classTrait',
-	#category : #'WebSt-Kernel'
+	#category : #'WebSt-Base-Kernel'
 }
 
 { #category : #'instance creation' }

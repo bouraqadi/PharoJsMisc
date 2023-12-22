@@ -9,7 +9,7 @@ Class {
 	#pools : [
 		'PjBrowserGlobals'
 	],
-	#category : #'WebSt-Components'
+	#category : #'WebSt-Base-Components'
 }
 
 { #category : #'class initialization' }

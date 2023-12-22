@@ -1,6 +1,6 @@
 Extension { #name : #WAHtmlElement }
 
-{ #category : #'*WebSt' }
+{ #category : #'*WebSt-Base' }
 WAHtmlElement >> renderOn: renderer [
 
 	renderer renderHeadChild: self

@@ -1,6 +1,6 @@
 Trait {
 	#name : #WsTResourceFactory,
-	#category : #'WebSt-Kernel'
+	#category : #'WebSt-Base-Kernel'
 }
 
 { #category : #adding }

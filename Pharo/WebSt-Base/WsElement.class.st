@@ -1,7 +1,7 @@
 Class {
 	#name : #WsElement,
 	#superclass : #Object,
-	#category : #'WebSt-Kernel'
+	#category : #'WebSt-Base-Kernel'
 }
 
 { #category : #rendering }

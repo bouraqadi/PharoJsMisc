@@ -4,7 +4,7 @@ Class {
 	#classVars : [
 		'Bootstrap502'
 	],
-	#category : #'WebSt-Example'
+	#category : #'WebSt-Base-Bootstrap'
 }
 
 { #category : #accesing }

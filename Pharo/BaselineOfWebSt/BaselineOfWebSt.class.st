@@ -18,8 +18,7 @@ BaselineOfWebSt >> baseline: spec [
 		with: [ spec repository: 'github://PharoJS/PharoJS:pharo11/' ].
 
 	spec
-		package: 'WebSt'
-		with: [ spec requires: #( 'Seaside3' 'PharoJS' ) ];
-		package: 'WebSt-Tests'
-		with: [ spec requires: #( 'WebSt' ) ]
+		package: 'WebSt-Base' with: [ spec requires: #( 'Seaside3' 'PharoJS' ) ];
+		package: 'WebSt-Examples' with: [ spec requires: #( 'WebSt-Base' ) ];
+		package: 'WebSt-Tests' with: [ spec requires: #( 'WebSt-Base' 'WebSt-Examples') ]
 ]

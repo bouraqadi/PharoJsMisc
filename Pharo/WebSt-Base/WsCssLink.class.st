@@ -4,7 +4,7 @@ I represent an external CSS file.
 Class {
 	#name : #WsCssLink,
 	#superclass : #WsResource,
-	#category : #'WebSt-Kernel'
+	#category : #'WebSt-Base-Kernel'
 }
 
 { #category : #initialization }

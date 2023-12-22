@@ -1,7 +1,7 @@
 Class {
 	#name : #WsBody,
 	#superclass : #WsCompositeTagElement,
-	#category : #'WebSt-Kernel'
+	#category : #'WebSt-Base-Kernel'
 }
 
 { #category : #accessing }

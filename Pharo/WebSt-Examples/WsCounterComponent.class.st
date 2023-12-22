@@ -7,7 +7,7 @@ Class {
 		'display',
 		'counter'
 	],
-	#category : #'WebSt-Example'
+	#category : #'WebSt-Examples-Counter'
 }
 
 { #category : #'class initialization' }

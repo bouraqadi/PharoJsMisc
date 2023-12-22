@@ -7,7 +7,7 @@ Class {
 { #category : #'suite parameters' }
 WsCounterComponentTest class >> appClass [
 
-	^ WsAppForComponentTest 
+	^ WsCounterApp 
 ]
 
 { #category : #tests }
