@@ -1,6 +1,8 @@
 Class {
 	#name : #WsCounterView,
 	#superclass : #WsView,
+	#traits : 'WsTBootstrapView',
+	#classTraits : 'WsTBootstrapView classTrait',
 	#category : #'WebSt-Example'
 }
 
@@ -34,10 +36,4 @@ WsCounterView >> renderContentOn: html [
 						bePush;
 						class: 'reset btn btn-danger';
 						value: 'x' ] ]
-]
-
-{ #category : #accessing }
-WsCounterView >> resources [
-
-	^ { WsBootstrapResources bootstrap502 }
 ]

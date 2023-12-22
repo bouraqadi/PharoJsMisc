@@ -1,10 +1,10 @@
 Trait {
-	#name : #WsTBootstrapComponent,
+	#name : #WsTBootstrapView,
 	#category : #'WebSt-Example'
 }
 
 { #category : #accessing }
-WsTBootstrapComponent >> resources [
+WsTBootstrapView >> resources [
 
 	^ { WsBootstrapResources  bootstrap502 }
 ]
