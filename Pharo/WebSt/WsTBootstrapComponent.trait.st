@@ -1,7 +1,5 @@
 Trait {
 	#name : #WsTBootstrapComponent,
-	#traits : 'WsTViewFactoryOLD',
-	#classTraits : 'WsTViewFactoryOLD classTrait',
 	#category : #'WebSt-Example'
 }
 

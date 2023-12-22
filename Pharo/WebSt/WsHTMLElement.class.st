@@ -1,7 +1,7 @@
 Class {
 	#name : #WsHtmlElement,
 	#superclass : #Object,
-	#category : #'WebSt-WebComponents'
+	#category : #'WebSt-Components'
 }
 
 { #category : #'pharoJs support' }

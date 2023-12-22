@@ -1,6 +1,6 @@
 Trait {
 	#name : #WsTConcreteComponent,
-	#category : #'WebSt-WebComponents'
+	#category : #'WebSt-Components'
 }
 
 { #category : #'class initialization' }

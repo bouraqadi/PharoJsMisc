@@ -1,6 +1,6 @@
 Trait {
 	#name : #WsTComponentApp,
-	#category : #'WebSt-WebComponents'
+	#category : #'WebSt-Components'
 }
 
 { #category : #accessing }
