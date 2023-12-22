@@ -14,7 +14,12 @@ WsListView class >> title [
 { #category : #rendering }
 WsListView >> renderContentOn: html [
 
-	html div 
-	class: 'list-group';
-	with: [  ]
+	html div
+		class: 'list-group';
+		with: [ self renderItemsOn: html ]
+]
+
+{ #category : #rendering }
+WsListView >> renderItemsOn: html [
+	WsListItemComponent 
 ]

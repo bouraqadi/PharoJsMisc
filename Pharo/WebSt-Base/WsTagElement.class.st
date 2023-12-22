@@ -1,7 +1,7 @@
 Class {
 	#name : #WsTagElement,
 	#superclass : #WsElement,
-	#category : #'WebSt-Base-Kernel'
+	#category : #'WebSt-Base-Views'
 }
 
 { #category : #rendering }

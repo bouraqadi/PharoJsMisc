@@ -1,5 +1,5 @@
 Class {
-	#name : #WsViewForTest,
+	#name : #WsLeafViewForTest,
 	#superclass : #WsView,
 	#traits : 'WsTResourceFactory',
 	#classTraits : 'WsTResourceFactory classTrait',
@@ -12,49 +12,49 @@ Class {
 }
 
 { #category : #accessing }
-WsViewForTest >> addResource: aResource [
+WsLeafViewForTest >> addResource: aResource [
 	self resources add: aResource
 ]
 
 { #category : #rendering }
-WsViewForTest >> initialize [
+WsLeafViewForTest >> initialize [
 
 	super initialize.
 	resources := OrderedCollection new
 ]
 
 { #category : #accessing }
-WsViewForTest >> message [
+WsLeafViewForTest >> message [
 
 	^ message
 ]
 
 { #category : #accessing }
-WsViewForTest >> message: anObject [
+WsLeafViewForTest >> message: anObject [
 
 	message := anObject
 ]
 
 { #category : #rendering }
-WsViewForTest >> renderContentOn:  html [
+WsLeafViewForTest >> renderContentOn:  html [
 
 	html paragraph: [ html text: self message ]
 ]
 
 { #category : #accessing }
-WsViewForTest >> resources [
+WsLeafViewForTest >> resources [
 
 	^ resources
 ]
 
 { #category : #accessing }
-WsViewForTest >> title [
+WsLeafViewForTest >> title [
 
 	^ titleText ifNil: [ super title ]
 ]
 
 { #category : #accessing }
-WsViewForTest >> title: anObject [
+WsLeafViewForTest >> title: anObject [
 
 	titleText := anObject
 ]

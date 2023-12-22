@@ -12,7 +12,7 @@ Class {
 		'integrity',
 		'crossorigin'
 	],
-	#category : #'WebSt-Base-Kernel'
+	#category : #'WebSt-Base-Views'
 }
 
 { #category : #'instance creation' }

@@ -10,8 +10,7 @@ Class {
 WsTodoListView >> renderContentOn: html [
 
 	html render: WsListComponent.
-	html button 
+	html button
 		text: 'Add';
 		class: 'btn btn-primary'
-		
 ]

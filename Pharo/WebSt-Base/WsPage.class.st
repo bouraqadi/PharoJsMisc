@@ -7,7 +7,7 @@ Class {
 		'head',
 		'body'
 	],
-	#category : #'WebSt-Base-Kernel'
+	#category : #'WebSt-Base-Views'
 }
 
 { #category : #'instance creation' }

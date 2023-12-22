@@ -1,7 +1,7 @@
 Class {
 	#name : #WsCounterComponentTest,
-	#superclass : #WsComponentTest,
-	#category : #'WebSt-Tests-Components'
+	#superclass : #WsBootstrapComponentTest,
+	#category : #'WebSt-Tests-Examples'
 }
 
 { #category : #'suite parameters' }
@@ -30,7 +30,7 @@ WsCounterComponentTest >> assertBehavior [
 { #category : #tests }
 WsCounterComponentTest >> assertBehavior: counter [
 
-	| display resetBtn root incrementBtn decrementBtn |
+	| display resetBtn incrementBtn decrementBtn |
 	root := counter shadowRoot.
 	display := root querySelector: '.display'.
 	incrementBtn := root querySelector: '.increment'.

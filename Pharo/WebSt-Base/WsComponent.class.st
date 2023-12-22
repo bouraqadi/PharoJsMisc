@@ -12,16 +12,35 @@ Class {
 	#category : #'WebSt-Base-Components'
 }
 
+{ #category : #dependencies }
+WsComponent class >> addAllComponentClassesTo: classes [
+
+	<pharoJsSkip>
+	(classes includes: self) ifTrue: [ ^self ].
+	classes add: self.
+	self subComponentClasses do: [ : each | each addAllComponentClassesTo: classes ]
+]
+
+{ #category : #dependencies }
+WsComponent class >> allComponentClasses [
+
+	<pharoJsSkip>
+	| classes |
+	classes := IdentitySet new.
+	self addAllComponentClassesTo: classes.
+	^ classes asArray
+]
+
 { #category : #'class initialization' }
 WsComponent class >> registerTag [
 	window customElements define: self tagName with: self
 ]
 
 { #category : #rendering }
-WsComponent class >> renderOn: aRenderer [
+WsComponent class >> renderOn: html [
 
 	<pharoJsSkip>
-	aRenderer renderElement: self
+	html renderElement: self
 ]
 
 { #category : #rendering }
@@ -34,6 +53,13 @@ WsComponent class >> renderOuterHtmlOn: html [
 { #category : #rendering }
 WsComponent class >> shadowHtml [
 	self subclassResponsibility
+]
+
+{ #category : #dependencies }
+WsComponent class >> subComponentClasses [
+
+	<pharoJsSkip>
+	^ self viewClass referencedClasses select: [  :each | each inheritsFrom: WsComponent ]
 ]
 
 { #category : #'class initialization' }

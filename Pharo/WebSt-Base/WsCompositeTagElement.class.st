@@ -3,7 +3,7 @@ Class {
 	#superclass : #WsTagElement,
 	#traits : 'WsTCompositeElement - {#renderOuterHtmlOn:}',
 	#classTraits : 'WsTCompositeElement classTrait',
-	#category : #'WebSt-Base-Kernel'
+	#category : #'WebSt-Base-Views'
 }
 
 { #category : #rendering }

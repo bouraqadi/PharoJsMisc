@@ -47,9 +47,9 @@ WsViewTest >> testBasic [
 		html: ''
 		title: WsMinimalViewForTest name.
 	self
-		assert: WsViewForTest new
+		assert: WsLeafViewForTest new
 		html: '<p></p>'
-		title: WsViewForTest name.
+		title: WsLeafViewForTest name.
 
 ]
 
@@ -57,12 +57,12 @@ WsViewTest >> testBasic [
 WsViewTest >> testContent [
 
 	| view |
-	view := WsViewForTest new.
+	view := WsLeafViewForTest new.
 	view message: 'I am very basic'.
 	self
 		assert: view
 		html: '<p>I am very basic</p>'
-		title: WsViewForTest name.
+		title: WsLeafViewForTest name.
 	view title: 'Yeees! Gooooal!!!'.
 	self
 		assert: view
@@ -74,7 +74,7 @@ WsViewTest >> testContent [
 WsViewTest >> testResources [
 
 	| view titleString messageString expectedHtml jsUrl cssUrl |
-	view := WsViewForTest new.
+	view := WsLeafViewForTest new.
 	titleString := 'New Shiny!'.
 	messageString := 'Experimenting with a different message.'.
 	jsUrl := 'path/file.js'.

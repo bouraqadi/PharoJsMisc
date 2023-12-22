@@ -3,7 +3,7 @@ Trait {
 	#instVars : [
 		'children'
 	],
-	#category : #'WebSt-Base-Kernel'
+	#category : #'WebSt-Base-Views'
 }
 
 { #category : #accessing }

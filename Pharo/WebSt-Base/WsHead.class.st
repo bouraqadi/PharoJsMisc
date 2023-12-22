@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'titleElement'
 	],
-	#category : #'WebSt-Base-Kernel'
+	#category : #'WebSt-Base-Views'
 }
 
 { #category : #accessing }

@@ -9,7 +9,7 @@ Class {
 { #category : #'class initialization' }
 WsListItemComponent class >> tagName [
 
-	^ 'ws-listItem'
+	^ 'ws-list-item'
 ]
 
 { #category : #rendering }

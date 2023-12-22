@@ -4,7 +4,7 @@ I represent an external JS file.
 Class {
 	#name : #WsJsScript,
 	#superclass : #WsResource,
-	#category : #'WebSt-Base-Kernel'
+	#category : #'WebSt-Base-Views'
 }
 
 { #category : #initialization }

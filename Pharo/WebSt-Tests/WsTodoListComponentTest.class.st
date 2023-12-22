@@ -1,10 +1,10 @@
 Class {
 	#name : #WsTodoListComponentTest,
-	#superclass : #WsComponentTest,
+	#superclass : #WsBootstrapComponentTest,
 	#instVars : [
 		'listComponent'
 	],
-	#category : #'WebSt-Tests-Components'
+	#category : #'WebSt-Tests-Examples'
 }
 
 { #category : #'suite parameters' }
@@ -22,6 +22,11 @@ WsTodoListComponentTest >> assertBehavior [
 	1 to: 3 do: [ :expectedCount |
 		addItemButton click.
 		self assert: self itemComponents size equals: expectedCount ]
+]
+
+{ #category : #tests }
+WsTodoListComponentTest >> componentClasses [
+	^super componentClasses, { WsListComponent . WsListItemComponent  }
 ]
 
 { #category : #tests }

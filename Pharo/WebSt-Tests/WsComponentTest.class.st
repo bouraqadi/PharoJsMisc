@@ -3,15 +3,13 @@ Class {
 	#superclass : #PjWebAppTestCase,
 	#traits : 'PjTAppRunsInJS',
 	#classTraits : 'PjTAppRunsInJS classTrait',
-	#instVars : [
-		'root'
-	],
-	#category : #'WebSt-Tests-Components'
+	#category : #'WebSt-Tests-Examples'
 }
 
 { #category : #testing }
-WsComponentTest class >> isAbstract [ 
-	^self == WsComponentTest 
+WsComponentTest class >> isAbstract [
+
+	^ self == WsComponentTest
 ]
 
 { #category : #tests }
@@ -20,17 +18,9 @@ WsComponentTest >> allComponents [
 	^ document querySelectorAll: self tagName
 ]
 
-{ #category : #tests }
-WsComponentTest >> assertBehavior [
-
-	self subclassResponsibility
-]
-
-{ #category : #tests }
+{ #category : #asserting }
 WsComponentTest >> assertBehavior: component [
-
-	root := component shadowRoot.
-	self assertBehavior
+	self subclassResponsibility 
 ]
 
 { #category : #accessing }
@@ -39,7 +29,18 @@ WsComponentTest >> componentClass [
 ]
 
 { #category : #tests }
+WsComponentTest >> componentClasses [
+
+	^{self componentClass}
+]
+
+{ #category : #tests }
 WsComponentTest >> expectedTitle [
+	self subclassResponsibility 
+]
+
+{ #category : #tests }
+WsComponentTest >> resourceHtmls [
 	self subclassResponsibility 
 ]
 
@@ -54,6 +55,13 @@ WsComponentTest >> testBehavior [
 	| component |
 	component := self allComponents first.
 	self assertBehavior: component
+]
+
+{ #category : #tests }
+WsComponentTest >> testComponentClassesExport [
+	self componentClasses do: [ : each|
+		self deny: (globalThis at: each name) isNil ]
+		
 ]
 
 { #category : #tests }
@@ -85,9 +93,7 @@ WsComponentTest >> testHtmlGeneration [
 	self assert: (bodyHtml includesSubstring: componentHtml).
 	shadowHTML := (document querySelector: self componentClass tagName)
 		              shadowRoot innerHTML.
-	{ '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"'.
-	'<script defer="" type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"' }
-		do: [ :expectedHtml |
-			self deny: (bodyHtml includesSubstring: expectedHtml).
-			self assert: (shadowHTML includesSubstring: expectedHtml) ]
+	self resourceHtmls do: [ :expectedHtml |
+		self deny: (bodyHtml includesSubstring: expectedHtml).
+		self assert: (shadowHTML includesSubstring: expectedHtml) ]
 ]

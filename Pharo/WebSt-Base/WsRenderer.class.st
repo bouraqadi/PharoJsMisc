@@ -5,7 +5,7 @@ Class {
 		'stream',
 		'document'
 	],
-	#category : #'WebSt-Base-Kernel'
+	#category : #'WebSt-Base-Views'
 }
 
 { #category : #rendering }
@@ -39,7 +39,8 @@ WsRenderer >> initialize [
 
 	super initialize.
 	stream := WriteStream on: String new.
-document := WAHtmlDocument on: stream.
+	document := WAHtmlDocument on: stream.
+
 ]
 
 { #category : #rendering }
