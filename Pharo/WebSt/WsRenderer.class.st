@@ -12,8 +12,7 @@ Class {
 WsRenderer class >> render: anObject [
 
 	^ self new
-		  render: anObject;
-		  html
+		 htmlFrom: anObject 
 ]
 
 { #category : #accessing }
@@ -28,6 +27,13 @@ WsRenderer >> html [
 	^ stream contents
 ]
 
+{ #category : #rendering }
+WsRenderer >> htmlFrom: anObject [
+
+	self render: anObject.
+	^self html
+]
+
 { #category : #initialization }
 WsRenderer >> initialize [
 
@@ -37,9 +43,21 @@ document := WAHtmlDocument on: stream.
 ]
 
 { #category : #rendering }
+WsRenderer >> link [
+
+	^ self brush: WsLinkTag new
+]
+
+{ #category : #rendering }
 WsRenderer >> render: aView [
 
 	aView renderOn: self
+]
+
+{ #category : #rendering }
+WsRenderer >> renderElement: aView [
+
+	aView renderOuterHtmlOn: self
 ]
 
 { #category : #rendering }
@@ -52,10 +70,4 @@ WsRenderer >> renderHeadChild: element [
 	element isClosed ifTrue: [ ^ self ].
 	element renderOuterHtmlOn: self.
 	self document closeTag: element tag
-]
-
-{ #category : #rendering }
-WsRenderer >> renderView: view [
-
-	view renderOuterHtmlOn: self
 ]

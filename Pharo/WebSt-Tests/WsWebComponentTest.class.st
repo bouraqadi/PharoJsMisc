@@ -3,5 +3,5 @@ Class {
 	#superclass : #PjWebAppTestCase,
 	#traits : 'PjTAppRunsInJS',
 	#classTraits : 'PjTAppRunsInJS classTrait',
-	#category : #'WebSt-Tests-Kernel'
+	#category : #'WebSt-Tests-Components'
 }

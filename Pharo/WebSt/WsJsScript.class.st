@@ -2,13 +2,13 @@
 I represent an external JS file.
 "
 Class {
-	#name : #WsJsResource,
-	#superclass : #WsBasicResource,
-	#category : #'WebSt-ViewsOLD'
+	#name : #WsJsScript,
+	#superclass : #WsResource,
+	#category : #'WebSt-Kernel'
 }
 
 { #category : #initialization }
-WsJsResource >> renderTagOn: html [
+WsJsScript >> renderTagOn: html [
 
 	^ html script
 		  defer;

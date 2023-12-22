@@ -1,34 +1,47 @@
 Class {
 	#name : #WsView,
-	#superclass : #Object,
+	#superclass : #WsElement,
 	#category : #'WebSt-Kernel'
 }
 
 { #category : #rendering }
-WsView class >> html [
-
-	^ self new html
+WsView class >> pageHtml [
+	^self new pageHtml
 ]
 
 { #category : #rendering }
-WsView >> html [
-^self renderClass render: self
+WsView >> pageHtml [
+		| page |
+	page := WsPage with: self.
+		page title: self title.
+		^page html
+
 ]
 
 { #category : #rendering }
-WsView >> renderClass [
-
-	^ WsRenderer
-]
-
-{ #category : #rendering }
-WsView >> renderOn: html [
-
-	html renderView: self
+WsView >> renderContentOn: html [
+	self subclassResponsibility 
 ]
 
 { #category : #rendering }
 WsView >> renderOuterHtmlOn: html [
 
-	self subclassResponsibility
+	self renderResourcesOn: html;
+		renderContentOn: html
+]
+
+{ #category : #rendering }
+WsView >> renderResourcesOn: html [
+	self resources do: [ : each | html render: each ]
+]
+
+{ #category : #accessing }
+WsView >> resources [
+	^#()
+]
+
+{ #category : #rendering }
+WsView >> title [
+
+	^ self className
 ]

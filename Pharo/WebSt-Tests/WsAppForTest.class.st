@@ -3,7 +3,7 @@ Class {
 	#superclass : #PjWebApplication,
 	#traits : 'WsTWebComponentApp',
 	#classTraits : 'WsTWebComponentApp classTrait',
-	#category : #'WebSt-Tests-Kernel'
+	#category : #'WebSt-Tests-Components'
 }
 
 { #category : #accessing }

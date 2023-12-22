@@ -1,8 +1,8 @@
 Class {
 	#name : #WsHead,
-	#superclass : #WsPageElement,
+	#superclass : #WsCompositeTagElement,
 	#instVars : [
-		'title'
+		'titleElement'
 	],
 	#category : #'WebSt-Kernel'
 }
@@ -21,8 +21,8 @@ WsHead >> initialize [
 
 	super initialize.
 	self addMeta: [ :meta | meta charset: 'utf-8' ].
-	title := WsTitle new.
-	self add: title
+	titleElement := WsTitle new.
+	self add: titleElement
 ]
 
 { #category : #accessing }
@@ -31,7 +31,7 @@ WsHead >> tag [
 ]
 
 { #category : #accessing }
-WsHead >> titleText: aString [
+WsHead >> title: aString [
 
-	title text: aString
+	titleElement text: aString
 ]

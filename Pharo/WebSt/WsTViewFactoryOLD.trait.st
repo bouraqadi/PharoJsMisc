@@ -15,16 +15,16 @@ WsTViewFactoryOLD >> asTemplate [
 	^WsTemplateViewFactory content: self
 ]
 
-{ #category : #accessing }
-WsTViewFactoryOLD >> externalResources [
-
-	^ #(  )
-]
-
 { #category : #'as yet unclassified' }
 WsTViewFactoryOLD >> renderOn: aRenderer [
 
-	aRenderer renderView: self 
+	aRenderer renderElement: self 
+]
+
+{ #category : #accessing }
+WsTViewFactoryOLD >> resources [
+
+	^ #(  )
 ]
 
 { #category : #accessing }

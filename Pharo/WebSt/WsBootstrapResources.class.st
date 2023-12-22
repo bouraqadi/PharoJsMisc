@@ -16,15 +16,15 @@ WsBootstrapResources class >> bootstrap502 [
 { #category : #'class initialization' }
 WsBootstrapResources class >> initialize [
 
-	Bootstrap502 := WsCompositeResource withAll: 
-	{WsCssResource new
+	Bootstrap502 := WsCompositeElement withAll: 
+	{WsCssLink new
 		          url:
 			          'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css';
 		          integrity:
 			          'sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC';
 		          crossoriginAnonymous;
 		          yourself.
- WsJsResource new
+ WsJsScript new
 		         url:
 			         'https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js';
 		         integrity:

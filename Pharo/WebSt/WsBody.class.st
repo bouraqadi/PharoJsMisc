@@ -1,6 +1,6 @@
 Class {
 	#name : #WsBody,
-	#superclass : #WsPageElement,
+	#superclass : #WsCompositeTagElement,
 	#category : #'WebSt-Kernel'
 }
 

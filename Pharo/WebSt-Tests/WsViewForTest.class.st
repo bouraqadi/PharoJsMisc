@@ -1,26 +1,26 @@
 Class {
 	#name : #WsViewForTest,
-	#superclass : #WsCustomView,
+	#superclass : #WsView,
 	#instVars : [
-		'externalResources'
+		'resources'
 	],
-	#category : #'WebSt-Tests-Factory'
+	#category : #'WebSt-Tests-Kernel'
 }
 
 { #category : #accessing }
 WsViewForTest >> addResource: aResource [
-	self externalResources add: aResource
-]
-
-{ #category : #accessing }
-WsViewForTest >> externalResources [
-
-	^ externalResources
+	self resources add: aResource
 ]
 
 { #category : #initialization }
 WsViewForTest >> initialize [
 
 	super initialize.
-	externalResources := OrderedCollection new
+	resources := OrderedCollection new
+]
+
+{ #category : #accessing }
+WsViewForTest >> resources [
+
+	^ resources
 ]

@@ -9,12 +9,6 @@ Class {
 }
 
 { #category : #rendering }
-WsRendererOLD >> link [
-
-	^ self brush: WsLinkTag new
-]
-
-{ #category : #rendering }
 WsRendererOLD >> renderBody: aWsHtmlBody [ 
 	aWsHtmlBody renderOuterHtmlOn: self
 ]
@@ -31,6 +25,13 @@ WsRendererOLD >> renderDocType [
 ]
 
 { #category : #rendering }
+WsRendererOLD >> renderElement: aView [
+
+	aView resources do: [ :each | self render: each ].
+	aView renderOuterHtmlOn: self
+]
+
+{ #category : #rendering }
 WsRendererOLD >> renderHead: aWsHtmlHead [ 
 	aWsHtmlHead renderOuterHtmlOn: self
 ]
@@ -39,13 +40,6 @@ WsRendererOLD >> renderHead: aWsHtmlHead [
 WsRendererOLD >> renderResource: aResource [
 
 	^ aResource renderOuterHtmlOn: self
-]
-
-{ #category : #rendering }
-WsRendererOLD >> renderView: aView [
-
-	aView externalResources do: [ :each | self render: each ].
-	aView renderOuterHtmlOn: self
 ]
 
 { #category : #rendering }

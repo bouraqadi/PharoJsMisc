@@ -12,12 +12,6 @@ WsCounterViewFactory class >> title [
 	^ #Counter
 ]
 
-{ #category : #accessing }
-WsCounterViewFactory >> externalResources [
-
-	^ { WsBootstrapResources bootstrap502 }
-]
-
 { #category : #rendering }
 WsCounterViewFactory >> renderOuterHtmlOn: html [
 
@@ -42,4 +36,10 @@ WsCounterViewFactory >> renderOuterHtmlOn: html [
 						bePush;
 						class: 'reset btn btn-danger';
 						value: 'x' ] ]
+]
+
+{ #category : #accessing }
+WsCounterViewFactory >> resources [
+
+	^ { WsBootstrapResources bootstrap502 }
 ]

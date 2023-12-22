@@ -6,7 +6,7 @@ Trait {
 }
 
 { #category : #accessing }
-WsTBootstrapComponent >> externalResources [
+WsTBootstrapComponent >> resources [
 
 	^ { WsBootstrapResources  bootstrap502 }
 ]

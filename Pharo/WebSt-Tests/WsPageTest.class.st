@@ -1,17 +1,17 @@
 Class {
-	#name : #WsBasicViewTest,
+	#name : #WsPageTest,
 	#superclass : #TestCase,
-	#category : #'WebSt-Tests-Factory'
+	#category : #'WebSt-Tests-Kernel'
 }
 
 { #category : #tests }
-WsBasicViewTest >> testBodyBasic [
+WsPageTest >> testBodyBasic [
 
 	self assert: WsBody html equals: '<body></body>'
 ]
 
 { #category : #tests }
-WsBasicViewTest >> testHeadBasic [
+WsPageTest >> testHeadBasic [
 
 	self
 		assert: WsHead html
@@ -19,30 +19,31 @@ WsBasicViewTest >> testHeadBasic [
 ]
 
 { #category : #tests }
-WsBasicViewTest >> testHeadTitle [
+WsPageTest >> testHeadTitle [
 
 	| head |
 	head := WsHead new.
-	head titleText: 'Short and Sweet'.
+	head title: 'Short and Sweet'.
 	self
 		assert: head html
 		equals: '<head><meta charset="utf-8"/><title>Short and Sweet</title></head>' 
 ]
 
 { #category : #tests }
-WsBasicViewTest >> testPageBasic [
+WsPageTest >> testPageBasic [
 
 	self
 		assert: WsPage html
-		equals: '<!doctype html><html><head><meta charset="utf-8"/><title/></head><body></body></html>'
+		equals:
+		'<!doctype html><html><head><meta charset="utf-8"/><title/></head><body></body></html>'
 ]
 
 { #category : #tests }
-WsBasicViewTest >> testPageTitle [
+WsPageTest >> testPageTitle [
 
 	| page |
 	page := WsPage new.
-	page titleText: 'Nice title'.
+	page title: 'Nice title'.
 	self
 		assert: page html
 		equals:

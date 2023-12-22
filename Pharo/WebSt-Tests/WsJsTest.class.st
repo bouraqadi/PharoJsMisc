@@ -1,13 +1,13 @@
 Class {
 	#name : #WsJsTest,
 	#superclass : #WsResourceTest,
-	#category : #'WebSt-Tests-FactoryOLD'
+	#category : #'WebSt-Tests-Kernel'
 }
 
 { #category : #tests }
 WsJsTest >> resourceClass [
 
-	^WsJsResource 
+	^WsJsScript 
 ]
 
 { #category : #tests }

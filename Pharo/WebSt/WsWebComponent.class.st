@@ -13,13 +13,6 @@ Class {
 }
 
 { #category : #rendering }
-WsWebComponent class >> externalResources [
-
-	<pharoJsSkip>
-	^ self viewFactoryClass externalResources, { WsJsResource url: 'index.js' }
-]
-
-{ #category : #rendering }
 WsWebComponent class >> pageHtml [
 <pharoJsSkip>
 	^ self basicNew pageHtml
@@ -39,6 +32,13 @@ WsWebComponent class >> renderOn: aRenderer [
 { #category : #rendering }
 WsWebComponent class >> renderOuterHtmlOn: html [
 	html tag: self tagName
+]
+
+{ #category : #rendering }
+WsWebComponent class >> resources [
+
+	<pharoJsSkip>
+	^ self viewFactoryClass resources, { WsJsScript url: 'index.js' }
 ]
 
 { #category : #rendering }
@@ -71,12 +71,6 @@ WsWebComponent >> document [
 ]
 
 { #category : #accessing }
-WsWebComponent >> externalResources [
-
-	^self class externalResources
-]
-
-{ #category : #accessing }
 WsWebComponent >> html [
 	^self class html
 ]
@@ -102,6 +96,12 @@ WsWebComponent >> initialize [
 	self initModel.
 	self initView.
 
+]
+
+{ #category : #accessing }
+WsWebComponent >> resources [
+
+	^self class resources
 ]
 
 { #category : #initialization }

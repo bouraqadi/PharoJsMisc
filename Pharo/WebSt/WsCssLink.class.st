@@ -2,13 +2,13 @@
 I represent an external CSS file.
 "
 Class {
-	#name : #WsCssResource,
-	#superclass : #WsBasicResource,
-	#category : #'WebSt-ViewsOLD'
+	#name : #WsCssLink,
+	#superclass : #WsResource,
+	#category : #'WebSt-Kernel'
 }
 
 { #category : #initialization }
-WsCssResource >> renderTagOn: html [
+WsCssLink >> renderTagOn: html [
 
 	^ html link
 		beStylesheet;

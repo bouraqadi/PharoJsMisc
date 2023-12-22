@@ -1,11 +1,11 @@
 Class {
-	#name : #WsCustomViewTest,
+	#name : #WsRootViewTest,
 	#superclass : #TestCase,
-	#category : #'WebSt-Tests-Factory'
+	#category : #'WebSt-Tests-Kernel'
 }
 
 { #category : #tests }
-WsCustomViewTest >> assert: view html: expectedHtml title: expectedTitle [
+WsRootViewTest >> assert: view html: expectedHtml title: expectedTitle [
 
 	self
 		assert: view
@@ -15,7 +15,7 @@ WsCustomViewTest >> assert: view html: expectedHtml title: expectedTitle [
 ]
 
 { #category : #tests }
-WsCustomViewTest >> assert: view html: expectedHtml title: expectedTitle resources: expectedResourcesHtml [
+WsRootViewTest >> assert: view html: expectedHtml title: expectedTitle resources: expectedResourcesHtml [
 
 	| expectedPageHtml |
 	self assert: view html equals: expectedHtml.
@@ -31,7 +31,7 @@ WsCustomViewTest >> assert: view html: expectedHtml title: expectedTitle resourc
 ]
 
 { #category : #tests }
-WsCustomViewTest >> stringWithAll: expectedEntries [
+WsRootViewTest >> stringWithAll: expectedEntries [
 
 	| expectedHead |
 	expectedHead := String streamContents: [ :str |
@@ -40,7 +40,7 @@ WsCustomViewTest >> stringWithAll: expectedEntries [
 ]
 
 { #category : #tests }
-WsCustomViewTest >> testCompositeView [
+WsRootViewTest >> testCompositeView [
 	"Ensure resources for subviews are exported, but without duplication"
 
 	| expectedHtml jsUrl cssUrl message1 message2 view |
@@ -73,7 +73,7 @@ WsCustomViewTest >> testCompositeView [
 ]
 
 { #category : #tests }
-WsCustomViewTest >> testCompositeViewTemplate [
+WsRootViewTest >> testCompositeViewTemplate [
 	"Ensure resources for subviews are exported, but without duplication"
 
 	| expectedHtml jsUrl cssUrl message1 message2 view |
@@ -106,7 +106,7 @@ WsCustomViewTest >> testCompositeViewTemplate [
 ]
 
 { #category : #tests }
-WsCustomViewTest >> testLeafView [
+WsRootViewTest >> testLeafView [
 
 	| view |
 	view := WsLeafViewForTest new.
@@ -116,7 +116,7 @@ WsCustomViewTest >> testLeafView [
 		assert: view
 		html: '<p>I am very basic</p>'
 		title: WsLeafViewForTest name.
-	view titleText: 'Yeees! Gooooal!!!'.
+	view title: 'Yeees! Gooooal!!!'.
 	self
 		assert: view
 		html: '<p>I am very basic</p>'
@@ -124,7 +124,7 @@ WsCustomViewTest >> testLeafView [
 ]
 
 { #category : #tests }
-WsCustomViewTest >> testLeafViewResources [
+WsRootViewTest >> testLeafViewResources [
 
 	| view titleString messageString expectedHtml jsUrl cssUrl |
 	view := WsLeafViewForTest new.

@@ -1,16 +1,16 @@
 Class {
-	#name : #WsTagView,
-	#superclass : #WsView,
+	#name : #WsTagElement,
+	#superclass : #WsElement,
 	#category : #'WebSt-Kernel'
 }
 
 { #category : #rendering }
-WsTagView >> renderInnerHtmlOn: html [
+WsTagElement >> renderInnerHtmlOn: html [
 	self subclassResponsibility 
 ]
 
 { #category : #rendering }
-WsTagView >> renderOuterHtmlOn: html [
+WsTagElement >> renderOuterHtmlOn: html [
 
 	html
 		tag: self tag
@@ -18,6 +18,6 @@ WsTagView >> renderOuterHtmlOn: html [
 ]
 
 { #category : #accessing }
-WsTagView >> tag [
+WsTagElement >> tag [
 	self subclassResponsibility 
 ]

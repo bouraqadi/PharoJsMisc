@@ -1,6 +1,6 @@
 Class {
 	#name : #WsPage,
-	#superclass : #WsTagView,
+	#superclass : #WsTagElement,
 	#instVars : [
 		'head',
 		'body'
@@ -41,19 +41,20 @@ WsPage >> initialize [
 ]
 
 { #category : #rendering }
-WsPage >> renderInnerHtmlOn: html [ 
+WsPage >> renderInnerHtmlOn: html [
+ html render: head; 
+	render: body.
 
-	html render: self 
-				head;
-			render: self body
 ]
 
 { #category : #rendering }
-WsPage >> renderOuterHtmlOn: renderer [
+WsPage >> renderOuterHtmlOn: html [
 
-	renderer
-		html: '<!doctype html>'.
-		super renderOuterHtmlOn: renderer
+
+html
+		  html: '<!doctype html>'
+. super renderOuterHtmlOn: html
+
 ]
 
 { #category : #accessing }
@@ -62,7 +63,7 @@ WsPage >> tag [
 ]
 
 { #category : #accessing }
-WsPage >> titleText: aString [
+WsPage >> title: aString [
 
-	self head titleText: aString
+	self head title: aString
 ]
