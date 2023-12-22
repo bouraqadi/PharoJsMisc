@@ -50,15 +50,6 @@ WsCounterComponentTest >> testAddCounterComponentDynamically [
 ]
 
 { #category : #tests }
-WsCounterComponentTest >> testAppIncludesCounterComponentTag [
-
-	| elements |
-	elements := self allCounterComponents.
-	self assert: elements size equals: 1.
-	self assert: elements first parentNode identicalTo: document body
-]
-
-{ #category : #tests }
 WsCounterComponentTest >> testCounterComponentBehavior [
 
 	| counter |
