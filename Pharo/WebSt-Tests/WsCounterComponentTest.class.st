@@ -69,13 +69,20 @@ WsCounterComponentTest >> testCounterComponentBehavior [
 { #category : #tests }
 WsCounterComponentTest >> testHtmlPageGeneration [
 
-	| componentHtml bodyHtml headHtml |
+	| componentHtml bodyHtml headHtml shadowHTML |
 	headHtml := document head innerHTML.
-	self assert: ( headHtml includesSubstring: '<title>Counter</title>').
+	{
+		'<title>Counter</title>'.
+		'type="text/javascript" src="index.js' } do: [ :expectedHtml |
+		self assert: (headHtml includesSubstring: expectedHtml) ].
 	bodyHtml := document body innerHTML.
 	componentHtml := '<' , self tagName , '></' , self tagName , '>'.
-	{ componentHtml. '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"'.
-	'<script defer type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"'.
-	'type="text/javascript" src="index.js' } do: [ :expectedHtml |
-		self assert: (bodyHtml includesSubstring: expectedHtml) ]
+	self assert: (bodyHtml includesSubstring: componentHtml).
+	shadowHTML := (document querySelector: WsCounterComponent tagName)
+		              shadowRoot innerHTML.
+	{ '<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"'.
+	'<script defer="" type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"' }
+		do: [ :expectedHtml |
+			self deny: (bodyHtml includesSubstring: expectedHtml).
+			self assert: (shadowHTML includesSubstring: expectedHtml) ]
 ]
