@@ -1,6 +1,8 @@
 Class {
 	#name : #WsViewForTest,
 	#superclass : #WsView,
+	#traits : 'WsTResourceFactory',
+	#classTraits : 'WsTResourceFactory classTrait',
 	#instVars : [
 		'resources',
 		'message',
@@ -14,15 +16,7 @@ WsViewForTest >> addResource: aResource [
 	self resources add: aResource
 ]
 
-{ #category : #accessing }
-WsViewForTest >> addResourceClass: resourceClass url: urlString [
-
-	| aResource |
-	aResource := resourceClass url: urlString.
-	self addResource: aResource
-]
-
-{ #category : #initialization }
+{ #category : #rendering }
 WsViewForTest >> initialize [
 
 	super initialize.
@@ -63,17 +57,4 @@ WsViewForTest >> title [
 WsViewForTest >> title: anObject [
 
 	titleText := anObject
-]
-
-{ #category : #accessing }
-WsViewForTest >> useCssAt: urlString [
-
-	self addResourceClass: WsCssLink  url: urlString.
-
-]
-
-{ #category : #accessing }
-WsViewForTest >> useJsAt: urlString [
-
-	self addResourceClass: WsJsScript url: urlString
 ]

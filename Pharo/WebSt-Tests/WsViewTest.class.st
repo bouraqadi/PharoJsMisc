@@ -40,11 +40,24 @@ WsViewTest >> stringWithAll: expectedEntries [
 ]
 
 { #category : #tests }
-WsViewTest >> testLeafView [
+WsViewTest >> testBasic [
+
+	self
+		assert: WsMinimalViewForTest new
+		html: ''
+		title: WsMinimalViewForTest name.
+	self
+		assert: WsViewForTest new
+		html: '<p></p>'
+		title: WsViewForTest name.
+
+]
+
+{ #category : #tests }
+WsViewTest >> testContent [
 
 	| view |
 	view := WsViewForTest new.
-	self assert: view html: '<p></p>' title: WsViewForTest name.
 	view message: 'I am very basic'.
 	self
 		assert: view
@@ -58,7 +71,7 @@ WsViewTest >> testLeafView [
 ]
 
 { #category : #tests }
-WsViewTest >> testLeafViewResources [
+WsViewTest >> testResources [
 
 	| view titleString messageString expectedHtml jsUrl cssUrl |
 	view := WsViewForTest new.
@@ -69,8 +82,8 @@ WsViewTest >> testLeafViewResources [
 	view
 		title: titleString;
 		message: messageString;
-		useJsAt: jsUrl;
-		useCssAt: cssUrl.
+		addJsAt: jsUrl;
+		addCssAt: cssUrl.
 	expectedHtml := self stringWithAll: {
 			                '<!doctype html><html><head><meta charset="utf-8"/><title>'.
 			                titleString.

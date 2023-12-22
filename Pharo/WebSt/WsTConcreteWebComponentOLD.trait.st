@@ -1,10 +1,10 @@
 Trait {
-	#name : #WsTConcreteWebComponent,
+	#name : #WsTConcreteWebComponentOLD,
 	#category : #'WebSt-WebComponents'
 }
 
 { #category : #rendering }
-WsTConcreteWebComponent classSide >> html [
+WsTConcreteWebComponentOLD classSide >> html [
 
 	<jsLiteralGenerator>
 	^ String streamContents: [ :str |
@@ -17,21 +17,21 @@ WsTConcreteWebComponent classSide >> html [
 ]
 
 { #category : #'class initialization' }
-WsTConcreteWebComponent classSide >> javascriptInitialize [
+WsTConcreteWebComponentOLD classSide >> javascriptInitialize [
 
 	self  registerTag
 ]
 
 { #category : #'accessing view' }
-WsTConcreteWebComponent classSide >> shadowHtml [
+WsTConcreteWebComponentOLD classSide >> shadowHtml [
 
 	<jsLiteralGenerator>
-	^ self viewFactoryClass html
+	^ self viewClass html
 ]
 
 { #category : #'accessing view' }
-WsTConcreteWebComponent classSide >> title [
+WsTConcreteWebComponentOLD classSide >> title [
 
 	<jsLiteralGenerator>
-	^ self viewFactoryClass title
+	^ self viewClass title
 ]

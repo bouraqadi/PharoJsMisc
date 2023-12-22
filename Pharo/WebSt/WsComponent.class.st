@@ -1,8 +1,6 @@
 Class {
-	#name : #WsWebComponent,
+	#name : #WsComponent,
 	#superclass : #WsHtmlElement,
-	#traits : 'PjTDomController',
-	#classTraits : 'PjTDomController classTrait',
 	#instVars : [
 		'view'
 	],
@@ -12,76 +10,55 @@ Class {
 	#category : #'WebSt-WebComponents'
 }
 
-{ #category : #rendering }
-WsWebComponent class >> pageHtml [
-<pharoJsSkip>
-	^ self basicNew pageHtml
-]
-
 { #category : #'class initialization' }
-WsWebComponent class >> registerTag [
+WsComponent class >> registerTag [
 	window customElements define: self tagName with: self
 ]
 
 { #category : #rendering }
-WsWebComponent class >> renderOn: aRenderer [
+WsComponent class >> renderOn: aRenderer [
 
-	aRenderer renderComponent: self
+	<pharoJsSkip>
+	aRenderer renderElement: self
 ]
 
 { #category : #rendering }
-WsWebComponent class >> renderOuterHtmlOn: html [
+WsComponent class >> renderOuterHtmlOn: html [
+<pharoJsSkip>
+
 	html tag: self tagName
 ]
 
 { #category : #rendering }
-WsWebComponent class >> resources [
-
-	<pharoJsSkip>
-	^ self viewFactoryClass resources, { WsJsScript url: 'index.js' }
-]
-
-{ #category : #rendering }
-WsWebComponent class >> shadowHtml [
+WsComponent class >> shadowHtml [
 	self subclassResponsibility
 ]
 
 { #category : #'class initialization' }
-WsWebComponent class >> tagName [
+WsComponent class >> tagName [
 	self subclassResponsibility 
 ]
 
 { #category : #rendering }
-WsWebComponent class >> title [
+WsComponent class >> title [
+<pharoJsSkip>
+	^ self viewClass title
+]
+
+{ #category : #rendering }
+WsComponent class >> viewClass [
 
 	<pharoJsSkip>
 	self subclassResponsibility
 ]
 
-{ #category : #rendering }
-WsWebComponent class >> viewFactoryClass [
-
-	<pharoJsSkip>
-	self subclassResponsibility
-]
-
-{ #category : #accessing }
-WsWebComponent >> document [
-	^document
-]
-
-{ #category : #accessing }
-WsWebComponent >> html [
-	^self class html
-]
-
 { #category : #initialization }
-WsWebComponent >> initModel [
+WsComponent >> initModel [
 	self subclassResponsibility 
 ]
 
 { #category : #initialization }
-WsWebComponent >> initView [
+WsComponent >> initView [
 
 	view := self attachShadow:
 		        { (#mode -> self shadowEncapsulationMode) } asJsObject.
@@ -90,7 +67,7 @@ WsWebComponent >> initView [
 ]
 
 { #category : #initialization }
-WsWebComponent >> initialize [
+WsComponent >> initialize [
 
 	super initialize.
 	self initModel.
@@ -98,14 +75,8 @@ WsWebComponent >> initialize [
 
 ]
 
-{ #category : #accessing }
-WsWebComponent >> resources [
-
-	^self class resources
-]
-
 { #category : #initialization }
-WsWebComponent >> shadowEncapsulationMode [
+WsComponent >> shadowEncapsulationMode [
 	"Access from javaScript outside the root shadow dom is:
 	- granted when returning 'open' 
 	- denied when returning 'closed'. This option makes debugging challenging.
@@ -115,6 +86,6 @@ WsWebComponent >> shadowEncapsulationMode [
 ]
 
 { #category : #initialization }
-WsWebComponent >> shadowHtml [
+WsComponent >> shadowHtml [
 	^self class shadowHtml
 ]

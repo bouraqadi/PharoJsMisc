@@ -1,8 +1,8 @@
 Class {
 	#name : #WsCounterComponent,
-	#superclass : #WsWebComponent,
-	#traits : 'WsTConcreteWebComponent',
-	#classTraits : 'WsTConcreteWebComponent classTrait',
+	#superclass : #WsComponent,
+	#traits : 'WsTConcreteComponent',
+	#classTraits : 'WsTConcreteComponent classTrait',
 	#instVars : [
 		'display',
 		'counter'
@@ -16,9 +16,9 @@ WsCounterComponent class >> tagName [
 ]
 
 { #category : #'class initialization' }
-WsCounterComponent class >> viewFactoryClass [
+WsCounterComponent class >> viewClass [
 <pharoJsSkip>
-	^ WsCounterViewFactory
+	^ WsCounterView
 ]
 
 { #category : #actions }

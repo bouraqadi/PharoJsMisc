@@ -1,19 +1,17 @@
 Class {
-	#name : #WsCounterViewFactory,
-	#superclass : #Object,
-	#traits : 'WsTViewFactoryOLD',
-	#classTraits : 'WsTViewFactoryOLD classTrait',
+	#name : #WsCounterView,
+	#superclass : #WsView,
 	#category : #'WebSt-Example'
 }
 
 { #category : #rendering }
-WsCounterViewFactory class >> title [
+WsCounterView class >> title [
 
 	^ #Counter
 ]
 
 { #category : #rendering }
-WsCounterViewFactory >> renderOuterHtmlOn: html [
+WsCounterView >> renderContentOn: html [
 
 	html div
 		class: 'd-flex flex-column align-items-center p-1';
@@ -39,7 +37,7 @@ WsCounterViewFactory >> renderOuterHtmlOn: html [
 ]
 
 { #category : #accessing }
-WsCounterViewFactory >> resources [
+WsCounterView >> resources [
 
 	^ { WsBootstrapResources bootstrap502 }
 ]

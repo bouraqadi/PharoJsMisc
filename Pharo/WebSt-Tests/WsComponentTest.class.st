@@ -1,5 +1,5 @@
 Class {
-	#name : #WsWebComponentTest,
+	#name : #WsComponentTest,
 	#superclass : #PjWebAppTestCase,
 	#traits : 'PjTAppRunsInJS',
 	#classTraits : 'PjTAppRunsInJS classTrait',

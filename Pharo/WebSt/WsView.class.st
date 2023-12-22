@@ -10,6 +10,11 @@ WsView class >> pageHtml [
 ]
 
 { #category : #rendering }
+WsView class >> title [
+	^self name
+]
+
+{ #category : #rendering }
 WsView >> pageHtml [
 		| page |
 	page := WsPage with: self.
@@ -43,5 +48,5 @@ WsView >> resources [
 { #category : #rendering }
 WsView >> title [
 
-	^ self className
+	^ self class title
 ]

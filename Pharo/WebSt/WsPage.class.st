@@ -1,6 +1,8 @@
 Class {
 	#name : #WsPage,
 	#superclass : #WsTagElement,
+	#traits : 'WsTResourceFactory',
+	#classTraits : 'WsTResourceFactory classTrait',
 	#instVars : [
 		'head',
 		'body'
@@ -11,12 +13,19 @@ Class {
 { #category : #'instance creation' }
 WsPage class >> with: aView [ 
 	^self new
-		add: aView;
+		addView: aView;
 		yourself
 ]
 
 { #category : #adding }
-WsPage >> add: aView [ 
+WsPage >> addResource: aResource [
+
+	head add: aResource
+]
+
+{ #category : #adding }
+WsPage >> addView: aView [
+
 	self body add: aView
 ]
 

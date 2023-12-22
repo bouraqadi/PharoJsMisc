@@ -55,9 +55,9 @@ WsRenderer >> render: aView [
 ]
 
 { #category : #rendering }
-WsRenderer >> renderElement: aView [
+WsRenderer >> renderElement: element [
 
-	aView renderOuterHtmlOn: self
+	element renderOuterHtmlOn: self
 ]
 
 { #category : #rendering }
