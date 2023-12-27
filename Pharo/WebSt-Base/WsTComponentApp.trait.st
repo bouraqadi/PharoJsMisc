@@ -22,11 +22,17 @@ WsTComponentApp classSide >> componentClasses [
 ]
 
 { #category : #rendering }
+WsTComponentApp classSide >> newPage [
+
+	^ WsPage with: self rootComponentClass
+]
+
+{ #category : #rendering }
 WsTComponentApp classSide >> pageHtml [
 
 	<pharoJsSkip>
 	| page renderer |
-	page := WsPage with: self rootComponentClass.
+	page := self newPage.
 	page title: self title.
 	page addJsAt: self appJsFileName.
 	renderer := WsRenderer new.
@@ -44,4 +50,9 @@ WsTComponentApp classSide >> title [
 
 <pharoJsSkip>
 	^ self rootComponentClass title
+]
+
+{ #category : #rendering }
+WsTComponentApp >> rootComponentClass [ 
+	^self class rootComponentClass
 ]
