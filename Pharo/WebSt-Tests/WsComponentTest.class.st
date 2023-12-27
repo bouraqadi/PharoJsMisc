@@ -41,7 +41,8 @@ WsComponentTest >> expectedTitle [
 
 { #category : #tests }
 WsComponentTest >> resourceHtmls [
-	self subclassResponsibility 
+
+	^#(  )
 ]
 
 { #category : #accessing }

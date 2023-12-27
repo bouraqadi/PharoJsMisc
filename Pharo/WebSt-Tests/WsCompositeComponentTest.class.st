@@ -1,6 +1,6 @@
 Class {
 	#name : #WsCompositeComponentTest,
-	#superclass : #WsBootstrapComponentTest,
+	#superclass : #WsComponentTest,
 	#category : #'WebSt-Tests-Components'
 }
 
@@ -11,9 +11,9 @@ WsCompositeComponentTest class >> appClass [
 ]
 
 { #category : #tests }
-WsCompositeComponentTest >> assertBehavior [
+WsCompositeComponentTest >> assertBehavior: component [
 
-	^self
+	^ self
 ]
 
 { #category : #tests }
@@ -25,10 +25,4 @@ WsCompositeComponentTest >> componentClasses [
 WsCompositeComponentTest >> expectedTitle [
 
 	^WsCompositeViewForTest name
-]
-
-{ #category : #tests }
-WsCompositeComponentTest >> resourceHtmls [
-
-	^#(  )
 ]
