@@ -1,12 +1,12 @@
 Class {
 	#name : #WsAppForCompositeTest,
 	#superclass : #PjWebApplication,
-	#traits : 'WsTComponentApp',
-	#classTraits : 'WsTComponentApp classTrait',
+	#traits : 'WsTStaticComponentApp',
+	#classTraits : 'WsTStaticComponentApp classTrait',
 	#category : #'WebSt-Tests-Components'
 }
 
-{ #category : #rendering }
+{ #category : #'as yet unclassified' }
 WsAppForCompositeTest class >> rootComponentClass [
 
 	^WsCompositeComponentForTest 

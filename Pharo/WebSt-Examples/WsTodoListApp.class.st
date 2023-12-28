@@ -1,12 +1,12 @@
 Class {
 	#name : #WsTodoListApp,
 	#superclass : #PjWebApplication,
-	#traits : 'WsTComponentApp',
-	#classTraits : 'WsTComponentApp classTrait',
+	#traits : 'WsTStaticComponentApp',
+	#classTraits : 'WsTStaticComponentApp classTrait',
 	#category : #'WebSt-Examples-TodoList'
 }
 
-{ #category : #rendering }
+{ #category : #'as yet unclassified' }
 WsTodoListApp class >> rootComponentClass [
 
 	^WsTodoListComponent 

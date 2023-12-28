@@ -2,7 +2,8 @@ Class {
 	#name : #WsBootstrapComponentTest,
 	#superclass : #WsComponentTest,
 	#instVars : [
-		'root'
+		'root',
+		'component'
 	],
 	#category : #'WebSt-Tests-Examples'
 }
@@ -19,8 +20,9 @@ WsBootstrapComponentTest >> assertBehavior [
 ]
 
 { #category : #tests }
-WsBootstrapComponentTest >> assertBehavior: component [
+WsBootstrapComponentTest >> assertBehavior: aComponent [
 
+	component := aComponent.
 	root := component shadowRoot.
 	self assertBehavior
 ]

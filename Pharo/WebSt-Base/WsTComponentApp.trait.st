@@ -3,9 +3,22 @@ Trait {
 	#category : #'WebSt-Base-Components'
 }
 
+{ #category : #dependencies }
+WsTComponentApp classSide >> allComponentClasses [
+
+	<pharoJsSkip>
+	| allComponentClasses |
+	allComponentClasses := IdentitySet new.
+	self componentClasses do: [ :componentClass |
+		componentClass addAllComponentClassesTo: allComponentClasses ].
+	^ allComponentClasses asArray
+]
+
 { #category : #description }
 WsTComponentApp classSide >> appClasses [
-	^super appClasses, self componentClasses
+
+	<pharoJsSkip>
+	^ super appClasses , self allComponentClasses
 ]
 
 { #category : #accessing }
@@ -15,16 +28,16 @@ WsTComponentApp classSide >> bridgeClientClass [
 	^ WsComponentBridgeClient 
 ]
 
-{ #category : #description }
+{ #category : #dependencies }
 WsTComponentApp classSide >> componentClasses [
-
-	^ self rootComponentClass allComponentClasses
+	self explicitRequirement 
 ]
 
 { #category : #rendering }
 WsTComponentApp classSide >> newPage [
 
-	^ WsPage with: self rootComponentClass
+	<pharoJsSkip>
+	^ WsPage new
 ]
 
 { #category : #rendering }
@@ -40,19 +53,9 @@ WsTComponentApp classSide >> pageHtml [
 	^ renderer html
 ]
 
-{ #category : #rendering }
-WsTComponentApp classSide >> rootComponentClass [
-	self subclassResponsibility 
-]
-
-{ #category : #rendering }
+{ #category : #accessing }
 WsTComponentApp classSide >> title [
 
-<pharoJsSkip>
-	^ self rootComponentClass title
-]
-
-{ #category : #rendering }
-WsTComponentApp >> rootComponentClass [ 
-	^self class rootComponentClass
+	<pharoJsSkip>
+	^ self name
 ]

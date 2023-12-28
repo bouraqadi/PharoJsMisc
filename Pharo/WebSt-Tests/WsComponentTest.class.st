@@ -19,7 +19,7 @@ WsComponentTest >> allComponents [
 ]
 
 { #category : #asserting }
-WsComponentTest >> assertBehavior: component [
+WsComponentTest >> assertBehavior: aComponent [
 	self subclassResponsibility 
 ]
 

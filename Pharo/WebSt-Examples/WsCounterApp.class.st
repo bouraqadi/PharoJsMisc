@@ -1,8 +1,8 @@
 Class {
 	#name : #WsCounterApp,
 	#superclass : #PjWebApplication,
-	#traits : 'WsTComponentApp',
-	#classTraits : 'WsTComponentApp classTrait',
+	#traits : 'WsTStaticComponentApp',
+	#classTraits : 'WsTStaticComponentApp classTrait',
 	#category : #'WebSt-Examples-Counter'
 }
 

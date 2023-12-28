@@ -1,18 +1,18 @@
 Class {
 	#name : #WsListExampleApp,
 	#superclass : #PjWebApplication,
-	#traits : 'WsTCustomizedComponentApp',
-	#classTraits : 'WsTCustomizedComponentApp classTrait',
+	#traits : 'WsTDynamicComponentApp',
+	#classTraits : 'WsTDynamicComponentApp classTrait',
 	#category : #'WebSt-Examples-List'
 }
 
-{ #category : #rendering }
+{ #category : #'as yet unclassified' }
 WsListExampleApp class >> rootComponentClass [
 
 	^WsListComponent 
 ]
 
-{ #category : #rendering }
+{ #category : #'as yet unclassified' }
 WsListExampleApp class >> title [
 
 	<pharoJsSkip>
@@ -21,6 +21,7 @@ WsListExampleApp class >> title [
 
 { #category : #intializing }
 WsListExampleApp >> initRootComponent [
-
-	rootComponent addAll: #('R2D2' 'Wall-E' 'Astro' 'Baymax' 'Johnny 5')
+		rootComponent addAll:
+		#( 'Astro' 'Baymax' 'Chappie' 'Johnny-5' 'R2D2' 'Wall-E' )
+	
 ]
