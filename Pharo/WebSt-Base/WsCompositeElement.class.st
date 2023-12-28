@@ -9,6 +9,6 @@ Class {
 { #category : #'instance creation' }
 WsCompositeElement class >> withAll: allChildren [
 	^self new
-		children: allChildren;
+		addAll: allChildren;
 		yourself
 ]
