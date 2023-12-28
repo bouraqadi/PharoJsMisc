@@ -18,8 +18,3 @@ WsListView >> renderContentOn: html [
 		class: 'list-group';
 		with: [ self renderItemsOn: html ]
 ]
-
-{ #category : #rendering }
-WsListView >> renderItemsOn: html [
-	WsListItemComponent 
-]

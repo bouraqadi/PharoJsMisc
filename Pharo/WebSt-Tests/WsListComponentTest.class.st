@@ -16,10 +16,11 @@ WsListComponentTest class >> appClass [
 { #category : #tests }
 WsListComponentTest >> assertBehavior [
 
-	| itemsCount |
+	| model itemsCount |
+	model := component model.
 	itemsCount := self itemElements size.
 	#( some more content to add ) do: [ :each |
-		component add: each.
+		model add: each.
 		itemsCount := itemsCount + 1.
 		self assert: self itemElements size equals: itemsCount.
 		self assert: self itemElements last innerHTML equals: each ]

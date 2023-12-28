@@ -3,7 +3,7 @@ Class {
 	#superclass : #WsView,
 	#traits : 'WsTBootstrapView',
 	#classTraits : 'WsTBootstrapView classTrait',
-	#category : #'WebSt-Examples-List'
+	#category : #'WebSt-Examples-TodoList'
 }
 
 { #category : #rendering }

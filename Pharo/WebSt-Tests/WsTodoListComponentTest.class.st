@@ -26,7 +26,10 @@ WsTodoListComponentTest >> assertBehavior [
 
 { #category : #tests }
 WsTodoListComponentTest >> componentClasses [
-	^super componentClasses, { WsListComponent . WsListItemComponent  }
+
+	^ super componentClasses , {
+		  WsListComponent.
+		   }
 ]
 
 { #category : #tests }
