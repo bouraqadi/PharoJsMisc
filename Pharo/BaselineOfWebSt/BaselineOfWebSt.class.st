@@ -15,10 +15,12 @@ BaselineOfWebSt >> baseline: spec [
 				loads: #( 'Seaside-Pharo-Canvas' 'Seaside-Tests-Pharo-Canvas'
 					   'Javascript-Pharo-Core' 'Javascript-Tests-Pharo-Core' ) ];
 		baseline: 'PharoJS'
-		with: [ spec repository: 'github://PharoJS/PharoJS:pharo11/' ].
+		with: [ spec repository: 'github://PharoJS/PharoJS:pharo11/' ];
+		baseline: 'HydrogenComponentsJS'
+		with: [ spec repository: 'github://bouraqadi/PharoJsMisc:master' ].
 
 	spec
-		package: 'WebSt-Base' with: [ spec requires: #( 'Seaside3' 'PharoJS' ) ];
+		package: 'WebSt-Base' with: [ spec requires: #( 'Seaside3' 'PharoJS' 'HydrogenComponentsJS') ];
 		package: 'WebSt-Examples' with: [ spec requires: #( 'WebSt-Base' ) ];
 		package: 'WebSt-Tests' with: [ spec requires: #( 'WebSt-Base' 'WebSt-Examples') ]
 ]
