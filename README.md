@@ -11,6 +11,9 @@ Metacello new
  ```
 
 # Projects
+## H
+### HydrogenComponentsJS
+Port to PharoJS of the [Hydrogen Component framework](https://github.com/bouraqadi/Components).
 ## W
 ### WebComponents
 Framework for building [Web Components](https://www.webcomponents.org/) using PharoJS. 
