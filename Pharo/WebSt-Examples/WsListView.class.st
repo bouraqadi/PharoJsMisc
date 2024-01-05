@@ -15,6 +15,5 @@ WsListView class >> title [
 WsListView >> renderContentOn: html [
 
 	html unorderedList 
-		class: 'list-group';
-		with: [ self renderItemsOn: html ]
+		class: 'list-group'
 ]

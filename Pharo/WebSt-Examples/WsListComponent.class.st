@@ -4,7 +4,8 @@ Class {
 	#traits : 'WsTConcreteComponent',
 	#classTraits : 'WsTConcreteComponent classTrait',
 	#instVars : [
-		'list'
+		'listView',
+		'listModel'
 	],
 	#category : #'WebSt-Examples-List'
 }
@@ -23,29 +24,35 @@ WsListComponent class >> viewClass [
 ]
 
 { #category : #adding }
-WsListComponent >> add: itemContent [
+WsListComponent >> addAll: itemContents [
+	listModel addAll: itemContents 
+]
+
+{ #category : #adding }
+WsListComponent >> handleAt: index add: aString [
 
 	| item |
 	item := self createElement: #li.
 	item className: 'list-group-item'.
-	item innerHTML: itemContent.
-	list appendChild: item
-]
-
-{ #category : #adding }
-WsListComponent >> addAll: itemContents [
-
-	itemContents do: [ :each | self add: each ]
+	item textContent: aString.
+	listView appendChild: item
 ]
 
 { #category : #initialization }
 WsListComponent >> initModel [
 
-	^self
+	listModel := WsListModel new.
+	listModel -@ #addPort => self
 ]
 
 { #category : #initialization }
 WsListComponent >> initView [ 
 	super initView .
-	list := view querySelector: 'ul'.
+	listView := view querySelector: 'ul'.
+]
+
+{ #category : #accessing }
+WsListComponent >> listModel [
+
+	^ listModel
 ]

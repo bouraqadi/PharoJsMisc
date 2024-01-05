@@ -17,7 +17,7 @@ WsListComponentTest class >> appClass [
 WsListComponentTest >> assertBehavior [
 
 	| model itemsCount |
-	model := component model.
+	model := component listModel.
 	itemsCount := self itemElements size.
 	#( some more content to add ) do: [ :each |
 		model add: each.
