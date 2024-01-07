@@ -17,7 +17,7 @@ BaselineOfWebSt >> baseline: spec [
 		baseline: 'PharoJS'
 		with: [ spec repository: 'github://PharoJS/PharoJS:pharo11/' ];
 		baseline: 'HydrogenComponentsJS'
-		with: [ spec repository: 'github://bouraqadi/PharoJsMisc:master' ].
+		with: [ spec repository: 'github://bouraqadi/PharoJsMisc:main' ].
 
 	spec
 		package: 'WebSt-Base' with: [ spec requires: #( 'Seaside3' 'PharoJS' 'HydrogenComponentsJS') ];
