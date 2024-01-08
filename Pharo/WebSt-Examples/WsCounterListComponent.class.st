@@ -17,7 +17,7 @@ WsCounterListComponent >> add: anInteger [
 
 	| counter |
 	counter := WsCounterModel count: anInteger.
-	listModel add: counter
+	model add: counter
 ]
 
 { #category : #adding }

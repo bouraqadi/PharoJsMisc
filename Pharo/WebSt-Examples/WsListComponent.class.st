@@ -1,12 +1,16 @@
 Class {
 	#name : #WsListComponent,
-	#superclass : #WsComponent,
+	#superclass : #WsMvcComponent,
 	#instVars : [
-		'listView',
-		'listModel'
+		'listView'
 	],
 	#category : #'WebSt-Examples-List'
 }
+
+{ #category : #'instance creation' }
+WsListComponent class >> modelClass [
+	^WsListModel 
+]
 
 { #category : #rendering }
 WsListComponent class >> viewClass [
@@ -18,7 +22,7 @@ WsListComponent class >> viewClass [
 { #category : #adding }
 WsListComponent >> add: itemContent [
 
-	listModel add: itemContent
+	model add: itemContent
 ]
 
 { #category : #adding }
@@ -49,20 +53,15 @@ WsListComponent >> handleAt: index add: itemContent [
 WsListComponent >> initModel [
 
 	super initModel.
-	listModel := WsListModel new.
-	listModel -@ #addPort => self; notificationSelector: #handleAt:add:
+	(model -@ #addPort)
+		=> self;
+		notificationSelector: #handleAt:add:
 ]
 
 { #category : #initialization }
 WsListComponent >> initView [ 
 	super initView .
 	listView := view querySelector: 'ul'.
-]
-
-{ #category : #accessing }
-WsListComponent >> listModel [
-
-	^ listModel
 ]
 
 { #category : #adding }
