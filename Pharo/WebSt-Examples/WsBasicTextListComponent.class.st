@@ -1,5 +1,5 @@
 Class {
-	#name : #WsTextListComponent,
+	#name : #WsBasicTextListComponent,
 	#superclass : #WsListComponent,
 	#traits : 'WsTConcreteComponent',
 	#classTraits : 'WsTConcreteComponent classTrait',
@@ -7,13 +7,13 @@ Class {
 }
 
 { #category : #'class initialization' }
-WsTextListComponent class >> tagName [
+WsBasicTextListComponent class >> tagName [
 
 	^ 'ws-text-list'
 ]
 
 { #category : #adding }
-WsTextListComponent >> newItemComponent: itemContent [
+WsBasicTextListComponent >> newItemComponent: itemContent [
 
-	^ WsTextComponent text: itemContent
+	^ WsBasicTextComponent text: itemContent
 ]

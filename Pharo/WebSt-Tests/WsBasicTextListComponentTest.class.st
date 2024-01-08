@@ -1,5 +1,5 @@
 Class {
-	#name : #WsTextListComponentTest,
+	#name : #WsBasicTextListComponentTest,
 	#superclass : #WsBootstrapComponentTest,
 	#instVars : [
 		'listComponent'
@@ -8,13 +8,13 @@ Class {
 }
 
 { #category : #'suite parameters' }
-WsTextListComponentTest class >> appClass [
+WsBasicTextListComponentTest class >> appClass [
 
-	^ WsTextListApp 
+	^ WsBasicTextListApp 
 ]
 
 { #category : #tests }
-WsTextListComponentTest >> assertBehavior [
+WsBasicTextListComponentTest >> assertBehavior [
 
 	| itemsCount |
 	itemsCount := self itemElements size.
@@ -28,7 +28,7 @@ WsTextListComponentTest >> assertBehavior [
 ]
 
 { #category : #tests }
-WsTextListComponentTest >> assertItemAt: index textContentEquals: expectedContent [
+WsBasicTextListComponentTest >> assertItemAt: index textContentEquals: expectedContent [
 	| item actualContent |
 	item := self itemElements at: index.
 	actualContent := item children first shadowRoot textContent.
@@ -37,7 +37,7 @@ WsTextListComponentTest >> assertItemAt: index textContentEquals: expectedConten
 ]
 
 { #category : #tests }
-WsTextListComponentTest >> assertViewMatchesModel [
+WsBasicTextListComponentTest >> assertViewMatchesModel [
 
 | textContents |
 textContents := model items.
@@ -49,7 +49,7 @@ self assert: self itemElements size equals: textContents size.
 ]
 
 { #category : #tests }
-WsTextListComponentTest >> itemElements [
+WsBasicTextListComponentTest >> itemElements [
 
 	^ root querySelectorAll: #li
 ]

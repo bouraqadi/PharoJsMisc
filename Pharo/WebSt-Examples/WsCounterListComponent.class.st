@@ -16,8 +16,9 @@ WsCounterListComponent class >> tagName [
 WsCounterListComponent >> add: anInteger [
 
 	| counter |
-	counter := WsCounterModel count: anInteger.
-	model add: counter
+	counter := WsCounterComponent newModel.
+	counter count: anInteger.
+	super add: counter
 ]
 
 { #category : #adding }

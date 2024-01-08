@@ -1,5 +1,5 @@
 Class {
-	#name : #WsTextComponent,
+	#name : #WsBasicTextComponent,
 	#superclass : #WsComponent,
 	#traits : 'WsTConcreteComponent',
 	#classTraits : 'WsTConcreteComponent classTrait',
@@ -7,37 +7,37 @@ Class {
 }
 
 { #category : #'accessing view' }
-WsTextComponent class >> shadowHtml [
+WsBasicTextComponent class >> shadowHtml [
 
 	^ ''
 ]
 
 { #category : #'class initialization' }
-WsTextComponent class >> tagName [
+WsBasicTextComponent class >> tagName [
 	^'ws-text'
 ]
 
 { #category : #'instance creation' }
-WsTextComponent class >> text: aString [
+WsBasicTextComponent class >> text: aString [
 	^self new
 		text: aString;
 		yourself
 ]
 
 { #category : #'accessing view' }
-WsTextComponent class >> title [
+WsBasicTextComponent class >> title [
 
 	^ 'Text'
 ]
 
 { #category : #rendering }
-WsTextComponent class >> viewClass [
+WsBasicTextComponent class >> viewClass [
 
 	<pharoJsSkip>
 	^self
 ]
 
 { #category : #accessing }
-WsTextComponent >> text: aString [
+WsBasicTextComponent >> text: aString [
 	view innerHTML: aString
 ]
