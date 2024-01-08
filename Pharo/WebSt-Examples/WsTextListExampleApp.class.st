@@ -1,26 +1,13 @@
 Class {
-	#name : #WsListExampleApp,
+	#name : #WsTextListExampleApp,
 	#superclass : #PjWebApplication,
 	#traits : 'WsTDynamicComponentApp',
 	#classTraits : 'WsTDynamicComponentApp classTrait',
 	#category : #'WebSt-Examples-List'
 }
 
-{ #category : #'as yet unclassified' }
-WsListExampleApp class >> rootComponentClass [
-
-	^WsListComponent 
-]
-
-{ #category : #'as yet unclassified' }
-WsListExampleApp class >> title [
-
-	<pharoJsSkip>
-	^ 'Robots'
-]
-
 { #category : #intializing }
-WsListExampleApp >> initRootComponent [
+WsTextListExampleApp >> initRootComponent [
 		rootComponent addAll:
 		#( 'Astro' 'Baymax' 'Chappie' 'Johnny-5' 'R2D2' 'Wall-E' )
 	

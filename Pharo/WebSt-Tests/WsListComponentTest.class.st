@@ -10,7 +10,7 @@ Class {
 { #category : #'suite parameters' }
 WsListComponentTest class >> appClass [
 
-	^ WsListExampleApp 
+	^ WsTextListExampleApp 
 ]
 
 { #category : #tests }

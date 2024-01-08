@@ -9,7 +9,7 @@ Class {
 { #category : #rendering }
 WsCounterView class >> title [
 
-	^ #Counter
+	^ 'Counter - WebST Example'
 ]
 
 { #category : #rendering }
