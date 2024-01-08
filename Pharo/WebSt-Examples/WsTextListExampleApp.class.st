@@ -6,6 +6,19 @@ Class {
 	#category : #'WebSt-Examples-List'
 }
 
+{ #category : #accessing }
+WsTextListExampleApp class >> rootComponentClass [
+
+	^WsListComponent 
+]
+
+{ #category : #accessing }
+WsTextListExampleApp class >> title [
+
+	<pharoJsSkip>
+	^ 'Robots - Text List WebST Example'
+]
+
 { #category : #intializing }
 WsTextListExampleApp >> initRootComponent [
 		rootComponent addAll:
