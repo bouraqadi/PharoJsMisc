@@ -44,9 +44,11 @@ WsCounterModel >> increment: amount [
 	self count: self count + amount
 ]
 
-{ #category : #'initialize - release' }
+{ #category : #initialization }
 WsCounterModel >> initialize [
+
 	super initialize.
+	countPort := HyCollectionPort new. 
 	self reset
 ]
 
