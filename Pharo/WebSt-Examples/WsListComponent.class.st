@@ -16,6 +16,18 @@ WsListComponent class >> viewClass [
 ]
 
 { #category : #adding }
+WsListComponent >> add: itemContent [
+
+	listModel add: itemContent
+]
+
+{ #category : #adding }
+WsListComponent >> addAll: itemContents [
+
+	itemContents do: [: each | self add: each]
+]
+
+{ #category : #adding }
 WsListComponent >> addComponent: itemComponent [
 
 	| item  |
@@ -38,7 +50,7 @@ WsListComponent >> initModel [
 
 	super initModel.
 	listModel := WsListModel new.
-	listModel -@ #addPort => self
+	listModel -@ #addPort => self; notificationSelector: #handleAt:add:
 ]
 
 { #category : #initialization }

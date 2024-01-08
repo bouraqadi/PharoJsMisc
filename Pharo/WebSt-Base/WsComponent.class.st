@@ -92,26 +92,26 @@ WsComponent >> document [
 ]
 
 { #category : #initialization }
-WsComponent >> initModel [
-	^self 
-]
-
-{ #category : #initialization }
 WsComponent >> initView [
 
-	view := self attachShadow:
-		        { (#mode -> self shadowEncapsulationMode) } asJsObject.
-	view innerHTML: self shadowHtml.
-
+	view innerHTML: self shadowHtml
 ]
 
 { #category : #initialization }
 WsComponent >> initialize [
 
 	super initialize.
-	self initModel.
-	self initView.
+	self resetView.
 
+]
+
+{ #category : #initialization }
+WsComponent >> resetView [
+
+	view ifNil: [
+		view := self attachShadow:
+			        { (#mode -> self shadowEncapsulationMode) } asJsObject ].
+	self initView
 ]
 
 { #category : #initialization }

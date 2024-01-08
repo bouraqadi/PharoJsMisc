@@ -9,7 +9,7 @@ Class {
 { #category : #'class initialization' }
 WsLeafComponentForTest class >> tagName [
 
-	^#'ws-leaf'
+	^ #'ws-leaf-test'
 ]
 
 { #category : #rendering }

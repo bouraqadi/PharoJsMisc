@@ -1,11 +1,10 @@
 Class {
 	#name : #WsCounterComponent,
-	#superclass : #WsComponent,
+	#superclass : #WsMvcComponent,
 	#traits : 'WsTConcreteComponent',
 	#classTraits : 'WsTConcreteComponent classTrait',
 	#instVars : [
-		'display',
-		'counter'
+		'display'
 	],
 	#category : #'WebSt-Examples-Counter'
 }
@@ -15,6 +14,11 @@ WsCounterComponent class >> count: anInteger [
 	^self new
 		count: anInteger;
 		yourself
+]
+
+{ #category : #initialization }
+WsCounterComponent class >> modelClass [ 
+	^WsCounterModel 
 ]
 
 { #category : #'class initialization' }
@@ -30,50 +34,49 @@ WsCounterComponent class >> viewClass [
 
 { #category : #initialization }
 WsCounterComponent >> count: anInteger [
-	counter count: anInteger
+
+	model count: anInteger
 ]
 
 { #category : #actions }
-WsCounterComponent >> decrement [
+WsCounterComponent >> handleCount: newCount [
 
-	counter decrement.
-	self updateDisplay
-]
-
-{ #category : #actions }
-WsCounterComponent >> increment [
-	counter increment.
-	self updateDisplay 
+	display textContent: newCount
 ]
 
 { #category : #initialization }
 WsCounterComponent >> initModel [
+
 	super initModel.
-	counter := WsCounterModel new
+	(model -@ #countPort)
+		=> self;
+		notificationSelector: #handleCount:
 ]
 
 { #category : #initialization }
 WsCounterComponent >> initView [
-	| incrementButton decrementButton resetButton |
+
 	super initView.
 	display := view querySelector: '.display'.
+
+]
+
+{ #category : #initialization }
+WsCounterComponent >> linkModelAndView [
+
+	| incrementButton decrementButton resetButton |
+	super linkModelAndView.
 	incrementButton := view querySelector: '.increment'.
-	self onClickElement: incrementButton do: [ self increment ].
+	self onClickElement: incrementButton do: [ model increment ].
 	decrementButton := view querySelector: '.decrement'.
-	self onClickElement: decrementButton do: [ self decrement ].
+	self onClickElement: decrementButton do: [ model decrement ].
 	resetButton := view querySelector: '.reset'.
-	self onClickElement: resetButton do: [ self reset ].
+	self onClickElement: resetButton do: [ model reset ].
 	self updateDisplay
 ]
 
 { #category : #actions }
-WsCounterComponent >> reset [
+WsCounterComponent >> updateDisplay [
 
-	counter reset.
-	self updateDisplay
-]
-
-{ #category : #actions }
-WsCounterComponent >> updateDisplay [ 
-display textContent: counter count
+	self handleCount: model count
 ]

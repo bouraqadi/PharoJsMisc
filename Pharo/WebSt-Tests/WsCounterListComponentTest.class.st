@@ -16,14 +16,21 @@ WsCounterListComponentTest class >> appClass [
 { #category : #tests }
 WsCounterListComponentTest >> assertBehavior [
 
-	| model itemsCount |
-	model := component listModel.
+	| itemsCount counterView display incrementBtn expectedCount |
 	itemsCount := self itemElements size.
-	#( some more content to add ) do: [ :each |
-		model add: each.
+	1 to: 5 do: [ :each |
+		component add: each.
 		itemsCount := itemsCount + 1.
 		self assert: self itemElements size equals: itemsCount.
-		self assert: self itemElements last innerHTML equals: each ]
+		counterView := self itemElements last children first shadowRoot.
+		display := counterView querySelector: '.display'.
+		incrementBtn := counterView querySelector: '.increment'.
+		expectedCount := each.
+		self assert: display textContent equals: expectedCount asString.
+		3 timesRepeat: [
+			incrementBtn click.
+			expectedCount := expectedCount + 1.
+			self assert: display textContent equals: expectedCount asString ] ]
 ]
 
 { #category : #tests }

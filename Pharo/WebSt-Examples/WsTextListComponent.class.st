@@ -13,17 +13,6 @@ WsTextListComponent class >> tagName [
 ]
 
 { #category : #adding }
-WsTextListComponent >> add: itemContent [
-
-	listModel add: itemContent
-]
-
-{ #category : #adding }
-WsTextListComponent >> addAll: itemContents [
-	listModel addAll: itemContents 
-]
-
-{ #category : #adding }
 WsTextListComponent >> newItemComponent: itemContent [
 
 	^ WsTextComponent text: itemContent

@@ -1,30 +1,12 @@
 Class {
 	#name : #WsBootstrapComponentTest,
-	#superclass : #WsComponentTest,
-	#instVars : [
-		'root',
-		'component'
-	],
+	#superclass : #WsMvcComponentTest,
 	#category : #'WebSt-Tests-Examples'
 }
 
 { #category : #testing }
 WsBootstrapComponentTest class >> isAbstract [ 
 	^self == WsBootstrapComponentTest 
-]
-
-{ #category : #tests }
-WsBootstrapComponentTest >> assertBehavior [
-
-	self subclassResponsibility
-]
-
-{ #category : #tests }
-WsBootstrapComponentTest >> assertBehavior: aComponent [
-
-	component := aComponent.
-	root := component shadowRoot.
-	self assertBehavior
 ]
 
 { #category : #tests }

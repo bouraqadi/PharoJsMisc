@@ -3,6 +3,10 @@ Class {
 	#superclass : #PjWebAppTestCase,
 	#traits : 'PjTAppRunsInJS',
 	#classTraits : 'PjTAppRunsInJS classTrait',
+	#instVars : [
+		'root',
+		'component'
+	],
 	#category : #'WebSt-Tests-Examples'
 }
 
@@ -18,9 +22,24 @@ WsComponentTest >> allComponents [
 	^ document querySelectorAll: self tagName
 ]
 
-{ #category : #asserting }
+{ #category : #tests }
+WsComponentTest >> assertBehavior [
+
+	self subclassResponsibility
+]
+
+{ #category : #tests }
 WsComponentTest >> assertBehavior: aComponent [
-	self subclassResponsibility 
+
+	self component: aComponent.
+	self assertBehavior
+]
+
+{ #category : #tests }
+WsComponentTest >> component: aComponent [
+
+	component := aComponent.
+	root := component shadowRoot
 ]
 
 { #category : #accessing }
@@ -54,9 +73,7 @@ WsComponentTest >> tagName [
 { #category : #tests }
 WsComponentTest >> testBehavior [
 
-	| component |
-	component := self allComponents first.
-	self assertBehavior: component
+	self assertBehavior: self allComponents first.
 ]
 
 { #category : #tests }

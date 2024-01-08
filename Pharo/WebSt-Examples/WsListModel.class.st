@@ -22,12 +22,13 @@ WsListModel >> addAll: itemContents [
 ]
 
 { #category : #initialization }
-WsListModel >> initialize [ 
-	super initialize .
+WsListModel >> initialize [
+
+	super initialize.
 	items := OrderedCollection new.
-	addPort := HyCollectionPort notificationSelector: #handleAt:add:.
-	removePort := HyCollectionPort notificationSelector: #handleAt:remove:.
-	
+	addPort := HyCollectionPort new.
+	removePort := HyCollectionPort notificationSelector:
+		              #handleAt:remove:
 ]
 
 { #category : #accessing }

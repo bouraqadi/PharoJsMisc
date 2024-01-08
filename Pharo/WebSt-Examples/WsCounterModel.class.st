@@ -2,7 +2,8 @@ Class {
 	#name : #WsCounterModel,
 	#superclass : #Object,
 	#instVars : [
-		'count'
+		'count',
+		'countPort'
 	],
 	#category : #'WebSt-Examples-Counter'
 }
@@ -13,8 +14,10 @@ WsCounterModel >> count [
 ]
 
 { #category : #accessing }
-WsCounterModel >> count: anObject [
-	count := anObject
+WsCounterModel >> count: anInteger [
+
+	count := anInteger.
+	countPort notifyWith: count
 ]
 
 { #category : #operations }

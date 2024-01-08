@@ -9,7 +9,7 @@ Class {
 { #category : #'class initialization' }
 WsCompositeComponentForTest class >> tagName [
 
-	^#'ws-composite'
+	^ #'ws-composite-test'
 ]
 
 { #category : #rendering }
