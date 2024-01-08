@@ -22,5 +22,6 @@ WsCounterListApp class >> title [
 { #category : #intializing }
 WsCounterListApp >> initRootComponent [
 
-	5 timesRepeat: [ rootComponent addComponent: WsCounterComponent new ]
+	1 to: 5 do: [ : initialCount |
+		 rootComponent addComponent: (WsCounterComponent count: initialCount) ]
 ]

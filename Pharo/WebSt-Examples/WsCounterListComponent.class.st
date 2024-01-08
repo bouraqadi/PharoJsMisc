@@ -24,7 +24,6 @@ WsCounterListComponent >> add: anInteger [
 { #category : #adding }
 WsCounterListComponent >> newItemComponent: aCounterModel [
 
-	^ WsCounterComponent new; 
-		counter: aCounterModel;
-		yourself
+	^ WsCounterComponent
+		  model: aCounterModel
 ]

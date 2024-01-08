@@ -34,6 +34,28 @@ WsCounterListComponentTest >> assertBehavior [
 ]
 
 { #category : #tests }
+WsCounterListComponentTest >> assertCounterComponentAt: index linkedToCounter: counterModel [
+
+	| expectedCount item counterComponent display |
+	expectedCount := counterModel count.
+	item := self itemElements at: index.
+	counterComponent := item children first.
+	self assert: counterComponent model identicalTo: counterModel.
+	display := counterComponent display.
+	self assert: display textContent equals: counterModel count asString
+]
+
+{ #category : #tests }
+WsCounterListComponentTest >> assertViewMatchesModel [
+
+	| counters |
+	counters := model items.
+	self assert: self itemElements size equals: counters size.
+	1 to: counters size do: [ :index |
+		self assertCounterComponentAt: index linkedToCounter: (counters at: index) ]
+]
+
+{ #category : #tests }
 WsCounterListComponentTest >> itemElements [
 
 	^ root querySelectorAll: #li
