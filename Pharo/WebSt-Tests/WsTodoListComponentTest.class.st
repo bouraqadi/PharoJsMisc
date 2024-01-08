@@ -33,12 +33,6 @@ WsTodoListComponentTest >> componentClasses [
 ]
 
 { #category : #tests }
-WsTodoListComponentTest >> expectedTitle [
-
-	^ 'ToDo List'
-]
-
-{ #category : #tests }
 WsTodoListComponentTest >> itemComponents [
 
 	^ listComponent shadowRoot querySelectorAll: WsListItemComponent tagName

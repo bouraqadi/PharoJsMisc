@@ -1,5 +1,5 @@
 Class {
-	#name : #WsListComponentTest,
+	#name : #WsCounterListComponentTest,
 	#superclass : #WsBootstrapComponentTest,
 	#instVars : [
 		'listComponent'
@@ -8,13 +8,13 @@ Class {
 }
 
 { #category : #'suite parameters' }
-WsListComponentTest class >> appClass [
+WsCounterListComponentTest class >> appClass [
 
-	^ WsTextListExampleApp 
+	^ WsCounterListApp
 ]
 
 { #category : #tests }
-WsListComponentTest >> assertBehavior [
+WsCounterListComponentTest >> assertBehavior [
 
 	| model itemsCount |
 	model := component listModel.
@@ -27,13 +27,7 @@ WsListComponentTest >> assertBehavior [
 ]
 
 { #category : #tests }
-WsListComponentTest >> expectedTitle [
-
-	^ 'Robots'
-]
-
-{ #category : #tests }
-WsListComponentTest >> itemElements [
+WsCounterListComponentTest >> itemElements [
 
 	^ root querySelectorAll: #li
 ]

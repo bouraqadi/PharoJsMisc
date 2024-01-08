@@ -25,8 +25,3 @@ WsTodoListComponent class >> viewClass [
 	<pharoJsSkip>
 	^WsTodoListView 
 ]
-
-{ #category : #initialization }
-WsTodoListComponent >> initModel [
-	
-]

@@ -36,7 +36,8 @@ WsComponentTest >> componentClasses [
 
 { #category : #tests }
 WsComponentTest >> expectedTitle [
-	self subclassResponsibility 
+
+	^self appClass title
 ]
 
 { #category : #tests }

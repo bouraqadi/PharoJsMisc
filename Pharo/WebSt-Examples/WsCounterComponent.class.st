@@ -10,6 +10,13 @@ Class {
 	#category : #'WebSt-Examples-Counter'
 }
 
+{ #category : #'instance creation' }
+WsCounterComponent class >> count: anInteger [
+	^self new
+		count: anInteger;
+		yourself
+]
+
 { #category : #'class initialization' }
 WsCounterComponent class >> tagName [
 	^'ws-counter'
@@ -19,6 +26,11 @@ WsCounterComponent class >> tagName [
 WsCounterComponent class >> viewClass [
 <pharoJsSkip>
 	^ WsCounterView
+]
+
+{ #category : #initialization }
+WsCounterComponent >> count: anInteger [
+	counter count: anInteger
 ]
 
 { #category : #actions }
@@ -36,6 +48,7 @@ WsCounterComponent >> increment [
 
 { #category : #initialization }
 WsCounterComponent >> initModel [
+	super initModel.
 	counter := WsCounterModel new
 ]
 

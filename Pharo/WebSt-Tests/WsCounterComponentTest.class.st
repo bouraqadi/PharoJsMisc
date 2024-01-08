@@ -26,9 +26,3 @@ WsCounterComponentTest >> assertBehavior [
 	resetBtn click.
 	self assert: display textContent equals: 0 asString
 ]
-
-{ #category : #tests }
-WsCounterComponentTest >> expectedTitle [
-
-	^'Counter'
-]

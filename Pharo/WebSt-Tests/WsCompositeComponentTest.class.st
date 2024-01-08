@@ -20,9 +20,3 @@ WsCompositeComponentTest >> assertBehavior: component [
 WsCompositeComponentTest >> componentClasses [ 
 	^super componentClasses , { WsLeafComponentForTest  }
 ]
-
-{ #category : #tests }
-WsCompositeComponentTest >> expectedTitle [
-
-	^WsCompositeViewForTest name
-]

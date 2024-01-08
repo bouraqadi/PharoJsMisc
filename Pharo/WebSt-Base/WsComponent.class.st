@@ -31,6 +31,12 @@ WsComponent class >> allComponentClasses [
 	^ classes asArray
 ]
 
+{ #category : #'instance creation' }
+WsComponent class >> new [
+"HTML element classes cannot be directly instantiated "
+	^ document createElement: self tagName
+]
+
 { #category : #'class initialization' }
 WsComponent class >> registerTag [
 	window customElements define: self tagName with: self
@@ -87,7 +93,7 @@ WsComponent >> document [
 
 { #category : #initialization }
 WsComponent >> initModel [
-	self subclassResponsibility 
+	^self 
 ]
 
 { #category : #initialization }

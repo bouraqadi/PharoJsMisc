@@ -18,9 +18,3 @@ WsCompositeComponentForTest class >> viewClass [
 	<pharoJsSkip>
 	^WsCompositeViewForTest 
 ]
-
-{ #category : #initialization }
-WsCompositeComponentForTest >> initModel [
-
-	^self
-]

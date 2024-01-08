@@ -1,5 +1,5 @@
 Class {
-	#name : #WsTextListExampleApp,
+	#name : #WsTextListApp,
 	#superclass : #PjWebApplication,
 	#traits : 'WsTDynamicComponentApp',
 	#classTraits : 'WsTDynamicComponentApp classTrait',
@@ -7,20 +7,20 @@ Class {
 }
 
 { #category : #accessing }
-WsTextListExampleApp class >> rootComponentClass [
+WsTextListApp class >> rootComponentClass [
 
-	^WsListComponent 
+	^ WsTextListComponent
 ]
 
 { #category : #accessing }
-WsTextListExampleApp class >> title [
+WsTextListApp class >> title [
 
 	<pharoJsSkip>
 	^ 'Robots - Text List WebST Example'
 ]
 
 { #category : #intializing }
-WsTextListExampleApp >> initRootComponent [
+WsTextListApp >> initRootComponent [
 		rootComponent addAll:
 		#( 'Astro' 'Baymax' 'Chappie' 'Johnny-5' 'R2D2' 'Wall-E' )
 	

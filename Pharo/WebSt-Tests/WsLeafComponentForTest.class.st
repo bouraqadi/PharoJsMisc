@@ -18,9 +18,3 @@ WsLeafComponentForTest class >> viewClass [
 	<pharoJsSkip>
 	^ WsLeafViewForTest
 ]
-
-{ #category : #initialization }
-WsLeafComponentForTest >> initModel [
-
-^#()
-]
