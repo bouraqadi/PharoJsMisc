@@ -53,3 +53,9 @@ WsBasicTextListComponentTest >> itemElements [
 
 	^ root querySelectorAll: #li
 ]
+
+{ #category : #tests }
+WsBasicTextListComponentTest >> setUpModifiedModel [
+
+	model addAll: #( hello world is so ubiquitous )
+]

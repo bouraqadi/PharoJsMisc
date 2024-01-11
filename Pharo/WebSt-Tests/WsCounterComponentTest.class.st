@@ -62,3 +62,9 @@ WsCounterComponentTest >> component: aComponent [
 	resetBtn := root querySelector: '.reset'.
 
 ]
+
+{ #category : #tests }
+WsCounterComponentTest >> setUpModifiedModel [
+
+	model count: 42
+]

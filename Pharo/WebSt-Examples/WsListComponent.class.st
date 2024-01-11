@@ -64,6 +64,13 @@ WsListComponent >> initView [
 	listView := view querySelector: 'ul'.
 ]
 
+{ #category : #initialization }
+WsListComponent >> linkModelAndView [ 
+	model items withIndexDo: [ :item :index |
+		self handleAt: index add: item ].
+
+]
+
 { #category : #adding }
 WsListComponent >> newItemComponent: itemContent [
 	self subclassResponsibility 

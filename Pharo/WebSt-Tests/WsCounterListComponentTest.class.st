@@ -60,3 +60,11 @@ WsCounterListComponentTest >> itemElements [
 
 	^ root querySelectorAll: #li
 ]
+
+{ #category : #tests }
+WsCounterListComponentTest >> setUpModifiedModel [
+
+	self evalBlock: [ #(42 35 21) do: [ : each| 
+			model add: (WsCounterModel count: each) ]
+	]
+]

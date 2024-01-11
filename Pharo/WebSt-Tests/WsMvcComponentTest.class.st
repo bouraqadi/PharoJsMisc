@@ -32,19 +32,35 @@ WsMvcComponentTest >> jsComponentClass [
 { #category : #tests }
 WsMvcComponentTest >> setUpComponentWithExistingModel [
 
-	self component: (self jsComponentClass model: model)
+	self component: (self jsComponentClass model: model).
+	document body append: component
 ]
 
 { #category : #tests }
-WsMvcComponentTest >> setUpModel [
+WsMvcComponentTest >> setUpModifiedModel [
+	self subclassResponsibility
+	
+]
+
+{ #category : #tests }
+WsMvcComponentTest >> setUpNewModel [
 
 	model := self jsComponentClass newModel
 ]
 
 { #category : #tests }
-WsMvcComponentTest >> testCreateComponentWithExistingModel [
+WsMvcComponentTest >> testCreateComponentWithModifiedModel [
 
-	self setUpModel.
+	self setUpNewModel.
+	self setUpModifiedModel.
+	self setUpComponentWithExistingModel.
+	self assertViewMatchesModel.
+]
+
+{ #category : #tests }
+WsMvcComponentTest >> testCreateComponentWithNewModel [
+
+	self setUpNewModel.
 	self setUpComponentWithExistingModel.
 	self assertViewMatchesModel
 ]

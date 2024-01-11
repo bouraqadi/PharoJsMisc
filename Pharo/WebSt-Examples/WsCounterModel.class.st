@@ -8,6 +8,13 @@ Class {
 	#category : #'WebSt-Examples-Counter'
 }
 
+{ #category : #'instance creation' }
+WsCounterModel class >> count: anInteger [
+	^self new
+		count: anInteger;
+		yourself
+]
+
 { #category : #accessing }
 WsCounterModel >> count [
 	^ count
