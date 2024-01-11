@@ -25,6 +25,12 @@ WsMvcComponentTest >> assertViewMatchesModel [
 ]
 
 { #category : #tests }
+WsMvcComponentTest >> changeModel [
+	self subclassResponsibility
+	
+]
+
+{ #category : #tests }
 WsMvcComponentTest >> jsComponentClass [
 	^self bridge jsGlobalAt: self componentClass name
 ]
@@ -37,12 +43,6 @@ WsMvcComponentTest >> setUpComponentWithExistingModel [
 ]
 
 { #category : #tests }
-WsMvcComponentTest >> setUpModifiedModel [
-	self subclassResponsibility
-	
-]
-
-{ #category : #tests }
 WsMvcComponentTest >> setUpNewModel [
 
 	model := self jsComponentClass newModel
@@ -52,7 +52,7 @@ WsMvcComponentTest >> setUpNewModel [
 WsMvcComponentTest >> testCreateComponentWithModifiedModel [
 
 	self setUpNewModel.
-	self setUpModifiedModel.
+	self changeModel.
 	self setUpComponentWithExistingModel.
 	self assertViewMatchesModel.
 ]

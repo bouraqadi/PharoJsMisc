@@ -56,15 +56,15 @@ WsCounterListComponentTest >> assertViewMatchesModel [
 ]
 
 { #category : #tests }
-WsCounterListComponentTest >> itemElements [
-
-	^ root querySelectorAll: #li
-]
-
-{ #category : #tests }
-WsCounterListComponentTest >> setUpModifiedModel [
+WsCounterListComponentTest >> changeModel [
 
 	self evalBlock: [ #(42 35 21) do: [ : each| 
 			model add: (WsCounterModel count: each) ]
 	]
+]
+
+{ #category : #tests }
+WsCounterListComponentTest >> itemElements [
+
+	^ root querySelectorAll: #li
 ]

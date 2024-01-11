@@ -53,6 +53,12 @@ WsCounterComponentTest >> assertViewMatchesModel [
 ]
 
 { #category : #tests }
+WsCounterComponentTest >> changeModel [
+
+	model count: 42
+]
+
+{ #category : #tests }
 WsCounterComponentTest >> component: aComponent [
 
 	super component: aComponent.
@@ -61,10 +67,4 @@ WsCounterComponentTest >> component: aComponent [
 	decrementBtn := root querySelector: '.decrement'.
 	resetBtn := root querySelector: '.reset'.
 
-]
-
-{ #category : #tests }
-WsCounterComponentTest >> setUpModifiedModel [
-
-	model count: 42
 ]

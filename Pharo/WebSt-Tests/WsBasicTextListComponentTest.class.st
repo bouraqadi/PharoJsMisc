@@ -49,13 +49,13 @@ self assert: self itemElements size equals: textContents size.
 ]
 
 { #category : #tests }
-WsBasicTextListComponentTest >> itemElements [
+WsBasicTextListComponentTest >> changeModel [
 
-	^ root querySelectorAll: #li
+	model addAll: #( hello world is so ubiquitous )
 ]
 
 { #category : #tests }
-WsBasicTextListComponentTest >> setUpModifiedModel [
+WsBasicTextListComponentTest >> itemElements [
 
-	model addAll: #( hello world is so ubiquitous )
+	^ root querySelectorAll: #li
 ]
