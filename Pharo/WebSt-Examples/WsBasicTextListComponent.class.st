@@ -13,7 +13,7 @@ WsBasicTextListComponent class >> tagName [
 ]
 
 { #category : #adding }
-WsBasicTextListComponent >> newItemComponent: itemContent [
+WsBasicTextListComponent >> newItemComponent: aString [
 
-	^ WsBasicTextComponent text: itemContent
+	^ WsBasicTextComponent text: aString
 ]
