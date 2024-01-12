@@ -39,11 +39,11 @@ WsTextListComponentTest >> assertItemAt: index textContentEquals: expectedConten
 { #category : #tests }
 WsTextListComponentTest >> assertViewMatchesModel [
 
-| textContents |
-textContents := model items.
-self assert: self itemElements size equals: textContents size.
+| textItems |
+textItems := model items.
+self assert: self itemElements size equals: textItems size.
 			1 to:  model items size do: [ : index |
-				self assertItemAt: index textContentEquals: (textContents at: index) text
+				self assertItemAt: index textContentEquals: (textItems at: index) text
 				
 		]
 ]
