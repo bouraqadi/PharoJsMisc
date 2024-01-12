@@ -6,7 +6,7 @@ Class {
 	#category : #'WebSt-Examples-TodoList'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 WsTodoListApp class >> rootComponentClass [
 
 	^WsTodoListComponent 

@@ -72,6 +72,7 @@ WsListComponent >> linkModelAndView [
 ]
 
 { #category : #adding }
-WsListComponent >> newItemComponent: itemContent [
-	self subclassResponsibility 
+WsListComponent >> newItemComponent: itemModel [
+
+	self subclassResponsibility
 ]

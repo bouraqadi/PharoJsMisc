@@ -6,7 +6,7 @@ Class {
 	#category : #'WebSt-Tests-Components'
 }
 
-{ #category : #'as yet unclassified' }
+{ #category : #accessing }
 WsAppForCompositeTest class >> rootComponentClass [
 
 	^WsCompositeComponentForTest 
