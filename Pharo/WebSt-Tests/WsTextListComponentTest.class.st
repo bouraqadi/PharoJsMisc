@@ -1,5 +1,5 @@
 Class {
-	#name : #WsBasicTextListComponentTest,
+	#name : #WsTextListComponentTest,
 	#superclass : #WsBootstrapComponentTest,
 	#instVars : [
 		'listComponent'
@@ -8,18 +8,18 @@ Class {
 }
 
 { #category : #'suite parameters' }
-WsBasicTextListComponentTest class >> appClass [
+WsTextListComponentTest class >> appClass [
 
-	^ WsBasicTextListApp 
+	^ WsTextListApp 
 ]
 
 { #category : #tests }
-WsBasicTextListComponentTest >> assertBehavior [
+WsTextListComponentTest >> assertBehavior [
 
 	| itemsCount |
 	itemsCount := self itemElements size.
 	#( some more content to add ) do: [ :each |
-		model add: each.
+		component add: each.
 		itemsCount := itemsCount + 1.
 		self assert: self itemElements size equals: itemsCount.
 		self
@@ -28,7 +28,7 @@ WsBasicTextListComponentTest >> assertBehavior [
 ]
 
 { #category : #tests }
-WsBasicTextListComponentTest >> assertItemAt: index textContentEquals: expectedContent [
+WsTextListComponentTest >> assertItemAt: index textContentEquals: expectedContent [
 	| item actualContent |
 	item := self itemElements at: index.
 	actualContent := item children first shadowRoot textContent.
@@ -37,25 +37,28 @@ WsBasicTextListComponentTest >> assertItemAt: index textContentEquals: expectedC
 ]
 
 { #category : #tests }
-WsBasicTextListComponentTest >> assertViewMatchesModel [
+WsTextListComponentTest >> assertViewMatchesModel [
 
 | textContents |
 textContents := model items.
 self assert: self itemElements size equals: textContents size.
 			1 to:  model items size do: [ : index |
-				self assertItemAt: index textContentEquals: (textContents at: index) 
+				self assertItemAt: index textContentEquals: (textContents at: index) text
 				
 		]
 ]
 
 { #category : #tests }
-WsBasicTextListComponentTest >> changeModel [
+WsTextListComponentTest >> changeModel [
 
-	model addAll: #( hello world is so ubiquitous )
+	self evalBlock: [
+		|textModels|	
+		textModels := #( hello world is so ubiquitous ) collect: [: each | WsTextModel text: each].
+	model addAll: textModels]
 ]
 
 { #category : #tests }
-WsBasicTextListComponentTest >> itemElements [
+WsTextListComponentTest >> itemElements [
 
 	^ root querySelectorAll: #li
 ]
