@@ -9,7 +9,7 @@ Class {
 
 { #category : #'suite parameters' }
 WsTodoListComponentTest class >> appClass [ 
-	^WsTodoListApp 
+	^WsToDoListApp 
 ]
 
 { #category : #tests }
@@ -25,6 +25,11 @@ WsTodoListComponentTest >> assertBehavior [
 ]
 
 { #category : #tests }
+WsTodoListComponentTest >> assertViewMatchesModel [
+	self shouldBeImplemented.
+]
+
+{ #category : #tests }
 WsTodoListComponentTest >> componentClasses [
 
 	^ super componentClasses , {
@@ -35,5 +40,5 @@ WsTodoListComponentTest >> componentClasses [
 { #category : #tests }
 WsTodoListComponentTest >> itemComponents [
 
-	^ listComponent shadowRoot querySelectorAll: WsListItemComponent tagName
+	^ listComponent shadowRoot querySelectorAll: WsToDoListItemComponent tagName
 ]

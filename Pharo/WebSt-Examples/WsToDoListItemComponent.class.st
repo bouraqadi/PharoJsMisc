@@ -1,20 +1,20 @@
 Class {
-	#name : #WsToDoListComponent,
-	#superclass : #WsListComponent,
+	#name : #WsToDoListItemComponent,
+	#superclass : #WsComponent,
 	#traits : 'WsTConcreteComponent',
 	#classTraits : 'WsTConcreteComponent classTrait',
 	#category : #'WebSt-Examples-TodoList'
 }
 
 { #category : #'class initialization' }
-WsToDoListComponent class >> tagName [
+WsToDoListItemComponent class >> tagName [
 
-	^ 'ws-todolist'
+	^ 'ws-list-item'
 ]
 
 { #category : #rendering }
-WsToDoListComponent class >> title [
+WsToDoListItemComponent class >> viewClass [
 
 	<pharoJsSkip>
-	^ 'ToDo List'
+	^ WsToDoListItemView
 ]

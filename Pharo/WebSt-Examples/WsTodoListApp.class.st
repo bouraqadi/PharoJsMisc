@@ -1,5 +1,5 @@
 Class {
-	#name : #WsTodoListApp,
+	#name : #WsToDoListApp,
 	#superclass : #PjWebApplication,
 	#traits : 'WsTStaticComponentApp',
 	#classTraits : 'WsTStaticComponentApp classTrait',
@@ -7,7 +7,7 @@ Class {
 }
 
 { #category : #accessing }
-WsTodoListApp class >> rootComponentClass [
+WsToDoListApp class >> rootComponentClass [
 
-	^WsTodoListComponent 
+	^WsToDoListComponent 
 ]
