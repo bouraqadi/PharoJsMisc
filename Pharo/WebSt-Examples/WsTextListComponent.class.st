@@ -13,16 +13,12 @@ WsTextListComponent class >> tagName [
 ]
 
 { #category : #adding }
-WsTextListComponent >> add: aString [
-
-	| textModel |
-	textModel := WsTextComponent newModel.
+WsTextListComponent >> initItemModel: textModel with: aString [
 	textModel text: aString.
-	super add: textModel
+
 ]
 
 { #category : #adding }
-WsTextListComponent >> newItemComponent: aTextModel [
-
-	^ WsTextComponent model: aTextModel
+WsTextListComponent >> itemComponentClass [
+	^WsTextComponent 
 ]

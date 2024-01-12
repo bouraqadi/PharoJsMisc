@@ -1,9 +1,6 @@
 Class {
 	#name : #WsTodoListComponentTest,
-	#superclass : #WsBootstrapComponentTest,
-	#instVars : [
-		'listComponent'
-	],
+	#superclass : #WsTextListComponentTest,
 	#category : #'WebSt-Tests-Examples'
 }
 
@@ -15,18 +12,15 @@ WsTodoListComponentTest class >> appClass [
 { #category : #tests }
 WsTodoListComponentTest >> assertBehavior [
 
-	| addItemButton |
-	listComponent := root querySelector: WsListComponent tagName . 
-	self assert: self itemComponents isEmpty.
+	| addItemButton expectedCount |
+	super assertBehavior.
+	listComponent := root querySelector: WsToDoListItemComponent tagName.
+	expectedCount := self itemElements size.
 	addItemButton := root querySelector: 'button'.
-	1 to: 3 do: [ :expectedCount |
+	 3 timesRepeat: [ 
+		expectedCount := expectedCount + 1.
 		addItemButton click.
-		self assert: self itemComponents size equals: expectedCount ]
-]
-
-{ #category : #tests }
-WsTodoListComponentTest >> assertViewMatchesModel [
-	self shouldBeImplemented.
+		self assert: self itemElements size equals: expectedCount ]
 ]
 
 { #category : #tests }
@@ -35,10 +29,4 @@ WsTodoListComponentTest >> componentClasses [
 	^ super componentClasses , {
 		  WsListComponent.
 		   }
-]
-
-{ #category : #tests }
-WsTodoListComponentTest >> itemComponents [
-
-	^ listComponent shadowRoot querySelectorAll: WsToDoListItemComponent tagName
 ]

@@ -1,6 +1,6 @@
 Class {
 	#name : #WsToDoListItemView,
-	#superclass : #WsView,
+	#superclass : #WsTextView,
 	#traits : 'WsTBootstrapView',
 	#classTraits : 'WsTBootstrapView classTrait',
 	#category : #'WebSt-Examples-TodoList'
@@ -9,15 +9,12 @@ Class {
 { #category : #rendering }
 WsToDoListItemView >> renderContentOn: html [
 
-html div
-	class: 'form-check';
-	with: [
-		html label
-			class: 'form-check-label';
-			with: [
-			html checkbox
-				class: 'form-check-input todo-checkbox'.
-			html span class: 'todo-text' ]
-				]
-
+	html div
+		class: 'form-check';
+		with: [
+			html label
+				class: 'form-check-label';
+				with: [
+					html checkbox class: 'form-check-input todo-checkbox'.
+					super renderContentOn: html ] ]
 ]

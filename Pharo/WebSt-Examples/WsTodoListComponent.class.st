@@ -1,8 +1,11 @@
 Class {
 	#name : #WsToDoListComponent,
-	#superclass : #WsListComponent,
+	#superclass : #WsTextListComponent,
 	#traits : 'WsTConcreteComponent',
 	#classTraits : 'WsTConcreteComponent classTrait',
+	#instVars : [
+		'addButton'
+	],
 	#category : #'WebSt-Examples-TodoList'
 }
 
@@ -17,4 +20,30 @@ WsToDoListComponent class >> title [
 
 	<pharoJsSkip>
 	^ 'ToDo List'
+]
+
+{ #category : #rendering }
+WsToDoListComponent class >> viewClass [
+
+	<pharoJsSkip>
+	^ WsToDoListView
+]
+
+{ #category : #initialization }
+WsToDoListComponent >> initView [ 
+	super initView .
+	addButton := view querySelector: '.add-item-todo'
+]
+
+{ #category : #adding }
+WsToDoListComponent >> itemComponentClass [
+
+	^ WsToDoListItemComponent
+]
+
+{ #category : #initialization }
+WsToDoListComponent >> linkModelAndView [
+
+	super linkModelAndView.
+	self onClickElement: addButton do: [ self addContent: '' ]
 ]

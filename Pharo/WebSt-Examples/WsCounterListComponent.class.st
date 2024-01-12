@@ -13,17 +13,13 @@ WsCounterListComponent class >> tagName [
 ]
 
 { #category : #adding }
-WsCounterListComponent >> add: anInteger [
-
-	| counter |
-	counter := WsCounterComponent newModel.
+WsCounterListComponent >> initItemModel: counter with: anInteger [
 	counter count: anInteger.
-	super add: counter
+
 ]
 
 { #category : #adding }
-WsCounterListComponent >> newItemComponent: aCounterModel [
+WsCounterListComponent >> itemComponentClass [
 
 	^ WsCounterComponent
-		  model: aCounterModel
 ]

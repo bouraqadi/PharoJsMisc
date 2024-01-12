@@ -19,12 +19,18 @@ WsTextListComponentTest >> assertBehavior [
 	| itemsCount |
 	itemsCount := self itemElements size.
 	#( some more content to add ) do: [ :each |
-		component add: each.
+		component addContent: each.
 		itemsCount := itemsCount + 1.
 		self assert: self itemElements size equals: itemsCount.
-		self
-			assertItemAt: itemsCount
-			textContentEquals: each ]
+		self assertItemAt: itemsCount textContentEquals: each ].
+	{
+		1.
+		itemsCount }
+		with: #( huperspace teleportation )
+		do: [ :index :newText |
+			(model itemAt: index) text: newText. ].
+		self assertViewMatchesModel.
+
 ]
 
 { #category : #tests }

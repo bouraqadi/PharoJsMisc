@@ -19,7 +19,7 @@ WsCounterListComponentTest >> assertBehavior [
 	| itemsCount counterView display incrementBtn expectedCount |
 	itemsCount := self itemElements size.
 	1 to: 5 do: [ :each |
-		component add: each.
+		component addContent: each.
 		itemsCount := itemsCount + 1.
 		self assert: self itemElements size equals: itemsCount.
 		counterView := self itemElements last children first shadowRoot.

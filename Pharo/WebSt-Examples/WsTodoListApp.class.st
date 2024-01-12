@@ -1,8 +1,8 @@
 Class {
 	#name : #WsToDoListApp,
 	#superclass : #PjWebApplication,
-	#traits : 'WsTStaticComponentApp',
-	#classTraits : 'WsTStaticComponentApp classTrait',
+	#traits : 'WsTDynamicComponentApp',
+	#classTraits : 'WsTDynamicComponentApp classTrait',
 	#category : #'WebSt-Examples-TodoList'
 }
 
@@ -10,4 +10,19 @@ Class {
 WsToDoListApp class >> rootComponentClass [
 
 	^WsToDoListComponent 
+]
+
+{ #category : #rendering }
+WsToDoListApp class >> title [
+
+	<pharoJsSkip>
+	^ 'Shopping - ToDo List WebST Example'
+]
+
+{ #category : #intializing }
+WsToDoListApp >> initRootComponent [
+
+	rootComponent addAllContents:
+		#( 'Bread' 'Peanut Butter' 'Soy Milk' 'Coffee' 'Sugar' 'Honey' 'Cereals'
+		    'Strawberry Jam' )
 ]

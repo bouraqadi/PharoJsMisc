@@ -21,7 +21,7 @@ WsTextListApp class >> title [
 
 { #category : #intializing }
 WsTextListApp >> initRootComponent [
-		rootComponent addAll:
+
+	rootComponent addAllContents:
 		#( 'Astro' 'Baymax' 'Chappie' 'Johnny-5' 'R2D2' 'Wall-E' )
-	
 ]

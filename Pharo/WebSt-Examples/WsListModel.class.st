@@ -10,15 +10,15 @@ Class {
 }
 
 { #category : #accessing }
-WsListModel >> add: item [
-	items addLast: item.
-	addPort notifyWithAll: { items size. item 	}
+WsListModel >> add: itemModel [
+	items addLast: itemModel.
+	addPort notifyWithAll: { items size. itemModel 	}
 ]
 
 { #category : #accessing }
-WsListModel >> addAll: itemContents [
+WsListModel >> addAll: itemModels [
 
-	itemContents do: [ :each | self add: each ]
+	itemModels do: [ :each | self add: each ]
 ]
 
 { #category : #initialization }
@@ -29,6 +29,12 @@ WsListModel >> initialize [
 	addPort := HyCollectionPort new.
 	removePort := HyCollectionPort notificationSelector:
 		              #handleAt:remove:
+]
+
+{ #category : #accessing }
+WsListModel >> itemAt: index [
+
+	^ self items at: index
 ]
 
 { #category : #accessing }

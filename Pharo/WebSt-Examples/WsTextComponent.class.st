@@ -42,7 +42,7 @@ WsTextComponent class >> viewClass [
 
 { #category : #initialization }
 WsTextComponent >> handleText: aString [
-	
+	display textContent: aString
 ]
 
 { #category : #initialization }
@@ -76,5 +76,6 @@ WsTextComponent >> text: aString [
 
 { #category : #initialization }
 WsTextComponent >> updateDisplay [
-	display textContent: model text
+
+	self handleText: model text
 ]

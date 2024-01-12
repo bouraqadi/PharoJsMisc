@@ -20,15 +20,9 @@ WsListComponent class >> viewClass [
 ]
 
 { #category : #adding }
-WsListComponent >> add: itemContent [
+WsListComponent >> addAllContents: itemContents [
 
-	model add: itemContent
-]
-
-{ #category : #adding }
-WsListComponent >> addAll: itemContents [
-
-	itemContents do: [: each | self add: each]
+	itemContents do: [ :each | self addContent: each ]
 ]
 
 { #category : #adding }
@@ -42,11 +36,25 @@ WsListComponent >> addComponent: itemComponent [
 ]
 
 { #category : #adding }
-WsListComponent >> handleAt: index add: itemContent [
+WsListComponent >> addContent: itemContent [
+
+	| itemModel |
+	itemModel := self itemComponentClass newModel.
+	self initItemModel: itemModel with: itemContent.
+	model add: itemModel
+]
+
+{ #category : #adding }
+WsListComponent >> handleAt: index add: itemModel [
 
 	| itemComponent |
-	itemComponent := self newItemComponent: itemContent.
+	itemComponent := self newItemComponent: itemModel.
 	self addComponent: itemComponent 
+]
+
+{ #category : #adding }
+WsListComponent >> initItemModel: itemModel with: itemContent [
+	self subclassResponsibility 
 ]
 
 { #category : #initialization }
@@ -64,6 +72,11 @@ WsListComponent >> initView [
 	listView := view querySelector: 'ul'.
 ]
 
+{ #category : #adding }
+WsListComponent >> itemComponentClass [
+	self subclassResponsibility 
+]
+
 { #category : #initialization }
 WsListComponent >> linkModelAndView [ 
 	model items withIndexDo: [ :item :index |
@@ -74,5 +87,5 @@ WsListComponent >> linkModelAndView [
 { #category : #adding }
 WsListComponent >> newItemComponent: itemModel [
 
-	self subclassResponsibility
+	^ self itemComponentClass model: itemModel
 ]
