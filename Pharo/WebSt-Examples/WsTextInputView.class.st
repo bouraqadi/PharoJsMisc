@@ -1,7 +1,7 @@
 Class {
 	#name : #WsTextInputView,
 	#superclass : #WsView,
-	#category : #'WebSt-Examples-List'
+	#category : #'WebSt-Examples-Text'
 }
 
 { #category : #rendering }

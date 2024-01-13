@@ -6,7 +6,7 @@ Class {
 	#instVars : [
 		'display'
 	],
-	#category : #'WebSt-Examples-List'
+	#category : #'WebSt-Examples-Text'
 }
 
 { #category : #'instance creation' }
