@@ -1,11 +1,11 @@
 Class {
-	#name : #WsTextView,
+	#name : #WsTextSpanView,
 	#superclass : #WsView,
 	#category : #'WebSt-Examples-List'
 }
 
 { #category : #rendering }
-WsTextView >> renderContentOn: html [
+WsTextSpanView >> renderContentOn: html [
 
 	html span
 ]

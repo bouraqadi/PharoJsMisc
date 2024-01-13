@@ -9,7 +9,7 @@ WsToDoListView >> renderContentOn: html [
 
 	super renderContentOn: html.
 	html button
-		class: 'btn btn-primary add-item-todo';
+		class: 'btn btn-primary addTodoItem';
 		type: 'button';
 		value: 'Add Entry'
 ]

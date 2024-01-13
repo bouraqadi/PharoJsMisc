@@ -1,5 +1,5 @@
 Class {
-	#name : #WsTextComponent,
+	#name : #WsTextSpanComponent,
 	#superclass : #WsMvcComponent,
 	#traits : 'WsTConcreteComponent',
 	#classTraits : 'WsTConcreteComponent classTrait',
@@ -10,43 +10,43 @@ Class {
 }
 
 { #category : #'instance creation' }
-WsTextComponent class >> modelClass [
+WsTextSpanComponent class >> modelClass [
 
 	^WsTextModel 
 ]
 
 { #category : #'class initialization' }
-WsTextComponent class >> tagName [
+WsTextSpanComponent class >> tagName [
 	^'ws-text'
 ]
 
 { #category : #'instance creation' }
-WsTextComponent class >> text: aString [
+WsTextSpanComponent class >> text: aString [
 	^self new
 		text: aString;
 		yourself
 ]
 
 { #category : #'accessing view' }
-WsTextComponent class >> title [
+WsTextSpanComponent class >> title [
 
 	^ 'Text'
 ]
 
 { #category : #rendering }
-WsTextComponent class >> viewClass [
+WsTextSpanComponent class >> viewClass [
 
 	<pharoJsSkip>
-	^ WsTextView 
+	^ WsTextSpanView 
 ]
 
 { #category : #initialization }
-WsTextComponent >> handleText: aString [
+WsTextSpanComponent >> handleText: aString [
 	display textContent: aString
 ]
 
 { #category : #initialization }
-WsTextComponent >> initModel [
+WsTextSpanComponent >> initModel [
 
 	super initModel .
 	(model -@ #textPort)
@@ -55,27 +55,27 @@ WsTextComponent >> initModel [
 ]
 
 { #category : #initialization }
-WsTextComponent >> initView [
+WsTextSpanComponent >> initView [
 
 	super initView.
 	display := view querySelector: 'span'
 ]
 
 { #category : #initialization }
-WsTextComponent >> linkModelAndView [
+WsTextSpanComponent >> linkModelAndView [
 
 	super linkModelAndView.
 	self updateDisplay
 ]
 
 { #category : #accessing }
-WsTextComponent >> text: aString [
+WsTextSpanComponent >> text: aString [
 
 	model text: aString
 ]
 
 { #category : #initialization }
-WsTextComponent >> updateDisplay [
+WsTextSpanComponent >> updateDisplay [
 
 	self handleText: model text
 ]

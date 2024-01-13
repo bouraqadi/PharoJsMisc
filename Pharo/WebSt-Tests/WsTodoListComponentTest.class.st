@@ -24,6 +24,16 @@ WsTodoListComponentTest >> assertBehavior [
 ]
 
 { #category : #tests }
+WsTodoListComponentTest >> changeModel [
+
+	self evalBlock: [
+		| textModels |
+		textModels := #( banana orange apple 'pine apple' kiwi ) collect: [
+			              :each | WsToDoListItemModel text: each ].
+		model addAll: textModels ]
+]
+
+{ #category : #tests }
 WsTodoListComponentTest >> componentClasses [
 
 	^ super componentClasses , {

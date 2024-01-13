@@ -30,9 +30,10 @@ WsToDoListComponent class >> viewClass [
 ]
 
 { #category : #initialization }
-WsToDoListComponent >> initView [ 
-	super initView .
-	addButton := view querySelector: '.add-item-todo'
+WsToDoListComponent >> initView [
+
+	super initView.
+	addButton := view querySelector: '.addTodoItem'
 ]
 
 { #category : #adding }
