@@ -19,7 +19,8 @@ WsTextModel class >> text: aString [
 WsTextModel >> initialize [
 
 	super initialize.
-	textPort := HyCollectionPort new
+	textPort := HyCollectionPort new.
+	text := ''
 ]
 
 { #category : #accessing }
