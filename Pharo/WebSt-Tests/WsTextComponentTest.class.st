@@ -25,8 +25,7 @@ WsTextComponentTest >> assertBehavior [
 	self editWithText: newText save: true.
 	self assert: display style display equals: ''.
 	self assert: model text equals: newText.
-	self assert: display textContent equals: newText.
-	
+	self assert: display textContent equals: newText
 ]
 
 { #category : #tests }
@@ -56,14 +55,14 @@ WsTextComponentTest >> component: aComponent [
 WsTextComponentTest >> editWithText: newText save: shouldSave [
 
 	| editor editorRoot textInput |
-	component click.
-	self assert: display style display equals: 'none'.
-	editor := document querySelector: WsTextInputComponent tagName.
+	display click.
+	self waitUntil: [ display style display = 'none' ].
+	editor := root querySelector: WsTextInputComponent tagName.
 	editorRoot := editor shadowRoot.
 	textInput := editorRoot querySelector: '.textInput'.
-	self assert: textInput textContent equals: model text.
-	textInput textContent: newText.
-	shouldSave ifTrue: [ ^(editorRoot querySelector: '.savelButton') click. ].
-	(editorRoot querySelector: '.cancelButton') click.
-
+	self assert: textInput value equals: model text.
+	textInput value: newText.
+	shouldSave ifTrue: [
+		^ (editorRoot querySelector: '.saveButton') click ].
+	(editorRoot querySelector: '.cancelButton') click
 ]

@@ -20,5 +20,5 @@ WsTextListComponent >> initItemModel: textModel with: aString [
 
 { #category : #adding }
 WsTextListComponent >> itemComponentClass [
-	^WsTextSpanComponent 
+	^WsEditableTextComponent 
 ]

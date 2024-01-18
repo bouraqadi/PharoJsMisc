@@ -8,7 +8,7 @@ Class {
 
 { #category : #accessing }
 WsTextApp class >> rootComponentClass [ 
-	^WsTextSpanComponent 
+	^WsEditableTextComponent 
 ]
 
 { #category : #intializing }

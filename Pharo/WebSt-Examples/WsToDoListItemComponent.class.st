@@ -1,6 +1,6 @@
 Class {
 	#name : #WsToDoListItemComponent,
-	#superclass : #WsTextSpanComponent,
+	#superclass : #WsEditableTextComponent,
 	#traits : 'WsTConcreteComponent',
 	#classTraits : 'WsTConcreteComponent classTrait',
 	#instVars : [
@@ -29,7 +29,7 @@ WsToDoListItemComponent class >> viewClass [
 ]
 
 { #category : #initialization }
-WsToDoListItemComponent >> handleChecked: aBoolean [
+WsToDoListItemComponent >> displayChecked: aBoolean [
 
 	checkbox checked: aBoolean
 ]
@@ -39,7 +39,7 @@ WsToDoListItemComponent >> initModel [
 
 	super initModel.
 	(model -@ #isCheckedPort)
-		notificationSelector: #handleChecked:;
+		notificationSelector: #displayChecked:;
 		=> self
 ]
 
@@ -54,5 +54,5 @@ WsToDoListItemComponent >> initView [
 WsToDoListItemComponent >> updateDisplay [
 
 	super updateDisplay.
-	self handleChecked: model isChecked
+	self displayChecked: model isChecked
 ]

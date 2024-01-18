@@ -39,7 +39,7 @@ WsCounterComponent >> count: anInteger [
 ]
 
 { #category : #actions }
-WsCounterComponent >> handleCount: newCount [
+WsCounterComponent >> displayCount: newCount [
 
 	display textContent: newCount
 ]
@@ -50,7 +50,7 @@ WsCounterComponent >> initModel [
 	super initModel.
 	(model -@ #countPort)
 		=> self;
-		notificationSelector: #handleCount:
+		notificationSelector: #displayCount:
 ]
 
 { #category : #initialization }
@@ -78,5 +78,5 @@ WsCounterComponent >> linkModelAndView [
 { #category : #actions }
 WsCounterComponent >> updateDisplay [
 
-	self handleCount: model count
+	self displayCount: model count
 ]

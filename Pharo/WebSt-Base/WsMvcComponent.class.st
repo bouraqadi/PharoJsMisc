@@ -43,6 +43,7 @@ WsMvcComponent >> initialize [
 
 { #category : #initialization }
 WsMvcComponent >> linkModelAndView [
+
 	^self
 ]
 

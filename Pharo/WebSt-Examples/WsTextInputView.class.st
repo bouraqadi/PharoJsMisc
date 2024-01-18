@@ -1,6 +1,8 @@
 Class {
 	#name : #WsTextInputView,
 	#superclass : #WsView,
+	#traits : 'WsTBootstrapView',
+	#classTraits : 'WsTBootstrapView classTrait',
 	#category : #'WebSt-Examples-Text'
 }
 

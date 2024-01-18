@@ -78,10 +78,11 @@ WsListComponent >> itemComponentClass [
 ]
 
 { #category : #initialization }
-WsListComponent >> linkModelAndView [ 
-	model items withIndexDo: [ :item :index |
-		self handleAt: index add: item ].
+WsListComponent >> linkModelAndView [
 
+	super linkModelAndView.
+	model items withIndexDo: [ :item :index |
+		self handleAt: index add: item ]
 ]
 
 { #category : #adding }
