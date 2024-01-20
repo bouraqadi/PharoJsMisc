@@ -11,6 +11,6 @@ BaselineOfWebComponents >> baseline: spec [
 	spec for: #common do: [
 		spec
 			baseline: 'PharoJS'
-			with: [ spec repository: 'github://PharoJS/PharoJS:pharo11' ];
+			with: [ spec repository: 'github://PharoJS/PharoJS:pharo9' ];
 			package: #WebComponents with: [ spec requires: 'PharoJS' ] ]
 ]
