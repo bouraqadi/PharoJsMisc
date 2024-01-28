@@ -1,6 +1,6 @@
 Class {
 	#name : #WsTextComponentTest,
-	#superclass : #WsMvcComponentTest,
+	#superclass : #WsComponentTest,
 	#instVars : [
 		'display'
 	],
@@ -16,16 +16,16 @@ WsTextComponentTest class >> appClass [
 WsTextComponentTest >> assertBehavior [
 
 	| oldText newText |
-	oldText := model text.
+	oldText := component text.
 	self editWithText: 'Bilbo The Hobbit' save: false.
 	self assert: display style display equals: ''.
-	self assert: model text equals: oldText.
-	self assert: display textContent equals: oldText.
+	self assert: component text equals: oldText.
+	self assert: display text equals: oldText.
 	newText := 'The lord of the ring'.
 	self editWithText: newText save: true.
 	self assert: display style display equals: ''.
-	self assert: model text equals: newText.
-	self assert: display textContent equals: newText
+	self assert: component text equals: newText.
+	self assert: display text equals: newText
 ]
 
 { #category : #tests }
@@ -46,9 +46,9 @@ WsTextComponentTest >> changeModel [
 
 { #category : #tests }
 WsTextComponentTest >> component: aComponent [
-	super component: aComponent .
-		display := root querySelector: 'span'.
 
+	super component: aComponent.
+	display := root querySelector: WsTextComponent tagName 
 ]
 
 { #category : #tests }
@@ -60,7 +60,7 @@ WsTextComponentTest >> editWithText: newText save: shouldSave [
 	editor := root querySelector: WsTextInputComponent tagName.
 	editorRoot := editor shadowRoot.
 	textInput := editorRoot querySelector: '.textInput'.
-	self assert: textInput value equals: model text.
+	self assert: textInput value equals: component text.
 	textInput value: newText.
 	shouldSave ifTrue: [
 		^ (editorRoot querySelector: '.saveButton') click ].

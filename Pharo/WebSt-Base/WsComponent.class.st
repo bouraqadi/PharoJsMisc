@@ -46,14 +46,14 @@ WsComponent class >> registerTag [
 WsComponent class >> renderOn: html [
 
 	<pharoJsSkip>
-	html renderElement: self
+	^html renderElement: self
 ]
 
 { #category : #rendering }
 WsComponent class >> renderOuterHtmlOn: html [
-<pharoJsSkip>
 
-	html tag: self tagName
+	<pharoJsSkip>
+	^html tag: self tagName
 ]
 
 { #category : #rendering }

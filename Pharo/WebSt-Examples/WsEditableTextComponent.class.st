@@ -1,6 +1,6 @@
 Class {
 	#name : #WsEditableTextComponent,
-	#superclass : #WsMvcComponent,
+	#superclass : #WsComponent,
 	#traits : 'WsTConcreteComponent',
 	#classTraits : 'WsTConcreteComponent classTrait',
 	#instVars : [
@@ -10,28 +10,18 @@ Class {
 	#category : #'WebSt-Examples-Text'
 }
 
-{ #category : #'instance creation' }
-WsEditableTextComponent class >> modelClass [
-
-	^WsTextModel 
-]
-
 { #category : #'class initialization' }
 WsEditableTextComponent class >> tagName [
-	^'ws-text'
+
+	^ 'ws-text-editable'
 ]
 
 { #category : #'instance creation' }
 WsEditableTextComponent class >> text: aString [
-	^self new
-		text: aString;
-		yourself
-]
 
-{ #category : #'accessing view' }
-WsEditableTextComponent class >> title [
-
-	^ 'Text'
+	^ self new
+		  text: aString;
+		  yourself
 ]
 
 { #category : #rendering }
@@ -50,67 +40,48 @@ WsEditableTextComponent >> cancelEdit [
 { #category : #actions }
 WsEditableTextComponent >> closeEditor [
 
-	self hide: editor. .
-	self show: display
-]
+	self hide: editor.
+	self show: display.
 
-{ #category : #initialization }
-WsEditableTextComponent >> displayText: aString [
-	display textContent: aString
 ]
 
 { #category : #actions }
 WsEditableTextComponent >> edit [
 
-	editor text: model text.
+	editor text: display text.
 	self hide: display.
 	self show: editor
-]
-
-{ #category : #initialization }
-WsEditableTextComponent >> initModel [
-
-	super initModel .
-	(model -@ #textPort)
-		notificationSelector: #displayText:;
-		=> self
 ]
 
 { #category : #initialization }
 WsEditableTextComponent >> initView [
 
 	super initView.
-	display := view querySelector: 'span'.
+	display := view querySelector: WsTextComponent tagName.
 	self onClickElement: display do: [ self edit ].
-		editor := view querySelector: WsTextInputComponent tagName.
+	editor := view querySelector: WsTextInputComponent tagName.
 	editor
 		saveBlock: [ :newText | self saveEdit: newText ];
 		cancelBlock: [ self cancelEdit ].
 	self closeEditor
 ]
 
-{ #category : #initialization }
-WsEditableTextComponent >> linkModelAndView [
-
-	super linkModelAndView.
-	self updateDisplay
-]
-
 { #category : #actions }
 WsEditableTextComponent >> saveEdit: newText [
 
-	model text: newText.
+	display text: newText.
 	self closeEditor
 ]
 
 { #category : #accessing }
-WsEditableTextComponent >> text: aString [
+WsEditableTextComponent >> text [
 
-	model text: aString
+	^display text
 ]
 
-{ #category : #initialization }
-WsEditableTextComponent >> updateDisplay [
+{ #category : #accessing }
+WsEditableTextComponent >> text: aString [
+	display text: aString.
+	editor text: aString
 
-	self displayText: model text
 ]

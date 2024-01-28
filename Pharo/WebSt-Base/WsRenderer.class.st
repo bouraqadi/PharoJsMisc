@@ -52,13 +52,13 @@ WsRenderer >> link [
 { #category : #rendering }
 WsRenderer >> render: aView [
 
-	aView renderOn: self
+	^aView renderOn: self
 ]
 
 { #category : #rendering }
 WsRenderer >> renderElement: element [
 
-	element renderOuterHtmlOn: self
+	^element renderOuterHtmlOn: self
 ]
 
 { #category : #rendering }

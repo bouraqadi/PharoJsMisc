@@ -7,6 +7,8 @@ Class {
 { #category : #rendering }
 WsEditableTextView >> renderContentOn: html [
 
-	html span;
+	(html
+		render: WsTextComponent) style: 'width:100%' .
+	html
 		render: WsTextInputComponent
 ]
