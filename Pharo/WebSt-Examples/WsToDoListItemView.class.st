@@ -11,10 +11,7 @@ WsToDoListItemView >> renderContentOn: html [
 
 	html div
 		class: 'form-check';
-		with: [
-			html label
-				class: 'form-check-label';
-				with: [
+	with: [
 					html checkbox class: 'form-check-input todo-checkbox'.
-					super renderContentOn: html ] ]
+					super renderContentOn: html ]
 ]

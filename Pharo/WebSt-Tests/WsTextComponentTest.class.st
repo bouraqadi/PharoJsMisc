@@ -2,7 +2,8 @@ Class {
 	#name : #WsTextComponentTest,
 	#superclass : #WsMvcComponentTest,
 	#instVars : [
-		'display'
+		'display',
+		'displayContainer'
 	],
 	#category : #'WebSt-Tests-Examples'
 }
@@ -18,12 +19,12 @@ WsTextComponentTest >> assertBehavior [
 	| oldText newText |
 	oldText := model text.
 	self editWithText: 'Bilbo The Hobbit' save: false.
-	self assert: display style display equals: ''.
+	self assert: displayContainer style display equals: ''.
 	self assert: model text equals: oldText.
 	self assert: display textContent equals: oldText.
 	newText := 'The lord of the ring'.
 	self editWithText: newText save: true.
-	self assert: display style display equals: ''.
+	self assert: displayContainer style display equals: ''.
 	self assert: model text equals: newText.
 	self assert: display textContent equals: newText
 ]
@@ -46,9 +47,10 @@ WsTextComponentTest >> changeModel [
 
 { #category : #tests }
 WsTextComponentTest >> component: aComponent [
-	super component: aComponent .
-		display := root querySelector: 'span'.
 
+	super component: aComponent.
+	display := root querySelector: 'span'.
+	displayContainer := display parentElement
 ]
 
 { #category : #tests }
@@ -56,7 +58,7 @@ WsTextComponentTest >> editWithText: newText save: shouldSave [
 
 	| editor editorRoot textInput |
 	display click.
-	self waitUntil: [ display style display = 'none' ].
+	self waitUntil: [ displayContainer style display = 'none' ].
 	editor := root querySelector: WsTextInputComponent tagName.
 	editorRoot := editor shadowRoot.
 	textInput := editorRoot querySelector: '.textInput'.

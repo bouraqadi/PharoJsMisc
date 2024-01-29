@@ -5,7 +5,8 @@ Class {
 	#classTraits : 'WsTConcreteComponent classTrait',
 	#instVars : [
 		'display',
-		'editor'
+		'editor',
+		'displayContainer'
 	],
 	#category : #'WebSt-Examples-Text'
 }
@@ -50,8 +51,8 @@ WsEditableTextComponent >> cancelEdit [
 { #category : #actions }
 WsEditableTextComponent >> closeEditor [
 
-	self hide: editor. .
-	self show: display
+	self hide: editor.
+	self show: displayContainer 
 ]
 
 { #category : #initialization }
@@ -63,7 +64,7 @@ WsEditableTextComponent >> displayText: aString [
 WsEditableTextComponent >> edit [
 
 	editor text: model text.
-	self hide: display.
+	self hide: displayContainer.
 	self show: editor
 ]
 
@@ -81,8 +82,9 @@ WsEditableTextComponent >> initView [
 
 	super initView.
 	display := view querySelector: 'span'.
-	self onClickElement: display do: [ self edit ].
-		editor := view querySelector: WsTextInputComponent tagName.
+	displayContainer := display parentElement.
+	self onClickElement: displayContainer do: [ self edit ].
+	editor := view querySelector: WsTextInputComponent tagName.
 	editor
 		saveBlock: [ :newText | self saveEdit: newText ];
 		cancelBlock: [ self cancelEdit ].
@@ -99,7 +101,7 @@ WsEditableTextComponent >> linkModelAndView [
 { #category : #actions }
 WsEditableTextComponent >> saveEdit: newText [
 
-	model text: newText.
+	self text: newText.
 	self closeEditor
 ]
 
