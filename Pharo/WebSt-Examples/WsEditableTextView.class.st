@@ -9,7 +9,6 @@ Class {
 { #category : #rendering }
 WsEditableTextView >> renderContentOn: html [
 
-	html
-		div: [ html span ];
-		render: WsTextInputComponent
+	html div style: 'min-height: 1em;'; with: [ html span ].
+	html render: WsTextInputComponent
 ]
