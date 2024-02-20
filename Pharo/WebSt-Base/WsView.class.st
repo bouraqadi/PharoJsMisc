@@ -10,6 +10,12 @@ WsView class >> pageHtml [
 ]
 
 { #category : #rendering }
+WsView class >> renderOn: html [
+
+	html render: self new
+]
+
+{ #category : #rendering }
 WsView class >> title [
 	^self name
 ]
