@@ -3,17 +3,23 @@ Class {
 	#superclass : #WsView,
 	#traits : 'WsTBootstrapView',
 	#classTraits : 'WsTBootstrapView classTrait',
+	#instVars : [
+		'isDisabled'
+	],
 	#category : #'WebSt-Examples-Text'
 }
 
 { #category : #rendering }
 WsSaveCancelButtonsView >> renderContentOn: html [
 
-	html div
-		class: 'input-group';
-		with: [
-			html textInput
-				class: 'form-control textInput';
-				placeholder: 'Your text here'.
-			html render: WsSaveCancelButtonsView ]
+	html button
+		class: 'btn btn-success saveButton';
+		type: 'button';
+		value: 'Save';
+		disabled: self isDisabled.
+	html button
+		class: 'btn btn-danger cancelButton';
+		type: 'button';
+		value: 'Cancel';
+		disabled: self isDisabled
 ]
