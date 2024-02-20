@@ -3,9 +3,6 @@ Class {
 	#superclass : #WsView,
 	#traits : 'WsTBootstrapView',
 	#classTraits : 'WsTBootstrapView classTrait',
-	#instVars : [
-		'isDisabled'
-	],
 	#category : #'WebSt-Examples-Text'
 }
 
