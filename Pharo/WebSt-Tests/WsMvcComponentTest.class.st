@@ -31,6 +31,13 @@ WsMvcComponentTest >> changeModel [
 ]
 
 { #category : #tests }
+WsMvcComponentTest >> component: aComponent [
+
+	super component: aComponent.
+	model := aComponent model.
+]
+
+{ #category : #tests }
 WsMvcComponentTest >> jsComponentClass [
 	^self bridge jsGlobalAt: self componentClass name
 ]
