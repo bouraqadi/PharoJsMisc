@@ -37,9 +37,9 @@ WsMvcComponentTest >> jsComponentClass [
 
 { #category : #tests }
 WsMvcComponentTest >> setUpComponentWithExistingModel [
-
+"Insert new components at the top of the page to make them easier to view, because during debug, PharoJS insert logs in the page. So, any appendded HTML element get pushed very down and checking it require a lot of scrolling"
 	self component: (self jsComponentClass model: model).
-	document body append: component
+	document body insertBefore: component child: self allComponents first
 ]
 
 { #category : #tests }
