@@ -1,7 +1,7 @@
 Class {
 	#name : #WsComponentBridgeClient,
 	#superclass : #PjBrowserBridgeClient,
-	#category : #'WebSt-Base-Components'
+	#category : #'WebSt-Base-Apps'
 }
 
 { #category : #accessing }

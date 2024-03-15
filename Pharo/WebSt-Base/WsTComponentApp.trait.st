@@ -1,61 +1,43 @@
 Trait {
 	#name : #WsTComponentApp,
-	#category : #'WebSt-Base-Components'
+	#category : #'WebSt-Base-Apps'
 }
-
-{ #category : #dependencies }
-WsTComponentApp classSide >> allComponentClasses [
-
-	<pharoJsSkip>
-	| allComponentClasses |
-	allComponentClasses := IdentitySet new.
-	self componentClasses do: [ :componentClass |
-		componentClass addAllComponentClassesTo: allComponentClasses ].
-	^ allComponentClasses asArray
-]
 
 { #category : #description }
 WsTComponentApp classSide >> appClasses [
 
 	<pharoJsSkip>
-	^ super appClasses , self allComponentClasses
+	^ super appClasses , {self rootComponentClass}
 ]
 
 { #category : #accessing }
 WsTComponentApp classSide >> bridgeClientClass [
 
 	<pharoJsSkip>
-	^ WsComponentBridgeClient 
+	^ WsComponentBridgeClient
 ]
 
-{ #category : #dependencies }
-WsTComponentApp classSide >> componentClasses [
-	self explicitRequirement 
-]
-
-{ #category : #rendering }
+{ #category : #description }
 WsTComponentApp classSide >> newPage [
 
 	<pharoJsSkip>
-	^ WsPage new
+	^ WsPage with: self rootComponentClass
 ]
 
-{ #category : #rendering }
+{ #category : #description }
 WsTComponentApp classSide >> pageHtml [
 
 	<pharoJsSkip>
 	| page renderer |
 	page := self newPage.
-	page title: self title.
 	page addJsAt: self appJsFileName.
 	renderer := WsRenderer new.
 	renderer render: page.
 	^ renderer html
 ]
 
-{ #category : #accessing }
-WsTComponentApp classSide >> title [
+{ #category : #description }
+WsTComponentApp classSide >> rootComponentClass [
 
-	<pharoJsSkip>
-	^ self name
+	self explicitRequirement
 ]
