@@ -1,9 +1,8 @@
 Class {
 	#name : #WsMinimalAppTest,
-	#superclass : #PjWebAppTestCase,
-	#traits : 'PjTAppRunsInJS',
+	#superclass : #WsComponentTest,
 	#classTraits : 'PjTAppRunsInJS classTrait',
-	#category : #'WebSt-Tests-Minimal'
+	#category : #'WebSt-Tests-Components'
 }
 
 { #category : #'suite parameters' }
@@ -12,16 +11,10 @@ WsMinimalAppTest class >> appClass [
 ]
 
 { #category : #tests }
-WsMinimalAppTest >> testStaticComponentCreation [
-	"Component is defined using HTML tags. See WsTComponentApp >> #newPage."
+WsMinimalAppTest >> assertComponent [
 
-	| allComponents component shadowRoot |
-	allComponents := document querySelectorAll:
-		                 WsMinimalComponent tagName.
-	self assert: allComponents size equals: 1.
-	component := allComponents first.
+	self assert: component view identicalTo: shadowRoot.
 	self assert: component innerHTML isEmpty.
-	shadowRoot := component at: #shadowRoot.
 	self assert: shadowRoot notNil.
 	self assert: shadowRoot innerHTML isEmpty
 ]
