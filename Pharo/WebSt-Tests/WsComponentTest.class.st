@@ -29,8 +29,19 @@ WsComponentTest >> assertComponent [
 
 { #category : #tests }
 WsComponentTest >> assertComponent: aComponent [
+
 	self component: aComponent.
+	self assertComponentClass.
 	self assertComponent
+]
+
+{ #category : #tests }
+WsComponentTest >> assertComponentClass [
+
+	| actualClass expectedClass |
+	expectedClass := self bridge jsGlobalAt: self rootComponentClass name.
+	actualClass := self evalBlock: [ component class ].
+	self assert: actualClass identicalTo: expectedClass
 ]
 
 { #category : #accessing }
