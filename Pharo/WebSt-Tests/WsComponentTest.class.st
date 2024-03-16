@@ -16,6 +16,12 @@ WsComponentTest class >> isAbstract [
 	^ self == WsComponentTest
 ]
 
+{ #category : #accessing }
+WsComponentTest >> allComponents [
+	^document querySelectorAll:
+		                 self rootComponentClass  tagName.
+]
+
 { #category : #tests }
 WsComponentTest >> assertComponent [ 
 	self subclassResponsibility 
@@ -27,11 +33,16 @@ WsComponentTest >> assertComponent: aComponent [
 	self assertComponent
 ]
 
-{ #category : #tests }
+{ #category : #accessing }
 WsComponentTest >> component: aComponent [
 	component := aComponent.
 	shadowRoot := component at: #shadowRoot.
 
+]
+
+{ #category : #accessing }
+WsComponentTest >> rootComponentClass [
+	^self appClass rootComponentClass
 ]
 
 { #category : #tests }
@@ -39,8 +50,7 @@ WsComponentTest >> testStaticComponentCreation [
 	"Component is defined using HTML tags. See WsTComponentApp >> #newPage."
 
 	| allComponents |
-	allComponents := document querySelectorAll:
-		                 WsMinimalComponent tagName.
+	allComponents := self allComponents.
 	self assert: allComponents size equals: 1.
-	self assertComponent: allComponents first.
+	self assertComponent: allComponents first
 ]
