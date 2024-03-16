@@ -15,3 +15,9 @@ WsMinimalComponent class >> shadowHtml [
 WsMinimalComponent class >> tagName [ 
 	^'ws-minimal'
 ]
+
+{ #category : #initialization }
+WsMinimalComponent >> initView [
+
+	^ self
+]

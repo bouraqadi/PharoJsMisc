@@ -55,6 +55,11 @@ WsComponent class >> title [
 ]
 
 { #category : #initialization }
+WsComponent >> initView [
+	self subclassResponsibility 
+]
+
+{ #category : #initialization }
 WsComponent >> initialize [
 
 	super initialize.

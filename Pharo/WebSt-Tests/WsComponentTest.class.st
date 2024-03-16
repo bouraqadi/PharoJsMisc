@@ -46,6 +46,18 @@ WsComponentTest >> rootComponentClass [
 ]
 
 { #category : #tests }
+WsComponentTest >> testDynamicComponentCreation [
+
+	| newComponent staticComponent |
+	newComponent := self evalBlock: [ WsMinimalComponent new ].
+	staticComponent := self allComponents first.
+	"Inserting new component first make it easier to view result during debug"
+	document body insertBefore: newComponent existingChild: staticComponent.
+	self assert: self allComponents size equals: 2.
+	self assertComponent: newComponent
+]
+
+{ #category : #tests }
 WsComponentTest >> testStaticComponentCreation [
 	"Component is defined using HTML tags. See WsTComponentApp >> #newPage."
 

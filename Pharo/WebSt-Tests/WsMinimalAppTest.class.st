@@ -13,8 +13,12 @@ WsMinimalAppTest class >> appClass [
 { #category : #tests }
 WsMinimalAppTest >> assertComponent [
 
-	self assert: component view identicalTo: shadowRoot.
+	| remoteComponentClass |
+	remoteComponentClass := self bridge jsGlobalAt: self rootComponentClass name.
+	self assert: component class identicalTo: remoteComponentClass.
 	self assert: component innerHTML isEmpty.
 	self assert: shadowRoot notNil.
-	self assert: shadowRoot innerHTML isEmpty
+	self assert: shadowRoot innerHTML isEmpty.
+	self assert: component view identicalTo: shadowRoot.
+
 ]
