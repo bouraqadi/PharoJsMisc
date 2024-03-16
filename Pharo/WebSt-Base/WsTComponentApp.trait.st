@@ -30,6 +30,7 @@ WsTComponentApp classSide >> pageHtml [
 	<pharoJsSkip>
 	| page renderer |
 	page := self newPage.
+	page title: self title.
 	page addJsAt: self appJsFileName.
 	renderer := WsRenderer new.
 	renderer render: page.
@@ -40,4 +41,9 @@ WsTComponentApp classSide >> pageHtml [
 WsTComponentApp classSide >> rootComponentClass [
 
 	self explicitRequirement
+]
+
+{ #category : #description }
+WsTComponentApp classSide >> title [
+	^self rootComponentClass title
 ]

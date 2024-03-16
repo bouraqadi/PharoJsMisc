@@ -39,3 +39,8 @@ WsComponent class >> tagName [
 
 	self subclassResponsibility
 ]
+
+{ #category : #accessing }
+WsComponent class >> title [
+	^self name
+]

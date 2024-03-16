@@ -17,7 +17,6 @@ WsMinimalAppTest >> testHtmlBodyContainsComponentOnly [
 	| child |
 	child := document querySelector: WsMinimalComponent tagName.
 	self deny: child isNil.
-	self assert: child innHTML isEmpty.
-	self assert: child shadowRoot isNil.
-
+	self assert: child innerHTML isEmpty.
+	self assert: (child at: #shadowRoot) isNil
 ]
