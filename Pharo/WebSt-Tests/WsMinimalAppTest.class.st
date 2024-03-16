@@ -12,11 +12,14 @@ WsMinimalAppTest class >> appClass [
 ]
 
 { #category : #tests }
-WsMinimalAppTest >> testHtmlBodyContainsComponentOnly [
+WsMinimalAppTest >> testStaticComponentCreation [
+	"Component is defined using HTML tags. See WsTComponentApp >> #newPage."
 
-	| child |
+	| child shadowRoot |
 	child := document querySelector: WsMinimalComponent tagName.
 	self deny: child isNil.
 	self assert: child innerHTML isEmpty.
-	self assert: (child at: #shadowRoot) isNil
+	shadowRoot := child at: #shadowRoot.
+	self assert: shadowRoot notNil.
+	self assert: shadowRoot innerHTML isEmpty
 ]

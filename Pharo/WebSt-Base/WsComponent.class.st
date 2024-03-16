@@ -1,6 +1,9 @@
 Class {
 	#name : #WsComponent,
 	#superclass : #WsHtmlElement,
+	#instVars : [
+		'view'
+	],
 	#pools : [
 		'PjBrowserGlobals'
 	],
@@ -34,6 +37,12 @@ WsComponent class >> renderOuterHtmlOn: html [
 	html tag: self tagName
 ]
 
+{ #category : #'accessing view' }
+WsComponent class >> shadowHtml [
+
+	self subclassResponsibility
+]
+
 { #category : #'class initialization' }
 WsComponent class >> tagName [
 
@@ -43,4 +52,36 @@ WsComponent class >> tagName [
 { #category : #accessing }
 WsComponent class >> title [
 	^self name
+]
+
+{ #category : #initialization }
+WsComponent >> initialize [
+
+	super initialize.
+	self resetView
+]
+
+{ #category : #initialization }
+WsComponent >> resetView [
+
+	view ifNil: [
+		view := self attachShadow:
+			        { (#mode -> self shadowEncapsulationMode) } asJsObject ].
+	self initView
+]
+
+{ #category : #initialization }
+WsComponent >> shadowEncapsulationMode [
+	"Access from javaScript outside the root shadow dom is:
+	- granted when returning 'open' 
+	- denied when returning 'closed'. This option makes debugging challenging.
+	See https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow"
+
+	^ 'open'
+]
+
+{ #category : #initialization }
+WsComponent >> shadowHtml [
+
+	^ self class shadowHtml
 ]

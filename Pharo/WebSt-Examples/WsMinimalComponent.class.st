@@ -6,6 +6,11 @@ Class {
 	#category : #'WebSt-Examples-Minimal'
 }
 
+{ #category : #'accessing view' }
+WsMinimalComponent class >> shadowHtml [ 
+	^''
+]
+
 { #category : #'class initialization' }
 WsMinimalComponent class >> tagName [ 
 	^'ws-minimal'
