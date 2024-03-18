@@ -59,8 +59,9 @@ WsComponentTest >> rootComponentClass [
 { #category : #tests }
 WsComponentTest >> testDynamicComponentCreation [
 
-	| newComponent staticComponent |
-	newComponent := self evalBlock: [ WsMinimalComponent new ].
+	| newComponent staticComponent jsComponentClass |
+	jsComponentClass := self bridge jsGlobalAt: self rootComponentClass name.
+	newComponent := jsComponentClass new.
 	staticComponent := self allComponents first.
 	"Inserting new component first make it easier to view result during debug"
 	document body insertBefore: newComponent existingChild: staticComponent.

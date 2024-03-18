@@ -18,6 +18,12 @@ WsRenderer class >> render: anObject [
 ]
 
 { #category : #accessing }
+WsRenderer >> addAllResourcesOf: element [
+
+	element resources do: [ :each | self addResource: each ]
+]
+
+{ #category : #accessing }
 WsRenderer >> addCssLink: cssLink [
 
 	localResources add: cssLink
@@ -26,12 +32,13 @@ WsRenderer >> addCssLink: cssLink [
 { #category : #accessing }
 WsRenderer >> addGlobalResource: resource [
 
-	globalResources add: resource 
+	self globalResources add: resource
 ]
 
 { #category : #accessing }
 WsRenderer >> addJsScript: script [
-	globalResources add: script
+
+	self globalResources add: script
 ]
 
 { #category : #accessing }
@@ -48,6 +55,11 @@ WsRenderer >> addResource: resource [
 { #category : #accessing }
 WsRenderer >> document [
 	^document 
+]
+
+{ #category : #accessing }
+WsRenderer >> globalResources [
+	^globalResources
 ]
 
 { #category : #accessing }
@@ -87,15 +99,31 @@ WsRenderer >> render: element [
 ]
 
 { #category : #rendering }
-WsRenderer >> renderElement: element [
+WsRenderer >> renderApp: appClass [
 
-	element renderOuterHtmlOn: self
+	| componentRenderer page |
+	componentRenderer := self species new.
+	componentRenderer render: appClass rootComponentClass.
+	page := WsPage new.
+	page title: appClass title.
+	page addResourcesAll: componentRenderer globalResources.
+	page addViewHtml: componentRenderer html.
+	page addJsAt: appClass appJsFileName.
+	self render: page
 ]
 
 { #category : #rendering }
-WsRenderer >> renderGlobalResources [
+WsRenderer >> renderComponent: component [
 
-	globalResources do: [ :each | self render: each ]
+	self addAllResourcesOf: component.	
+	component renderOuterHtmlOn: self.
+
+]
+
+{ #category : #rendering }
+WsRenderer >> renderElement: element [
+
+	element renderOuterHtmlOn: self
 ]
 
 { #category : #rendering }
@@ -113,4 +141,11 @@ WsRenderer >> renderHeadChild: element [
 { #category : #rendering }
 WsRenderer >> renderLocalResources [
 	localResources do: [ : each | self render: each ].
+]
+
+{ #category : #rendering }
+WsRenderer >> renderView: view [
+
+	self addAllResourcesOf: view.
+	view renderOuterHtmlOn: self
 ]

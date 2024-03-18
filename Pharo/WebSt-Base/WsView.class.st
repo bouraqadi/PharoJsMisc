@@ -5,15 +5,34 @@ Class {
 }
 
 { #category : #accessing }
-WsView >> dependencies [
+WsView class >> allGlobalResources [
 
-	^ #(  )
+	^ self new allGlobalResources
+]
+
+{ #category : #accessing }
+WsView >> allGlobalResources [
+
+	|renderer|
+	renderer := self renderClass new.
+	^renderer
+		  render: self;
+		  globalResources
 ]
 
 { #category : #rendering }
 WsView >> renderOn: html [
+	html renderView: self
+]
 
-	self dependencies do: [ :each | html addResource: each ].
-	html renderLocalResources.
-	super renderOn: html
+{ #category : #rendering }
+WsView >> renderOuterHtmlOn: html [
+
+	html renderLocalResources
+]
+
+{ #category : #accessing }
+WsView >> resources [
+
+	^ #(  )
 ]

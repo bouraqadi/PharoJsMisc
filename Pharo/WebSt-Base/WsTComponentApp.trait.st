@@ -17,33 +17,33 @@ WsTComponentApp classSide >> bridgeClientClass [
 	^ WsComponentBridgeClient
 ]
 
-{ #category : #description }
-WsTComponentApp classSide >> newPage [
+{ #category : #rendering }
+WsTComponentApp classSide >> html [
 
 	<pharoJsSkip>
-	^ WsPage with: self rootComponentClass
-]
-
-{ #category : #description }
-WsTComponentApp classSide >> pageHtml [
-
-	<pharoJsSkip>
-	| page renderer |
-	page := self newPage.
-	page title: self title.
-	page addJsAt: self appJsFileName.
+	| renderer |
 	renderer := WsRenderer new.
-	renderer render: page.
+	renderer render: self.
 	^ renderer html
 ]
 
-{ #category : #description }
+{ #category : #rendering }
+WsTComponentApp classSide >> renderOn: html [
+
+	<pharoJsSkip>
+	html renderApp: self
+]
+
+{ #category : #rendering }
 WsTComponentApp classSide >> rootComponentClass [
 
+	<pharoJsSkip>
 	self explicitRequirement
 ]
 
-{ #category : #description }
+{ #category : #rendering }
 WsTComponentApp classSide >> title [
-	^self rootComponentClass title
+
+	<pharoJsSkip>
+	^ self rootComponentClass title
 ]

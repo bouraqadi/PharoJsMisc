@@ -6,7 +6,7 @@ Class {
 	#category : #'WebSt-Examples-Minimal'
 }
 
-{ #category : #description }
+{ #category : #rendering }
 WsMinimalApp class >> rootComponentClass [
 
 	^WsMinimalComponent 

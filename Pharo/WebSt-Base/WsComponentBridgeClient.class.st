@@ -8,5 +8,5 @@ Class {
 WsComponentBridgeClient >> initializeWithBridge: aBrdige [
 
 	super initializeWithBridge: aBrdige.
-	self server html: appClass pageHtml
+	self server html: appClass html
 ]

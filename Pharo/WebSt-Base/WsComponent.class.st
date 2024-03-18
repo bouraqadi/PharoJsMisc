@@ -27,7 +27,7 @@ WsComponent class >> registerTag [
 WsComponent class >> renderOn: html [
 
 	<pharoJsSkip>
-	html renderElement: self
+	html renderComponent: self
 ]
 
 { #category : #rendering }
@@ -35,6 +35,12 @@ WsComponent class >> renderOuterHtmlOn: html [
 
 	<pharoJsSkip>
 	html tag: self tagName
+]
+
+{ #category : #rendering }
+WsComponent class >> resources [
+	<pharoJsSkip>
+	^self viewClass allGlobalResources
 ]
 
 { #category : #'accessing view' }
@@ -51,7 +57,9 @@ WsComponent class >> tagName [
 
 { #category : #accessing }
 WsComponent class >> title [
-	^self name
+
+	<pharoJsSkip>
+	^ self name
 ]
 
 { #category : #'accessing view' }

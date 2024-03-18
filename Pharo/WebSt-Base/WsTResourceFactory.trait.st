@@ -28,3 +28,8 @@ WsTResourceFactory >> addResourceClass: resourceClass url: urlString [
 	aResource := resourceClass url: urlString.
 	self addResource: aResource
 ]
+
+{ #category : #adding }
+WsTResourceFactory >> addResourcesAll: allResources [ 
+	allResources do: [: each | self addResource: each]
+]

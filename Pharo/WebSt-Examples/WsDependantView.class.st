@@ -5,12 +5,9 @@ Class {
 }
 
 { #category : #accessing }
-WsDependantView >> dependencies [
-	^{WsCssLink url: 'viewCss'. WsJsScript url: 'viewJs'}
-]
+WsDependantView >> resources [
 
-{ #category : #rendering }
-WsDependantView >> renderOuterHtmlOn: html [
-
-	^self
+	^ {
+		  (WsCssLink url: 'viewCss').
+		  (WsJsScript url: 'viewJs') }
 ]

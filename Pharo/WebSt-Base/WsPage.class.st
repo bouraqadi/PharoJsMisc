@@ -29,6 +29,12 @@ WsPage >> addView: aView [
 	self body add: aView
 ]
 
+{ #category : #adding }
+WsPage >> addViewHtml: htmlString [
+
+	self body add: (WsRawHtml htmlString: htmlString)
+]
+
 { #category : #accessing }
 WsPage >> body [
 
@@ -54,8 +60,7 @@ WsPage >> renderInnerHtmlOn: html [
 
 	html
 		render: head;
-		render: body;
-		renderGlobalResources
+		render: body
 ]
 
 { #category : #rendering }
