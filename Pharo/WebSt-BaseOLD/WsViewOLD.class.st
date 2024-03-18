@@ -1,27 +1,27 @@
 Class {
-	#name : #WsView,
+	#name : #WsViewOLD,
 	#superclass : #WsElement,
 	#category : #'WebSt-BaseOLD-Views'
 }
 
 { #category : #rendering }
-WsView class >> pageHtml [
+WsViewOLD class >> pageHtml [
 	^self new pageHtml
 ]
 
 { #category : #rendering }
-WsView class >> renderOn: html [
+WsViewOLD class >> renderOn: html [
 
 	html render: self new
 ]
 
 { #category : #rendering }
-WsView class >> title [
+WsViewOLD class >> title [
 	^self name
 ]
 
 { #category : #rendering }
-WsView >> pageHtml [
+WsViewOLD >> pageHtml [
 		| page |
 	page := WsPage with: self.
 		page title: self title.
@@ -30,29 +30,29 @@ WsView >> pageHtml [
 ]
 
 { #category : #rendering }
-WsView >> renderContentOn: html [
+WsViewOLD >> renderContentOn: html [
 	self subclassResponsibility 
 ]
 
 { #category : #rendering }
-WsView >> renderOuterHtmlOn: html [
+WsViewOLD >> renderOuterHtmlOn: html [
 
 	self renderResourcesOn: html;
 		renderContentOn: html
 ]
 
 { #category : #rendering }
-WsView >> renderResourcesOn: html [
+WsViewOLD >> renderResourcesOn: html [
 	self resources do: [ : each | html render: each ]
 ]
 
 { #category : #accessing }
-WsView >> resources [
+WsViewOLD >> resources [
 	^#()
 ]
 
 { #category : #rendering }
-WsView >> title [
+WsViewOLD >> title [
 
 	^ self class title
 ]

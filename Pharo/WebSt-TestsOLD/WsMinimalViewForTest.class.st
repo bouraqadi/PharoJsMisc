@@ -1,6 +1,6 @@
 Class {
 	#name : #WsMinimalViewForTest,
-	#superclass : #WsView,
+	#superclass : #WsViewOLD,
 	#category : #'WebSt-TestsOLD-Views'
 }
 

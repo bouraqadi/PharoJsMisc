@@ -51,9 +51,11 @@ WsPage >> initialize [
 
 { #category : #rendering }
 WsPage >> renderInnerHtmlOn: html [
- html render: head; 
-	render: body.
 
+	html
+		render: head;
+		render: body;
+		renderGlobalResources
 ]
 
 { #category : #rendering }

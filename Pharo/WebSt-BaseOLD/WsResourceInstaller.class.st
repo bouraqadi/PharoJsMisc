@@ -25,7 +25,7 @@ yourself
 { #category : #'instance creation' }
 WsResourceInstaller class >> jsSource: url [
 
-	^ self elementClass: WsJsScriptElement url: url
+	^ self elementClass: WsJsScript url: url
 ]
 
 { #category : #initialization }

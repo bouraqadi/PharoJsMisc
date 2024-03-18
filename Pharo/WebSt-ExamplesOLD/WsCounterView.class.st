@@ -1,6 +1,6 @@
 Class {
 	#name : #WsCounterView,
-	#superclass : #WsView,
+	#superclass : #WsViewOLD,
 	#traits : 'WsTBootstrapView',
 	#classTraits : 'WsTBootstrapView classTrait',
 	#category : #'WebSt-ExamplesOLD-Counter'

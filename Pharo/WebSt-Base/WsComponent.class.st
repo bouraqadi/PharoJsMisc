@@ -54,9 +54,17 @@ WsComponent class >> title [
 	^self name
 ]
 
+{ #category : #'accessing view' }
+WsComponent class >> viewClass [
+
+	<pharoJsSkip>
+	self subclassResponsibility 
+]
+
 { #category : #initialization }
 WsComponent >> initView [
-	self subclassResponsibility 
+
+	view innerHTML: self shadowHtml
 ]
 
 { #category : #initialization }

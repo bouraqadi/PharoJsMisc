@@ -1,6 +1,6 @@
 Class {
 	#name : #WsListView,
-	#superclass : #WsView,
+	#superclass : #WsViewOLD,
 	#traits : 'WsTBootstrapView',
 	#classTraits : 'WsTBootstrapView classTrait',
 	#category : #'WebSt-ExamplesOLD-List'

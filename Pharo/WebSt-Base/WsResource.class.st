@@ -5,7 +5,7 @@ My subclasses should allow representing specific kinds of resources such as CSS 
 
 "
 Class {
-	#name : #WsResourceElement,
+	#name : #WsResource,
 	#superclass : #WsElement,
 	#instVars : [
 		'url',
@@ -16,14 +16,14 @@ Class {
 }
 
 { #category : #'instance creation' }
-WsResourceElement class >> url: aString [
+WsResource class >> url: aString [
 	^self new
 		url: aString;
 		yourself 
 ]
 
 { #category : #comparing }
-WsResourceElement >> = anObject [
+WsResource >> = anObject [
 	"Answer whether the receiver and anObject represent the same object."
 
 	self == anObject ifTrue: [ ^ true ].
@@ -31,25 +31,30 @@ WsResourceElement >> = anObject [
 	^ url = anObject url
 ]
 
+{ #category : #adding }
+WsResource >> addTo: aWsRenderer [ 
+	self subclassResponsibility 
+]
+
 { #category : #initialization }
-WsResourceElement >> crossoriginAnonymous [
+WsResource >> crossoriginAnonymous [
 	crossorigin := 'anonymous'
 ]
 
 { #category : #comparing }
-WsResourceElement >> hash [
+WsResource >> hash [
 	"Answer an integer value that is related to the identity of the receiver."
 
 	^ url hash
 ]
 
 { #category : #accessing }
-WsResourceElement >> integrity: aString [
+WsResource >> integrity: aString [
 	integrity := aString
 ]
 
 { #category : #rendering }
-WsResourceElement >> renderOuterHtmlOn: html [
+WsResource >> renderOuterHtmlOn: html [
 
 	(self renderTagOn: html)
 		attributeAt: #integrity put: integrity;
@@ -57,19 +62,19 @@ WsResourceElement >> renderOuterHtmlOn: html [
 ]
 
 { #category : #rendering }
-WsResourceElement >> renderTagOn: html [
+WsResource >> renderTagOn: html [
 
 	self subclassResponsibility
 ]
 
 { #category : #accessing }
-WsResourceElement >> url [
+WsResource >> url [
 
 	^ url
 ]
 
 { #category : #accessing }
-WsResourceElement >> url: anObject [
+WsResource >> url: anObject [
 
 	url := anObject
 ]

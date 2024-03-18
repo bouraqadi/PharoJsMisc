@@ -1,6 +1,6 @@
 Class {
 	#name : #WsLeafViewForTest,
-	#superclass : #WsView,
+	#superclass : #WsViewOLD,
 	#traits : 'WsTResourceFactory',
 	#classTraits : 'WsTResourceFactory classTrait',
 	#instVars : [

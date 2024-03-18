@@ -7,7 +7,7 @@ Class {
 { #category : #tests }
 WsCssTest >> resourceClass [
 
-	^WsCssLinkElement 
+	^WsCssLink 
 ]
 
 { #category : #tests }

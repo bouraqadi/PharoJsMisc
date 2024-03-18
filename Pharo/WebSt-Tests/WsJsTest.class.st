@@ -7,7 +7,7 @@ Class {
 { #category : #tests }
 WsJsTest >> resourceClass [
 
-	^WsJsScriptElement 
+	^WsJsScript 
 ]
 
 { #category : #tests }

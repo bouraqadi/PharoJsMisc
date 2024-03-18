@@ -3,7 +3,9 @@ Class {
 	#superclass : #WAHtmlCanvas,
 	#instVars : [
 		'stream',
-		'document'
+		'document',
+		'localResources',
+		'globalResources'
 	],
 	#category : #'WebSt-Base-Views'
 }
@@ -13,6 +15,34 @@ WsRenderer class >> render: anObject [
 
 	^ self new
 		 htmlFrom: anObject 
+]
+
+{ #category : #accessing }
+WsRenderer >> addCssLink: cssLink [
+
+	localResources add: cssLink
+]
+
+{ #category : #accessing }
+WsRenderer >> addGlobalResource: resource [
+
+	globalResources add: resource 
+]
+
+{ #category : #accessing }
+WsRenderer >> addJsScript: script [
+	globalResources add: script
+]
+
+{ #category : #accessing }
+WsRenderer >> addLocalResource: resource [
+
+	localResources add: resource
+]
+
+{ #category : #accessing }
+WsRenderer >> addResource: resource [
+	resource addTo: self
 ]
 
 { #category : #accessing }
@@ -40,7 +70,8 @@ WsRenderer >> initialize [
 	super initialize.
 	stream := WriteStream on: String new.
 	document := WAHtmlDocument on: stream.
-
+	localResources := Set new.
+	globalResources := Set new.
 ]
 
 { #category : #rendering }
@@ -50,15 +81,21 @@ WsRenderer >> link [
 ]
 
 { #category : #rendering }
-WsRenderer >> render: aView [
+WsRenderer >> render: element [
 
-	aView renderOn: self
+	element renderOn: self
 ]
 
 { #category : #rendering }
 WsRenderer >> renderElement: element [
 
 	element renderOuterHtmlOn: self
+]
+
+{ #category : #rendering }
+WsRenderer >> renderGlobalResources [
+
+	globalResources do: [ :each | self render: each ]
 ]
 
 { #category : #rendering }
@@ -71,4 +108,9 @@ WsRenderer >> renderHeadChild: element [
 	element isClosed ifTrue: [ ^ self ].
 	element renderInnerHtmlOn: self.
 	self document closeTag: element tag
+]
+
+{ #category : #rendering }
+WsRenderer >> renderLocalResources [
+	localResources do: [ : each | self render: each ].
 ]

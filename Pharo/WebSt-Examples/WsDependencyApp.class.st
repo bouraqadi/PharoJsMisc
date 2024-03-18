@@ -8,5 +8,5 @@ Class {
 
 { #category : #accessing }
 WsDependencyApp class >> rootComponentClass [ 
-	^WsDependentComponent 
+	^WsDependantComponent 
 ]

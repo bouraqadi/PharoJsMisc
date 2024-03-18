@@ -6,14 +6,14 @@ Trait {
 { #category : #adding }
 WsTResourceFactory >> addCssAt: urlString [
 
-	self addResourceClass: WsCssLinkElement  url: urlString.
+	self addResourceClass: WsCssLink  url: urlString.
 
 ]
 
 { #category : #adding }
 WsTResourceFactory >> addJsAt: urlString [
 
-	self addResourceClass: WsJsScriptElement url: urlString
+	self addResourceClass: WsJsScript url: urlString
 ]
 
 { #category : #adding }

@@ -1,19 +1,20 @@
 Class {
-	#name : #WsMinimalComponent,
+	#name : #WsDependantComponent,
 	#superclass : #WsComponent,
 	#traits : 'WsTConcreteComponent',
 	#classTraits : 'WsTConcreteComponent classTrait',
-	#category : #'WebSt-Examples-Minimal'
+	#category : #'WebSt-Examples-Dependency'
 }
 
 { #category : #'class initialization' }
-WsMinimalComponent class >> tagName [ 
-	^'ws-minimal'
+WsDependantComponent class >> tagName [
+
+	^ 'ws-dependant'
 ]
 
 { #category : #'accessing view' }
-WsMinimalComponent class >> viewClass [
+WsDependantComponent class >> viewClass [
 
 	<pharoJsSkip>
-	^ WsMinimalView
+	^WsDependantView 
 ]

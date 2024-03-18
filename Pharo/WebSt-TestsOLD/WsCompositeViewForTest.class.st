@@ -1,6 +1,6 @@
 Class {
 	#name : #WsCompositeViewForTest,
-	#superclass : #WsView,
+	#superclass : #WsViewOLD,
 	#category : #'WebSt-TestsOLD-Components'
 }
 

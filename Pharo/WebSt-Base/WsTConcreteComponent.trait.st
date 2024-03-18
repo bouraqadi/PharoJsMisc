@@ -8,3 +8,10 @@ WsTConcreteComponent classSide >> javascriptInitialize [
 
 	self  registerTag
 ]
+
+{ #category : #'accessing view' }
+WsTConcreteComponent classSide >> shadowHtml [
+
+	<jsLiteralGenerator>
+	^ self viewClass html
+]
