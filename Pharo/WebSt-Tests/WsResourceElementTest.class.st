@@ -17,10 +17,8 @@ WsResourceElementTest class >> isAbstract [
 WsResourceElementTest >> assertHtml: expectedHtml [
 
 	| renderer |
-	renderer := resource  renderClass new.
-	renderer
-		render: resource;
-		flush.
+	renderer := resource renderClass render: resource.
+	renderer flush.
 	self assert: renderer html equals: expectedHtml
 ]
 

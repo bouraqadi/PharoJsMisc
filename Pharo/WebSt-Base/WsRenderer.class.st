@@ -11,10 +11,26 @@ Class {
 }
 
 { #category : #rendering }
+WsRenderer class >> htmlFrom: anObject [
+
+	^ self new htmlFrom: anObject
+]
+
+{ #category : #rendering }
+WsRenderer class >> htmlWithLocalResourcesFrom: anObject [
+
+	| basicRenderer |
+	basicRenderer := self render: anObject.
+	^ self new
+		  render: basicRenderer localResources;
+		  html: basicRenderer html;
+		  html
+]
+
+{ #category : #rendering }
 WsRenderer class >> render: anObject [
 
-	^ self new
-		 htmlFrom: anObject 
+	^ self new render: anObject; yourself
 ]
 
 { #category : #accessing }
@@ -92,6 +108,12 @@ WsRenderer >> link [
 	^ self brush: WsLinkTag new
 ]
 
+{ #category : #accessing }
+WsRenderer >> localResources [
+
+	^ localResources
+]
+
 { #category : #rendering }
 WsRenderer >> render: element [
 
@@ -136,11 +158,6 @@ WsRenderer >> renderHeadChild: element [
 	element isClosed ifTrue: [ ^ self ].
 	element renderInnerHtmlOn: self.
 	self document closeTag: element tag
-]
-
-{ #category : #rendering }
-WsRenderer >> renderLocalResources [
-	localResources do: [ : each | self render: each ].
 ]
 
 { #category : #rendering }

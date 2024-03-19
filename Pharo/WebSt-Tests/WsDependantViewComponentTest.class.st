@@ -29,5 +29,5 @@ WsDependantViewComponentTest >> assertComponent [
 { #category : #tests }
 WsDependantViewComponentTest >> shadowHtml [
 
-	^ '<link rel="stylesheet" href="viewCss">'
+	^ '<link rel="stylesheet" href="viewCss"><p>', WsDependantView name, '</p>'
 ]

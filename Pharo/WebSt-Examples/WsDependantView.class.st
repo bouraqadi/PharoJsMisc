@@ -4,6 +4,12 @@ Class {
 	#category : #'WebSt-Examples-Dependency'
 }
 
+{ #category : #rendering }
+WsDependantView >> renderOuterHtmlOn: html [
+
+	html paragraph: self className
+]
+
 { #category : #accessing }
 WsDependantView >> resources [
 

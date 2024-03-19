@@ -12,6 +12,18 @@ WsDependantCompositeComponentTest class >> appClass [
 { #category : #tests }
 WsDependantCompositeComponentTest >> shadowHtml [
 
-	^ '<' , WsDependantViewComponent tagName , '></'
-	  , WsDependantViewComponent tagName , '>'
+	| subcomponentTag |
+	subcomponentTag := WsDependantCompositeIntermediateComponent tagName.
+	^ String streamContents: [ :str |
+		  str
+			  << '<p>';
+			  << WsDependantCompositeComponentView name;
+			  << '</p>'.
+		  2 timesRepeat: [
+			  str
+				  << $<;
+				  << subcomponentTag;
+				  << '></';
+				  << subcomponentTag;
+				  << $> ] ]
 ]

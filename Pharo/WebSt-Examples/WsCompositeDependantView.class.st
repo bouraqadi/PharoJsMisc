@@ -6,6 +6,7 @@ Class {
 
 { #category : #rendering }
 WsCompositeDependantView >> renderOuterHtmlOn: html [
-	super renderOuterHtmlOn: html.
-	html render: WsDependantView 
+
+	html paragraph: self className.
+	2 timesRepeat: [ html render: WsCompositeDependantIntermediateView ]
 ]

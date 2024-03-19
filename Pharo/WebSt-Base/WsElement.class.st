@@ -12,7 +12,8 @@ WsElement class >> html [
 
 { #category : #rendering }
 WsElement >> html [
-^self renderClass render: self
+
+	^ self renderClass htmlFrom: self
 ]
 
 { #category : #rendering }

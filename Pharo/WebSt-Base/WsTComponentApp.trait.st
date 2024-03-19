@@ -21,10 +21,7 @@ WsTComponentApp classSide >> bridgeClientClass [
 WsTComponentApp classSide >> html [
 
 	<pharoJsSkip>
-	| renderer |
-	renderer := WsRenderer new.
-	renderer render: self.
-	^ renderer html
+	^WsRenderer htmlFrom: self
 ]
 
 { #category : #rendering }

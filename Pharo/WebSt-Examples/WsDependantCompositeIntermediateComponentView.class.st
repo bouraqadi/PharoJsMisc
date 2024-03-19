@@ -1,5 +1,5 @@
 Class {
-	#name : #WsDependantCompositeComponentView,
+	#name : #WsDependantCompositeIntermediateComponentView,
 	#superclass : #WsView,
 	#traits : 'WsTConcreteComponent',
 	#classTraits : 'WsTConcreteComponent classTrait',
@@ -7,9 +7,8 @@ Class {
 }
 
 { #category : #rendering }
-WsDependantCompositeComponentView >> renderOuterHtmlOn: html [
+WsDependantCompositeIntermediateComponentView >> renderOuterHtmlOn: html [
 
 	html paragraph: self className.
-	2 timesRepeat: [
-		html render: WsDependantCompositeIntermediateComponent ]
+	2 timesRepeat: [ html render: WsDependantViewComponent ]
 ]

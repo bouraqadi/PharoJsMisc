@@ -19,11 +19,14 @@ WsView class >> renderOn: html [
 { #category : #accessing }
 WsView >> allGlobalResources [
 
-	|renderer|
-	renderer := self renderClass new.
-	^renderer
-		  render: self;
+	^(self renderClass render: self)
 		  globalResources
+]
+
+{ #category : #rendering }
+WsView >> html [
+
+	^self renderClass htmlWithLocalResourcesFrom: self
 ]
 
 { #category : #rendering }
@@ -34,7 +37,7 @@ WsView >> renderOn: html [
 { #category : #rendering }
 WsView >> renderOuterHtmlOn: html [
 
-	html renderLocalResources
+	self subclassResponsibility
 ]
 
 { #category : #accessing }
