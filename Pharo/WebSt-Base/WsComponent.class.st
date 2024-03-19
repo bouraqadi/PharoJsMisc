@@ -10,6 +10,16 @@ Class {
 	#category : #'WebSt-Base-Components'
 }
 
+{ #category : #accessing }
+WsComponent class >> addAllComponentClassesTo: classes [
+
+	<pharoJsSkip>
+	(classes includes: self) ifTrue: [ ^ self ].
+	classes add: self.
+	self subComponentClasses do: [ :each |
+		each addAllComponentClassesTo: classes ]
+]
+
 { #category : #'instance creation' }
 WsComponent class >> new [
 	"HTML element classes cannot be directly instantiated "
@@ -27,7 +37,7 @@ WsComponent class >> registerTag [
 WsComponent class >> renderOn: html [
 
 	<pharoJsSkip>
-	html renderComponent: self
+	html renderComponentClass: self
 ]
 
 { #category : #rendering }
@@ -47,6 +57,14 @@ WsComponent class >> resources [
 WsComponent class >> shadowHtml [
 
 	self subclassResponsibility
+]
+
+{ #category : #accessing }
+WsComponent class >> subComponentClasses [
+
+	<pharoJsSkip>
+	^ self viewClass referencedClasses select: [ :each |
+		  each inheritsFrom: WsComponent ]
 ]
 
 { #category : #'class initialization' }

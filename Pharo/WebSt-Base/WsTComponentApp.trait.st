@@ -3,11 +3,21 @@ Trait {
 	#category : #'WebSt-Base-Apps'
 }
 
+{ #category : #accessing }
+WsTComponentApp classSide >> allComponentClasses [
+
+	<pharoJsSkip>
+	| allComponentClasses |
+	allComponentClasses := IdentitySet new.
+	self rootComponentClass addAllComponentClassesTo: allComponentClasses.
+	^ allComponentClasses asArray
+]
+
 { #category : #description }
 WsTComponentApp classSide >> appClasses [
 
 	<pharoJsSkip>
-	^ super appClasses , {self rootComponentClass}
+	^ super appClasses , self allComponentClasses 
 ]
 
 { #category : #accessing }
@@ -28,7 +38,7 @@ WsTComponentApp classSide >> html [
 WsTComponentApp classSide >> renderOn: html [
 
 	<pharoJsSkip>
-	html renderApp: self
+	html renderAppClass: self
 ]
 
 { #category : #rendering }

@@ -3,7 +3,7 @@ Class {
 	#superclass : #PjWebApplication,
 	#traits : 'WsTComponentApp',
 	#classTraits : 'WsTComponentApp classTrait',
-	#category : #'WebSt-Examples-Dependency'
+	#category : #'WebSt-Examples-DependantViews'
 }
 
 { #category : #accessing }

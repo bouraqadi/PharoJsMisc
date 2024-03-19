@@ -19,7 +19,7 @@ WsDependantViewComponentTest >> assertComponent [
 	scripts := document head querySelectorAll: #script.
 	self assert: scripts size equals: 2.
 	jsDependency := scripts first.
-	self assert: (jsDependency src endsWith: 'viewJs').
+	self assert: (jsDependency src endsWith: 'requiredJS').
 	self assert: jsDependency defer.
 	mainJs := scripts last.
 	self assert: (mainJs src endsWith: 'index.js').
@@ -29,5 +29,5 @@ WsDependantViewComponentTest >> assertComponent [
 { #category : #tests }
 WsDependantViewComponentTest >> shadowHtml [
 
-	^ '<link rel="stylesheet" href="viewCss"><p>', WsDependantView name, '</p>'
+	^ '<link rel="stylesheet" href="requiredCSS"><p>some text</p>'
 ]

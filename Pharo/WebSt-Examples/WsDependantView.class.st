@@ -1,19 +1,19 @@
 Class {
 	#name : #WsDependantView,
 	#superclass : #WsView,
-	#category : #'WebSt-Examples-Dependency'
+	#category : #'WebSt-Examples-DependantViews'
 }
 
 { #category : #rendering }
 WsDependantView >> renderOuterHtmlOn: html [
 
-	html paragraph: self className
+	html paragraph: 'some text'
 ]
 
 { #category : #accessing }
 WsDependantView >> resources [
 
 	^ {
-		  (WsCssLink url: 'viewCss').
-		  (WsJsScript url: 'viewJs') }
+		  (WsCssLink url: 'requiredCSS').
+		  (WsJsScript url: 'requiredJS') }
 ]

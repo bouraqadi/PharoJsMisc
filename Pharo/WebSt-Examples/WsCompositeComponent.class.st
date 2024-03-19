@@ -1,20 +1,20 @@
 Class {
-	#name : #WsDependantViewComponent,
+	#name : #WsCompositeComponent,
 	#superclass : #WsComponent,
 	#traits : 'WsTConcreteComponent',
 	#classTraits : 'WsTConcreteComponent classTrait',
-	#category : #'WebSt-Examples-DependantViews'
+	#category : #'WebSt-Examples-CompositeComponents'
 }
 
 { #category : #'class initialization' }
-WsDependantViewComponent class >> tagName [
+WsCompositeComponent class >> tagName [
 
-	^ 'ws-dependant-view'
+	^'ws-composite'
 ]
 
 { #category : #'accessing view' }
-WsDependantViewComponent class >> viewClass [
+WsCompositeComponent class >> viewClass [
 
 	<pharoJsSkip>
-	^ WsDependantView 
+	^WsCompositeComponentView 
 ]

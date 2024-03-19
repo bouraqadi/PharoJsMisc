@@ -40,26 +40,16 @@ WsRenderer >> addAllResourcesOf: element [
 ]
 
 { #category : #accessing }
-WsRenderer >> addCssLink: cssLink [
-
-	localResources add: cssLink
-]
-
-{ #category : #accessing }
 WsRenderer >> addGlobalResource: resource [
 
+(self globalResources includes: resource) ifTrue: [ ^self ].
 	self globalResources add: resource
-]
-
-{ #category : #accessing }
-WsRenderer >> addJsScript: script [
-
-	self globalResources add: script
 ]
 
 { #category : #accessing }
 WsRenderer >> addLocalResource: resource [
 
+(self localResources includes: resource) ifTrue: [ ^self ].
 	localResources add: resource
 ]
 
@@ -98,8 +88,9 @@ WsRenderer >> initialize [
 	super initialize.
 	stream := WriteStream on: String new.
 	document := WAHtmlDocument on: stream.
-	localResources := Set new.
-	globalResources := Set new.
+	"OrderedCollections are needed to ensure definition order which might be related to some implicit dependencies"
+	self resetLocalResources.
+	globalResources := OrderedCollection new
 ]
 
 { #category : #rendering }
@@ -121,7 +112,7 @@ WsRenderer >> render: element [
 ]
 
 { #category : #rendering }
-WsRenderer >> renderApp: appClass [
+WsRenderer >> renderAppClass: appClass [
 
 	| componentRenderer page |
 	componentRenderer := self species new.
@@ -135,11 +126,14 @@ WsRenderer >> renderApp: appClass [
 ]
 
 { #category : #rendering }
-WsRenderer >> renderComponent: component [
+WsRenderer >> renderComponentClass: component [
 
-	self addAllResourcesOf: component.	
+	| currentLocalResources |
+	self addAllResourcesOf: component.
+	currentLocalResources := localResources.
+	self resetLocalResources.
 	component renderOuterHtmlOn: self.
-
+	localResources := currentLocalResources
 ]
 
 { #category : #rendering }
@@ -165,4 +159,10 @@ WsRenderer >> renderView: view [
 
 	self addAllResourcesOf: view.
 	view renderOuterHtmlOn: self
+]
+
+{ #category : #initialization }
+WsRenderer >> resetLocalResources [
+
+	localResources := OrderedCollection new
 ]

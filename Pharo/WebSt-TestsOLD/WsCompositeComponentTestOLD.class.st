@@ -1,22 +1,22 @@
 Class {
-	#name : #WsCompositeComponentTest,
+	#name : #WsCompositeComponentTestOLD,
 	#superclass : #WsComponentTestOLD,
 	#category : #'WebSt-TestsOLD-Components'
 }
 
 { #category : #'suite parameters' }
-WsCompositeComponentTest class >> appClass [
+WsCompositeComponentTestOLD class >> appClass [
 
 	^ WsAppForCompositeTest 
 ]
 
 { #category : #tests }
-WsCompositeComponentTest >> assertBehavior: component [
+WsCompositeComponentTestOLD >> assertBehavior: component [
 
 	^ self
 ]
 
 { #category : #tests }
-WsCompositeComponentTest >> componentClasses [ 
+WsCompositeComponentTestOLD >> componentClasses [ 
 	^super componentClasses , { WsLeafComponentForTest  }
 ]
