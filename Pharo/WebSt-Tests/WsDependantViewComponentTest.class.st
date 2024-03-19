@@ -1,21 +1,19 @@
 Class {
-	#name : #WsDependantComponentTest,
+	#name : #WsDependantViewComponentTest,
 	#superclass : #WsComponentTest,
 	#category : #'WebSt-Tests-Components'
 }
 
 { #category : #'suite parameters' }
-WsDependantComponentTest class >> appClass [ 
-	^WsDependencyApp 
+WsDependantViewComponentTest class >> appClass [ 
+	^WsDependantViewApp 
 ]
 
 { #category : #tests }
-WsDependantComponentTest >> assertComponent [
+WsDependantViewComponentTest >> assertComponent [
 
 	| scripts jsDependency mainJs |
-	self
-		assert: shadowRoot innerHTML
-		equals: '<link rel="stylesheet" href="viewCss">'.
+	self assert: shadowRoot innerHTML equals: self shadowHtml.
 	self assert: (document head querySelectorAll: #link) isEmpty.
 	self assert: (document body querySelectorAll: #script) isEmpty.
 	scripts := document head querySelectorAll: #script.
@@ -26,4 +24,10 @@ WsDependantComponentTest >> assertComponent [
 	mainJs := scripts last.
 	self assert: (mainJs src endsWith: 'index.js').
 	self assert: mainJs defer
+]
+
+{ #category : #tests }
+WsDependantViewComponentTest >> shadowHtml [
+
+	^ '<link rel="stylesheet" href="viewCss">'
 ]

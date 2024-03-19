@@ -10,6 +10,12 @@ WsView class >> allGlobalResources [
 	^ self new allGlobalResources
 ]
 
+{ #category : #rendering }
+WsView class >> renderOn: html [
+
+	html render: self new
+]
+
 { #category : #accessing }
 WsView >> allGlobalResources [
 

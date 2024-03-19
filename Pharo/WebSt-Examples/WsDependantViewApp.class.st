@@ -1,5 +1,5 @@
 Class {
-	#name : #WsDependencyApp,
+	#name : #WsDependantViewApp,
 	#superclass : #PjWebApplication,
 	#traits : 'WsTComponentApp',
 	#classTraits : 'WsTComponentApp classTrait',
@@ -7,6 +7,6 @@ Class {
 }
 
 { #category : #accessing }
-WsDependencyApp class >> rootComponentClass [ 
-	^WsDependantComponent 
+WsDependantViewApp class >> rootComponentClass [ 
+	^WsDependantViewComponent 
 ]

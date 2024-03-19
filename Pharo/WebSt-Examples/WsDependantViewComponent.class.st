@@ -1,5 +1,5 @@
 Class {
-	#name : #WsDependantComponent,
+	#name : #WsDependantViewComponent,
 	#superclass : #WsComponent,
 	#traits : 'WsTConcreteComponent',
 	#classTraits : 'WsTConcreteComponent classTrait',
@@ -7,13 +7,13 @@ Class {
 }
 
 { #category : #'class initialization' }
-WsDependantComponent class >> tagName [
+WsDependantViewComponent class >> tagName [
 
-	^ 'ws-dependant'
+	^ 'ws-dependant-view'
 ]
 
 { #category : #'accessing view' }
-WsDependantComponent class >> viewClass [
+WsDependantViewComponent class >> viewClass [
 
 	<pharoJsSkip>
 	^WsDependantView 
