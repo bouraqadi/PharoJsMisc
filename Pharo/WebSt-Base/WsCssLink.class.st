@@ -3,8 +3,8 @@ I represent an external CSS file.
 "
 Class {
 	#name : #WsCssLink,
-	#superclass : #WsResource,
-	#category : #'WebSt-Base-Views'
+	#superclass : #WsLeafResource,
+	#category : #'WebSt-Base-Resources'
 }
 
 { #category : #initialization }

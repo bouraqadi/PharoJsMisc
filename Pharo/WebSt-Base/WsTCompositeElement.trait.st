@@ -3,7 +3,7 @@ Trait {
 	#instVars : [
 		'children'
 	],
-	#category : #'WebSt-BaseOLD-Views'
+	#category : #'WebSt-Base-Views'
 }
 
 { #category : #accessing }
@@ -15,7 +15,7 @@ WsTCompositeElement >> add: aChild [
 { #category : #accessing }
 WsTCompositeElement >> addAll: newChildren [
 
-	self children add: newChildren
+	self children addAll: newChildren
 ]
 
 { #category : #accessing }

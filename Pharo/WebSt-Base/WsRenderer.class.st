@@ -34,6 +34,12 @@ WsRenderer class >> render: anObject [
 ]
 
 { #category : #accessing }
+WsRenderer >> addAllResources: resources [
+
+	resources do: [ :each | self addResource: each ]
+]
+
+{ #category : #accessing }
 WsRenderer >> addAllResourcesOf: element [
 
 	element resources do: [ :each | self addResource: each ]
