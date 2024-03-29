@@ -1,6 +1,8 @@
 Class {
 	#name : #WsComponent,
 	#superclass : #WsHtmlElement,
+	#traits : 'PjTDomController',
+	#classTraits : 'PjTDomController classTrait',
 	#instVars : [
 		'view'
 	],

@@ -55,7 +55,8 @@ WsCounterModel >> increment: amount [
 WsCounterModel >> initialize [
 
 	super initialize.
-	countPort := HyCollectionPort new. 
+	countPort := HyCollectionPort new.
+	countPort notificationSelector: #value:.
 	self reset
 ]
 

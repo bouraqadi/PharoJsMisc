@@ -60,8 +60,7 @@ WsCounterComponent >> increment [
 WsCounterComponent >> initModel [
 
 	super initModel.
-	(model -@ #countPort)
-		=> [: newCount | self displayCount: newCount ].
+	model -@ #countPort => [ :newCount | console log: newCount. self displayCount: newCount ].
 	self updateDisplay
 ]
 
