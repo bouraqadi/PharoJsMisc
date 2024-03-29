@@ -1,6 +1,6 @@
 Class {
 	#name : #WsListComponent,
-	#superclass : #WsMvcComponent,
+	#superclass : #WsMvcComponentOLD,
 	#instVars : [
 		'listView'
 	],

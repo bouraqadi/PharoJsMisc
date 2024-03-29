@@ -1,10 +1,10 @@
 Class {
 	#name : #WsMvcComponent,
-	#superclass : #WsComponentOLD,
+	#superclass : #WsComponent,
 	#instVars : [
 		'model'
 	],
-	#category : #'WebSt-BaseOLD-Components'
+	#category : #'WebSt-Base-Components'
 }
 
 { #category : #'instance creation' }
@@ -41,12 +41,6 @@ WsMvcComponent >> initialize [
 
 ]
 
-{ #category : #initialization }
-WsMvcComponent >> linkModelAndView [
-
-	^self
-]
-
 { #category : #accessing }
 WsMvcComponent >> model [
 
@@ -56,10 +50,11 @@ WsMvcComponent >> model [
 { #category : #initialization }
 WsMvcComponent >> model: aModel [
 
-	(model notNil or: [ view isNil ]) ifTrue: [ self resetView ].
+	self flag: #ToClean.
+	"	(model notNil or: [ view isNil ]) ifTrue: [ self resetView ]."
+	[ view isNil ] ifTrue: [ self resetView ].
 	model := aModel.
-	self initModel.
-	self linkModelAndView
+	self initModel
 ]
 
 { #category : #initialization }

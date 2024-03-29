@@ -1,8 +1,8 @@
 Class {
 	#name : #WsEditableTextView,
 	#superclass : #WsViewOLD,
-	#traits : 'WsTBootstrapView',
-	#classTraits : 'WsTBootstrapView classTrait',
+	#traits : 'WsTBootstrap5View',
+	#classTraits : 'WsTBootstrap5View classTrait',
 	#category : #'WebSt-ExamplesOLD-Text'
 }
 

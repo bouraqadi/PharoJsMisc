@@ -1,6 +1,6 @@
 Class {
 	#name : #WsBootstrapComponentTest,
-	#superclass : #WsMvcComponentTest,
+	#superclass : #WsMvcComponentTestOLD,
 	#category : #'WebSt-TestsOLD-Examples'
 }
 

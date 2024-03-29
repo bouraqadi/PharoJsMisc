@@ -1,9 +1,9 @@
 Class {
 	#name : #WsCounterView,
-	#superclass : #WsViewOLD,
-	#traits : 'WsTBootstrapView',
-	#classTraits : 'WsTBootstrapView classTrait',
-	#category : #'WebSt-ExamplesOLD-Counter'
+	#superclass : #WsView,
+	#traits : 'WsTBootstrap5View',
+	#classTraits : 'WsTBootstrap5View classTrait',
+	#category : #'WebSt-Examples-Counter'
 }
 
 { #category : #rendering }
@@ -13,7 +13,7 @@ WsCounterView class >> title [
 ]
 
 { #category : #rendering }
-WsCounterView >> renderContentOn: html [
+WsCounterView >> renderOuterHtmlOn: html [
 
 	html div
 		class: 'd-flex flex-column align-items-center p-1';

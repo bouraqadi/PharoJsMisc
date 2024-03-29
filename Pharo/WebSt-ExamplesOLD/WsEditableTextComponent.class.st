@@ -1,6 +1,6 @@
 Class {
 	#name : #WsEditableTextComponent,
-	#superclass : #WsMvcComponent,
+	#superclass : #WsMvcComponentOLD,
 	#traits : 'WsTConcreteComponentOLD',
 	#classTraits : 'WsTConcreteComponentOLD classTrait',
 	#instVars : [

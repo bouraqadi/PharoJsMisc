@@ -1,12 +1,12 @@
 Class {
 	#name : #WsCounterComponent,
 	#superclass : #WsMvcComponent,
-	#traits : 'WsTConcreteComponentOLD',
-	#classTraits : 'WsTConcreteComponentOLD classTrait',
+	#traits : 'WsTConcreteComponent',
+	#classTraits : 'WsTConcreteComponent classTrait',
 	#instVars : [
 		'display'
 	],
-	#category : #'WebSt-ExamplesOLD-Counter'
+	#category : #'WebSt-Examples-Counter'
 }
 
 { #category : #'instance creation' }
@@ -39,9 +39,21 @@ WsCounterComponent >> count: anInteger [
 ]
 
 { #category : #actions }
+WsCounterComponent >> decrement [
+
+	model decrement
+]
+
+{ #category : #actions }
 WsCounterComponent >> displayCount: newCount [
 
 	display textContent: newCount
+]
+
+{ #category : #actions }
+WsCounterComponent >> increment [
+
+	model increment
 ]
 
 { #category : #initialization }
@@ -49,30 +61,29 @@ WsCounterComponent >> initModel [
 
 	super initModel.
 	(model -@ #countPort)
-		=> self;
-		notificationSelector: #displayCount:
+		=> [: newCount | self displayCount: newCount ].
+	self updateDisplay
 ]
 
 { #category : #initialization }
 WsCounterComponent >> initView [
 
+	| incrementButton decrementButton resetButton |
 	super initView.
 	display := view querySelector: '.display'.
+	incrementButton := view querySelector: '.increment'.
+	self onClickElement: incrementButton do: [ self increment ].
+	decrementButton := view querySelector: '.decrement'.
+	self onClickElement: decrementButton do: [ self decrement ].
+	resetButton := view querySelector: '.reset'.
+	self onClickElement: resetButton do: [ self reset ].
 
 ]
 
-{ #category : #initialization }
-WsCounterComponent >> linkModelAndView [
+{ #category : #actions }
+WsCounterComponent >> reset [
 
-	| incrementButton decrementButton resetButton |
-	super linkModelAndView.
-	incrementButton := view querySelector: '.increment'.
-	self onClickElement: incrementButton do: [ model increment ].
-	decrementButton := view querySelector: '.decrement'.
-	self onClickElement: decrementButton do: [ model decrement ].
-	resetButton := view querySelector: '.reset'.
-	self onClickElement: resetButton do: [ model reset ].
-	self updateDisplay
+	model reset
 ]
 
 { #category : #actions }

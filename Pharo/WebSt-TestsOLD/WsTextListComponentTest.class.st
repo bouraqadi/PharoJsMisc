@@ -29,7 +29,7 @@ WsTextListComponentTest >> assertBehavior [
 		with: #( huperspace teleportation )
 		do: [ :index :newText |
 			(model itemAt: index) text: newText. ].
-		self assertViewMatchesModel.
+		self assertViewModelLink.
 
 ]
 
@@ -43,7 +43,7 @@ WsTextListComponentTest >> assertItemAt: index textContentEquals: expectedConten
 ]
 
 { #category : #tests }
-WsTextListComponentTest >> assertViewMatchesModel [
+WsTextListComponentTest >> assertViewModelLink [
 
 | textItems |
 textItems := model items.

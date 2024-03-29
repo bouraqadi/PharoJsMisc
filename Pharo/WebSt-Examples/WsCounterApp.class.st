@@ -1,9 +1,9 @@
 Class {
 	#name : #WsCounterApp,
 	#superclass : #PjWebApplication,
-	#traits : 'WsTStaticComponentAppOLD',
-	#classTraits : 'WsTStaticComponentAppOLD classTrait',
-	#category : #'WebSt-ExamplesOLD-Counter'
+	#traits : 'WsTComponentApp',
+	#classTraits : 'WsTComponentApp classTrait',
+	#category : #'WebSt-Examples-Counter'
 }
 
 { #category : #accessing }

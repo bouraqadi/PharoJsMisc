@@ -1,6 +1,6 @@
 Class {
 	#name : #WsTextComponentTest,
-	#superclass : #WsMvcComponentTest,
+	#superclass : #WsMvcComponentTestOLD,
 	#instVars : [
 		'display',
 		'displayContainer'
@@ -30,7 +30,7 @@ WsTextComponentTest >> assertBehavior [
 ]
 
 { #category : #tests }
-WsTextComponentTest >> assertViewMatchesModel [
+WsTextComponentTest >> assertViewModelLink [
 
 	self assert: display textContent equals: model text.
 	#( 'snow is falling' 'snow man is smiling' 'sun is shining' ) do: [

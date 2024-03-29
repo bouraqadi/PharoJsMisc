@@ -46,7 +46,7 @@ WsCounterListComponentTest >> assertCounterComponentAt: index linkedToCounter: c
 ]
 
 { #category : #tests }
-WsCounterListComponentTest >> assertViewMatchesModel [
+WsCounterListComponentTest >> assertViewModelLink [
 
 	| counters |
 	counters := model items.

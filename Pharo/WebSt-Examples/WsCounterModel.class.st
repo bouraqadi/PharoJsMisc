@@ -5,7 +5,7 @@ Class {
 		'count',
 		'countPort'
 	],
-	#category : #'WebSt-ExamplesOLD-Counter'
+	#category : #'WebSt-Examples-Counter'
 }
 
 { #category : #'instance creation' }
