@@ -11,9 +11,20 @@ WsCompositeViewComponentTest class >> appClass [
 ]
 
 { #category : #tests }
+WsCompositeViewComponentTest >> assertAllLinksIn: container useHrefs: allHrefs [
+
+		| allLinks |
+	allLinks := container querySelectorAll: #link.
+	allLinks asLocalObject with: allHrefs do: [ :link :expectedHref |
+		self assert: (link href endsWith: expectedHref).
+		self assert: link rel equals: 'stylesheet' ].
+
+]
+
+{ #category : #tests }
 WsCompositeViewComponentTest >> assertComponent [
 
-	| allLinks allScripts linkHrefs |
+	| allScripts linkHrefs |
 	self assert: (document body querySelectorAll: #script) isEmpty.
 	allScripts := document head querySelectorAll: #script.
 	allScripts asLocalObject
@@ -21,17 +32,12 @@ WsCompositeViewComponentTest >> assertComponent [
 		#( 'jsABCD' 'jsA' 'jsY' 'jsA+B' 'jsX' 'jsC+D' 'jsC' 'index.js' )
 		do: [ :script :expectedSrc |
 			self assert: (script src endsWith: expectedSrc).
-			self assert: script defer ].
-	self assert: (document querySelectorAll: #link) isEmpty.
-	allLinks := shadowRoot querySelectorAll: #link.
+			self assert: script defer ].	
 	linkHrefs := #( 'cssABCD' 'cssA' 'cssY' 'cssA+B' 'cssX' 'cssC+D'
 	                'cssC' ).
-	self assert: allLinks size equals: linkHrefs size.
-	allLinks asLocalObject with: linkHrefs do: [ :link :expectedHref |
-		self assert: (link href endsWith: expectedHref).
-		self assert: link rel equals: 'stylesheet' ].
-	self assert: (shadowRoot innerHTML endsWith: self displayHtml).
-
+	self assertAllLinksIn: document useHrefs: linkHrefs.
+	self assertAllLinksIn: shadowRoot useHrefs: linkHrefs.
+	self assert: (shadowRoot innerHTML endsWith: self displayHtml)
 ]
 
 { #category : #tests }

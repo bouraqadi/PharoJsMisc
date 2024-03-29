@@ -12,9 +12,11 @@ WsDependantViewComponentTest class >> appClass [
 { #category : #tests }
 WsDependantViewComponentTest >> assertComponent [
 
-	| scripts jsDependency mainJs |
+	| scripts jsDependency mainJs link |
 	self assert: shadowRoot innerHTML equals: self shadowHtml.
-	self assert: (document head querySelectorAll: #link) isEmpty.
+	self assert: (document head querySelectorAll: #link) size equals: 1.
+	link := (document head querySelectorAll: #link) first.
+	self assert: (link href endsWith: 'requiredCSS').
 	self assert: (document body querySelectorAll: #script) isEmpty.
 	scripts := document head querySelectorAll: #script.
 	self assert: scripts size equals: 2.

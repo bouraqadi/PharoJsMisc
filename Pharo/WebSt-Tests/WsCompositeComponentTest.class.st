@@ -17,7 +17,8 @@ WsCompositeComponentTest class >> appClass [
 { #category : #tests }
 WsCompositeComponentTest >> assertComponent [
 
-	self assertScripts.
+	self assertPageLinks.
+	self assertPageScripts.
 	self assertCompositeStructure.
 	self assertIntermediateStructure.
 	self assertLeafStructure
@@ -59,7 +60,20 @@ WsCompositeComponentTest >> assertLeafStructure [
 ]
 
 { #category : #tests }
-WsCompositeComponentTest >> assertScripts [
+WsCompositeComponentTest >> assertPageLinks [
+
+	| allLinks |
+	self assert: (document body querySelectorAll: #link) isEmpty.
+	allLinks := document head querySelectorAll: #link.
+	allLinks asLocalObject
+		with: #( 'compositeCss' 'sharedCss' 'intermediateCss'
+		   'leafCss' )
+		do: [ :link :expectedHref |
+			self assert: (link href endsWith: expectedHref) ]
+]
+
+{ #category : #tests }
+WsCompositeComponentTest >> assertPageScripts [
 
 	| allScripts |
 	self assert: (document body querySelectorAll: #script) isEmpty.
