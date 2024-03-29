@@ -135,9 +135,9 @@ WsRenderer >> renderAppClass: appClass [
 WsRenderer >> renderComponentClass: component [
 
 	| currentLocalResources |
-	self addAllResourcesOf: component.
 	currentLocalResources := localResources.
 	self resetLocalResources.
+	self addAllResourcesOf: component.
 	component renderOuterHtmlOn: self.
 	localResources := currentLocalResources
 ]
