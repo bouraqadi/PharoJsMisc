@@ -5,7 +5,7 @@ Class {
 		'Bootstrap502',
 		'Bootstrap533'
 	],
-	#category : #'WebSt-Examples-BootstrapResources'
+	#category : #'WebSt-Examples-Bootstrap'
 }
 
 { #category : #accesing }

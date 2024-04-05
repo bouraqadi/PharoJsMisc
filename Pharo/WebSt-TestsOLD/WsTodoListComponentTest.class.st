@@ -37,6 +37,6 @@ WsTodoListComponentTest >> changeModel [
 WsTodoListComponentTest >> componentClasses [
 
 	^ super componentClasses , {
-		  WsListComponent.
+		  WsListComponentOLD.
 		   }
 ]

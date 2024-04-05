@@ -51,20 +51,27 @@ WsComponentTest >> component: aComponent [
 
 ]
 
+{ #category : #tests }
+WsComponentTest >> jsComponentClass [
+
+	^ self bridge jsGlobalAt: self rootComponentClass name
+]
+
 { #category : #accessing }
 WsComponentTest >> rootComponentClass [
 	^self appClass rootComponentClass
 ]
 
 { #category : #tests }
-WsComponentTest >> testDynamicComponentCreation [
+WsComponentTest >> testDynamicComponentCreationBasic [
 
-	| newComponent staticComponent jsComponentClass |
-	jsComponentClass := self bridge jsGlobalAt: self rootComponentClass name.
-	newComponent := jsComponentClass new.
+	| newComponent staticComponent |
+	newComponent := self jsComponentClass new.
 	staticComponent := self allComponents first.
 	"Inserting new component first make it easier to view result during debug"
-	document body insertBefore: newComponent existingChild: staticComponent.
+	document body
+		insertBefore: newComponent
+		existingChild: staticComponent.
 	self assert: self allComponents size equals: 2.
 	self assertComponent: newComponent
 ]

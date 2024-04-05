@@ -1,5 +1,5 @@
 Class {
-	#name : #WsCounterListComponentTest,
+	#name : #WsCounterListComponentTestOLD,
 	#superclass : #WsBootstrapComponentTest,
 	#instVars : [
 		'listComponent'
@@ -8,13 +8,13 @@ Class {
 }
 
 { #category : #'suite parameters' }
-WsCounterListComponentTest class >> appClass [
+WsCounterListComponentTestOLD class >> appClass [
 
-	^ WsCounterListApp
+	^ WsCounterListAppOLD
 ]
 
 { #category : #tests }
-WsCounterListComponentTest >> assertBehavior [
+WsCounterListComponentTestOLD >> assertBehavior [
 
 	| itemsCount counterView display incrementBtn expectedCount |
 	itemsCount := self itemElements size.
@@ -34,7 +34,7 @@ WsCounterListComponentTest >> assertBehavior [
 ]
 
 { #category : #tests }
-WsCounterListComponentTest >> assertCounterComponentAt: index linkedToCounter: counterModel [
+WsCounterListComponentTestOLD >> assertCounterComponentAt: index linkedToCounter: counterModel [
 
 	| expectedCount item counterComponent display |
 	expectedCount := counterModel count.
@@ -46,7 +46,7 @@ WsCounterListComponentTest >> assertCounterComponentAt: index linkedToCounter: c
 ]
 
 { #category : #tests }
-WsCounterListComponentTest >> assertViewModelLink [
+WsCounterListComponentTestOLD >> assertViewModelLink [
 
 	| counters |
 	counters := model items.
@@ -56,15 +56,9 @@ WsCounterListComponentTest >> assertViewModelLink [
 ]
 
 { #category : #tests }
-WsCounterListComponentTest >> changeModel [
+WsCounterListComponentTestOLD >> changeModel [
 
 	self evalBlock: [ #(42 35 21) do: [ : each| 
 			model add: (WsCounterModel count: each) ]
 	]
-]
-
-{ #category : #tests }
-WsCounterListComponentTest >> itemElements [
-
-	^ root querySelectorAll: #li
 ]

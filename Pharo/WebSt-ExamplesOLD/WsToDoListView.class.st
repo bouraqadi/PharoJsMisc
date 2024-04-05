@@ -1,6 +1,6 @@
 Class {
 	#name : #WsToDoListView,
-	#superclass : #WsListView,
+	#superclass : #WsListViewOLD,
 	#category : #'WebSt-ExamplesOLD-TodoList'
 }
 

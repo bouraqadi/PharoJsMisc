@@ -3,10 +3,9 @@ Class {
 	#superclass : #Object,
 	#instVars : [
 		'items',
-		'addPort',
-		'removePort'
+		'addPort'
 	],
-	#category : #'WebSt-ExamplesOLD-List'
+	#category : #'WebSt-Examples-List'
 }
 
 { #category : #accessing }
@@ -26,9 +25,8 @@ WsListModel >> initialize [
 
 	super initialize.
 	items := OrderedCollection new.
-	addPort := HyCollectionPort new.
-	removePort := HyCollectionPort notificationSelector:
-		              #handleAt:remove:
+	addPort := HyCollectionPort notificationSelector: #value:
+
 ]
 
 { #category : #accessing }

@@ -1,5 +1,5 @@
 Class {
-	#name : #WsListComponent,
+	#name : #WsListComponentOLD,
 	#superclass : #WsMvcComponentOLD,
 	#instVars : [
 		'listView'
@@ -8,25 +8,25 @@ Class {
 }
 
 { #category : #'instance creation' }
-WsListComponent class >> modelClass [
+WsListComponentOLD class >> modelClass [
 	^WsListModel 
 ]
 
 { #category : #rendering }
-WsListComponent class >> viewClass [
+WsListComponentOLD class >> viewClass [
 
 	<pharoJsSkip>
-	^WsListView 
+	^WsListViewOLD 
 ]
 
 { #category : #adding }
-WsListComponent >> addAllContents: itemContents [
+WsListComponentOLD >> addAllContents: itemContents [
 
 	itemContents do: [ :each | self addContent: each ]
 ]
 
 { #category : #adding }
-WsListComponent >> addComponent: itemComponent [
+WsListComponentOLD >> addComponent: itemComponent [
 
 	| item  |
 	item := self createElement: #li.
@@ -36,7 +36,7 @@ WsListComponent >> addComponent: itemComponent [
 ]
 
 { #category : #adding }
-WsListComponent >> addContent: itemContent [
+WsListComponentOLD >> addContent: itemContent [
 
 	| itemModel |
 	itemModel := self itemComponentClass newModel.
@@ -45,7 +45,7 @@ WsListComponent >> addContent: itemContent [
 ]
 
 { #category : #adding }
-WsListComponent >> handleAt: index add: itemModel [
+WsListComponentOLD >> handleAt: index add: itemModel [
 
 	| itemComponent |
 	itemComponent := self newItemComponent: itemModel.
@@ -53,12 +53,12 @@ WsListComponent >> handleAt: index add: itemModel [
 ]
 
 { #category : #adding }
-WsListComponent >> initItemModel: itemModel with: itemContent [
+WsListComponentOLD >> initItemModel: itemModel with: itemContent [
 	self subclassResponsibility 
 ]
 
 { #category : #initialization }
-WsListComponent >> initModel [
+WsListComponentOLD >> initModel [
 
 	super initModel.
 	(model -@ #addPort)
@@ -67,18 +67,18 @@ WsListComponent >> initModel [
 ]
 
 { #category : #initialization }
-WsListComponent >> initView [ 
+WsListComponentOLD >> initView [ 
 	super initView .
 	listView := view querySelector: 'ul'.
 ]
 
 { #category : #adding }
-WsListComponent >> itemComponentClass [
+WsListComponentOLD >> itemComponentClass [
 	self subclassResponsibility 
 ]
 
 { #category : #initialization }
-WsListComponent >> linkModelAndView [
+WsListComponentOLD >> linkModelAndView [
 
 	super linkModelAndView.
 	model items withIndexDo: [ :item :index |
@@ -86,7 +86,7 @@ WsListComponent >> linkModelAndView [
 ]
 
 { #category : #adding }
-WsListComponent >> newItemComponent: itemModel [
+WsListComponentOLD >> newItemComponent: itemModel [
 
 	^ self itemComponentClass model: itemModel
 ]

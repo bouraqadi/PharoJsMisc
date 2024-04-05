@@ -1,16 +1,8 @@
 Class {
 	#name : #WsCounterView,
-	#superclass : #WsView,
-	#traits : 'WsTBootstrap5View',
-	#classTraits : 'WsTBootstrap5View classTrait',
+	#superclass : #WsBootstrap5View,
 	#category : #'WebSt-Examples-Counter'
 }
-
-{ #category : #rendering }
-WsCounterView class >> title [
-
-	^ 'Counter - WebST Example'
-]
 
 { #category : #rendering }
 WsCounterView >> renderOuterHtmlOn: html [

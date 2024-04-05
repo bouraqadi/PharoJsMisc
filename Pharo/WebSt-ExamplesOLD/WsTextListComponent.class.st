@@ -1,6 +1,6 @@
 Class {
 	#name : #WsTextListComponent,
-	#superclass : #WsListComponent,
+	#superclass : #WsListComponentOLD,
 	#traits : 'WsTConcreteComponentOLD',
 	#classTraits : 'WsTConcreteComponentOLD classTrait',
 	#category : #'WebSt-ExamplesOLD-List'

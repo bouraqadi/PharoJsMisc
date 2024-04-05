@@ -1,5 +1,5 @@
 Class {
-	#name : #WsListView,
+	#name : #WsListViewOLD,
 	#superclass : #WsViewOLD,
 	#traits : 'WsTBootstrap5View',
 	#classTraits : 'WsTBootstrap5View classTrait',
@@ -7,12 +7,12 @@ Class {
 }
 
 { #category : #rendering }
-WsListView class >> title [
+WsListViewOLD class >> title [
 	^'List'
 ]
 
 { #category : #rendering }
-WsListView >> renderContentOn: html [
+WsListViewOLD >> renderContentOn: html [
 
 	html unorderedList 
 		class: 'list-group'

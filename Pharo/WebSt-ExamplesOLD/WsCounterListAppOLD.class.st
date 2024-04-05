@@ -1,5 +1,5 @@
 Class {
-	#name : #WsCounterListApp,
+	#name : #WsCounterListAppOLD,
 	#superclass : #PjWebApplication,
 	#traits : 'WsTDynamicComponentApp',
 	#classTraits : 'WsTDynamicComponentApp classTrait',
@@ -7,20 +7,20 @@ Class {
 }
 
 { #category : #accessing }
-WsCounterListApp class >> rootComponentClass [
+WsCounterListAppOLD class >> rootComponentClass [
 
-	^ WsCounterListComponent
+	^ WsCounterListComponentOLD
 ]
 
 { #category : #accessing }
-WsCounterListApp class >> title [
+WsCounterListAppOLD class >> title [
 
 	<pharoJsSkip>
 	^ 'Counters - List WebST Example'
 ]
 
 { #category : #intializing }
-WsCounterListApp >> initRootComponent [
+WsCounterListAppOLD >> initRootComponent [
 
 		rootComponent addAllContents: (1 to: 5)
 ]

@@ -1,25 +1,25 @@
 Class {
-	#name : #WsCounterListComponent,
-	#superclass : #WsListComponent,
+	#name : #WsCounterListComponentOLD,
+	#superclass : #WsListComponentOLD,
 	#traits : 'WsTConcreteComponentOLD',
 	#classTraits : 'WsTConcreteComponentOLD classTrait',
 	#category : #'WebSt-ExamplesOLD-List'
 }
 
 { #category : #'class initialization' }
-WsCounterListComponent class >> tagName [
+WsCounterListComponentOLD class >> tagName [
 
 	^ 'ws-counter-list'
 ]
 
 { #category : #adding }
-WsCounterListComponent >> initItemModel: counter with: anInteger [
+WsCounterListComponentOLD >> initItemModel: counter with: anInteger [
 	counter count: anInteger.
 
 ]
 
 { #category : #adding }
-WsCounterListComponent >> itemComponentClass [
+WsCounterListComponentOLD >> itemComponentClass [
 
 	^ WsCounterComponent
 ]
