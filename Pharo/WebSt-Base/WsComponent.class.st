@@ -89,6 +89,11 @@ WsComponent class >> viewClass [
 	self subclassResponsibility 
 ]
 
+{ #category : #accessing }
+WsComponent >> document [
+	^document
+]
+
 { #category : #initialization }
 WsComponent >> initView [
 

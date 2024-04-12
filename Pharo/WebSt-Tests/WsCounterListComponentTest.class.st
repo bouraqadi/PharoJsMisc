@@ -11,6 +11,12 @@ WsCounterListComponentTest class >> appClass [
 ]
 
 { #category : #asserting }
+WsCounterListComponentTest >> assertCounterComponentAt: index linkedToCounterModel: counterModel [
+	self fail: #todo
+	
+]
+
+{ #category : #asserting }
 WsCounterListComponentTest >> assertViewModelLink [
 
 	| counters |
@@ -19,7 +25,7 @@ WsCounterListComponentTest >> assertViewModelLink [
 	1 to: counters size do: [ :index |
 		self
 			assertCounterComponentAt: index
-			linkedToCounter: (counters at: index) ]
+			linkedToCounterModel: (counters at: index) ]
 ]
 
 { #category : #asserting }

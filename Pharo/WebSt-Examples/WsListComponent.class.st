@@ -30,24 +30,32 @@ WsListComponent >> addItemComponent: itemComponent [
 	listView appendChild: item
 ]
 
-{ #category : #initialization }
-WsListComponent >> displayModel [
-	model items withIndexDo: [ :item :index |
-		self handleAdd: item ]
-]
-
 { #category : #actions }
-WsListComponent >> handleAdd: itemModel [
+WsListComponent >> displayItemModel: itemModel [
+
 	| itemComponent |
 	itemComponent := self newItemComponent: itemModel.
 	self addItemComponent: itemComponent
 ]
 
 { #category : #initialization }
+WsListComponent >> displayModel [
+
+	model items withIndexDo: [ :item :index |
+		self displayItemModel: item ]
+]
+
+{ #category : #actions }
+WsListComponent >> handleAdd: itemModel at: itemIndex [
+
+	self displayItemModel: itemModel 
+]
+
+{ #category : #initialization }
 WsListComponent >> initModel [
 
 	super initModel.
-	model -@ #addPort => [ :itemModel | self handleAdd: itemModel ].
+	model -@ #addPort => [ : itemModel : itemIndex | self handleAdd: itemModel at: itemIndex].
 	self displayModel
 ]
 

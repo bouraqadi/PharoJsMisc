@@ -10,8 +10,10 @@ Class {
 
 { #category : #accessing }
 WsListModel >> add: itemModel [
+
 	items addLast: itemModel.
-	addPort notifyWithAll: { items size. itemModel 	}
+	addPort notifyWithAll:{
+			itemModel. items size}.
 ]
 
 { #category : #accessing }
@@ -25,8 +27,7 @@ WsListModel >> initialize [
 
 	super initialize.
 	items := OrderedCollection new.
-	addPort := HyCollectionPort notificationSelector: #value:
-
+	addPort := HyCollectionPort notificationSelector: #value:value:
 ]
 
 { #category : #accessing }
