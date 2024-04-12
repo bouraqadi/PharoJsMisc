@@ -50,9 +50,7 @@ WsMvcComponent >> model [
 { #category : #initialization }
 WsMvcComponent >> model: aModel [
 
-	self flag: #ToClean.
-	"	(model notNil or: [ view isNil ]) ifTrue: [ self resetView ]."
-	[ view isNil ] ifTrue: [ self resetView ].
+	view ifNil: [ self resetView ].
 	model := aModel.
 	self initModel
 ]

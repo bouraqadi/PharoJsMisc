@@ -43,11 +43,6 @@ WsMvcComponentTest >> component: aComponent [
 	model := aComponent model
 ]
 
-{ #category : #tests }
-WsMvcComponentTest >> initModelForNewComponent: jsModel [
-	self subclassResponsibility 
-]
-
 { #category : #asserting }
 WsMvcComponentTest >> newJsModel [
 	"Answers a new model created in JS world"
@@ -68,8 +63,7 @@ WsMvcComponentTest >> replaceModel [
 WsMvcComponentTest >> testDynamicComponentCreationWithProvidedModel [
 
 	| newComponent staticComponent jsModel |
-	jsModel := self bridge jsGlobalAt: self newModelClass.
-	self initModelForNewComponent: jsModel.
+	jsModel := self newJsModel.
 	newComponent := self jsComponentClass model: jsModel.
 	staticComponent := self allComponents first.
 	"Inserting new component first make it easier to view result during debug"
