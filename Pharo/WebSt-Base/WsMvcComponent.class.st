@@ -50,7 +50,7 @@ WsMvcComponent >> model [
 { #category : #initialization }
 WsMvcComponent >> model: aModel [
 
-	view ifNil: [ self resetView ].
+	(model notNil or: [view isNil]) ifTrue: [ self resetView ].
 	model := aModel.
 	self initModel
 ]
