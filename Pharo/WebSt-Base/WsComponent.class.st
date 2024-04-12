@@ -131,3 +131,8 @@ WsComponent >> shadowHtml [
 
 	^ self class shadowHtml
 ]
+
+{ #category : #accessing }
+WsComponent >> view [
+	^view
+]

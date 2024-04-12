@@ -19,13 +19,21 @@ WsCounterListComponentTest >> assertCounterComponentAt: index linkedToCounterMod
 { #category : #asserting }
 WsCounterListComponentTest >> assertViewModelLink [
 
-	| counters |
-	counters := model items.
-	self assert: self itemElements size equals: counters size.
-	1 to: counters size do: [ :index |
-		self
-			assertCounterComponentAt: index
-			linkedToCounterModel: (counters at: index) ]
+	| counterModels counterComponents |
+	counterModels := model items asLocalObject.
+	counterComponents := self itemElements collect: [ :each |
+		                     each querySelector: WsCounterComponent tagName ].
+	counterModels
+		with: counterComponents
+		do: [ :aCounterModel :aCounterComponent |
+			self assertViewOf: aCounterComponent linkedToModel: aCounterModel ] 
+]
+
+{ #category : #asserting }
+WsCounterListComponentTest >> assertViewOf: aCounterComponent linkedToModel: aCounterModel [ 
+
+	self assert: aCounterComponent model identicalTo: aCounterModel.
+	WsCounterComponentTestAsserter assert: aCounterComponent 	 
 ]
 
 { #category : #asserting }
@@ -37,5 +45,5 @@ WsCounterListComponentTest >> changeModelValues [
 { #category : #tests }
 WsCounterListComponentTest >> itemElements [
 
-	^ shadowRoot querySelectorAll: #li
+	^ (shadowRoot querySelectorAll: #li) asLocalObject 
 ]
