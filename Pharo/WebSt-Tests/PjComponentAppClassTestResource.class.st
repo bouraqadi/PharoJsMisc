@@ -49,7 +49,7 @@ PjComponentAppClassTestResource >> setUp [
 
 	super setUp.
 	classFactory := ClassFactoryForTestCase new.
-	appClassesDict := WeakValueDictionary new
+	appClassesDict := Dictionary new
 ]
 
 { #category : #running }
