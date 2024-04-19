@@ -1,6 +1,6 @@
 Class {
 	#name : #WsCompositeComponentTest,
-	#superclass : #WsComponentTest,
+	#superclass : #WsComponentTestV1,
 	#instVars : [
 		'intermediateComponent',
 		'leafComponent'

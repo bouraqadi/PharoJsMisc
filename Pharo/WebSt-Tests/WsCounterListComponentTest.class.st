@@ -4,10 +4,10 @@ Class {
 	#category : #'WebSt-Tests-Components'
 }
 
-{ #category : #'suite parameters' }
-WsCounterListComponentTest class >> appClass [
+{ #category : #accessing }
+WsCounterListComponentTest class >> componentClass [
 
-	^ WsCounterListApp
+	^ WsCounterListComponent
 ]
 
 { #category : #asserting }

@@ -1,5 +1,5 @@
 Class {
-	#name : #WsTextComponentTest,
+	#name : #WsTextComponentTestOLD,
 	#superclass : #WsMvcComponentTestOLD,
 	#instVars : [
 		'display',
@@ -9,12 +9,12 @@ Class {
 }
 
 { #category : #'suite parameters' }
-WsTextComponentTest class >> appClass [
-	^WsTextApp 
+WsTextComponentTestOLD class >> appClass [
+	^WsTextAppOLD 
 ]
 
 { #category : #tests }
-WsTextComponentTest >> assertBehavior [
+WsTextComponentTestOLD >> assertBehavior [
 
 	| oldText newText |
 	oldText := model text.
@@ -30,7 +30,7 @@ WsTextComponentTest >> assertBehavior [
 ]
 
 { #category : #tests }
-WsTextComponentTest >> assertViewModelLink [
+WsTextComponentTestOLD >> assertViewModelLink [
 
 	self assert: display textContent equals: model text.
 	#( 'snow is falling' 'snow man is smiling' 'sun is shining' ) do: [
@@ -40,13 +40,13 @@ WsTextComponentTest >> assertViewModelLink [
 ]
 
 { #category : #tests }
-WsTextComponentTest >> changeModel [
+WsTextComponentTestOLD >> changeModel [
 
 	model text: 'The Incredibles'
 ]
 
 { #category : #tests }
-WsTextComponentTest >> component: aComponent [
+WsTextComponentTestOLD >> component: aComponent [
 
 	super component: aComponent.
 	display := root querySelector: 'span'.
@@ -54,7 +54,7 @@ WsTextComponentTest >> component: aComponent [
 ]
 
 { #category : #tests }
-WsTextComponentTest >> editWithText: newText save: shouldSave [
+WsTextComponentTestOLD >> editWithText: newText save: shouldSave [
 
 	| editor editorRoot textInput |
 	display click.

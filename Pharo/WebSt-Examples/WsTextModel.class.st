@@ -5,7 +5,7 @@ Class {
 		'text',
 		'textPort'
 	],
-	#category : #'WebSt-ExamplesOLD-Text'
+	#category : #'WebSt-Examples-Text'
 }
 
 { #category : #accessing }
@@ -19,7 +19,7 @@ WsTextModel class >> text: aString [
 WsTextModel >> initialize [
 
 	super initialize.
-	textPort := HyCollectionPort new.
+	textPort := HyCollectionPort notificationSelector: #value:.
 	text := ''
 ]
 

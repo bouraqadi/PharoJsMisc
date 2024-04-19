@@ -1,5 +1,5 @@
 Class {
-	#name : #WsComponentTest,
+	#name : #WsComponentTestV1,
 	#superclass : #PjWebAppTestCase,
 	#traits : 'PjTAppRunsInJS',
 	#classTraits : 'PjTAppRunsInJS classTrait',
@@ -10,61 +10,25 @@ Class {
 	#category : #'WebSt-Tests-Components'
 }
 
-{ #category : #'suite parameters' }
-WsComponentTest class >> appClass [
-
-	^ self appClassGenerator
-		              appClassSuperclass: self appSuperclass
-		              traits: self appTraits
-		              componentClass: self componentClass
-]
-
-{ #category : #accessing }
-WsComponentTest class >> appClassGenerator [
-	^self appClassGeneratorClass current
-]
-
-{ #category : #accessing }
-WsComponentTest class >> appClassGeneratorClass [
-	^PjComponentAppClassTestResource 
-]
-
-{ #category : #accessing }
-WsComponentTest class >> appSuperclass [
-
-	^ PjComponentAppForTest
-]
-
-{ #category : #accessing }
-WsComponentTest class >> appTraits [
-
-	^ { WsTComponentApp }
-]
-
-{ #category : #accessing }
-WsComponentTest class >> componentClass [
-	^self subclassResponsibility 
-]
-
 { #category : #testing }
-WsComponentTest class >> isAbstract [
+WsComponentTestV1 class >> isAbstract [
 
 	^ self == WsComponentTestV1
 ]
 
 { #category : #accessing }
-WsComponentTest >> allComponents [
+WsComponentTestV1 >> allComponents [
 	^document querySelectorAll:
 		                 self rootComponentClass  tagName.
 ]
 
 { #category : #tests }
-WsComponentTest >> assertComponent [ 
+WsComponentTestV1 >> assertComponent [ 
 	self subclassResponsibility 
 ]
 
 { #category : #tests }
-WsComponentTest >> assertComponent: aComponent [
+WsComponentTestV1 >> assertComponent: aComponent [
 
 	self component: aComponent.
 	self assertComponentClass.
@@ -72,7 +36,7 @@ WsComponentTest >> assertComponent: aComponent [
 ]
 
 { #category : #tests }
-WsComponentTest >> assertComponentClass [
+WsComponentTestV1 >> assertComponentClass [
 
 	| actualClass expectedClass |
 	expectedClass := self bridge jsGlobalAt: self rootComponentClass name.
@@ -81,25 +45,25 @@ WsComponentTest >> assertComponentClass [
 ]
 
 { #category : #accessing }
-WsComponentTest >> component: aComponent [
+WsComponentTestV1 >> component: aComponent [
 	component := aComponent.
 	shadowRoot := component at: #shadowRoot.
 
 ]
 
 { #category : #tests }
-WsComponentTest >> jsComponentClass [
+WsComponentTestV1 >> jsComponentClass [
 
 	^ self bridge jsGlobalAt: self rootComponentClass name
 ]
 
 { #category : #accessing }
-WsComponentTest >> rootComponentClass [
+WsComponentTestV1 >> rootComponentClass [
 	^self appClass rootComponentClass
 ]
 
 { #category : #tests }
-WsComponentTest >> testDynamicComponentCreationBasic [
+WsComponentTestV1 >> testDynamicComponentCreationBasic [
 
 	| newComponent staticComponent |
 	newComponent := self jsComponentClass new.
@@ -113,7 +77,7 @@ WsComponentTest >> testDynamicComponentCreationBasic [
 ]
 
 { #category : #tests }
-WsComponentTest >> testStaticComponentCreation [
+WsComponentTestV1 >> testStaticComponentCreation [
 	"Component is defined using HTML tags. See WsTComponentApp >> #newPage."
 
 	| allComponents |

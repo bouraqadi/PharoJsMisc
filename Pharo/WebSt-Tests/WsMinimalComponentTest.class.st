@@ -1,6 +1,6 @@
 Class {
 	#name : #WsMinimalComponentTest,
-	#superclass : #WsComponentTest,
+	#superclass : #WsComponentTestV1,
 	#classTraits : 'PjTAppRunsInJS classTrait',
 	#category : #'WebSt-Tests-Components'
 }

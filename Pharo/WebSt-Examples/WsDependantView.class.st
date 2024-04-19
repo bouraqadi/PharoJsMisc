@@ -1,3 +1,6 @@
+"
+Example of a view that depends on some some resources
+"
 Class {
 	#name : #WsDependantView,
 	#superclass : #WsView,

@@ -1,5 +1,5 @@
 Class {
-	#name : #WsTextApp,
+	#name : #WsTextAppOLD,
 	#superclass : #PjWebApplication,
 	#traits : 'WsTDynamicComponentApp',
 	#classTraits : 'WsTDynamicComponentApp classTrait',
@@ -7,12 +7,12 @@ Class {
 }
 
 { #category : #accessing }
-WsTextApp class >> rootComponentClass [ 
+WsTextAppOLD class >> rootComponentClass [ 
 	^WsEditableTextComponent 
 ]
 
 { #category : #intializing }
-WsTextApp >> initRootComponent [
+WsTextAppOLD >> initRootComponent [
 
 	rootComponent text: 'This text is in a text component'
 ]

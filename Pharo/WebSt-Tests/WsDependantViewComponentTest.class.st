@@ -1,6 +1,6 @@
 Class {
 	#name : #WsDependantViewComponentTest,
-	#superclass : #WsComponentTest,
+	#superclass : #WsComponentTestV1,
 	#category : #'WebSt-Tests-Components'
 }
 
