@@ -6,9 +6,10 @@ To install any of the projects below evaluate the following expression in a Play
 ```Smalltalk
 Metacello new
   baseline: 'PROJECT_NAME';
-  repository: 'github://bouraqadi/PharoJsMisc:main';
+  repository: 'github://bouraqadi/PharoJsMisc:pharoXX';
   load
  ```
+Where XX is the Pharo image version number.
 
 # Projects
 ## H
