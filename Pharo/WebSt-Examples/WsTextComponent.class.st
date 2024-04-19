@@ -9,6 +9,12 @@ Class {
 	#category : #'WebSt-Examples-Text'
 }
 
+{ #category : #'instance creation' }
+WsTextComponent class >> modelClass [
+
+	^WsTextModel 
+]
+
 { #category : #'class initialization' }
 WsTextComponent class >> tagName [
 

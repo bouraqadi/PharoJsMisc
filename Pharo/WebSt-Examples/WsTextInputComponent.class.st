@@ -1,14 +1,14 @@
 Class {
 	#name : #WsTextInputComponent,
-	#superclass : #WsComponentOLD,
-	#traits : 'WsTConcreteComponentOLD',
-	#classTraits : 'WsTConcreteComponentOLD classTrait',
+	#superclass : #WsMvcComponent,
+	#traits : 'WsTConcreteComponent',
+	#classTraits : 'WsTConcreteComponent classTrait',
 	#instVars : [
 		'input',
 		'cancelBlock',
 		'saveBlock'
 	],
-	#category : #'WebSt-ExamplesOLD-Text'
+	#category : #'WebSt-Examples-Text'
 }
 
 { #category : #'instance creation' }
@@ -46,6 +46,14 @@ WsTextInputComponent >> cancelBlock [
 WsTextInputComponent >> cancelBlock: anObject [
 
 	cancelBlock := anObject
+]
+
+{ #category : #initialization }
+WsTextInputComponent >> initModel [
+
+	super initModel.
+	model -@ #textPort => [ :newText | self text: newText ].
+	self text: model text
 ]
 
 { #category : #initialization }
