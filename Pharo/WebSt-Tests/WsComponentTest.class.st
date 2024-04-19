@@ -53,6 +53,12 @@ WsComponentTest class >> isAbstract [
 ]
 
 { #category : #accessing }
+WsComponentTest class >> resources [
+
+	^ super resources , { self appClassGeneratorClass }
+]
+
+{ #category : #accessing }
 WsComponentTest >> allComponents [
 	^document querySelectorAll:
 		                 self rootComponentClass  tagName.
