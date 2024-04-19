@@ -1,13 +1,13 @@
 Class {
 	#name : #WsCompositeViewComponentTest,
-	#superclass : #WsComponentTestV1,
+	#superclass : #WsComponentTest,
 	#category : #'WebSt-Tests-Components'
 }
 
-{ #category : #'suite parameters' }
-WsCompositeViewComponentTest class >> appClass [
+{ #category : #accessing }
+WsCompositeViewComponentTest class >> componentClass [
 
-	^ WsCompositeViewComponentApp
+	^ WsCompositeViewComponent
 ]
 
 { #category : #tests }

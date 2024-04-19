@@ -1,6 +1,6 @@
 Class {
 	#name : #WsCompositeComponentTest,
-	#superclass : #WsComponentTestV1,
+	#superclass : #WsComponentTest,
 	#instVars : [
 		'intermediateComponent',
 		'leafComponent'
@@ -8,10 +8,10 @@ Class {
 	#category : #'WebSt-Tests-Components'
 }
 
-{ #category : #'suite parameters' }
-WsCompositeComponentTest class >> appClass [
+{ #category : #accessing }
+WsCompositeComponentTest class >> componentClass [
 
-	^ WsCompositeComponentApp 
+	^ WsCompositeComponent
 ]
 
 { #category : #tests }

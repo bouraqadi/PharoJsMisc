@@ -1,13 +1,14 @@
 Class {
 	#name : #WsMinimalComponentTest,
-	#superclass : #WsComponentTestV1,
+	#superclass : #WsComponentTest,
 	#classTraits : 'PjTAppRunsInJS classTrait',
 	#category : #'WebSt-Tests-Components'
 }
 
-{ #category : #'suite parameters' }
-WsMinimalComponentTest class >> appClass [ 
-	^WsMinimalApp 
+{ #category : #accessing }
+WsMinimalComponentTest class >> componentClass [
+
+	^ WsMinimalComponent 
 ]
 
 { #category : #tests }

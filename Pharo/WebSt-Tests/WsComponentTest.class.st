@@ -49,7 +49,7 @@ WsComponentTest class >> componentClass [
 { #category : #testing }
 WsComponentTest class >> isAbstract [
 
-	^ self == WsComponentTestV1
+	^ self == WsComponentTest
 ]
 
 { #category : #accessing }
