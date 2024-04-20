@@ -1,5 +1,5 @@
 Class {
-	#name : #WsEditableTextComponent,
+	#name : #WsEditableTextComponentOLD,
 	#superclass : #WsMvcComponentOLD,
 	#traits : 'WsTConcreteComponentOLD',
 	#classTraits : 'WsTConcreteComponentOLD classTrait',
@@ -12,56 +12,51 @@ Class {
 }
 
 { #category : #'instance creation' }
-WsEditableTextComponent class >> modelClass [
+WsEditableTextComponentOLD class >> modelClass [
 
 	^WsTextModel 
 ]
 
-{ #category : #'class initialization' }
-WsEditableTextComponent class >> tagName [
-	^'ws-text'
-]
-
 { #category : #'instance creation' }
-WsEditableTextComponent class >> text: aString [
+WsEditableTextComponentOLD class >> text: aString [
 	^self new
 		text: aString;
 		yourself
 ]
 
 { #category : #'accessing view' }
-WsEditableTextComponent class >> title [
+WsEditableTextComponentOLD class >> title [
 
 	^ 'Text'
 ]
 
 { #category : #rendering }
-WsEditableTextComponent class >> viewClass [
+WsEditableTextComponentOLD class >> viewClass [
 
 	<pharoJsSkip>
-	^ WsEditableTextView 
+	^ WsEditableTextViewOLD 
 ]
 
 { #category : #actions }
-WsEditableTextComponent >> cancelEdit [
+WsEditableTextComponentOLD >> cancelEdit [
 
 	self closeEditor
 ]
 
 { #category : #actions }
-WsEditableTextComponent >> closeEditor [
+WsEditableTextComponentOLD >> closeEditor [
 
 	self hide: editor.
 	self show: displayContainer 
 ]
 
 { #category : #initialization }
-WsEditableTextComponent >> displayText: aString [
+WsEditableTextComponentOLD >> displayText: aString [
 	display textContent: aString
 ]
 
 { #category : #actions }
-WsEditableTextComponent >> edit [
+WsEditableTextComponentOLD >> edit [
 
 	editor text: model text.
 	self hide: displayContainer.
@@ -69,7 +64,7 @@ WsEditableTextComponent >> edit [
 ]
 
 { #category : #initialization }
-WsEditableTextComponent >> initModel [
+WsEditableTextComponentOLD >> initModel [
 
 	super initModel .
 	(model -@ #textPort)
@@ -78,7 +73,7 @@ WsEditableTextComponent >> initModel [
 ]
 
 { #category : #initialization }
-WsEditableTextComponent >> initView [
+WsEditableTextComponentOLD >> initView [
 
 	super initView.
 	display := view querySelector: 'span'.
@@ -92,27 +87,27 @@ WsEditableTextComponent >> initView [
 ]
 
 { #category : #initialization }
-WsEditableTextComponent >> linkModelAndView [
+WsEditableTextComponentOLD >> linkModelAndView [
 
 	super linkModelAndView.
 	self updateDisplay
 ]
 
 { #category : #actions }
-WsEditableTextComponent >> saveEdit: newText [
+WsEditableTextComponentOLD >> saveEdit: newText [
 
 	self text: newText.
 	self closeEditor
 ]
 
 { #category : #accessing }
-WsEditableTextComponent >> text: aString [
+WsEditableTextComponentOLD >> text: aString [
 
 	model text: aString
 ]
 
 { #category : #initialization }
-WsEditableTextComponent >> updateDisplay [
+WsEditableTextComponentOLD >> updateDisplay [
 
 	self displayText: model text
 ]

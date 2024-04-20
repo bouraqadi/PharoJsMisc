@@ -43,6 +43,17 @@ WsTextComponent >> initView [
 	display := view querySelector: '.display'
 ]
 
+{ #category : #accessing }
+WsTextComponent >> text [
+	^model text
+]
+
+{ #category : #accessing }
+WsTextComponent >> text: newText [
+
+	^ model text: newText
+]
+
 { #category : #actions }
 WsTextComponent >> updateDisplay: newText [
 	display textContent: newText 

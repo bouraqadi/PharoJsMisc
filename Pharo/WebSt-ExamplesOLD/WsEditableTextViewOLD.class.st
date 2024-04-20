@@ -1,5 +1,5 @@
 Class {
-	#name : #WsEditableTextView,
+	#name : #WsEditableTextViewOLD,
 	#superclass : #WsViewOLD,
 	#traits : 'WsTBootstrap5View',
 	#classTraits : 'WsTBootstrap5View classTrait',
@@ -7,7 +7,7 @@ Class {
 }
 
 { #category : #rendering }
-WsEditableTextView >> renderContentOn: html [
+WsEditableTextViewOLD >> renderContentOn: html [
 
 	html div style: 'min-height: 1em;'; with: [ html span ].
 	html render: WsTextInputComponent

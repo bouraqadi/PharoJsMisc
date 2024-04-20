@@ -1,6 +1,6 @@
 Class {
 	#name : #WsToDoListItemView,
-	#superclass : #WsEditableTextView,
+	#superclass : #WsEditableTextViewOLD,
 	#traits : 'WsTBootstrap5View',
 	#classTraits : 'WsTBootstrap5View classTrait',
 	#category : #'WebSt-ExamplesOLD-TodoList'

@@ -81,6 +81,11 @@ WsTextInputComponent >> initView [
 	self onClickElement: saveButton do: [ self save ]
 ]
 
+{ #category : #accessing }
+WsTextInputComponent >> inputValue [
+	^input value
+]
+
 { #category : #actions }
 WsTextInputComponent >> save [
 
