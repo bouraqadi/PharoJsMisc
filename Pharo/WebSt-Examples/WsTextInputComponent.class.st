@@ -85,6 +85,7 @@ WsTextInputComponent >> initView [
 WsTextInputComponent >> save [
 
 	self updateModelText.
+	self saveBlock ifNil: [^self].
 	self saveBlock value: input value
 ]
 

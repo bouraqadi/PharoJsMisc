@@ -1,13 +1,13 @@
 Class {
 	#name : #WsSaveCancelButtonsView,
-	#superclass : #WsViewOLD,
+	#superclass : #WsView,
 	#traits : 'WsTBootstrap5View',
 	#classTraits : 'WsTBootstrap5View classTrait',
-	#category : #'WebSt-ExamplesOLD-Text'
+	#category : #'WebSt-Examples-Text'
 }
 
 { #category : #rendering }
-WsSaveCancelButtonsView >> renderContentOn: html [
+WsSaveCancelButtonsView >> renderOuterHtmlOn: html [
 
 	html button
 		class: 'btn btn-success saveButton';
