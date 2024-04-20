@@ -33,6 +33,7 @@ WsTextInputComponent class >> viewClass [
 { #category : #actions }
 WsTextInputComponent >> cancel [
 
+	self displayModelText.
 	self cancelBlock value
 ]
 
@@ -48,12 +49,24 @@ WsTextInputComponent >> cancelBlock: anObject [
 	cancelBlock := anObject
 ]
 
+{ #category : #actions }
+WsTextInputComponent >> displayModelText [
+
+	self displayText: model text
+]
+
+{ #category : #actions }
+WsTextInputComponent >> displayText: aString [
+
+	input value: aString
+]
+
 { #category : #initialization }
 WsTextInputComponent >> initModel [
 
 	super initModel.
-	model -@ #textPort => [ :newText | self text: newText ].
-	self text: model text
+	model -@ #textPort => [ :newText | self displayText: newText ].
+	self displayModelText
 ]
 
 { #category : #initialization }
@@ -71,6 +84,7 @@ WsTextInputComponent >> initView [
 { #category : #actions }
 WsTextInputComponent >> save [
 
+	self updateModelText.
 	self saveBlock value: input value
 ]
 
@@ -86,8 +100,8 @@ WsTextInputComponent >> saveBlock: anObject [
 	saveBlock := anObject
 ]
 
-{ #category : #accessing }
-WsTextInputComponent >> text: aString [
+{ #category : #actions }
+WsTextInputComponent >> updateModelText [
 
-	input value: aString
+	model text: input value
 ]
