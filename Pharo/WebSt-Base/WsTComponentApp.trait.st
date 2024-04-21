@@ -44,7 +44,6 @@ WsTComponentApp classSide >> renderOn: html [
 { #category : #rendering }
 WsTComponentApp classSide >> rootComponentClass [
 
-	<pharoJsSkip>
 	self explicitRequirement
 ]
 
