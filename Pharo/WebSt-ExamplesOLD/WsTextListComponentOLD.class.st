@@ -1,5 +1,5 @@
 Class {
-	#name : #WsTextListComponent,
+	#name : #WsTextListComponentOLD,
 	#superclass : #WsListComponentOLD,
 	#traits : 'WsTConcreteComponentOLD',
 	#classTraits : 'WsTConcreteComponentOLD classTrait',
@@ -7,18 +7,18 @@ Class {
 }
 
 { #category : #'class initialization' }
-WsTextListComponent class >> tagName [
+WsTextListComponentOLD class >> tagName [
 
 	^ 'ws-text-list'
 ]
 
 { #category : #adding }
-WsTextListComponent >> initItemModel: textModel with: aString [
+WsTextListComponentOLD >> initItemModel: textModel with: aString [
 	textModel text: aString.
 
 ]
 
 { #category : #adding }
-WsTextListComponent >> itemComponentClass [
+WsTextListComponentOLD >> itemComponentClass [
 	^WsEditableTextComponentOLD 
 ]

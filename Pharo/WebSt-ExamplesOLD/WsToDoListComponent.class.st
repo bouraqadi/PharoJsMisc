@@ -1,6 +1,6 @@
 Class {
 	#name : #WsToDoListComponent,
-	#superclass : #WsTextListComponent,
+	#superclass : #WsTextListComponentOLD,
 	#traits : 'WsTConcreteComponentOLD',
 	#classTraits : 'WsTConcreteComponentOLD classTrait',
 	#instVars : [

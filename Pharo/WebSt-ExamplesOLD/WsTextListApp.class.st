@@ -9,7 +9,7 @@ Class {
 { #category : #accessing }
 WsTextListApp class >> rootComponentClass [
 
-	^ WsTextListComponent
+	^ WsTextListComponentOLD
 ]
 
 { #category : #accessing }

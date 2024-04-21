@@ -1,5 +1,5 @@
 Class {
-	#name : #WsTextListComponentTest,
+	#name : #WsTextListComponentTestOLD,
 	#superclass : #WsBootstrapComponentTest,
 	#instVars : [
 		'listComponent'
@@ -8,13 +8,13 @@ Class {
 }
 
 { #category : #'suite parameters' }
-WsTextListComponentTest class >> appClass [
+WsTextListComponentTestOLD class >> appClass [
 
 	^ WsTextListApp 
 ]
 
 { #category : #tests }
-WsTextListComponentTest >> assertBehavior [
+WsTextListComponentTestOLD >> assertBehavior [
 
 	| itemsCount |
 	itemsCount := self itemElements size.
@@ -26,15 +26,13 @@ WsTextListComponentTest >> assertBehavior [
 	{
 		1.
 		itemsCount }
-		with: #( huperspace teleportation )
-		do: [ :index :newText |
-			(model itemAt: index) text: newText. ].
-		self assertViewModelLink.
-
+		with: #( hyperspace teleportation )
+		do: [ :index :newText | (model itemAt: index) text: newText ].
+	self assertViewModelLink
 ]
 
 { #category : #tests }
-WsTextListComponentTest >> assertItemAt: index textContentEquals: expectedContent [
+WsTextListComponentTestOLD >> assertItemAt: index textContentEquals: expectedContent [
 	| item actualContent |
 	item := self itemElements at: index.
 	actualContent := item children first shadowRoot textContent.
@@ -43,7 +41,7 @@ WsTextListComponentTest >> assertItemAt: index textContentEquals: expectedConten
 ]
 
 { #category : #tests }
-WsTextListComponentTest >> assertViewModelLink [
+WsTextListComponentTestOLD >> assertViewModelLink [
 
 | textItems |
 textItems := model items.
@@ -55,7 +53,7 @@ self assert: self itemElements size equals: textItems size.
 ]
 
 { #category : #tests }
-WsTextListComponentTest >> changeModel [
+WsTextListComponentTestOLD >> changeModel [
 
 	self evalBlock: [
 		|textModels|	
@@ -64,7 +62,7 @@ WsTextListComponentTest >> changeModel [
 ]
 
 { #category : #tests }
-WsTextListComponentTest >> itemElements [
+WsTextListComponentTestOLD >> itemElements [
 
 	^ root querySelectorAll: #li
 ]

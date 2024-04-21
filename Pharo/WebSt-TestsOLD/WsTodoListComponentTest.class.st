@@ -1,6 +1,6 @@
 Class {
 	#name : #WsTodoListComponentTest,
-	#superclass : #WsTextListComponentTest,
+	#superclass : #WsTextListComponentTestOLD,
 	#category : #'WebSt-TestsOLD-Examples'
 }
 

@@ -6,14 +6,14 @@ Class {
 	#category : #'WebSt-Examples-List'
 }
 
+{ #category : #actions }
+WsCounterListComponent class >> itemComponentClass [
+
+	^ WsCounterComponent
+]
+
 { #category : #'class initialization' }
 WsCounterListComponent class >> tagName [
 
 	^ 'ws-counter-list'
-]
-
-{ #category : #actions }
-WsCounterListComponent >> itemComponentClass [
-
-	^ WsCounterComponent
 ]

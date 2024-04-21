@@ -7,6 +7,15 @@ Class {
 	#category : #'WebSt-Examples-List'
 }
 
+{ #category : #actions }
+WsListComponent class >> itemComponentClass [
+
+	| aWsListComponent |
+	aWsListComponent := self new.
+
+	aWsListComponent subclassResponsibility
+]
+
 { #category : #'instance creation' }
 WsListComponent class >> modelClass [
 
@@ -68,8 +77,7 @@ WsListComponent >> initView [
 
 { #category : #actions }
 WsListComponent >> itemComponentClass [
-
-	self subclassResponsibility
+	^ self class itemComponentClass
 ]
 
 { #category : #actions }
