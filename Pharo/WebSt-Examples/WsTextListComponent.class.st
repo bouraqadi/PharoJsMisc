@@ -17,3 +17,16 @@ WsTextListComponent class >> tagName [
 
 	^'ws-text-list'
 ]
+
+{ #category : #adding }
+WsTextListComponent >> addAllTexts: newTexts [
+	newTexts do: [ : each | self addText: each ]
+]
+
+{ #category : #adding }
+WsTextListComponent >> addText: aString [
+
+	| itemComponent |
+	itemComponent := self itemModelClass text: aString.
+	model add: itemComponent
+]

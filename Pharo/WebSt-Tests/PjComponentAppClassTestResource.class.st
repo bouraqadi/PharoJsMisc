@@ -33,14 +33,15 @@ PjComponentAppClassTestResource >> descriptorForSuperclass: appSuperclass traits
 ]
 
 { #category : #creating }
-PjComponentAppClassTestResource >> newAppClassSuperclass: appSuperclass
-			  traits: appTraits
-			  componentClass: componentClass [
+PjComponentAppClassTestResource >> newAppClassSuperclass: appSuperclass traits: appTraits componentClass: componentClass [
+
 	| appClass |
 	appClass := classFactory
 		            newSubclassOf: appSuperclass
 		            using: appTraits.
 	appClass rootComponentClass: componentClass.
+	"We need this method to suppress the class side rootComponentClass obtained from the trait defined as #explicitRequirement> It is fullfilled by the WsComponentAppForTest superclass. But, PharoJS does not provide support for #explicitRequirement dynamic lookup."
+	appClass compile: 'rootComponentClass ^super rootComponentClass'.
 	^ appClass
 ]
 

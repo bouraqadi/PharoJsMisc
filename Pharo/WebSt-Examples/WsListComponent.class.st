@@ -36,6 +36,11 @@ WsListComponent >> addItemComponent: itemComponent [
 	listView appendChild: item
 ]
 
+{ #category : #initialization }
+WsListComponent >> addItemModels: itemModels [
+	model addAll: itemModels 
+]
+
 { #category : #actions }
 WsListComponent >> displayItemModel: itemModel [
 
@@ -72,9 +77,15 @@ WsListComponent >> initView [
 	listView := view querySelector: 'ul'
 ]
 
-{ #category : #actions }
+{ #category : #accessing }
 WsListComponent >> itemComponentClass [
 	^ self class itemComponentClass
+]
+
+{ #category : #accessing }
+WsListComponent >> itemModelClass [
+
+	^ self itemComponentClass modelClass
 ]
 
 { #category : #actions }

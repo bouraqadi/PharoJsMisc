@@ -21,6 +21,13 @@ WsTextComponent class >> tagName [
 	^'ws-text'
 ]
 
+{ #category : #'instance creation' }
+WsTextComponent class >> text: newText [
+	^self new
+		text: newText;
+		yourself
+]
+
 { #category : #'accessing view' }
 WsTextComponent class >> viewClass [
 

@@ -53,3 +53,32 @@ WsTComponentApp classSide >> title [
 	<pharoJsSkip>
 	^ self rootComponentClass title
 ]
+
+{ #category : #initialization }
+WsTComponentApp >> initRootComponent [
+
+	^ self
+]
+
+{ #category : #initialization }
+WsTComponentApp >> rootComponent [ 
+	^self document querySelector:
+		                 self rootComponentTagName.
+
+]
+
+{ #category : #accessing }
+WsTComponentApp >> rootComponentClass [
+	^self class rootComponentClass
+]
+
+{ #category : #accessing }
+WsTComponentApp >> rootComponentTagName [
+	^self rootComponentClass tagName
+]
+
+{ #category : #initialization }
+WsTComponentApp >> start [
+
+	self initRootComponent
+]
