@@ -55,7 +55,7 @@ WsComponent class >> resources [
 	^self viewClass allGlobalResources
 ]
 
-{ #category : #'accessing view' }
+{ #category : #accessing }
 WsComponent class >> shadowHtml [
 
 	self subclassResponsibility
@@ -82,7 +82,7 @@ WsComponent class >> title [
 	^ self name
 ]
 
-{ #category : #'accessing view' }
+{ #category : #accessing }
 WsComponent class >> viewClass [
 
 	<pharoJsSkip>

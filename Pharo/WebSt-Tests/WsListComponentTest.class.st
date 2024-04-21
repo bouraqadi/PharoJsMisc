@@ -28,13 +28,18 @@ WsListComponentTest >> assertViewOf: itemComponent linkedToModel: itemModel [
 	self itemComponentAsserter assert: itemComponent
 ]
 
-{ #category : #adding }
+{ #category : #asserting }
+WsListComponentTest >> itemComponentAsserter [
+	^self subclassResponsibility 
+]
+
+{ #category : #accessing }
 WsListComponentTest >> itemComponentClass [
 
 	^ self rootComponentClass itemComponentClass
 ]
 
-{ #category : #tests }
+{ #category : #accessing }
 WsListComponentTest >> itemElements [
 
 	^ (shadowRoot querySelectorAll: #li) asLocalObject 

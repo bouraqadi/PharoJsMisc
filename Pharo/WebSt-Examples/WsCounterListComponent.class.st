@@ -6,7 +6,7 @@ Class {
 	#category : #'WebSt-Examples-List'
 }
 
-{ #category : #actions }
+{ #category : #accessing }
 WsCounterListComponent class >> itemComponentClass [
 
 	^ WsCounterComponent

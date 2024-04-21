@@ -9,7 +9,7 @@ WsTConcreteComponent classSide >> javascriptInitialize [
 	self  registerTag
 ]
 
-{ #category : #'accessing view' }
+{ #category : #accessing }
 WsTConcreteComponent classSide >> shadowHtml [
 
 	<jsLiteralGenerator>

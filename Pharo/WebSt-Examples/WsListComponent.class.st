@@ -7,7 +7,7 @@ Class {
 	#category : #'WebSt-Examples-List'
 }
 
-{ #category : #actions }
+{ #category : #accessing }
 WsListComponent class >> itemComponentClass [
 
 	^self subclassResponsibility

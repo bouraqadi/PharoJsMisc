@@ -1,9 +1,8 @@
 Class {
 	#name : #WsCounterComponentTestAsserter,
-	#superclass : #TestAsserter,
+	#superclass : #WsComponentTestAsserter,
 	#instVars : [
 		'display',
-		'counter',
 		'incrementBtn',
 		'decrementBtn',
 		'resetBtn'
@@ -22,22 +21,17 @@ WsCounterComponentTestAsserter class >> component: aCounterComponent [
 ]
 
 { #category : #asserting }
-WsCounterComponentTestAsserter >> assert [
-	self assertViewModelLink 
-]
-
-{ #category : #asserting }
 WsCounterComponentTestAsserter >> assertCount: expectedCount [
 
 	self assert: display textContent equals: expectedCount asString.
-	self assert: counter count equals: expectedCount
+	self assert: model count equals: expectedCount
 ]
 
 { #category : #asserting }
 WsCounterComponentTestAsserter >> assertViewModelLink [
 
 	| expectedCount |
-	expectedCount := counter count.
+	expectedCount := model count.
 	self assertCount: expectedCount.
 	3 timesRepeat: [ incrementBtn click ].
 	expectedCount := expectedCount + 3.
@@ -51,29 +45,10 @@ WsCounterComponentTestAsserter >> assertViewModelLink [
 
 { #category : #tests }
 WsCounterComponentTestAsserter >> component: aCounterComponent [
-	| domRoot |
-	counter := aCounterComponent model.
-	domRoot := aCounterComponent view.
+ 
+	super component: aCounterComponent.
 	display := domRoot querySelector: '.display'.
 	incrementBtn := domRoot querySelector: '.increment'.
 	decrementBtn := domRoot querySelector: '.decrement'.
 	resetBtn := domRoot querySelector: '.reset'
-]
-
-{ #category : #accessing }
-WsCounterComponentTestAsserter >> resources [
-
-	^ #()
-]
-
-{ #category : #running }
-WsCounterComponentTestAsserter >> setUp [
-
-	^ self
-]
-
-{ #category : #running }
-WsCounterComponentTestAsserter >> tearDown [
-
-	^ self
 ]
