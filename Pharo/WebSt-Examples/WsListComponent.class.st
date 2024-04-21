@@ -10,10 +10,7 @@ Class {
 { #category : #actions }
 WsListComponent class >> itemComponentClass [
 
-	| aWsListComponent |
-	aWsListComponent := self new.
-
-	aWsListComponent subclassResponsibility
+	^self subclassResponsibility
 ]
 
 { #category : #'instance creation' }
