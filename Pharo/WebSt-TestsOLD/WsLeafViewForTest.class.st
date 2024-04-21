@@ -8,7 +8,7 @@ Class {
 		'message',
 		'titleText'
 	],
-	#category : #'WebSt-TestsOLD-Views'
+	#category : #'WebSt-TestsOLD-Components'
 }
 
 { #category : #accessing }
