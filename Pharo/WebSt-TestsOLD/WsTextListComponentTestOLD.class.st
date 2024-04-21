@@ -10,7 +10,7 @@ Class {
 { #category : #'suite parameters' }
 WsTextListComponentTestOLD class >> appClass [
 
-	^ WsTextListApp 
+	^ WsTextListAppOLD 
 ]
 
 { #category : #tests }
