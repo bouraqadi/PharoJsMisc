@@ -7,7 +7,7 @@ Class {
 		'textReader',
 		'textEditor'
 	],
-	#category : #'WebSt-Examples-Text'
+	#category : #'WebSt-Library-Text'
 }
 
 { #category : #'class initialization' }
@@ -16,7 +16,7 @@ WsEditableTextComponent class >> tagName [
 	^ 'ws-editable-text'
 ]
 
-{ #category : #'accessing view' }
+{ #category : #accessing }
 WsEditableTextComponent class >> viewClass [
 
 	<pharoJsSkip>

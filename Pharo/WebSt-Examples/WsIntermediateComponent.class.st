@@ -12,7 +12,7 @@ WsIntermediateComponent class >> tagName [
 	^'ws-intermediate'
 ]
 
-{ #category : #'accessing view' }
+{ #category : #accessing }
 WsIntermediateComponent class >> viewClass [
 
 	<pharoJsSkip>

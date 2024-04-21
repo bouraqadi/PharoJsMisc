@@ -1,6 +1,6 @@
 Trait {
 	#name : #WsTBootstrap5View,
-	#category : #'WebSt-Examples-Bootstrap'
+	#category : #'WebSt-Library-Bootstrap'
 }
 
 { #category : #accessing }

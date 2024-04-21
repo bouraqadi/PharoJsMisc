@@ -1,7 +1,7 @@
 Class {
 	#name : #WsEditableTextView,
 	#superclass : #WsView,
-	#category : #'WebSt-Examples-Text'
+	#category : #'WebSt-Library-Text'
 }
 
 { #category : #rendering }

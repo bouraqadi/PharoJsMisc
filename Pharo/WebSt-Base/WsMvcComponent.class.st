@@ -15,7 +15,7 @@ WsMvcComponent class >> model: aModel [
 		  yourself
 ]
 
-{ #category : #'instance creation' }
+{ #category : #accessing }
 WsMvcComponent class >> modelClass [
 
 	self subclassResponsibility

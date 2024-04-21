@@ -6,7 +6,7 @@ Class {
 		'model',
 		'component'
 	],
-	#category : #'WebSt-Tests-Components'
+	#category : #'WebSt-Tests-Support'
 }
 
 { #category : #asserting }

@@ -7,7 +7,7 @@ Class {
 		'decrementBtn',
 		'resetBtn'
 	],
-	#category : #'WebSt-Tests-Components'
+	#category : #'WebSt-Tests-Library'
 }
 
 { #category : #asserting }

@@ -6,10 +6,10 @@ Class {
 	#instVars : [
 		'display'
 	],
-	#category : #'WebSt-Examples-Text'
+	#category : #'WebSt-Library-Text'
 }
 
-{ #category : #'instance creation' }
+{ #category : #accessing }
 WsTextComponent class >> modelClass [
 
 	^WsTextModel 
@@ -28,7 +28,7 @@ WsTextComponent class >> text: newText [
 		yourself
 ]
 
-{ #category : #'accessing view' }
+{ #category : #accessing }
 WsTextComponent class >> viewClass [
 
 	<pharoJsSkip>

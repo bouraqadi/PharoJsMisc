@@ -8,10 +8,10 @@ Class {
 		'cancelBlock',
 		'saveBlock'
 	],
-	#category : #'WebSt-Examples-Text'
+	#category : #'WebSt-Library-Text'
 }
 
-{ #category : #'instance creation' }
+{ #category : #accessing }
 WsTextInputComponent class >> modelClass [
 
 	^WsTextModel 
@@ -23,7 +23,7 @@ WsTextInputComponent class >> tagName [
 	^'ws-text-input'
 ]
 
-{ #category : #rendering }
+{ #category : #accessing }
 WsTextInputComponent class >> viewClass [
 
 	<pharoJsSkip>

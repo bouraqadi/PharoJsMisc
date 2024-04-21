@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'listView'
 	],
-	#category : #'WebSt-Examples-List'
+	#category : #'WebSt-Library-List'
 }
 
 { #category : #accessing }
@@ -13,13 +13,13 @@ WsListComponent class >> itemComponentClass [
 	^self subclassResponsibility
 ]
 
-{ #category : #'instance creation' }
+{ #category : #accessing }
 WsListComponent class >> modelClass [
 
 	^ WsListModel
 ]
 
-{ #category : #'instance creation' }
+{ #category : #accessing }
 WsListComponent class >> viewClass [
 
 	<pharoJsSkip>

@@ -11,7 +11,7 @@ WsMinimalComponent class >> tagName [
 	^'ws-minimal'
 ]
 
-{ #category : #'accessing view' }
+{ #category : #accessing }
 WsMinimalComponent class >> viewClass [
 
 	<pharoJsSkip>

@@ -12,7 +12,7 @@ WsCompositeViewComponent class >> tagName [
 	^'ws-abcd'
 ]
 
-{ #category : #'accessing view' }
+{ #category : #accessing }
 WsCompositeViewComponent class >> viewClass [
 
 	<pharoJsSkip>

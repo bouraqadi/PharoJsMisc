@@ -1,7 +1,7 @@
 Class {
 	#name : #WsCounterView,
 	#superclass : #WsBootstrap5View,
-	#category : #'WebSt-Examples-Counter'
+	#category : #'WebSt-Library-Counter'
 }
 
 { #category : #rendering }

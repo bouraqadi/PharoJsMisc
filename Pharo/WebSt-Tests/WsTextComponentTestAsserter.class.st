@@ -1,7 +1,7 @@
 Class {
 	#name : #WsTextComponentTestAsserter,
 	#superclass : #WsComponentTestAsserter,
-	#category : #'WebSt-Tests-Components'
+	#category : #'WebSt-Tests-Library'
 }
 
 { #category : #asserting }

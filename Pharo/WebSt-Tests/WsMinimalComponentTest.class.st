@@ -2,7 +2,7 @@ Class {
 	#name : #WsMinimalComponentTest,
 	#superclass : #WsComponentTest,
 	#classTraits : 'PjTAppRunsInJS classTrait',
-	#category : #'WebSt-Tests-Components'
+	#category : #'WebSt-Tests-Examples'
 }
 
 { #category : #accessing }

@@ -8,7 +8,7 @@ Class {
 		'cancelButton',
 		'saveButton'
 	],
-	#category : #'WebSt-Tests-Components'
+	#category : #'WebSt-Tests-Library'
 }
 
 { #category : #accessing }

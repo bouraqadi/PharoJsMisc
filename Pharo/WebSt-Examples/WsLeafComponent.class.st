@@ -12,7 +12,7 @@ WsLeafComponent class >> tagName [
 	^'ws-leaf'
 ]
 
-{ #category : #'accessing view' }
+{ #category : #accessing }
 WsLeafComponent class >> viewClass [
 
 	<pharoJsSkip>

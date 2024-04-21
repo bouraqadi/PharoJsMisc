@@ -12,7 +12,7 @@ WsDependantViewComponent class >> tagName [
 	^ 'ws-dependant-view'
 ]
 
-{ #category : #'accessing view' }
+{ #category : #accessing }
 WsDependantViewComponent class >> viewClass [
 
 	<pharoJsSkip>

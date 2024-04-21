@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'textDisplay'
 	],
-	#category : #'WebSt-Tests-Components'
+	#category : #'WebSt-Tests-Library'
 }
 
 { #category : #accessing }

@@ -6,7 +6,7 @@ Class {
 	#instVars : [
 		'display'
 	],
-	#category : #'WebSt-Examples-Counter'
+	#category : #'WebSt-Library-Counter'
 }
 
 { #category : #'instance creation' }
@@ -16,7 +16,7 @@ WsCounterComponent class >> count: anInteger [
 		yourself
 ]
 
-{ #category : #initialization }
+{ #category : #accessing }
 WsCounterComponent class >> modelClass [ 
 	^WsCounterModel 
 ]
@@ -26,7 +26,7 @@ WsCounterComponent class >> tagName [
 	^'ws-counter'
 ]
 
-{ #category : #'class initialization' }
+{ #category : #accessing }
 WsCounterComponent class >> viewClass [
 <pharoJsSkip>
 	^ WsCounterView

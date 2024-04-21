@@ -1,7 +1,7 @@
 Class {
 	#name : #WsListComponentTest,
 	#superclass : #WsMvcComponentTest,
-	#category : #'WebSt-Tests-Components'
+	#category : #'WebSt-Tests-Library'
 }
 
 { #category : #testing }

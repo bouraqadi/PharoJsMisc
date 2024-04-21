@@ -20,7 +20,14 @@ BaselineOfWebSt >> baseline: spec [
 		with: [ spec repository: 'github://bouraqadi/PharoJsMisc:main' ].
 
 	spec
-		package: 'WebSt-Base' with: [ spec requires: #( 'Seaside3' 'PharoJS' 'HydrogenComponentsJS') ];
-		package: 'WebSt-Examples' with: [ spec requires: #( 'WebSt-Base' ) ];
-		package: 'WebSt-Tests' with: [ spec requires: #( 'WebSt-Base' 'WebSt-Examples') ]
+		package: 'WebSt-Base'
+		with: [
+			spec requires: #( 'Seaside3' 'PharoJS' 'HydrogenComponentsJS' ) ];
+		package: 'WebSt-Library'
+		with: [
+			spec requires: #('WebSt-Base') ];
+		package: 'WebSt-Examples'
+		with: [ spec requires: #( 'WebSt-Base' 'WebSt-Library') ];
+		package: 'WebSt-Tests'
+		with: [ spec requires: #( 'WebSt-Base' 'WebSt-Library' 'WebSt-Examples' ) ]
 ]

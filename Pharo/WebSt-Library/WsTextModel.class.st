@@ -5,7 +5,7 @@ Class {
 		'text',
 		'textPort'
 	],
-	#category : #'WebSt-Examples-Text'
+	#category : #'WebSt-Library-Text'
 }
 
 { #category : #accessing }

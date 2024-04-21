@@ -3,5 +3,5 @@ Class {
 	#superclass : #WsView,
 	#traits : 'WsTBootstrap5View',
 	#classTraits : 'WsTBootstrap5View classTrait',
-	#category : #'WebSt-Examples-Bootstrap'
+	#category : #'WebSt-Library-Bootstrap'
 }

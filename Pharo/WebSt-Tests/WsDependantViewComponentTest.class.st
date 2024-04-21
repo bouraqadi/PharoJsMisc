@@ -1,7 +1,7 @@
 Class {
 	#name : #WsDependantViewComponentTest,
 	#superclass : #WsComponentTest,
-	#category : #'WebSt-Tests-Components'
+	#category : #'WebSt-Tests-Examples'
 }
 
 { #category : #accessing }

@@ -5,7 +5,7 @@ Class {
 		'intermediateComponent',
 		'leafComponent'
 	],
-	#category : #'WebSt-Tests-Components'
+	#category : #'WebSt-Tests-Examples'
 }
 
 { #category : #accessing }
