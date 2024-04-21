@@ -4,7 +4,7 @@ Class {
 	#instVars : [
 		'model'
 	],
-	#category : #'WebSt-Tests-Components'
+	#category : #'WebSt-Tests-Support'
 }
 
 { #category : #testing }

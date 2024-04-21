@@ -8,7 +8,7 @@ Class {
 		'traits',
 		'componentClass'
 	],
-	#category : #'WebSt-Tests-Components'
+	#category : #'WebSt-Tests-Support'
 }
 
 { #category : #WsView }

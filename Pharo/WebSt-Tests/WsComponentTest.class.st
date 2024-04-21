@@ -7,7 +7,7 @@ Class {
 		'component',
 		'shadowRoot'
 	],
-	#category : #'WebSt-Tests-Components'
+	#category : #'WebSt-Tests-Support'
 }
 
 { #category : #'suite parameters' }

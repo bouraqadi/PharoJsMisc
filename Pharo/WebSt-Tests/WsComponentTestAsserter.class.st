@@ -3,10 +3,22 @@ Class {
 	#superclass : #TestAsserter,
 	#instVars : [
 		'domRoot',
-		'model'
+		'model',
+		'component'
 	],
 	#category : #'WebSt-Tests-Components'
 }
+
+{ #category : #asserting }
+WsComponentTestAsserter class >> assert: aComponent [
+	self new
+		component: aComponent; assert
+]
+
+{ #category : #'instance creation' }
+WsComponentTestAsserter class >> component: aComponent [
+	^self new component: aComponent; yourself
+]
 
 { #category : #asserting }
 WsComponentTestAsserter >> assert [
@@ -19,10 +31,11 @@ WsComponentTestAsserter >> assertViewModelLink [
 ]
 
 { #category : #accessing }
-WsComponentTestAsserter >> component: aCounterComponent [
+WsComponentTestAsserter >> component: aComponent [
 
-	model := aCounterComponent model.
-	domRoot := aCounterComponent view.
+	component := aComponent.
+	model := aComponent model.
+	domRoot := aComponent view
 ]
 
 { #category : #accessing }

@@ -5,7 +5,7 @@ Class {
 		'classFactory',
 		'appClassesDict'
 	],
-	#category : #'WebSt-Tests-Components'
+	#category : #'WebSt-Tests-Support'
 }
 
 { #category : #creating }

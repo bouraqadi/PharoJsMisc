@@ -1,6 +1,9 @@
 Class {
 	#name : #WsTextComponentTest,
 	#superclass : #WsMvcComponentTest,
+	#instVars : [
+		'asserter'
+	],
 	#category : #'WebSt-Tests-Components'
 }
 
@@ -13,15 +16,17 @@ WsTextComponentTest class >> componentClass [
 { #category : #asserting }
 WsTextComponentTest >> assertViewModelLink [
 
-	| newText |
-	self assert: component display textContent equals: model text.
-	newText := 'new text'.
-	model text: newText.
-	self assert: component display textContent equals: newText
+	asserter assertViewModelLink 
 ]
 
 { #category : #asserting }
 WsTextComponentTest >> changeModelValues [
 
 	model text: 'another random text to test model change'
+]
+
+{ #category : #accessing }
+WsTextComponentTest >> component: aTextComponent [
+	super component: aTextComponent.
+	asserter := WsTextComponentTestAsserter component: aTextComponent 
 ]

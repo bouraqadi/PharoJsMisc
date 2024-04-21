@@ -11,16 +11,6 @@ Class {
 }
 
 { #category : #asserting }
-WsCounterComponentTestAsserter class >> assert: aCounterComponent [
-	(self component: aCounterComponent) assert 
-]
-
-{ #category : #'instance creation' }
-WsCounterComponentTestAsserter class >> component: aCounterComponent [
-	^self new component: aCounterComponent; yourself
-]
-
-{ #category : #asserting }
 WsCounterComponentTestAsserter >> assertCount: expectedCount [
 
 	self assert: display textContent equals: expectedCount asString.
