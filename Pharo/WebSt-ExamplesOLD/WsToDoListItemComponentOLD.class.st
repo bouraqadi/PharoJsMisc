@@ -1,5 +1,5 @@
 Class {
-	#name : #WsToDoListItemComponent,
+	#name : #WsToDoListItemComponentOLD,
 	#superclass : #WsEditableTextComponentOLD,
 	#traits : 'WsTConcreteComponentOLD',
 	#classTraits : 'WsTConcreteComponentOLD classTrait',
@@ -10,32 +10,32 @@ Class {
 }
 
 { #category : #'instance creation' }
-WsToDoListItemComponent class >> modelClass [
+WsToDoListItemComponentOLD class >> modelClass [
 
 	^ WsToDoListItemModel 
 ]
 
 { #category : #'class initialization' }
-WsToDoListItemComponent class >> tagName [
+WsToDoListItemComponentOLD class >> tagName [
 
 	^ 'ws-todolist-item'
 ]
 
 { #category : #rendering }
-WsToDoListItemComponent class >> viewClass [
+WsToDoListItemComponentOLD class >> viewClass [
 
 	<pharoJsSkip>
 	^ WsToDoListItemView
 ]
 
 { #category : #initialization }
-WsToDoListItemComponent >> displayChecked: aBoolean [
+WsToDoListItemComponentOLD >> displayChecked: aBoolean [
 
 	checkbox checked: aBoolean
 ]
 
 { #category : #initialization }
-WsToDoListItemComponent >> initModel [
+WsToDoListItemComponentOLD >> initModel [
 
 	super initModel.
 	(model -@ #isCheckedPort)
@@ -44,14 +44,14 @@ WsToDoListItemComponent >> initModel [
 ]
 
 { #category : #initialization }
-WsToDoListItemComponent >> initView [
+WsToDoListItemComponentOLD >> initView [
 
 	super initView.
 	checkbox := view querySelector: '.todo-checkbox'
 ]
 
 { #category : #initialization }
-WsToDoListItemComponent >> updateDisplay [
+WsToDoListItemComponentOLD >> updateDisplay [
 
 	super updateDisplay.
 	self displayChecked: model isChecked

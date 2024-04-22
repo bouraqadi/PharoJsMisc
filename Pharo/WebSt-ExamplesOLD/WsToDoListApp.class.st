@@ -9,7 +9,7 @@ Class {
 { #category : #accessing }
 WsToDoListApp class >> rootComponentClass [
 
-	^WsToDoListComponent 
+	^WsToDoListComponentOLD 
 ]
 
 { #category : #rendering }

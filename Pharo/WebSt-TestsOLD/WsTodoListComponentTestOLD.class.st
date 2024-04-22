@@ -1,20 +1,20 @@
 Class {
-	#name : #WsTodoListComponentTest,
+	#name : #WsTodoListComponentTestOLD,
 	#superclass : #WsTextListComponentTestOLD,
 	#category : #'WebSt-TestsOLD-Examples'
 }
 
 { #category : #'suite parameters' }
-WsTodoListComponentTest class >> appClass [ 
+WsTodoListComponentTestOLD class >> appClass [ 
 	^WsToDoListApp 
 ]
 
 { #category : #tests }
-WsTodoListComponentTest >> assertBehavior [
+WsTodoListComponentTestOLD >> assertBehavior [
 
 	| addItemButton expectedCount |
 	super assertBehavior.
-	listComponent := root querySelector: WsToDoListItemComponent tagName.
+	listComponent := root querySelector: WsToDoListItemComponentOLD tagName.
 	expectedCount := self itemElements size.
 	addItemButton := root querySelector: 'button'.
 	 3 timesRepeat: [ 
@@ -24,7 +24,7 @@ WsTodoListComponentTest >> assertBehavior [
 ]
 
 { #category : #tests }
-WsTodoListComponentTest >> changeModel [
+WsTodoListComponentTestOLD >> changeModel [
 
 	self evalBlock: [
 		| textModels |
@@ -34,7 +34,7 @@ WsTodoListComponentTest >> changeModel [
 ]
 
 { #category : #tests }
-WsTodoListComponentTest >> componentClasses [
+WsTodoListComponentTestOLD >> componentClasses [
 
 	^ super componentClasses , {
 		  WsListComponentOLD.
