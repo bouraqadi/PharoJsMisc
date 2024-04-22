@@ -26,13 +26,13 @@ WsComponentTest class >> appClassGenerator [
 
 { #category : #accessing }
 WsComponentTest class >> appClassGeneratorClass [
-	^PjComponentAppClassTestResource 
+	^WsComponentAppClassTestResource 
 ]
 
 { #category : #accessing }
 WsComponentTest class >> appSuperclass [
 
-	^ PjComponentAppForTest
+	^ WsComponentAppForTest
 ]
 
 { #category : #accessing }

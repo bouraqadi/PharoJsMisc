@@ -1,5 +1,5 @@
 Class {
-	#name : #PjComponentAppForTestDescriptor,
+	#name : #WsComponentAppForTestDescriptor,
 	#superclass : #Object,
 	#traits : 'TEquality',
 	#classTraits : 'TEquality classTrait',
@@ -12,37 +12,37 @@ Class {
 }
 
 { #category : #WsView }
-PjComponentAppForTestDescriptor >> componentClass [
+WsComponentAppForTestDescriptor >> componentClass [
 
 	^ componentClass
 ]
 
 { #category : #WsView }
-PjComponentAppForTestDescriptor >> componentClass: anObject [
+WsComponentAppForTestDescriptor >> componentClass: anObject [
 
 	componentClass := anObject
 ]
 
 { #category : #WsView }
-PjComponentAppForTestDescriptor >> superclass [
+WsComponentAppForTestDescriptor >> superclass [
 
 	^ superclass
 ]
 
 { #category : #WsView }
-PjComponentAppForTestDescriptor >> superclass: anObject [
+WsComponentAppForTestDescriptor >> superclass: anObject [
 
 	superclass := anObject
 ]
 
 { #category : #WsView }
-PjComponentAppForTestDescriptor >> traits [
+WsComponentAppForTestDescriptor >> traits [
 
 	^ traits
 ]
 
 { #category : #WsView }
-PjComponentAppForTestDescriptor >> traits: anObject [
+WsComponentAppForTestDescriptor >> traits: anObject [
 
 	traits := anObject
 ]

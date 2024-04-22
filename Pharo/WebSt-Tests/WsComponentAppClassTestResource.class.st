@@ -1,5 +1,5 @@
 Class {
-	#name : #PjComponentAppClassTestResource,
+	#name : #WsComponentAppClassTestResource,
 	#superclass : #TestResource,
 	#instVars : [
 		'classFactory',
@@ -9,7 +9,7 @@ Class {
 }
 
 { #category : #creating }
-PjComponentAppClassTestResource >> appClassSuperclass: appSuperclass traits: appTraits componentClass: componentClass [
+WsComponentAppClassTestResource >> appClassSuperclass: appSuperclass traits: appTraits componentClass: componentClass [
 
 	| descriptor |
 	descriptor := self
@@ -24,16 +24,16 @@ PjComponentAppClassTestResource >> appClassSuperclass: appSuperclass traits: app
 ]
 
 { #category : #creating }
-PjComponentAppClassTestResource >> descriptorForSuperclass: appSuperclass traits: appTraits componentClass: componentClass [
+WsComponentAppClassTestResource >> descriptorForSuperclass: appSuperclass traits: appTraits componentClass: componentClass [
 
-	^PjComponentAppForTestDescriptor new
+	^WsComponentAppForTestDescriptor new
 		 superclass: appSuperclass;
 		traits: appTraits;
 		componentClass: componentClass 
 ]
 
 { #category : #creating }
-PjComponentAppClassTestResource >> newAppClassSuperclass: appSuperclass traits: appTraits componentClass: componentClass [
+WsComponentAppClassTestResource >> newAppClassSuperclass: appSuperclass traits: appTraits componentClass: componentClass [
 
 	| appClass |
 	appClass := classFactory
@@ -46,7 +46,7 @@ PjComponentAppClassTestResource >> newAppClassSuperclass: appSuperclass traits: 
 ]
 
 { #category : #running }
-PjComponentAppClassTestResource >> setUp [
+WsComponentAppClassTestResource >> setUp [
 
 	super setUp.
 	classFactory := ClassFactoryForTestCase new.
@@ -54,7 +54,7 @@ PjComponentAppClassTestResource >> setUp [
 ]
 
 { #category : #running }
-PjComponentAppClassTestResource >> tearDown [ 
+WsComponentAppClassTestResource >> tearDown [ 
 
 	super tearDown.
 	classFactory cleanUp

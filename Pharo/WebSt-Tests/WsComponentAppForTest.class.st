@@ -1,5 +1,5 @@
 Class {
-	#name : #PjComponentAppForTest,
+	#name : #WsComponentAppForTest,
 	#superclass : #PjWebApplication,
 	#classInstVars : [
 		'rootComponentClass'
@@ -8,13 +8,13 @@ Class {
 }
 
 { #category : #WsView }
-PjComponentAppForTest class >> rootComponentClass [
+WsComponentAppForTest class >> rootComponentClass [
 
 	^ rootComponentClass
 ]
 
 { #category : #WsView }
-PjComponentAppForTest class >> rootComponentClass: anObject [
+WsComponentAppForTest class >> rootComponentClass: anObject [
 
 	rootComponentClass := anObject
 ]
