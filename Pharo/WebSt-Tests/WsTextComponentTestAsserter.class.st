@@ -8,8 +8,14 @@ Class {
 WsTextComponentTestAsserter >> assertViewModelLink [
 
 	| newText |
-	self assert: component display textContent equals: model text.
+	self assert: self textDisplay textContent equals: model text.
 	newText := 'new text'.
 	model text: newText.
-	self assert: component display textContent equals: newText
+	self assert: self textDisplay textContent equals: newText
+]
+
+{ #category : #asserting }
+WsTextComponentTestAsserter >> textDisplay [
+
+	^ domRoot querySelector: '.display'
 ]
