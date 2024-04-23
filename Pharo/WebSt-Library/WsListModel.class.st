@@ -8,7 +8,7 @@ Class {
 	#category : #'WebSt-Library-List'
 }
 
-{ #category : #accessing }
+{ #category : #adding }
 WsListModel >> add: itemModel [
 
 	items addLast: itemModel.
@@ -16,7 +16,7 @@ WsListModel >> add: itemModel [
 			itemModel. items size}.
 ]
 
-{ #category : #accessing }
+{ #category : #adding }
 WsListModel >> addAll: itemModels [
 
 	itemModels do: [ :each | self add: each ]
