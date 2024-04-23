@@ -6,8 +6,14 @@ Class {
 	#category : #'WebSt-Examples-ToDoList'
 }
 
+{ #category : #accessing }
+WsToDoListComponent class >> itemComponentClass [
+
+	^ WsToDoItemComponent 
+]
+
 { #category : #'class initialization' }
 WsToDoListComponent class >> tagName [
 
-	^ 'ws-todolist'
+	^ 'ws-todo-list'
 ]

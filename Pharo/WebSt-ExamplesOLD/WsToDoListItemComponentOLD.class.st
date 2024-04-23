@@ -15,12 +15,6 @@ WsToDoListItemComponentOLD class >> modelClass [
 	^ WsToDoItemModel 
 ]
 
-{ #category : #'class initialization' }
-WsToDoListItemComponentOLD class >> tagName [
-
-	^ 'ws-todolist-item'
-]
-
 { #category : #rendering }
 WsToDoListItemComponentOLD class >> viewClass [
 
