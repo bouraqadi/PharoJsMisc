@@ -12,7 +12,7 @@ Class {
 { #category : #'instance creation' }
 WsToDoListItemComponentOLD class >> modelClass [
 
-	^ WsToDoListItemModel 
+	^ WsToDoItemModel 
 ]
 
 { #category : #'class initialization' }
@@ -25,7 +25,7 @@ WsToDoListItemComponentOLD class >> tagName [
 WsToDoListItemComponentOLD class >> viewClass [
 
 	<pharoJsSkip>
-	^ WsToDoListItemView
+	^ WsToDoItemView
 ]
 
 { #category : #initialization }

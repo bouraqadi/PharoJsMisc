@@ -1,28 +1,28 @@
 Class {
-	#name : #WsToDoListItemModel,
+	#name : #WsToDoItemModel,
 	#superclass : #WsTextModel,
 	#instVars : [
 		'isChecked',
 		'isCheckedPort'
 	],
-	#category : #'WebSt-ExamplesOLD-TodoList'
+	#category : #'WebSt-Examples-ToDoList'
 }
 
 { #category : #initialization }
-WsToDoListItemModel >> initialize [ 
+WsToDoItemModel >> initialize [ 
 	super initialize.
 	isChecked := false.
 	isCheckedPort := HyCollectionPort new
 ]
 
 { #category : #accessing }
-WsToDoListItemModel >> isChecked [
+WsToDoItemModel >> isChecked [
 
 	^ isChecked
 ]
 
 { #category : #accessing }
-WsToDoListItemModel >> isChecked: aBoolean [
+WsToDoItemModel >> isChecked: aBoolean [
 
 	isChecked := aBoolean.
 	isCheckedPort notifyWith: isChecked 

@@ -29,7 +29,7 @@ WsTodoListComponentTestOLD >> changeModel [
 	self evalBlock: [
 		| textModels |
 		textModels := #( banana orange apple 'pine apple' kiwi ) collect: [
-			              :each | WsToDoListItemModel text: each ].
+			              :each | WsToDoItemModel text: each ].
 		model addAll: textModels ]
 ]
 
