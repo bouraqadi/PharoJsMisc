@@ -13,9 +13,11 @@ WsTextListComponentTest class >> componentClass [
 { #category : #asserting }
 WsTextListComponentTest >> changeModelValues [
 
-	self evalBlock: [component addAllTexts:
-		#( 'May the force be with you' 'Jedi Master' 'R2D2 droid'
-		   'light saber' )]
+	self evalBlock: [
+		component addAllTexts:
+			#( 'May the force be with you' 'Jedi Master' 'R2D2 droid'
+			   'light saber' )].
+	component addText: 'Star Wars'.
 ]
 
 { #category : #asserting }

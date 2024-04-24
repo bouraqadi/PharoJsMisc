@@ -1,6 +1,6 @@
 Class {
 	#name : #WsToDoItemView,
-	#superclass : #WsEditableTextView,
+	#superclass : #WsView,
 	#category : #'WebSt-Examples-ToDoList'
 }
 
@@ -11,5 +11,5 @@ WsToDoItemView >> renderOuterHtmlOn: html [
 		class: 'form-check';
 		with: [
 			html checkbox class: 'form-check-input todo-checkbox'.
-			super renderOuterHtmlOn: html ]
+			html render: WsEditableTextComponent ]
 ]

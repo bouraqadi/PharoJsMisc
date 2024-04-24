@@ -35,6 +35,11 @@ WsTextComponent class >> viewClass [
 	^WsTextView
 ]
 
+{ #category : #accessing }
+WsTextComponent >> display [
+	^display
+]
+
 { #category : #initialization }
 WsTextComponent >> initModel [
 

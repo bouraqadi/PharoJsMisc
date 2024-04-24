@@ -16,5 +16,12 @@ WsToDoItemComponentTestAsserter >> assertViewModelLink [
 
 { #category : #asserting }
 WsToDoItemComponentTestAsserter >> checkBox [
-	^domRoot querySelector: '.checkbox'
+
+	^ domRoot querySelector: '.todo-checkbox'
+]
+
+{ #category : #asserting }
+WsToDoItemComponentTestAsserter >> textDisplay [
+
+	^ component textComponent  readerDisplay
 ]

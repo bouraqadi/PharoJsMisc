@@ -16,6 +16,5 @@ WsTextComponentTestAsserter >> assertViewModelLink [
 
 { #category : #asserting }
 WsTextComponentTestAsserter >> textDisplay [
-
-	^ domRoot querySelector: '.display'
+	^component display
 ]

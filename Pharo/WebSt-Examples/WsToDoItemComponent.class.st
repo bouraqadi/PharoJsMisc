@@ -3,6 +3,10 @@ Class {
 	#superclass : #WsMvcComponent,
 	#traits : 'WsTConcreteComponent',
 	#classTraits : 'WsTConcreteComponent classTrait',
+	#instVars : [
+		'textComponent',
+		'checkbox'
+	],
 	#category : #'WebSt-Examples-ToDoList'
 }
 
@@ -23,4 +27,32 @@ WsToDoItemComponent class >> viewClass [
 
 	<pharoJsSkip>
 	^WsToDoItemView 
+]
+
+{ #category : #actions }
+WsToDoItemComponent >> displayChecked: aBoolean [
+	checkbox checked: aBoolean
+]
+
+{ #category : #initialization }
+WsToDoItemComponent >> initModel [
+
+	super initModel.
+	textComponent model: model.
+	model -@ #isCheckedPort
+	=> [ :isChecked | self displayChecked: isChecked ].
+	self displayChecked: model isChecked
+]
+
+{ #category : #initialization }
+WsToDoItemComponent >> initView [
+
+	super initView.
+	textComponent := view querySelector: WsEditableTextComponent tagName.
+	checkbox := view querySelector: '.todo-checkbox'
+]
+
+{ #category : #accessing }
+WsToDoItemComponent >> textComponent [
+	^textComponent 
 ]

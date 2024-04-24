@@ -30,7 +30,7 @@ WsMvcComponent class >> newModel [
 { #category : #initialization }
 WsMvcComponent >> initModel [
 
-^self
+	^ self 
 ]
 
 { #category : #initialization }

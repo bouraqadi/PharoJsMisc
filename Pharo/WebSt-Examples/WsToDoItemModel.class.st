@@ -9,10 +9,11 @@ Class {
 }
 
 { #category : #initialization }
-WsToDoItemModel >> initialize [ 
+WsToDoItemModel >> initialize [
+
 	super initialize.
 	isChecked := false.
-	isCheckedPort := HyCollectionPort new
+	isCheckedPort := HyCollectionPort notificationSelector: #value:
 ]
 
 { #category : #accessing }

@@ -1,6 +1,6 @@
 Class {
 	#name : #WsToDoListComponent,
-	#superclass : #WsListComponent,
+	#superclass : #WsTextListComponent,
 	#traits : 'WsTConcreteComponent',
 	#classTraits : 'WsTConcreteComponent classTrait',
 	#category : #'WebSt-Examples-ToDoList'

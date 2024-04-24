@@ -48,11 +48,28 @@ WsEditableTextComponent >> initView [
 	self closeEditor
 ]
 
+{ #category : #accessing }
+WsEditableTextComponent >> model [
+	^textReader model
+]
+
+{ #category : #accessing }
+WsEditableTextComponent >> model: newModel [
+
+	textReader model: newModel
+]
+
 { #category : #actions }
 WsEditableTextComponent >> openEditor [
 
 	self show: textEditor.
 	self hide: textReader
+]
+
+{ #category : #accessing }
+WsEditableTextComponent >> readerDisplay [
+
+	^ textReader display
 ]
 
 { #category : #actions }

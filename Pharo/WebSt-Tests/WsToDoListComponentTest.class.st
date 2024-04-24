@@ -14,11 +14,11 @@ WsToDoListComponentTest class >> componentClass [
 WsToDoListComponentTest >> changeModelValues [
 
 	self evalBlock: [
-		model addAllTexts:
-			#( 'Butter' 'Milk' 'eggs'
-			   'bread' 'Honey' ) ].
-		model items first isChecked: true.
-		model items third isChecked: true
+		component addAllTexts: #( 'Butter' 'Milk' 'eggs' 'bread' 'Honey' ).
+		].
+	component addText: 'Banans'.
+	model items first isChecked: true.
+	model items third isChecked: true
 ]
 
 { #category : #asserting }
