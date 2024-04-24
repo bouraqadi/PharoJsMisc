@@ -17,3 +17,12 @@ WsCounterListComponent class >> tagName [
 
 	^ 'ws-counter-list'
 ]
+
+{ #category : #adding }
+WsCounterListComponent >> addCounter: countValue [
+
+	| counter |
+	counter := self itemModelClass count: countValue.
+	model add: counter.
+	^counter
+]
