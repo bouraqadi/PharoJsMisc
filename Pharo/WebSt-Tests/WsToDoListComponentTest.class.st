@@ -11,6 +11,20 @@ WsToDoListComponentTest class >> componentClass [
 ]
 
 { #category : #asserting }
+WsToDoListComponentTest >> assertViewModelLink [
+
+	| itemsInitialCount newTitle |
+	self assert: self titleDisplayContent equals: model title.
+	newTitle := 'Another catchy title'.
+	model title: newTitle.
+	self assert: self titleDisplayContent equals: newTitle.
+	itemsInitialCount := model items size.
+	3 timesRepeat: [ self clickAddItemButton ].
+	self assert: model items size equals: itemsInitialCount + 3.
+	super assertViewModelLink
+]
+
+{ #category : #asserting }
 WsToDoListComponentTest >> changeModelValues [
 
 	self evalBlock: [
@@ -22,7 +36,18 @@ WsToDoListComponentTest >> changeModelValues [
 ]
 
 { #category : #asserting }
+WsToDoListComponentTest >> clickAddItemButton [
+
+	^self clickElement: (shadowRoot querySelector: '.addItemButton')
+]
+
+{ #category : #asserting }
 WsToDoListComponentTest >> itemComponentAsserter [
 
 	^ WsToDoItemComponentTestAsserter
+]
+
+{ #category : #asserting }
+WsToDoListComponentTest >> titleDisplayContent [
+	^(shadowRoot querySelector: '.titleDisplay') textContent
 ]
