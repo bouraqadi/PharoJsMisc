@@ -120,7 +120,7 @@ WsComponent >> resetView [
 WsComponent >> shadowEncapsulationMode [
 	"Access from javaScript outside the root shadow dom is:
 	- granted when returning 'open' 
-	- denied when returning 'closed'. This option makes debugging challenging.
+	- denied when returning 'closed'. This option can be an issue with some libraries such as Bootstrap. It makes also debugging challenging.
 	See https://developer.mozilla.org/en-US/docs/Web/API/Element/attachShadow"
 
 	^ 'open'
