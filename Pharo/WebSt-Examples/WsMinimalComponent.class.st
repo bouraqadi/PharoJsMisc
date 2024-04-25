@@ -3,7 +3,7 @@ Class {
 	#superclass : #WsComponent,
 	#traits : 'WsTConcreteComponent',
 	#classTraits : 'WsTConcreteComponent classTrait',
-	#category : #'WebSt-Examples-Minimal'
+	#category : #'WebSt-Examples-Basic'
 }
 
 { #category : #'class initialization' }

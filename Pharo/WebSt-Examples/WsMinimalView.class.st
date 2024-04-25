@@ -1,7 +1,7 @@
 Class {
 	#name : #WsMinimalView,
 	#superclass : #WsView,
-	#category : #'WebSt-Examples-Minimal'
+	#category : #'WebSt-Examples-Basic'
 }
 
 { #category : #rendering }
