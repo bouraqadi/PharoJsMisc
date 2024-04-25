@@ -41,7 +41,8 @@ WsToDoItemComponent >> initModel [
 	textComponent model: model.
 	model -@ #isCheckedPort
 	=> [ :isChecked | self displayChecked: isChecked ].
-	self displayChecked: model isChecked
+	self displayChecked: model isChecked.
+
 ]
 
 { #category : #initialization }

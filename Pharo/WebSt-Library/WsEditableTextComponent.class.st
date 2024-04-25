@@ -42,10 +42,11 @@ WsEditableTextComponent >> initView [
 	self onClickElement: textReader do: [ self openEditor ].
 	textEditor := view querySelector: WsTextInputComponent tagName.
 	textEditor
-		model: textReader model;
 		cancelBlock: [ self cancelEdit ];
 		saveBlock: [ :newText | self saveEdit: newText ].
-	self closeEditor
+	self closeEditor.
+	self model: textReader model.
+
 ]
 
 { #category : #accessing }
@@ -56,7 +57,9 @@ WsEditableTextComponent >> model [
 { #category : #accessing }
 WsEditableTextComponent >> model: newModel [
 
-	textReader model: newModel
+	textReader model: newModel.
+	textEditor	model: newModel
+
 ]
 
 { #category : #actions }
