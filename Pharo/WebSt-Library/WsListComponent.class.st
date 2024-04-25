@@ -26,6 +26,15 @@ WsListComponent class >> viewClass [
 	^ WsListView
 ]
 
+{ #category : #adding }
+WsListComponent >> addItem [
+
+	| newItem |
+	newItem := self newItemModel.
+	model add: newItem.
+	^ newItem
+]
+
 { #category : #actions }
 WsListComponent >> addItemComponent: itemComponent [
 
@@ -92,4 +101,10 @@ WsListComponent >> itemModelClass [
 WsListComponent >> newItemComponent: itemModel [
 
 	^ self itemComponentClass model: itemModel
+]
+
+{ #category : #adding }
+WsListComponent >> newItemModel [
+
+	^ self itemModelClass new
 ]

@@ -26,7 +26,5 @@ WsTextListComponent >> addAllTexts: newTexts [
 { #category : #adding }
 WsTextListComponent >> addText: aString [
 
-	| itemComponent |
-	itemComponent := self itemModelClass text: aString.
-	model add: itemComponent
+	self addItem text: aString
 ]
