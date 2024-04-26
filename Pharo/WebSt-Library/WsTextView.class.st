@@ -7,5 +7,7 @@ Class {
 { #category : #rendering }
 WsTextView >> renderOuterHtmlOn: html [
 
-	html span class: 'display'
+	html span
+		class: 'display';
+		style: 'display:inline-block;min-width:100px; min-height: 1.5em;'
 ]
