@@ -9,7 +9,7 @@ WsToDoListView >> renderOuterHtmlOn: html [
 
 	html heading
 		level2;
-		class: 'titleDisplay'.
+		class: 'headingDisplay'.
 	super renderOuterHtmlOn: html.
 	html button
 		class: 'addItemButton btn btn-primary btn-lg';

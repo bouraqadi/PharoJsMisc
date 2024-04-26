@@ -22,7 +22,9 @@ WsToDoListApp class >> title [
 { #category : #initialization }
 WsToDoListApp >> initRootComponent [
 
-	self rootComponent addAllTexts:
-		#( 'Bread' 'Peanut Butter' 'Soy Milk' 'Coffee' 'Sugar' 'Honey'
-		   'Cereals' 'Strawberry Jam' )
+	self rootComponent
+		heading: 'Shopping List';
+		addAllTexts:
+			#( 'Bread' 'Peanut Butter' 'Soy Milk' 'Coffee' 'Sugar' 'Honey'
+			   'Cereals' 'Strawberry Jam' )
 ]

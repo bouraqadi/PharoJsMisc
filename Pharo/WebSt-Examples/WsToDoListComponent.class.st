@@ -4,7 +4,7 @@ Class {
 	#traits : 'WsTConcreteComponent',
 	#classTraits : 'WsTConcreteComponent classTrait',
 	#instVars : [
-		'titleDisplay'
+		'headingDisplay'
 	],
 	#category : #'WebSt-Examples-ToDoList'
 }
@@ -34,26 +34,30 @@ WsToDoListComponent class >> viewClass [
 	^ WsToDoListView
 ]
 
+{ #category : #actions }
+WsToDoListComponent >> displayHeading: aString [
+
+	headingDisplay textContent: aString
+]
+
 { #category : #initialization }
 WsToDoListComponent >> displayModel [
 
 	super displayModel.
-	self displayTitle: model title
+	self displayHeading: model heading
 ]
 
-{ #category : #actions }
-WsToDoListComponent >> displayTitle: aString [
+{ #category : #accessing }
+WsToDoListComponent >> heading: newTitle [
 
-	titleDisplay textContent: aString
+	model heading: newTitle
 ]
 
 { #category : #initialization }
 WsToDoListComponent >> initModel [
 
 	super initModel.
-	model -@ #titlePort
-	=> [ :newTitle | self displayTitle: newTitle ].
-
+	model -@ #headingPort => [ :newTitle | self displayHeading: newTitle ]
 ]
 
 { #category : #initialization }
@@ -61,7 +65,7 @@ WsToDoListComponent >> initView [
 
 	| addButton |
 	super initView.
-	titleDisplay := view querySelector: '.titleDisplay'.
+	headingDisplay := view querySelector: '.headingDisplay'.
 	addButton := view querySelector: '.addItemButton'.
 	self onClickElement: addButton do: [ self addItem ]
 ]

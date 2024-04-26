@@ -14,7 +14,7 @@ WsToDoListComponentTest class >> componentClass [
 WsToDoListComponentTest >> assertViewModelLink [
 
 	| itemsInitialCount |
-	self assert: self titleDisplayContent equals: model title.
+	self assert: self headingDisplayContent equals: model heading.
 	itemsInitialCount := model items size.
 	3 timesRepeat: [ self clickAddItemButton ].
 	self assert: model items size equals: itemsInitialCount + 3.
@@ -29,7 +29,7 @@ WsToDoListComponentTest >> changeModelValues [
 	component addText: 'Banans'.
 	model items first isChecked: true.
 	model items third isChecked: true.
-	model title: 'Another catchy title'
+	component heading: 'Another catchy title'
 ]
 
 { #category : #asserting }
@@ -39,12 +39,13 @@ WsToDoListComponentTest >> clickAddItemButton [
 ]
 
 { #category : #asserting }
-WsToDoListComponentTest >> itemComponentAsserter [
+WsToDoListComponentTest >> headingDisplayContent [
 
-	^ WsToDoItemComponentTestAsserter
+	^ (shadowRoot querySelector: '.headingDisplay') textContent
 ]
 
 { #category : #asserting }
-WsToDoListComponentTest >> titleDisplayContent [
-	^(shadowRoot querySelector: '.titleDisplay') textContent
+WsToDoListComponentTest >> itemComponentAsserter [
+
+	^ WsToDoItemComponentTestAsserter
 ]
