@@ -36,9 +36,10 @@ WsComponent class >> registerTag [
 ]
 
 { #category : #rendering }
-WsComponent class >> renderOn: html [ 
+WsComponent class >> renderOn: html [
+
 	<pharoJsSkip>
-	self renderOn: html style: ''
+	self renderOn: html style: nil
 ]
 
 { #category : #rendering }
@@ -52,8 +53,10 @@ WsComponent class >> renderOn: html style: cssStyleString [
 WsComponent class >> renderOuterHtmlOn: html style: cssStyleString [
 
 	<pharoJsSkip>
-	(html tag: self tagName)
-		style: cssStyleString
+	| htmlBrush |
+	htmlBrush := html tag: self tagName.
+cssStyleString ifNil: [ ^self ].
+	htmlBrush style: cssStyleString
 ]
 
 { #category : #rendering }
