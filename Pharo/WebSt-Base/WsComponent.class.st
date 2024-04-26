@@ -36,17 +36,24 @@ WsComponent class >> registerTag [
 ]
 
 { #category : #rendering }
-WsComponent class >> renderOn: html [
-
+WsComponent class >> renderOn: html [ 
 	<pharoJsSkip>
-	html renderComponentClass: self
+	self renderOn: html style: ''
 ]
 
 { #category : #rendering }
-WsComponent class >> renderOuterHtmlOn: html [
+WsComponent class >> renderOn: html style: cssStyleString [
 
 	<pharoJsSkip>
-	html tag: self tagName
+	html renderComponentClass: self  style: cssStyleString
+]
+
+{ #category : #rendering }
+WsComponent class >> renderOuterHtmlOn: html style: cssStyleString [
+
+	<pharoJsSkip>
+	(html tag: self tagName)
+		style: cssStyleString
 ]
 
 { #category : #rendering }

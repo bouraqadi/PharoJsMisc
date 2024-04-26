@@ -118,6 +118,12 @@ WsRenderer >> render: element [
 ]
 
 { #category : #rendering }
+WsRenderer >> render: element style: cssStyleString [
+
+	element renderOn: self  style: cssStyleString
+]
+
+{ #category : #rendering }
 WsRenderer >> renderAppClass: appClass [
 
 	| componentRenderer page |
@@ -139,6 +145,17 @@ WsRenderer >> renderComponentClass: component [
 	self resetLocalResources.
 	self addAllResourcesOf: component.
 	component renderOuterHtmlOn: self.
+	localResources := currentLocalResources
+]
+
+{ #category : #rendering }
+WsRenderer >> renderComponentClass: component style: cssStyleString [
+
+	| currentLocalResources |
+	currentLocalResources := localResources.
+	self resetLocalResources.
+	self addAllResourcesOf: component.
+	component renderOuterHtmlOn: self style: cssStyleString.
 	localResources := currentLocalResources
 ]
 

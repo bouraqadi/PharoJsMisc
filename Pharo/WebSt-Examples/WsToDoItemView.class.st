@@ -7,7 +7,6 @@ Class {
 { #category : #rendering }
 WsToDoItemView >> renderOuterHtmlOn: html [
 
-	
-			html checkbox class: 'form-check-input todo-checkbox'.
-			html render: WsEditableTextComponent
+	html checkbox class: 'form-check-input todo-checkbox'.
+	html render: WsEditableTextComponent style: 'display:inline-flex; margin-left:10px;'
 ]
