@@ -1,17 +1,18 @@
 Class {
-	#name : #BaselineOfHydrogenComponentsJS,
-	#superclass : #BaselineOf,
-	#category : #BaselineOfHydrogenComponentsJS
+	#name : 'BaselineOfHydrogenComponentsJS',
+	#superclass : 'BaselineOf',
+	#category : 'BaselineOfHydrogenComponentsJS',
+	#package : 'BaselineOfHydrogenComponentsJS'
 }
 
-{ #category : #baselines }
+{ #category : 'baselines' }
 BaselineOfHydrogenComponentsJS >> baseline: spec [
 	<baseline>
 
 	spec for: #'common' do: [
 		spec 
 			baseline: 'PharoJS' with: [
-				spec repository: 'github://PharoJS/PharoJS:pharo11' ];
+				spec repository: 'github://PharoJS/PharoJS:pharo12' ];
 			baseline: 'HydrogenComponents' with: [
 				spec repository: 'github://bouraqadi/Components' ].
 		spec 
