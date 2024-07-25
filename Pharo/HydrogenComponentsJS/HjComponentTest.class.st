@@ -1,58 +1,60 @@
 Class {
-	#name : #HjComponentTest,
-	#superclass : #PjAppTestCase,
+	#name : 'HjComponentTest',
+	#superclass : 'PjAppTestCase',
 	#traits : 'PjTAppRunsInJS',
 	#classTraits : 'PjTAppRunsInJS classTrait',
-	#category : #'HydrogenComponentsJS-Tests'
+	#category : 'HydrogenComponentsJS-Tests',
+	#package : 'HydrogenComponentsJS',
+	#tag : 'Tests'
 }
 
-{ #category : #'suite parameters' }
+{ #category : 'suite parameters' }
 HjComponentTest class >> appClass [
 	^HjAppForTest
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 HjComponentTest >> testAdapter [
 	app setUpAdapterTest.
 	self assert: app isAdapterSuccess.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 HjComponentTest >> testAdapterWith1Arg [
 
 	app setUpAdapterWith1ArgTest.
 	self assert: app isAdapterWith1ArgSuccess
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 HjComponentTest >> testAdapterWithFiltering [
 	app setUpAdapterWithFilteringTest.
 	self assert: app isAdapterWithFilteringSuccessForB.
 	self assert: app isAdapterWithFilteringSuccessForC.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 HjComponentTest >> testAdapterWithSimplifiedFiltering [
 	app setUpAdapterWithSimplifiedFilteringTest.
 	self assert: app isAdapterWithSimplifiedFilteringSuccess.
 
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 HjComponentTest >> testConnecting [
 	app setUpConnectionTest.
 	self assert: app isIncrementNotified.
 	self assert: app isDecrementNotified.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 HjComponentTest >> testConnectingMulipleComponents [
 	app setUpConnectMultipleComponentsTest.
 	self assert: app isMultiConnectionIncrementNotified.
 	self assert: app isMultiConnectionDecrementNotified.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 HjComponentTest >> testDisconnecting [
 
 	app setUpConnectionTest.
@@ -62,7 +64,7 @@ HjComponentTest >> testDisconnecting [
 	self assert: app isPostDisconnectDecrementNotified
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 HjComponentTest >> testDisconnecting1Block [
 
 	app setUpBlockDisconnectTest.
@@ -73,7 +75,7 @@ HjComponentTest >> testDisconnecting1Block [
 	self assert: app d.
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 HjComponentTest >> testDisconnectingBlockBlockCollection [
 
 	app setUpBlockDisconnectTest.
@@ -84,9 +86,15 @@ HjComponentTest >> testDisconnectingBlockBlockCollection [
 	self deny: app d
 ]
 
-{ #category : #tests }
+{ #category : 'tests' }
 HjComponentTest >> testLifeCycle [
 	app setUpLifeCycleTest.
 	self assert: app isStartIfAllStarted.
 	self assert: app isStopIfOneStopped.
+]
+
+{ #category : 'tests' }
+HjComponentTest >> testValueNotificationSelector [
+	app setUpValueNotificationSelector.
+	self assert: app isAdapterSuccess.
 ]

@@ -1,6 +1,6 @@
 Class {
-	#name : #HjAppForTest,
-	#superclass : #PjWebApplication,
+	#name : 'HjAppForTest',
+	#superclass : 'PjWebApplication',
 	#instVars : [
 		'observer',
 		'counter',
@@ -12,28 +12,30 @@ Class {
 		'cBlock',
 		'dBlock'
 	],
-	#category : #'HydrogenComponentsJS-Tests'
+	#category : 'HydrogenComponentsJS-Tests',
+	#package : 'HydrogenComponentsJS',
+	#tag : 'Tests'
 }
 
-{ #category : #running }
+{ #category : 'running' }
 HjAppForTest >> disconnectBBlock [
 	(a -@ #portA) disconnect: bBlock
 	
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 HjAppForTest >> disconnectCDBlockCollection [
 
 	a -@ #portA disconnect: {cBlock. dBlock}
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 HjAppForTest >> disconnectCfromAIncrement [
 
 	a -@ #portA disconnect: c
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 HjAppForTest >> isAdapterSuccess [
 	a triggerIncrement.
 	^self subjects allSatisfy: [ : each | each = true].
@@ -41,7 +43,7 @@ HjAppForTest >> isAdapterSuccess [
 
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 HjAppForTest >> isAdapterWith1ArgSuccess [
 
 	| initCondition |
@@ -51,7 +53,7 @@ HjAppForTest >> isAdapterWith1ArgSuccess [
 	^ self subjects allSatisfy: [ :each | each = 123 ]
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 HjAppForTest >> isAdapterWithFilteringSuccessForB [
 	b := false.
 	c := false.
@@ -62,7 +64,7 @@ HjAppForTest >> isAdapterWithFilteringSuccessForB [
 
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 HjAppForTest >> isAdapterWithFilteringSuccessForC [
 	b := false.
 	c := false.
@@ -73,7 +75,7 @@ HjAppForTest >> isAdapterWithFilteringSuccessForC [
 
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 HjAppForTest >> isAdapterWithSimplifiedFilteringSuccess [
 	b := false.
 	c := false.
@@ -84,7 +86,7 @@ HjAppForTest >> isAdapterWithSimplifiedFilteringSuccess [
 
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 HjAppForTest >> isDecrementNotified [
 	| initialCount |
 	initialCount := b count.
@@ -94,7 +96,7 @@ HjAppForTest >> isDecrementNotified [
 
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 HjAppForTest >> isIncrementNotified [
 	| initialCount |
 	initialCount := b count.
@@ -103,7 +105,7 @@ HjAppForTest >> isIncrementNotified [
 
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 HjAppForTest >> isMultiConnectionDecrementNotified [
 	| initialCount |
 	initialCount := c count.
@@ -112,7 +114,7 @@ HjAppForTest >> isMultiConnectionDecrementNotified [
 
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 HjAppForTest >> isMultiConnectionIncrementNotified [
 	| initialCount |
 	initialCount := c count.
@@ -121,7 +123,7 @@ HjAppForTest >> isMultiConnectionIncrementNotified [
 
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 HjAppForTest >> isPostDisconnectDecrementNotified [
 
 	| bInitialCount cInitialCount |
@@ -131,7 +133,7 @@ HjAppForTest >> isPostDisconnectDecrementNotified [
 	^ c count = (cInitialCount - 1) and: [ b count = (bInitialCount - 1) ]
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 HjAppForTest >> isPostDisconnectIncrementNotified [
 
 	| bInitialCount cInitialCount |
@@ -141,20 +143,20 @@ HjAppForTest >> isPostDisconnectIncrementNotified [
 	^ c count = cInitialCount and: [b count = (bInitialCount + 1) ]
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 HjAppForTest >> isStartIfAllStarted [
 	self subjects do: [ : each | each start ].
 	^(counter startCount = 1) and: [counter stopCount = 0].
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 HjAppForTest >> isStopIfOneStopped [
 	self subjects do: [ : each | each start ].
 	b stop.
 	^(counter startCount = 1) and: [counter stopCount = 1].
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 HjAppForTest >> setUpAdapterTest [
 	a :=  HyComponentForCollectionPortTest new.
 	b := false.
@@ -168,7 +170,7 @@ HjAppForTest >> setUpAdapterTest [
 
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 HjAppForTest >> setUpAdapterWith1ArgTest [
 
 	a := HyComponentForCollectionPortTest new.
@@ -183,7 +185,7 @@ HjAppForTest >> setUpAdapterWith1ArgTest [
 				[: newCount | d := newCount ] }
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 HjAppForTest >> setUpAdapterWithFilteringTest [
 	a :=  HyComponentForIdFilteringCollectionPortTest new.
 	a -@ #portA notificationSelector: #incrementCount.
@@ -194,7 +196,7 @@ HjAppForTest >> setUpAdapterWithFilteringTest [
 
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 HjAppForTest >> setUpAdapterWithSimplifiedFilteringTest [
 	a :=  HyComponentForIdFilteringCollectionPortTest new.
 	a -@ #portA notificationSelector: #incrementCount.
@@ -205,7 +207,7 @@ HjAppForTest >> setUpAdapterWithSimplifiedFilteringTest [
 
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 HjAppForTest >> setUpBlockDisconnectTest [
 
 	a := HyComponentForCollectionPortTest new.
@@ -223,7 +225,7 @@ HjAppForTest >> setUpBlockDisconnectTest [
 				dBlock }
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 HjAppForTest >> setUpConnectMultipleComponentsTest [
 	a :=  HyComponentForCollectionPortTest new.
 	b := HyComponentForCollectionPortTest new.
@@ -236,7 +238,7 @@ HjAppForTest >> setUpConnectMultipleComponentsTest [
 
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 HjAppForTest >> setUpConnectionTest [
 	a :=  HyComponentForCollectionPortTest new.
 	b := HyComponentForCollectionPortTest new.
@@ -250,7 +252,7 @@ HjAppForTest >> setUpConnectionTest [
 
 ]
 
-{ #category : #running }
+{ #category : 'running' }
 HjAppForTest >> setUpLifeCycleTest [
 	b := HyStartableComponent new.
 	c := HyStartableComponent new.
@@ -262,7 +264,21 @@ HjAppForTest >> setUpLifeCycleTest [
 	observer -@ #(startPort stopPort) => counter.
 ]
 
-{ #category : #running }
+{ #category : 'running' }
+HjAppForTest >> setUpValueNotificationSelector [
+	a :=  HyComponentForCollectionPortTest new.
+	b := false.
+	c := false.
+	d := false.
+	a -@ #portA notificationSelector: #value.
+	a -@ #portA
+		=> [b := true];
+		=> {[c := true].  [d := true].}.
+	
+
+]
+
+{ #category : 'running' }
 HjAppForTest >> subjects [
 	^{b. c. d}
 ]

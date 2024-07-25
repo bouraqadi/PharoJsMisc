@@ -1,1 +1,1 @@
-Package { #name : #HydrogenComponentsJS }
+Package { #name : 'HydrogenComponentsJS' }

@@ -1,6 +1,6 @@
-Extension { #name : #PjString }
+Extension { #name : 'PjString' }
 
-{ #category : #'*HydrogenComponentsJS' }
+{ #category : '*HydrogenComponentsJS' }
 PjString >> asPortOf: anObject [
 	"Copied Dirty"
 	^anObject instVarNamed: self
