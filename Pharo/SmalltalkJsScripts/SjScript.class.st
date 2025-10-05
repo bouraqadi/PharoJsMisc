@@ -49,7 +49,7 @@ SjScript class >> exec: commandLineString options: associations callback: aBlock
 
 { #category : 'class initialization' }
 SjScript class >> initialize [ 
-	ChildProcessModule := self require: 'child_proccess'
+	ChildProcessModule := PjCore require: 'child_process'
 ]
 
 { #category : 'executing' }
