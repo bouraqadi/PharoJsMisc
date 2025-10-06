@@ -1,0 +1,5 @@
+HTML/**/node_modules/
+HTML/**/package.json
+HTML/**/package-lock.json
+HTML/**/*.log
+HTML/**/index.js
