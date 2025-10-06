@@ -15,6 +15,17 @@ Where XX is the Pharo image version number.
 ## H
 ### HydrogenComponentsJS
 Port to PharoJS of the [Hydrogen Component framework](https://github.com/bouraqadi/Components).
+## S
+### SmalltalkJsScripts
+Support to run command lines via NodeJS.
+
+Example: Start pharo image from NodeJS
+1. In a playground run: `SjSmalltalkImageLaucher exportApp`
+2. Close image
+3. Go to image folder
+4. Go to subfolder `/pharo-local/iceberg/bouraqadi/PharoJsMisc/HTML/SmalltalkJsScripts`
+5. Run command line `node index.js`. Your original Pharo image should restart :-)
+
 ## W
 ### WebST: WebComponents with Smalltalk
 WebST is a framework for building Web Components using PharoJS.
