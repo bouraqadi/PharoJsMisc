@@ -8,16 +8,27 @@ Class {
 	#package : 'SmalltalkJsScripts'
 }
 
-{ #category : 'utilities' }
+{ #category : 'examples' }
 SjScript class >> echo: aString [
-	self exec: 'echo ', aString
-	
-	
+
+	^self mergeThenExec: {
+			#echo.
+			aString }
 ]
 
 { #category : 'executing' }
-SjScript class >> exec: commandLineString [ 
-	^self exec: commandLineString options: nil callback: nil
+SjScript class >> exec: commandLineString [
+
+	^ self
+		  exec: commandLineString
+		  stdOutBlock: [ :stdout | console log: stdout ]
+		  stdErrBlock: [ :stderr | console log: stderr ]
+]
+
+{ #category : 'executing' }
+SjScript class >> exec: commandLineString callback: aBlock [
+	^self exec: commandLineString options: nil callback: aBlock 
+
 ]
 
 { #category : 'executing' }
@@ -47,17 +58,68 @@ SjScript class >> exec: commandLineString options: associations callback: aBlock
 	ChildProcessModule exec: commandLineString options: associations asJsObject callback: aBlock
 ]
 
+{ #category : 'executing' }
+SjScript class >> exec: commandLineString stdOutBlock: stdOutBlock stdErrBlock: stdErrBlock [
+
+	^ self exec: commandLineString callback: [ :error :stdout :stderr |
+		  error
+			  ifNil: stdOutBlock
+			  ifNotNil: stdErrBlock ]
+]
+
 { #category : 'class initialization' }
 SjScript class >> initialize [ 
 	ChildProcessModule := PjCore require: 'child_process'
 ]
 
+{ #category : 'examples' }
+SjScript class >> ls: aString [
+
+	^ self mergeThenExec: {#ls. aString}
+]
+
 { #category : 'executing' }
-SjScript >> exec: commandLineString [ 
-	self class exec: commandLineString 
+SjScript class >> mergeThenExec: strings [
+
+	^ self exec: (self mergeWithSpacesStrings: strings)
+]
+
+{ #category : 'executing' }
+SjScript class >> mergeWithSpacesStrings: strings [
+	^String streamContents: [ : str |
+		strings do: [ : each | str << each ] separatedBy: [ str space ] ]
+]
+
+{ #category : 'executing' }
+SjScript >> exec: commandLineString [
+
+	^self class exec: commandLineString
+]
+
+{ #category : 'executing' }
+SjScript >> exec: commandLineString callback: aBlock [
+
+	^self class exec: commandLineString callback: aBlock
 ]
 
 { #category : 'executing' }
 SjScript >> exec: commandLineString options: associations callback: aBlock [
-	self class exec: commandLineString options: associations callback: aBlock
+
+	^self class
+		exec: commandLineString
+		options: associations
+		callback: aBlock
+]
+
+{ #category : 'executing' }
+SjScript >> exec: commandLineString stdOutBlock: stdOutBlock stdErrBlock: stdErrBlock [
+
+	^self class exec: commandLineString stdOutBlock: stdOutBlock stdErrBlock: stdErrBlock
+
+]
+
+{ #category : 'executing' }
+SjScript >> mergeThenExec: strings [
+
+	^ self class mergeThenExec: strings
 ]
