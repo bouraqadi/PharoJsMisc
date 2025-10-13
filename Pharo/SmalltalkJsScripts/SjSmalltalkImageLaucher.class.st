@@ -28,7 +28,7 @@ SjSmalltalkImageLaucher >> start [
 { #category : 'utilities' }
 SjSmalltalkImageLaucher >> withVm: vmPathString startImage: imagePathString [
 
-	^ self mergeThenExec: {
+	^ self mergeThenExecAsync: {
 			  vmPathString.
 			  imagePathString}
 ]
