@@ -14,31 +14,38 @@ Class {
 	#package : 'SmalltalkJsScripts'
 }
 
-{ #category : 'examples' }
-SjScript class >> echo: aString [
-
-	^self mergeThenExec: {
-			#echo.
-			aString }
+{ #category : 'default instance' }
+SjScript class >> default [
+	^default ifNil: [ default := self new ]
 ]
 
-{ #category : 'executing' }
-SjScript class >> exec: commandLineString [
+{ #category : 'class initialization' }
+SjScript class >> javascriptInitialize [ 
+	ChildProcessModule := PjCore require: 'child_process'
+]
+
+{ #category : 'default instance' }
+SjScript class >> resetDefault [
+	^default := nil
+]
+
+{ #category : 'executing Async' }
+SjScript >> execAsync: commandLineString [
 
 	^ self
-		  exec: commandLineString
+		  execAsync: commandLineString
 		  stdOutBlock: [ :stdout | console log: stdout ]
 		  stdErrBlock: [ :stderr | console log: stderr ]
 ]
 
-{ #category : 'executing' }
-SjScript class >> exec: commandLineString callback: aBlock [
-	^self exec: commandLineString options: nil callback: aBlock 
+{ #category : 'executing Async' }
+SjScript >> execAsync: commandLineString callback: aBlock [
+	^self execAsync: commandLineString options: nil callback: aBlock 
 
 ]
 
-{ #category : 'executing' }
-SjScript class >> exec: commandLineString options: associations callback: aBlock [
+{ #category : 'executing Async' }
+SjScript >> execAsync: commandLineString options: associations callback: aBlock [
 	"See https://nodejs.org/api/child_process.html#child_processexeccommand-options-callback"
 	"Arguments doc:
 	- command <string> The command to run, with space-separated arguments.
@@ -61,71 +68,26 @@ SjScript class >> exec: commandLineString options: associations callback: aBlock
 	- Returns <ChildProcess>
 	"
 	
-	ChildProcessModule exec: commandLineString options: associations asJsObject callback: aBlock
+	^ChildProcessModule exec: commandLineString options: associations asJsObject callback: aBlock
 ]
 
-{ #category : 'executing' }
-SjScript class >> exec: commandLineString stdOutBlock: stdOutBlock stdErrBlock: stdErrBlock [
+{ #category : 'executing Async' }
+SjScript >> execAsync: commandLineString stdOutBlock: stdOutBlock stdErrBlock: stdErrBlock [
 
-	^ self exec: commandLineString callback: [ :error :stdout :stderr |
+	^ self execAsync: commandLineString callback: [ :error :stdout :stderr |
 		  error
 			  ifNil: stdOutBlock
 			  ifNotNil: stdErrBlock ]
 ]
 
-{ #category : 'class initialization' }
-SjScript class >> javascriptInitialize [ 
-	ChildProcessModule := PjCore require: 'child_process'
+{ #category : 'executing Async' }
+SjScript >> mergeThenExecAsync: strings [
+
+	^ self execAsync: (self mergeWithSpacesStrings: strings)
 ]
 
-{ #category : 'examples' }
-SjScript class >> ls: aString [
-
-	^ self mergeThenExec: {#ls. aString}
-]
-
-{ #category : 'executing' }
-SjScript class >> mergeThenExec: strings [
-
-	^ self exec: (self mergeWithSpacesStrings: strings)
-]
-
-{ #category : 'executing' }
-SjScript class >> mergeWithSpacesStrings: strings [
+{ #category : 'support' }
+SjScript >> mergeWithSpacesStrings: strings [
 	^String streamContents: [ : str |
 		strings do: [ : each | str << each ] separatedBy: [ str space ] ]
-]
-
-{ #category : 'executing' }
-SjScript >> exec: commandLineString [
-
-	^self class exec: commandLineString
-]
-
-{ #category : 'executing' }
-SjScript >> exec: commandLineString callback: aBlock [
-
-	^self class exec: commandLineString callback: aBlock
-]
-
-{ #category : 'executing' }
-SjScript >> exec: commandLineString options: associations callback: aBlock [
-
-	^self class
-		exec: commandLineString
-		options: associations
-		callback: aBlock
-]
-
-{ #category : 'executing' }
-SjScript >> exec: commandLineString stdOutBlock: stdOutBlock stdErrBlock: stdErrBlock [
-
-	^self class exec: commandLineString stdOutBlock: stdOutBlock stdErrBlock: stdErrBlock
-
-]
-
-{ #category : 'executing' }
-SjScript >> mergeThenExec: strings [
-
-	^ self class mergeThenExec: strings
 ]
