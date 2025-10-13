@@ -17,12 +17,21 @@ Where XX is the Pharo image version number.
 Port to PharoJS of the [Hydrogen Component framework](https://github.com/bouraqadi/Components).
 ## S
 ### SmalltalkJsScripts
-Support to run command lines via NodeJS.
+Support to run system command lines via NodeJS.
 
-Example: Start pharo image from NodeJS
-1. In a playground run: `SjSmalltalkImageLaucher exportApp`
+#### Example 1: echo, pwd, ls, and more
+1. In a playground perform: `SjDemo playground`, as a result, you get:
+  + A terminal will open run node with `SjDemo` class. You'll see between communication logs, the result of `echo`, `pwd`, and `ls` called from the `start` method of `SjDemo`
+  + A PharoJS playground opens where you can interact with the exported code runing on NodeJS
+2. In PharoJS playground type `script := bridge evalBlock: [SjScript default']` to initialize `script` variable with a proxy to JS object `SjScript default`.
+3. Now perform `script echo: 'Hello from Pharo']` with the `print It` menu. As a result, ou get the `'Hello from Pharo'` string displayed on the playground, and on the terminal
+3. You can use the same approach and experiment with `pwd` or `ls`, as well as its variants such as `ls: '-l ~''.
+4. You can run your custom command lines using `execSync:` such as `script execSync: 'ls -l ~ | wc'`
+
+#### Example 2: Start pharo image from NodeJS
+1. In a playground perform: `SjSmalltalkImageLaucher exportApp`
 2. Close image
-3. Go to image folder
+3. Navigate to the image folder
 4. Go to subfolder `/pharo-local/iceberg/bouraqadi/PharoJsMisc/HTML/SmalltalkJsScripts`
 5. Run command line `node index.js`. Your original Pharo image should restart :-)
 
