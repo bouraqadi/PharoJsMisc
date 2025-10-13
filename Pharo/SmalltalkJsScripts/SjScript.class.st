@@ -1,8 +1,14 @@
 Class {
 	#name : 'SjScript',
 	#superclass : 'PjNodeApplication',
+	#instVars : [
+		'isLoggingResults'
+	],
 	#classVars : [
 		'ChildProcessModule'
+	],
+	#classInstVars : [
+		'default'
 	],
 	#category : 'SmalltalkJsScripts',
 	#package : 'SmalltalkJsScripts'
@@ -68,7 +74,7 @@ SjScript class >> exec: commandLineString stdOutBlock: stdOutBlock stdErrBlock: 
 ]
 
 { #category : 'class initialization' }
-SjScript class >> initialize [ 
+SjScript class >> javascriptInitialize [ 
 	ChildProcessModule := PjCore require: 'child_process'
 ]
 
