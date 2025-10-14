@@ -32,7 +32,7 @@ Support to run system command lines via NodeJS.
 1. In a playground perform: `SjSmalltalkImageLaucher exportApp`
 2. Close image
 3. Navigate to the image folder
-4. Go to subfolder `/pharo-local/iceberg/bouraqadi/PharoJsMisc/HTML/SmalltalkJsScripts`
+4. Go to subfolder `/pharo-local/iceberg/bouraqadi/PharoJsMisc/HTML/SmalltalkJsScripts/SjSmalltalkImageLaucher`
 5. Run command line `node index.js`. Your original Pharo image should restart :-)
 
 ## W
